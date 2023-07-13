@@ -1,6 +1,6 @@
 { 
   "semi": false,
-  "tabWidth": 2,
+  "tabWidth": 4,
   "singleQuote": true,
   "quoteProps": "consistent"
 }
