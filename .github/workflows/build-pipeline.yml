@@ -73,4 +73,4 @@ jobs:
       - name: Build image on OpenShift
         shell: bash
         run: |
-          oc start-build ${{ vars.OPENSHIFT_BUILDCONFIG }}
+          oc start-build ${{ secrets.OPENSHIFT_BUILDCONFIG }}
