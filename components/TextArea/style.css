@@ -1,0 +1,53 @@
+/* .text-area__container {
+	padding-top: 20px;
+	padding-bottom: 20px;
+} */
+/* BC style */
+.text-area__text {
+	display: flex;
+}
+.text-area__sub-text {
+	/* Primary / Grey */
+	color: #101820;
+	padding-bottom: 10px;
+	font-weight: 400;
+}
+.text-area__footer-text {
+	color: #636367;
+	line-height: 16px;
+	text-align: right;
+	letter-spacing: 0.5px;
+	padding-top: 5px;
+}
+.text-area__box {
+  font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+  font-size: 18px;
+  border: 2px solid #606060;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  padding: 5px;
+  resize: none;
+}
+.text-area__box:focus {
+	outline: 4px solid #3B99FC;
+    outline-offset: 1px;
+}
+
+/* Keep for error in future */
+.text-area__footer {
+	float: right;
+}
+.text-area__error-div {
+	border: 1px solid #d0021b;
+}
+.text-area__error-message {
+	color: #d0021b;
+	padding-top: 10px;
+}
+.text-area__hide-div {
+	display: none;
+}
+.text-area__required-field {
+	color: #62b5e5;
+}
