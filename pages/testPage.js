@@ -1,5 +1,5 @@
 import { Link } from '../components/Link'
-import { RadioButton } from '../components/Radio Button List'
+import { RadioButton } from '../components/Radio Button'
 
 export default function TestPage() {
     return (
