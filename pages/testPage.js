@@ -1,3 +1,4 @@
+import { Dropdown } from '../components/Dropdown'
 import { Link } from '../components/Link'
 import { RadioButton } from '../components/Radio Button'
 
@@ -31,6 +32,7 @@ export default function TestPage() {
                 hasError={false}
                 isDisabled={false}
             />
+            <Dropdown />
         </div>
     )
 }
