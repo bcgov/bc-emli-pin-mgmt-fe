@@ -7,7 +7,6 @@ export default function Link({
 	children,
 	variant,
 	size,
-	isDisabled,
 	...props
 }) {
 	return (
@@ -39,5 +38,4 @@ Link.propTypes = {
 Link.defaultProps = {
 	variant: 'primary',
 	size: 'medium',
-	isDisabled: false,
 }

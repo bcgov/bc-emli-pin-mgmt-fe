@@ -1,34 +1,51 @@
-import { RadioButton } from ".";
+import { useState } from 'react'
+
+import RadioButton from '.'
 
 export default {
-    title: 'RadioButton',
-    component: RadioButton,
+	title: 'RadioButton',
+	component: RadioButton,
+	args: {
+		radioButtonLabel: 'I am a radio button',
+		radioButtonId: 'rbBasic',
+		radioButtonName: 'rbBasic',
+	},
 }
 
-const Template = (args) => {
-    return <RadioButton {...args}/>
+export const DefaultTemplate = (args) => {
+	const [mockSelectedValue, setMockSelectedValue] = useState()
+
+	return (
+		<RadioButton
+			{...args}
+			selectedValue={mockSelectedValue}
+			setSelectedValue={setMockSelectedValue}
+		/>
+	)
 }
 
-export const Default = Template.bind({})
-export const Disabled = Template.bind({})
-export const Error = Template.bind({})
+export const ErrorTemplate = (args) => {
+	const [mockSelectedValue, setMockSelectedValue] = useState()
 
-Default.args = {
-    radioButtonId: 'defaultRadioButton',
-    radioButtonName: 'radioButton',
-    radioButtonLabel: 'Default Radio Button',
+	return (
+		<RadioButton
+			{...args}
+			hasError={true}
+			selectedValue={mockSelectedValue}
+			setSelectedValue={setMockSelectedValue}
+		/>
+	)
 }
 
-Disabled.args = {
-    radioButtonId: 'disabledRadioButton',
-    radioButtonName: 'radioButton',
-    radioButtonLabel: 'Disabled Radio Button',
-    isDisabled: true,
-}
+export const DisabledTemplate = (args) => {
+	const [mockSelectedValue, setMockSelectedValue] = useState()
 
-Error.args = {
-    radioButtonId: 'ErrorRadioButton',
-    radioButtonName: 'radioButton',
-    radioButtonLabel: 'Error Radio Button',
-    hasError: true,
+	return (
+		<RadioButton
+			{...args}
+			isDisabled={true}
+			selectedValue={mockSelectedValue}
+			setSelectedValue={setMockSelectedValue}
+		/>
+	)
 }
