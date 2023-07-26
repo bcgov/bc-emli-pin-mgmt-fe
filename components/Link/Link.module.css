@@ -1,0 +1,48 @@
+.contanier {
+	font-family: sans-serif;
+	font-style: normal;
+	text-decoration: none;
+}
+
+.contanier:hover, .contanier:focus {
+	text-decoration: underline;
+}
+
+.small {
+	font-size: 0.75rem;
+	font-weight: 700;
+	line-height: 1rem; 
+}
+.medium {
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1.25rem;
+}
+.large {
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.375rem;
+}
+
+.primary {
+	color: var(--primary-primary-100-bc-blue, #234075);
+}
+
+.secondary {
+	color: var(--grayscale-gray-100, #1A1A1A);
+}
+
+.danger {
+	color: var(--support-alert-50, #D8292F);
+}
+
+.success {
+	color: var(--support-success-50, #008556);
+}
+
+.disabled {
+	color: var(--grayscale-gray-60-disabled, #A1A1A1);
+	user-select: none;
+	pointer-events: none;
+}
+
