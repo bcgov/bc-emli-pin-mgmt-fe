@@ -1,7 +1,6 @@
 .actionDropdown {
     position: relative;
     width: 16.125rem;
-    /* max-width: 20rem; */
 }
 .actionDropdownButton {
     display: flex;
