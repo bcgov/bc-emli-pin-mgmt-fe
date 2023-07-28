@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 import userEvent from '@testing-library/user-event'
 
-import * as stories from './Dropdown.stories'
+import * as stories from './dropdown.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
