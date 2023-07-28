@@ -1,5 +1,6 @@
 import Dropdown from '.'
 import { useState } from 'react'
+import '@testing-library/jest-dom'
 
 export default {
     title: 'Dropdown',
@@ -42,9 +43,4 @@ const Template = (args) => {
 export const PrimaryTemplate = Template.bind({})
 PrimaryTemplate.args = {
     variant: 'primary',
-}
-
-export const SecondaryTemplate = Template.bind({})
-SecondaryTemplate.args = {
-    variant: 'secondary',
 }

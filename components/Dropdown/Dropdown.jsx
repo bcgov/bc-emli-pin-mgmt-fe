@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react'
-import { useClickOutSide } from 'utils/customHooks/useClickOutSide'
+import { useClickOutSide } from '../../utils/customHooks/useClickOutSide'
 import PropTypes from 'prop-types'
 
-import ArrowDown from 'assets/svgs/ArrowDown'
+import ArrowDown from '../../assets/svgs/ArrowDown'
 
 import styles from './Dropdown.module.css'
 
@@ -45,6 +45,7 @@ export default function Dropdown({
                 onClick={handleShowHideDropdown}
                 aria-expanded={toggleDropdown}
                 aria-label={ariaLabel}
+                data-testid="dropdown-btn"
             >
                 <span>{`${selectedValue ? selectedValue.label : label}`}</span>
                 <span
