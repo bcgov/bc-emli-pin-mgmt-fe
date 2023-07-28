@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 
-import * as stories from './Link.stories'
+import * as stories from './link.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
