@@ -1,0 +1,46 @@
+.header-section{
+	border-bottom: 2px solid #FCBA19;
+	width: 100%;
+}
+
+.light-bule-banner{
+	color: #FFFFFF;
+	height: 55px;
+	background-color: #375A8F;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+	padding-left: 134px;
+	padding-right: 134px;
+}
+
+.logo-banner{
+	color: #FFFFFF;
+	background-color: #003366;
+	height: 88px;
+	padding-left: 134px;
+	padding-right: 134px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.left{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.image-wrap{
+	margin-right: 55px;
+}
+
+.image-wrap img{
+	height: 40.41px;
+	width: 154.27px;
+}
+
+.right i{
+	font-size: 23px;
+}
