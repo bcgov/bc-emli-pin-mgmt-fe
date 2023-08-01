@@ -3,24 +3,47 @@ import Image from 'next/image'
 import './Header.module.css'
 import Logo from '../../assets/images/logo-banner.jsx'
 import Text from '../../text.json'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
+import { DefaultAvatar } from '../../assets/images/Avator.jsx'
 
 export const Header = ({
-	title
+	title, 
+	userName, 
+	userImagePath
 }) => {
+
+	const imagePath = userImagePath === null ? DefaultAvatar : userImagePath
 
 	return (
 		<div className='header-section'>
 			<div className='logo-banner'>
 				<div className='left'>
 					<div className='image-wrap'>
-						<Image src={Logo} alt={text.header.logo_alt} />
+						<Image src={Logo} alt={Text.header.logo}/>
 					</div>
 					<div className='title'>
 						{title}
 					</div>
 				</div>
-				<div className='right'> 
-					<i className='fa-solid fa-bars'></i>
+				<div className='right'>
+					<div className='user-section'>
+						<div className='user-image-wrap'>
+							<Image src={imagePath} alt={Text.header.avatar}/>
+						</div>
+						<div className='user-name-wrap'>
+							{userName}
+						</div>
+					</div>
+					<div className='help-section'>
+						<div className='icon-wrap'>
+							<FontAwesomeIcon icon={faCircleQuestion} />
+						</div>
+						<div className='content-wrap'>Help</div>
+					</div>
+					<div className='logout-section'>
+						{Text.header.logout}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -34,5 +57,6 @@ Header.protoTypes = {
 
 Header.defaultProps = {
 	title: Text.header.title,
+	userName: Text.header.testusername,
 }
 

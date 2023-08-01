@@ -4,7 +4,9 @@
     },
     "header": {
         "title": "CleanBC", 
-        "logo_alt": "CleanBC Logo"
+        "logo": "CleanBC Logo", 
+        "avatar": "Avatar",
+        "testusername": "Rob Johnson"
     },
     "footer": {
         "home": "Home", 
