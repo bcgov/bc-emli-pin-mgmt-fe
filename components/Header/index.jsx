@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import './Header.module.css'
-import Logo from '../../assets/images/logo-banner.svg'
+import Logo from '../../assets/images/logo-banner.jsx'
 import Text from '../../text.json'
 
 export const Header = ({
