@@ -6,7 +6,13 @@
         "title": "CleanBC", 
         "logo": "CleanBC Logo", 
         "avatar": "Avatar",
-        "testusername": "Rob Johnson"
+        "testusername": "Rob Johnson",
+        "logout": "Logout"
+    },
+    "navigation":{
+        "home": "Home", 
+        "usermanagement": "User Management", 
+        "accessrequest": "Access Request"
     },
     "footer": {
         "home": "Home", 
