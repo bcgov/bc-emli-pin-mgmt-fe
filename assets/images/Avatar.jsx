@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PrimaryLogoSVG() {
+export default function AvatarSVG() {
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32Z" fill="url(#pattern0)" />
         <defs>
