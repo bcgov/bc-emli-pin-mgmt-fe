@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import './styles.css'
+import './Footer.module.css'
+import Text from '../../text.json'
 
 export const Footer = ({
 	links
@@ -10,9 +11,9 @@ export const Footer = ({
 			{
 				links.map((item) => (
 					// eslint-disable-next-line react/jsx-key
-					<div className='link-wrap'>
+					<li className='link-wrap'>
 						<a href='{item.href}'>{item.name}</a>
-					</div>
+					</li>
 				))
 			}
 		</div>
@@ -23,23 +24,23 @@ export const Footer = ({
 Footer.defaultProps = {
 	links: [
 		{
-			name: 'Home', 
+			name: Text.footer.home, 
 			href: ''
 		}, 
 		{
-			name: 'Copyright', 
+			name: Text.footer.copyright, 
 			href: '', 
 		}, 
 		{
-			name: 'Disclaimer', 
+			name: Text.footer.disclaimer, 
 			href: '', 
 		}, 
 		{
-			name: 'Privacy', 
+			name: Text.footer.privacy, 
 			href: '', 
 		}, 
 		{
-			name: 'Accessibility', 
+			name: Text.footer.accessibility, 
 			href: '',
 		}
 	]

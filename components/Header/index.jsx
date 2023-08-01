@@ -1,21 +1,19 @@
 import PropTypes from 'prop-types'
-import './styles.css'
-import image from '../../assets/images/logo-banner.svg'
+import Image from 'next/image'
+import './Header.module.css'
+import Logo from '../../assets/images/logo-banner.svg'
+import Text from '../../text.json'
 
 export const Header = ({
-	bannerContent, 
 	title
 }) => {
 
 	return (
 		<div className='header-section'>
-			<div className='light-bule-banner'>
-				{bannerContent}
-			</div>
 			<div className='logo-banner'>
 				<div className='left'>
 					<div className='image-wrap'>
-						<img src={image} alt='logo'></img>
+						<Image src={Logo} alt={text.header.logo_alt} />
 					</div>
 					<div className='title'>
 						{title}
@@ -30,17 +28,11 @@ export const Header = ({
 }
 
 Header.protoTypes = {
-	/** @type {string} type of the alert ex: 'error' or 'success'.*/
-	bannerContent: PropTypes.oneOf(['error', 'success', 'warning', 'danger', 'expired'])
-		.isRequired,
-	/** @type {boolean} to show or hide the alert.*/
+	/** @type {string} the Application name.*/
 	title: PropTypes.bool.isRequired,
-	/** @type {string} message to be displayed in the alert.*/
-	imagePath: PropTypes.string.isRequired,
 }
 
 Header.defaultProps = {
-	bannerContent: 'Get your booster',
-	title: 'CleanBC',
+	title: Text.header.title,
 }
 

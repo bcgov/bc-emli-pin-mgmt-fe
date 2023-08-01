@@ -1,0 +1,16 @@
+{
+    "app": {
+        "title": "CleanBC VHERS PIN system"
+    },
+    "header": {
+        "title": "CleanBC", 
+        "logo_alt": "CleanBC Logo"
+    },
+    "footer": {
+        "home": "Home", 
+        "copyright": "Copyright", 
+        "disclaimer": "Disclaimer", 
+        "privacy": "Privacy",
+        "accessibility": "Accessibility"
+    }
+}
