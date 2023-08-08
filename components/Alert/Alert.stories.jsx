@@ -1,8 +1,8 @@
-import { Header } from '.'
+import { Alert } from '.'
 
 export default {
-	title: 'Header',
-	component: Header,
+	title: 'Alert',
+	component: Alert,
 }
 
-export const Template = ({ ...args }) => <Header {...args}></Header>
+export const Template = ({ ...args }) => <Alert {...args}></Alert>
