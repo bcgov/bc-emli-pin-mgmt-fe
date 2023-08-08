@@ -6,4 +6,4 @@ export default {
 	component: Navigation,
 }
 
-export const Template = ({ ...args }) => <Navigation {...args}></Navigation>
+export const PrimaryTemplate = ({ ...args }) => <Navigation {...args}></Navigation>

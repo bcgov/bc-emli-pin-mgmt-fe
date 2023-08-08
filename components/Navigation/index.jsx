@@ -27,17 +27,17 @@ export const Navigation = ({
 Navigation.defaultProps = {
 	links: [
 		{
-			name: Text.Navigation.home, 
+			name: Text.navigation.home, 
 			href: '', 
 			active: true
 		}, 
 		{
-			name: Text.Navigation.usermanagement, 
+			name: Text.navigation.usermanagement, 
 			href: '', 
 			active: false
 		}, 
 		{
-			name: Text.Navigation.accessrequest, 
+			name: Text.navigation.accessrequest, 
 			href: '', 
 			active: false
 		}, 
