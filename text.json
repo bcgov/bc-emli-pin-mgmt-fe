@@ -1,0 +1,24 @@
+{
+    "app": {
+        "title": "CleanBC VHERS PIN system"
+    },
+    "header": {
+        "title": "CleanBC", 
+        "logo": "CleanBC Logo", 
+        "avatar": "Avatar",
+        "testusername": "Rob Johnson",
+        "logout": "Logout"
+    },
+    "navigation":{
+        "home": "Home", 
+        "usermanagement": "User Management", 
+        "accessrequest": "Access Request"
+    },
+    "footer": {
+        "home": "Home", 
+        "copyright": "Copyright", 
+        "disclaimer": "Disclaimer", 
+        "privacy": "Privacy",
+        "accessibility": "Accessibility"
+    }
+}

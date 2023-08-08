@@ -1,0 +1,80 @@
+.header-section{
+	border-bottom: 2px solid #FCBA19;
+	width: 100%;
+	background-color: #375A8F;
+	padding: 0 50px;
+	height: 86px;
+}
+
+
+.light-bule-banner{
+	color: #FFFFFF;
+	height: 55px;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+	padding-right: 134px;
+	justify-content: space-between;
+}
+
+.logo-banner{
+	color: #FFFFFF;
+	background-color: #003366;
+	height: 88px;
+	padding-right: 134px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.left{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.image-wrap{
+	margin-right: 55px;
+}
+
+.image-wrap img{
+	height: 40.41px;
+	width: 154.27px;
+}
+
+.right{
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+}
+
+.right .user-section, 
+.right .help-section{ 
+	width: auto;
+	margin-right: 30px;
+}
+
+.right .user-section{
+	display: flex;
+	align-items: center;
+}
+
+.right .user-section .user-image-wrap{
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 1px solid #FFFFFF;
+	margin-right: 9px;
+}
+
+.right .help-section{
+	display: flex;
+	align-items: center;
+}
+
+.right .help-section .icon-wrap{
+	margin-right: 9px;
+	font-size: 24px;
+}
+

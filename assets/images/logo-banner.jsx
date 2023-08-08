@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 156.7 43.5" style="enable-background:new 0 0 156.7 43.5;" xml:space="preserve">
+import React from 'react';
+
+export default function PrimaryLogoSVG() {
+// <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 156.7 43.5" style="enable-background:new 0 0 156.7 43.5;" xmlSpace="preserve">
 <style type="text/css">
-	.st0{fill:#FDB913;}
-	.st1{fill:#FFFFFF;}
-	.st2{fill:#4C81AF;}
-	.st3{fill:none;}
+	.st0{`fill:#FDB913;`}
+	.st1{`fill:#FFFFFF;`}
+	.st2{`fill:#4C81AF;`}
+	.st3{`fill:none;`}
 </style>
 <title>17_gov3_bc_logo</title>
 <rect x="76.2" y="41.4" class="st0" width="68.5" height="0.8"/>
@@ -83,3 +85,4 @@
 	c-0.3-0.2-0.5-1-0.5-1.5v-2.7h1c2.8,0,3.4,1.4,3.4,2.6s-1.5,1.9-2.8,1.9C132.3,36.3,131.9,36.2,131.6,36L131.6,36z"/>
 <rect x="116.9" y="36.6" class="st3" width="0.6" height="0.6"/>
 </svg>
+}
