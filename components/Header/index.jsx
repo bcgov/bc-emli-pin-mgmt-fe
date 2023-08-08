@@ -4,7 +4,7 @@ import './Header.module.css'
 import Logo from '../../assets/images/logo-banner.jsx'
 import Text from '../../text.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
+import { faCircleQuestion } from '@fortawesome/fontawesome-svg-core'
 import { DefaultAvatar } from '../../assets/images/Avatar.jsx'
 
 export const Header = ({

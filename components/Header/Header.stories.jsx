@@ -6,4 +6,4 @@ export default {
 	component: Header,
 }
 
-export const Template = ({ ...args }) => <Header {...args}></Header>
+export const PrimaryTemplate = ({ ...args }) => <Header {...args}></Header>

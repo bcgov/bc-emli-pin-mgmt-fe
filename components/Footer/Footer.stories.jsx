@@ -6,4 +6,4 @@ export default {
 	component: Footer,
 }
 
-export const Template = ({ ...args }) => <Footer {...args}></Footer>
+export const PrimaryTemplate = ({ ...args }) => <Footer {...args}></Footer>
