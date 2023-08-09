@@ -7,11 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleQuestion } from '@fortawesome/fontawesome-svg-core'
 import { DefaultAvatar } from '../../assets/images/Avatar.jsx'
 
-export const Header = ({
+export default function Header ({
 	title, 
 	userName, 
 	userImagePath
-}) => {
+}) {
 
 	const imagePath = userImagePath === null ? DefaultAvatar : userImagePath
 

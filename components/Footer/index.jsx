@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import './Footer.module.css'
 import Text from '../../text.json'
 
-export const Footer = ({
+export default function Footer ({
 	links
-}) => {
+}) {
 
 	return (
 		<div className='footer-section'>
