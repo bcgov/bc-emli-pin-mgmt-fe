@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 import styles from './AddressCard.module.css'
-import LocationDot from '../../assets/svgs/locationDot'
+import LocationDot from '../../assets/svgs/LocationDot'
 
 export default function AddressCard({ address, city, siteId, handleClick }) {
     return (
