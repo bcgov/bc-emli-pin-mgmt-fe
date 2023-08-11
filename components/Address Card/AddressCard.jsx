@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './AddressCard.module.css'
+import LocationDot from '../../assets/svgs/locationDot'
 
 export default function AddressCard({ address, city, siteId, handleClick }) {
     return (
@@ -10,7 +9,7 @@ export default function AddressCard({ address, city, siteId, handleClick }) {
         <button type="button" id={`${siteId}`} onClick={handleClick}>
             <div className={`${styles.addressCard}`}>
                 <div className={`${styles.icon}`}>
-                    <FontAwesomeIcon icon={faLocationDot} />
+                    <LocationDot />
                 </div>
                 <div className={`${styles.text}`}>
                     <div className={`${styles.address}`}>{address}</div>
