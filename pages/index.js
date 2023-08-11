@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import AddressCard from '../components/Address Card/AddressCard'
 import Text from '../text.json'
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
           <Link href="/testPage">Test Page</Link>
         </nav>
       </section>
-      <AddressCard address="123 Main Street" city="Victoria"></AddressCard>
     </>
   )
 }
