@@ -1,9 +1,13 @@
 
-import { Navigation } from '.'
+import Navigation  from './Navigation'
 
 export default {
 	title: 'Navigation',
 	component: Navigation,
 }
 
-export const PrimaryTemplate = ({ ...args }) => <Navigation {...args}></Navigation>
+
+const Template = (args) => <Navigation {...args}/>
+
+export const PrimaryTemplate = Template.bind({})
+

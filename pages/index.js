@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Text from '../content.json'
-import Header from '../components/Header/index'
+import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 
