@@ -18,4 +18,9 @@
   html{
     font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
   }
+
+}
+
+#main{
+  min-height: calc(100vh - 220px);
 }

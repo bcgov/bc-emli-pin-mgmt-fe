@@ -1,28 +1,14 @@
-.header-section{
+.headerSection{
 	border-bottom: 2px solid #FCBA19;
 	width: 100%;
-	background-color: #375A8F;
+	background-color: #003366;
 	padding: 0 50px;
-	height: 86px;
 }
 
-
-.light-bule-banner{
-	color: #FFFFFF;
-	height: 55px;
-	font-size: 16px;
-	line-height: 24px;
-	display: flex;
-	align-items: center;
-	padding-right: 134px;
-	justify-content: space-between;
-}
-
-.logo-banner{
+.logoBanner{
 	color: #FFFFFF;
 	background-color: #003366;
-	height: 88px;
-	padding-right: 134px;
+	height: 86px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -31,14 +17,22 @@
 .left{
 	display: flex;
 	align-items: center;
-	justify-content: start;
+	justify-content: flex-start;
+	flex-direction: row;
 }
 
-.image-wrap{
-	margin-right: 55px;
+.left .title{
+	line-height: 32.69px;
+	font-size: 24px;
+	font-weight: 400;
+	/* font-family: Noto Sans ; */
 }
 
-.image-wrap img{
+.imageWrap{
+	margin-right: 26px;
+}
+
+.imageWrap img{
 	height: 40.41px;
 	width: 154.27px;
 }
@@ -47,34 +41,36 @@
 	display: flex;
 	align-items: center;
 	font-size: 16px;
+	flex-direction: row;
+	font-weight: 700;
 }
 
-.right .user-section, 
-.right .help-section{ 
+.right .userSection, 
+.right .helpSection{ 
 	width: auto;
-	margin-right: 30px;
+	margin-right: 25px;
 }
 
-.right .user-section{
+.right .userSection{
 	display: flex;
 	align-items: center;
 }
 
-.right .user-section .user-image-wrap{
-	width: 32px;
-	height: 32px;
-	border-radius: 50%;
-	border: 1px solid #FFFFFF;
-	margin-right: 9px;
+.right .userSection .userNameWrap{
+	font-size: 14px;
+	font-weight: 400;
 }
 
-.right .help-section{
+.right .userSection .userImageWrap, 
+.right .helpSection .iconWrap{
+	margin-right: 8px;
+}
+
+.right .helpSection{
 	display: flex;
 	align-items: center;
 }
 
-.right .help-section .icon-wrap{
-	margin-right: 9px;
-	font-size: 24px;
+.right .helpSection .iconWrap svg{
+	height: 22px;
 }
-

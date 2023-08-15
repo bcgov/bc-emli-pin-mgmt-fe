@@ -1,47 +1,43 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import './Header.module.css'
-import Logo from '../../assets/images/logo-banner.jsx'
-import Text from '../../text.json'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleQuestion } from '@fortawesome/fontawesome-svg-core'
-import { DefaultAvatar } from '../../assets/images/Avatar.jsx'
+import Styles from './Header.module.css'
+import CleanBCLogo from '../../assets/svgs/CleanBCLogo'
+import Text from '../../content.json'
+import UserIcon from '../../assets/svgs/UserIcon'
+import QuestionIcon from '../../assets/svgs/QuestionIcon'
 
-export const Header = ({
+export default function Header  ({
 	title, 
 	userName, 
-	userImagePath
-}) => {
-
-	const imagePath = userImagePath === null ? DefaultAvatar : userImagePath
+})  {
 
 	return (
-		<div className='header-section'>
-			<div className='logo-banner'>
-				<div className='left'>
-					<div className='image-wrap'>
-						<Image src={Logo} alt={Text.header.logo}/>
+		<div className={`${Styles.headerSection}`}>
+			<div className={`${Styles.logoBanner}`}>
+				<div className={`${Styles.left}`}>
+					<div className={`${Styles.imageWrap}`}>
+						<CleanBCLogo />
 					</div>
-					<div className='title'>
+					<div className={`${Styles.title}`}>
 						{title}
 					</div>
 				</div>
-				<div className='right'>
-					<div className='user-section'>
-						<div className='user-image-wrap'>
-							<Image src={imagePath} alt={Text.header.avatar}/>
+				<div className={`${Styles.right}`}>
+					<div className={`${Styles.userSection}`}>
+						<div className={`${Styles.userImageWrap}`}>
+							<UserIcon />
 						</div>
-						<div className='user-name-wrap'>
+						<div className={`${Styles.userNameWrap}`}>
 							{userName}
 						</div>
 					</div>
-					<div className='help-section'>
-						<div className='icon-wrap'>
-							<FontAwesomeIcon icon={faCircleQuestion} />
+					<div className={`${Styles.helpSection}`}>
+						<div className={`${Styles.iconWrap}`}>
+							<QuestionIcon />
 						</div>
-						<div className='content-wrap'>Help</div>
+						<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
 					</div>
-					<div className='logout-section'>
+					<div className={`${Styles.helpSection}`}>
 						{Text.header.logout}
 					</div>
 				</div>
