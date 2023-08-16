@@ -49,7 +49,7 @@ function Header  ({
 Header.protoTypes = {
 	/** @type {string} the Application name.*/
 	title: PropTypes.bool.isRequired,
-  userName: PropTypes.string,
+	userName: PropTypes.string,
 }
 
 Header.defaultProps = {

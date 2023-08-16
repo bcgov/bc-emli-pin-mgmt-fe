@@ -37,7 +37,7 @@ Navigation.defaultProps = {
 		{
 			index: 1, 
 			name: Text.navigation.home, 
-			href: '/', 
+			href: '/home', 
 			active: true, 
 			showToClientSupport: true,
 		}, 
