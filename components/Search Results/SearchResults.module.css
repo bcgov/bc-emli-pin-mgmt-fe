@@ -4,6 +4,11 @@
     max-height: 800px;
     overflow: scroll;
     width: 19.6875rem;
+    overflow-x: hidden;
+}
+
+.searchResultList::-webkit-scrollbar {
+    display: none;
 }
 
 .searchResultTitle {

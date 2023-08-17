@@ -12,21 +12,38 @@ export default function SearchResults({ searchString }) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/properties/address/` + address, {
-                mode: 'cors',
-            })
+            .get(
+                `${process.env.NEXT_PUBLIC_BE_APP_URL}${process.env.NEXT_PUBLIC_PROPERTIES_ADDRESS_ENDPOINT}${address}`,
+                {
+                    mode: 'cors',
+                }
+            )
             .then((response) => {
-                setResults(response.data.results)
+                setResults(response?.data?.results)
             })
             .catch((error) => {
                 console.error(error)
             })
     }, [])
 
-    if (results) {
+    if (!results) {
         return (
             <div>
-                <h1 className={`${styles.searchResultTitle}`}>
+                <h1
+                    data-testid="searchResultTitle"
+                    className={`${styles.searchResultTitle}`}
+                >
+                    0 addresses found.
+                </h1>
+            </div>
+        )
+    } else if (results) {
+        return (
+            <div>
+                <h1
+                    data-testid="searchResultTitle"
+                    className={`${styles.searchResultTitle}`}
+                >
                     {results?.length} addresses found.
                 </h1>
                 <div className={`${styles.searchResultList}`}>
@@ -40,7 +57,7 @@ export default function SearchResults({ searchString }) {
                 </div>
                 <div
                     className={`${
-                        results?.length > 7
+                        results?.length > 8
                             ? styles.scrollMsg
                             : styles.hiddenScrollMsg
                     }`}
