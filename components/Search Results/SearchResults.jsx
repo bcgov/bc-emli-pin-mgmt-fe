@@ -6,51 +6,49 @@ import axios from 'axios'
 import AddressCard from '../Address Card/index'
 
 export default function SearchResults({ searchString }) {
-    if (searchString) {
-        const [results, setResults] = useState(null)
+    const [results, setResults] = useState(null)
 
-        let address = searchString?.toLowerCase()
+    let address = searchString?.toLowerCase()
 
-        useEffect(() => {
-            axios
-                .get(`http://localhost:3000/properties/address/` + address, {
-                    mode: 'cors',
-                })
-                .then((response) => {
-                    setResults(response.data.results)
-                })
-                .catch((error) => {
-                    console.error(error)
-                })
-        }, [])
+    useEffect(() => {
+        axios
+            .get(`http://localhost:3000/properties/address/` + address, {
+                mode: 'cors',
+            })
+            .then((response) => {
+                setResults(response.data.results)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }, [])
 
-        if (results) {
-            return (
-                <div>
-                    <h1 className={`${styles.searchResultTitle}`}>
-                        {results?.length} addresses found.
-                    </h1>
-                    <div className={`${styles.searchResultList}`}>
-                        {results?.map((result) => (
-                            <AddressCard
-                                key={result.siteID}
-                                address={result.fullAddress.split(', ')[0]}
-                                city={result.fullAddress.split(', ')[1]}
-                            />
-                        ))}
-                    </div>
-                    <div
-                        className={`${
-                            results?.length > 7
-                                ? styles.scrollMsg
-                                : styles.hiddenScrollMsg
-                        }`}
-                    >
-                        Scroll down to view more results
-                    </div>
+    if (results) {
+        return (
+            <div>
+                <h1 className={`${styles.searchResultTitle}`}>
+                    {results?.length} addresses found.
+                </h1>
+                <div className={`${styles.searchResultList}`}>
+                    {results?.map((result) => (
+                        <AddressCard
+                            key={result.siteID}
+                            address={result.fullAddress.split(', ')[0]}
+                            city={result.fullAddress.split(', ')[1]}
+                        />
+                    ))}
                 </div>
-            )
-        }
+                <div
+                    className={`${
+                        results?.length > 7
+                            ? styles.scrollMsg
+                            : styles.hiddenScrollMsg
+                    }`}
+                >
+                    Scroll down to view more results
+                </div>
+            </div>
+        )
     }
 }
 
