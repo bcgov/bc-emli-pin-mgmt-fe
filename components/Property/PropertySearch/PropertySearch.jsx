@@ -31,21 +31,25 @@ function PropertySearch  ({
 				<div className='text-left'>
 					<div>
 						<input 
-						placeholder={Content.home.searchPlaceHolder} 
-						onChange={(e) => handleSearchString(e.target.value)} 
-						onFocus={handleOnFocus}></input>
+							placeholder={Content.home.searchPlaceHolder} 
+							onChange={(e) => handleSearchString(e.target.value)} 
+							onFocus={handleOnFocus} />
 					</div>
 					{
-						showSearchError && <div id="error" className={`${Styles.error}`}>
-										   		<span>{Content.propertySearch.searchBoxError}</span>
-											</div>
+						showSearchError && 
+						<div id="error" className={`${Styles.error}`}>
+							<span>{Content.propertySearch.searchBoxError}</span>
+						</div>
 					}
 				</div>
 				<div className={`${Styles.searchButtonWrap}`}>
 					<Button 
-					variant="primary" 
-					size="medium" isDarkBackground={true} disabled={searchString.length < 4} 
-					handleOnClick={handleSearch} aria-disabled={searchString.length < 4} >
+						variant="primary" 
+						size="medium" 
+						isDarkBackground={true} 
+						disabled={searchString.length < 4} 
+						aria-disabled={searchString.length < 4} 
+						handleOnClick={handleSearch} >
 						{Content.home.search}
 					</Button>
 				</div>
