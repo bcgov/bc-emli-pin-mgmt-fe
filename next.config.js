@@ -3,10 +3,8 @@ const nextConfig = {
     reactStrictMode: true,
     output: 'standalone',
     env: {
-        BE_APP_URL:
-            'https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca/',
-        NEXT_PUBLIC_BE_APP_URL:
-            'https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca/',
+        BE_APP_URL: process.env.BE_APP_URL,
+        NEXT_PUBLIC_BE_APP_URL: process.env.NEXT_PUBLIC_BE_APP_URL,
     },
 }
 

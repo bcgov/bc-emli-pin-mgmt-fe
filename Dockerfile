@@ -51,10 +51,6 @@ ENV NODE_ENV production
 # Uncomment the following line in case you want to enable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-ARG NEXT_PUBLIC_BE_APP_URL
-
-ENV NEXT_PUBLIC_BE_APP_URL='https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca/'
-
 COPY --from=builder /app/public ./public
 
 # Automatically leverage output traces to reduce image size
