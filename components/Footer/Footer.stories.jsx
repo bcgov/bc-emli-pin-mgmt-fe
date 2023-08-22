@@ -1,6 +1,7 @@
 
-import { Footer } from '.'
+import  Footer  from '.'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
 	title: 'Footer',
 	component: Footer,

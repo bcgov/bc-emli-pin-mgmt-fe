@@ -5,7 +5,7 @@ import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 
-export default function Index() {
+export default function Home() {
   return (
     <>
       <Head>

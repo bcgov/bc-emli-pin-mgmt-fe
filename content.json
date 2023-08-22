@@ -7,7 +7,8 @@
         "logo": "CleanBC Logo", 
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
-        "logout": "Logout"
+        "logout": "Logout",
+        "help": "Help"
     },
     "navigation":{
         "home": "Home", 
@@ -16,9 +17,17 @@
     },
     "footer": {
         "home": "Home", 
-        "copyright": "Copyright", 
+        "about": "About gov.bc.ca", 
         "disclaimer": "Disclaimer", 
         "privacy": "Privacy",
-        "accessibility": "Accessibility"
+        "accessibility": "Accessibility",
+        "copyright": "Copyright", 
+        "contact": "Contact Us"
+    },
+    "userManagement": {
+        "pageTitle": "User Management"
+    }, 
+    "accessRequest": {
+        "pageTitle": "Access Requet"
     }
 }

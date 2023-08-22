@@ -1,4 +1,4 @@
-.navigation-section{
+.navigationSection{
 	background-color: #005c97;
 	height: 57px;
 	font-size: 16px;
@@ -7,9 +7,10 @@
 	display: flex;
 	justify-content: flex-start;
 	padding: 1px 50px;
+	box-shadow: 0px 4px 8px 0px rgba(26, 26, 26, 0.20);
 }
 
-.navigation-section .link-wrap{
+.navigationSection .linkWrap{
 	list-style-type: none;
 	width: 170px;
 	vertical-align: middle;
@@ -21,7 +22,7 @@
 	border-bottom: 1px solid #C7C7C7;
 }
 
-.navigation-section .link-wrap .link{
+.navigationSection .linkWrap .link{
 	text-decoration: none;
 	color: #FFFFFF;
 }
