@@ -4,6 +4,7 @@ import styles from './SearchResults.module.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import AddressCard from '../Address Card/index'
+import Endpoints from '../../apiManager/endpoints'
 
 export default function SearchResults({ searchString }) {
     const [results, setResults] = useState(null)
@@ -12,12 +13,9 @@ export default function SearchResults({ searchString }) {
 
     useEffect(() => {
         axios
-            .get(
-                `${process.env.NEXT_PUBLIC_BE_APP_URL}${process.env.NEXT_PUBLIC_PROPERTIES_ADDRESS_ENDPOINT}${address}`,
-                {
-                    mode: 'cors',
-                }
-            )
+            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
+                mode: 'cors',
+            })
             .then((response) => {
                 setResults(response?.data?.results)
             })
