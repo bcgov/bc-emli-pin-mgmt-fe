@@ -7,27 +7,45 @@ import { useState } from 'react'
 
 function PropertySearch  ({
 })  {
-	// const [state, useState] = useState(false)
-	const isSearchButtonDisabled = false
-	const showSearchError = false
+	const [searchString, setSearchString] = useState('');
+	const [showSearchError, setShowSeachError] = useState(false) 
+
+	// Validate 3 chararater as minimum limit
+	const handleSearchString = (searchText) => {
+		setSearchString(searchText);
+	  }
+
+	// Show the error msg as long as click on the input field
+	const handleOnFocus = () => {
+		setShowSeachError(true)
+	}
+
+	// Call the API to get the search result
+	const handleSearch = () => {
+
+	}
+
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
 			<div className={`${Styles.searchContentWrap}` + " flex items-start justify-center"}>
 				<div className='text-left'>
 					<div>
-						<input placeholder={Content.home.searchPlaceHolder} 
-						onChange={onChange} onFocus={onFocus}></input>
+						<input 
+						placeholder={Content.home.searchPlaceHolder} 
+						onChange={(e) => handleSearchString(e.target.value)} 
+						onFocus={handleOnFocus}></input>
 					</div>
 					{
 						showSearchError && <div id="error" className={`${Styles.error}`}>
 										   		<span>{Content.propertySearch.searchBoxError}</span>
 											</div>
 					}
-					
 				</div>
 				<div className={`${Styles.searchButtonWrap}`}>
-					<Button variant="primary" size="medium" isDarkBackground={true} disabled={isSearchButtonDisabled} 
-					handleOnClick={search}>
+					<Button 
+					variant="primary" 
+					size="medium" isDarkBackground={true} disabled={searchString.length < 4} 
+					handleOnClick={handleSearch} aria-disabled={searchString.length < 4} >
 						{Content.home.search}
 					</Button>
 				</div>
@@ -38,24 +56,3 @@ function PropertySearch  ({
 
 
 export default PropertySearch;
-
-
-function onChange(e) {
-	e.target.value.length > 3 ? isSearchButtonDisabled = false: isSearchButtonDisabled = false
-	// console.log(e.target.value.length, isSearchButtonDisabled)
-    // this.useState({ value: e.target.value });
-}
-
-function onFocus(){
-	// console.log(showSearchError)
-	// showSearchError = true
-}
-
-function search(e){
-	const val = e.target.value; 
-	console.log(val)	
-}
-
-
-
-// $("#searchInput").onFocus
