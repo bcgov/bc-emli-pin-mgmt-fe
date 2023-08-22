@@ -1,19 +1,19 @@
-import { Button } from '.'
+import Button  from '.'
 
 export default {
 	title: 'Button',
 	component: Button,
 }
 
-const Template = (args) => <Button {...args}>Click me!</Button>
+const PrimaryTemplate = (args) => <Button {...args}>Click me!</Button>
 
-export const Primary = Template.bind({})
-export const Secondary = Template.bind({})
-export const Danger = Template.bind({})
-export const Medium = Template.bind({})
-export const Small = Template.bind({})
-export const Disabled = Template.bind({})
-export const IsDarkBackground = Template.bind({})
+export const Primary = PrimaryTemplate.bind({})
+export const Secondary = PrimaryTemplate.bind({})
+export const Danger = PrimaryTemplate.bind({})
+export const Medium = PrimaryTemplate.bind({})
+export const Small = PrimaryTemplate.bind({})
+export const Disabled = PrimaryTemplate.bind({})
+export const IsDarkBackground = PrimaryTemplate.bind({})
 
 Primary.args = {
 	variant: 'primary',

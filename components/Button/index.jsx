@@ -1,5 +1,5 @@
 import propTypes from 'prop-types'
-import './styles.css'
+import Styles from './Button.module.css'
 
 export const Button = ({
 	variant,
@@ -10,12 +10,12 @@ export const Button = ({
 	handleOnClick,
 	...props
 }) => {
-	const disabledStyle = disabled ? '-disabled' : ''
-	const backgroundStyle = isDarkBackground ? '-Dark' : '' 
-	const buttonLevel = variant === 'primary' ? 'SecondaryButton' :  variant === 'secondary' ? 'SecondaryButton' : ''
+	const backgroundStyle = isDarkBackground ? Styles.dark : '' 
+	const buttonLevel = variant === 'primary' ? Styles.primary :  variant === 'secondary' ? Styles.primary : ''
+    const className = Styles.btn + " " + buttonLevel + " " + backgroundStyle
 	return (
 		<button
-			className={`BC-Gov-${buttonLevel}${backgroundStyle}${disabledStyle}`}
+			className={className}
 			onClick={handleOnClick}
 			type="button" name="button"
 			aria-disabled={disabled}
