@@ -13,7 +13,7 @@ export default function SearchResults({ searchString }) {
 
     useEffect(() => {
         axios
-            .get(`${Endpoints.Engagement.GET_SEARCH_RESULTS}${address}`, {
+            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
                 mode: 'cors',
             })
             .then((response) => {
