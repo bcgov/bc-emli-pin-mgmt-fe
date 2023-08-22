@@ -1,9 +1,16 @@
 
-import { Header } from '.'
+import  Header  from './Header'
 
 export default {
 	title: 'Header',
 	component: Header,
+  args:{
+    title: 'test',
+    userName: ' Heps nejj',
+  },
 }
 
-export const PrimaryTemplate = ({ ...args }) => <Header {...args}></Header>
+
+const Template = (args) => <Header {...args}/>
+
+export const PrimaryTemplate = Template.bind({})

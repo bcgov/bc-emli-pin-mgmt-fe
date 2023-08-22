@@ -1,28 +1,31 @@
-.footer-section{
+.footerSection{
 	border-top: 2px solid #FCBA19;
 	width: 100%;
-	height: 63px;
+	height: 75px;
 	background-color: #003366;
 	display: flex;
 	align-items: center;
 	padding: 0 50px;
 }
 
-.link-wrap{
-	padding: 0 20px;
+.footerSection .linkWrap{
+	padding: 0 24px;
+	height: 23px;
+	display: flex;
+	align-items: center;
 }
 
-.link-wrap a{
+.footerSection .linkWrap a{
 	color: #FFFFFF;
 	text-decoration: none;
 	font-size: 13px;
-	line-height: 24px;
+	line-height: 23px;
 }
 
-.footer-section li{
+.footerSection .linkWrap{
 	border-left: 1px solid #4b5e73;
 }
 
-.footer-section li:first-child{
+.footerSection .linkWrap:first-child{
 	border: none;
 }

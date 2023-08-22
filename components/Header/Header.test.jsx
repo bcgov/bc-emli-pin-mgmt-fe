@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
-import * as stories from './Header.stories'
 import { composeStories } from '@storybook/testing-react'
 
+import * as stories from './Header.stories'
 const { PrimaryTemplate } = composeStories(stories)
 
 describe('<Header />', () => {
