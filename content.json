@@ -29,5 +29,11 @@
     }, 
     "accessRequest": {
         "pageTitle": "Access Requet"
+    },
+    "managePINDropdown": {
+        "label": "Manage PIN",
+        "recreateOption": "Recreate PIN",
+        "expireOption": "Expire PIN",
+        "viewOption": "View PIN"
     }
 }

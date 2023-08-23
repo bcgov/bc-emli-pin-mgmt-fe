@@ -58,6 +58,11 @@
     padding: 0.562rem 0.94rem;
     margin-top: 0.062rem;
     width: 100%;
+    border-bottom: solid 1px #c7c7c7;
+}
+
+.actionDropdownList li:last-of-type button {
+    border-bottom: none;
 }
 
 .actionDropdownList button span {
