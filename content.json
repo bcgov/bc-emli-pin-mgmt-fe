@@ -24,6 +24,12 @@
         "copyright": "Copyright", 
         "contact": "Contact Us"
     },
+    "home": {
+        "searchHeader": "Find a property", 
+        "searchContent": "Enter property information to locate a property and view property details.", 
+        "searchPlaceHolder": "Enter residential address", 
+        "search": "Search" 
+    },
     "userManagement": {
         "pageTitle": "User Management"
     }, 
@@ -35,5 +41,8 @@
         "recreateOption": "Recreate PIN",
         "expireOption": "Expire PIN",
         "viewOption": "View PIN"
+    }, 
+    "propertySearch": {
+        "searchBoxError": "Enter at least 3 characters to get started"
     }
 }
