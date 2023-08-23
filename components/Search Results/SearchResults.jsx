@@ -15,6 +15,7 @@ export default function SearchResults({ searchString }) {
         axios
             .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
                 mode: 'cors',
+                withCredentials: false,
             })
             .then((response) => {
                 setResults(response?.data?.results)
