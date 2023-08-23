@@ -3,12 +3,15 @@ import Image from 'next/image'
 import Styles from './PropertySearch.module.css'
 import Content from '../../../content.json'
 import { Button } from '../../Button/index'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Endpoints from '../../../apiManager/endpoints'
+import axios from 'axios'
 
 function PropertySearch  ({
 })  {
-	const [searchString, setSearchString] = useState('');
-	const [showSearchError, setShowSeachError] = useState(false) 
+	const [searchString, setSearchString] = useState('')
+	const [showSearchError, setShowSeachError] = useState(false)
+	const [results, setResults] = useState(null)
 
 	// Validate 3 chararater as minimum limit
 	const handleSearchString = (searchText) => {
@@ -20,10 +23,36 @@ function PropertySearch  ({
 		setShowSeachError(true)
 	}
 
+	let address = searchString?.toLowerCase()
+	
 	// Call the API to get the search result
 	const handleSearch = () => {
-
+		axios
+		.get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
+			mode: 'cors',
+		})
+		.then((response) => {
+			setResults(response?.data?.results)
+		})
+		.catch((error) => {
+			console.error(error)
+		})
 	}
+
+	console.log(results);
+
+    // useEffect(() => {
+    //     axios
+    //         .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
+    //             mode: 'cors',
+    //         })
+    //         .then((response) => {
+    //             setResults(response?.data?.results)
+    //         })
+    //         .catch((error) => {
+    //             console.error(error)
+    //         })
+    // }, [])
 
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
@@ -47,8 +76,8 @@ function PropertySearch  ({
 						variant="primary" 
 						size="medium" 
 						isDarkBackground={true} 
-						disabled={searchString.length < 4} 
-						aria-disabled={searchString.length < 4} 
+						disabled={searchString.length < 3} 
+						aria-disabled={searchString.length < 3} 
 						handleOnClick={handleSearch} >
 						{Content.home.search}
 					</Button>
