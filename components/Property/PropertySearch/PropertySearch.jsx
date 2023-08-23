@@ -40,7 +40,8 @@ function PropertySearch  ({
 		})
 	}
 
-	console.log(results);
+	// for testing tthe api call 
+	// console.log(results);
 
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
