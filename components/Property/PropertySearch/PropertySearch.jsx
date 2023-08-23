@@ -30,6 +30,7 @@ function PropertySearch  ({
 		axios
 		.get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
 			mode: 'cors',
+			withCredentials: false,
 		})
 		.then((response) => {
 			setResults(response?.data?.results)
@@ -40,19 +41,6 @@ function PropertySearch  ({
 	}
 
 	console.log(results);
-
-    // useEffect(() => {
-    //     axios
-    //         .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-    //             mode: 'cors',
-    //         })
-    //         .then((response) => {
-    //             setResults(response?.data?.results)
-    //         })
-    //         .catch((error) => {
-    //             console.error(error)
-    //         })
-    // }, [])
 
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
