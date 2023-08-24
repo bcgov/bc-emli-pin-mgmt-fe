@@ -12,7 +12,7 @@ export default function SearchResults({ searchString }) {
 
     let address = searchString?.toLowerCase()
 
-    console.log(address)
+    // console.log(address)
     useEffect(() => {
         HttpRequest.getSearchResults(address)
             .then((response) => {
