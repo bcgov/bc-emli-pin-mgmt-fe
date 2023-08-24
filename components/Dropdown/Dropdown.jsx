@@ -27,8 +27,8 @@ export default function Dropdown({
         dropdownContainerRef,
         handleShowHideDropdown
     )
-    const onClickAction = (action) => {
-        handleSelection(action)
+    const onClickAction = (value) => {
+        handleSelection(value)
         handleShowHideDropdown()
     }
     return (
@@ -72,7 +72,7 @@ export default function Dropdown({
                                         ? styles.bold
                                         : ''
                                 }`}
-                                onClick={() => onClickAction(option)}
+                                onClick={() => onClickAction(option.value)}
                                 disabled={option.isDisabled}
                             >
                                 {option.label}

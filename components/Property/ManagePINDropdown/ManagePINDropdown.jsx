@@ -2,7 +2,7 @@ import Content from '../../../content.json'
 import Dropdown from '../../Dropdown/index'
 import PropTypes from 'prop-types'
 
-export default function ManagePINDropdown({ showPINOption }) {
+export default function ManagePINDropdown({ showPINOption, handleSelection }) {
     const options = [
         {
             label: Content.managePINDropdown.recreateOption,
@@ -23,16 +23,18 @@ export default function ManagePINDropdown({ showPINOption }) {
             isDisabled: false,
         })
     }
+
     return (
         <div>
             <Dropdown
                 label={Content.managePINDropdown.label}
                 options={options}
+                handleSelection={handleSelection}
             ></Dropdown>
         </div>
     )
 }
 
-Dropdown.protoTypes = {
+ManagePINDropdown.protoTypes = {
     role: PropTypes.bool,
 }

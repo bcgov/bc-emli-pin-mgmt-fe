@@ -44,5 +44,22 @@
     }, 
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"
+    },
+    "expirePINConfirmationModal": {
+        "title": "Expire PIN",
+        "body": "The current PIN will be void and the property owner will need to request a new PIN to manage the VHERS portal.",
+        "primaryButton": "Expire PIN",
+        "secondaryButton": "Cancel"
+    },
+    "expirePINSuccessModal": {
+        "title": "PIN has been expired",
+        "body": "The property owner will not be able to access VHERS system until a new PIN is requested.",
+        "primaryButton": "Close"
+    },
+    "expirePINFailureModal": {
+        "title": "Expiring PIN failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
     }
 }
