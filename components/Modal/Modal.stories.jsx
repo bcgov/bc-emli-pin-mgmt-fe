@@ -15,7 +15,7 @@ export default {
 const Template = (args) => {
     const [isOpen, setIsOpen] = useState(false)
     function modalFunction() {
-        console.log('hi')
+        console.log('modal function')
     }
 
     return (
