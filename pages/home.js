@@ -7,6 +7,7 @@ import Navigation from '../components/Navigation/index'
 import PropertySearchHeader from '../components/Property/PropertySearchHeader/PropertySearchHeader'
 import PropertySearch from '../components/Property/PropertySearch/PropertySearch'
 import PropertyDetails from '../components/Property/PropertyDetails/PropertyDetails'
+import Property from '../components/Property'
 
 export default function Home() {
     return (
@@ -21,11 +22,7 @@ export default function Home() {
             {/* pass role for different active tabs */}
             <Navigation role="admin" />
             <main id='main' className='w-full h-full text-center'>
-                <PropertySearchHeader />
-                <div className='homePropertySearchWrap'>
-                    <PropertySearch/>
-                </div>
-                <PropertyDetails />
+                <Property />
             </main>
             <Footer />
         </>

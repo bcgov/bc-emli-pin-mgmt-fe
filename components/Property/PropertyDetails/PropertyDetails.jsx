@@ -10,40 +10,6 @@ import PropertyOwner from '../PropertyOwner/PropertyOwner'
 
 function PropertyDetails  ({
 })  {
-	// const [searchString, setSearchString] = useState('')
-	// const [showSearchError, setShowSeachError] = useState(false)
-	// const [results, setResults] = useState(null)
-
-	// // Validate 3 chararater as minimum limit
-	// const handleSearchString = (searchText) => {
-	// 	setSearchString(searchText);
-	//   }
-
-	// // Show the error msg as long as click on the input field
-	// const handleOnFocus = () => {
-	// 	setShowSeachError(true)
-	// }
-
-	// let address = searchString?.toLowerCase()
-	
-	// // Call the API to get the search result
-	// const handleSearch = () => {
-	// 	axios
-	// 	.get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-	// 		mode: 'cors',
-	// 		withCredentials: false,
-	// 	})
-	// 	.then((response) => {
-	// 		setResults(response?.data?.results)
-	// 	})
-	// 	.catch((error) => {
-	// 		console.error(error)
-	// 	})
-	// }
-
-	// for testing tthe api call 
-	// console.log(results);
-
 	const propertyAddress = Content.propertyDetails.testAddress
 	const titleNumber = Content.propertyDetails.testTitleNumber
 	const landTitleDistrict = Content.propertyDetails.testLandTitleDistrict

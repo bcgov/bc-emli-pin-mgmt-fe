@@ -7,10 +7,12 @@ import AddressCard from '../Address Card/index'
 import Endpoints from '../../apiManager/endpoints'
 
 export default function SearchResults({ searchString }) {
+
     const [results, setResults] = useState(null)
 
     let address = searchString?.toLowerCase()
 
+    console.log(address)
     useEffect(() => {
         axios
             .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
