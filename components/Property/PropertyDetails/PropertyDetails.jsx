@@ -5,10 +5,6 @@ import { useState, useEffect } from 'react'
 import Endpoints from '../../../apiManager/endpoints'
 import axios from 'axios'
 
-import PropTypes from 'prop-types'
-import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon';
-import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
-import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
 
 function PropertyDetails({
 	resultCount,

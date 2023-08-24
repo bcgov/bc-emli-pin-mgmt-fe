@@ -13,7 +13,21 @@ export default function SearchResults({ results, isLoading, handleClick }) {
         handleClick(property.siteID)
     }
 
-    if (!results || isLoading) {
+    useEffect(() => {
+        axios
+            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
+                mode: 'cors',
+                withCredentials: false,
+            })
+            .then((response) => {
+                setResults(response?.data?.results)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }, [])
+
+    if (!results) {
         return (
             <div>
                 <h1
