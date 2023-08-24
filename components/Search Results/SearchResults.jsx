@@ -8,10 +8,11 @@ import Endpoints from '../../apiManager/endpoints'
 import HttpRequest from '../../apiManager/httpRequestHandler/index'
 
 export default function SearchResults({ searchString }) {
-    const [results, setResults] = useState()
+    const [results, setResults] = useState(null)
 
     let address = searchString?.toLowerCase()
 
+    console.log(address)
     useEffect(() => {
         HttpRequest.getSearchResults(address)
             .then((response) => {

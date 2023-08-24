@@ -6,9 +6,10 @@ import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 import Endpoints from '../../../apiManager/endpoints'
 import axios from 'axios'
+import SearchResults from '../../Search Results/SearchResults'
 
-function PropertySearch  ({
-})  {
+function PropertySearch  ({getSearchString})  
+{
 	const [searchString, setSearchString] = useState('')
 	const [showSearchError, setShowSeachError] = useState(false)
 	const [results, setResults] = useState(null)
@@ -27,21 +28,9 @@ function PropertySearch  ({
 	
 	// Call the API to get the search result
 	const handleSearch = () => {
-		axios
-		.get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-			mode: 'cors',
-			withCredentials: false,
-		})
-		.then((response) => {
-			setResults(response?.data?.results)
-		})
-		.catch((error) => {
-			console.error(error)
-		})
+		getSearchString(address)
 	}
 
-	// for testing tthe api call 
-	// console.log(results);
 
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>

@@ -44,5 +44,20 @@
     }, 
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"
+    }, 
+    "propertyDetails": {
+        "residentialAddress": "Residential Address", 
+        "testAddress": "5021 Kingsway, Burnby, V4H 4A5", 
+        "propertyDetails": "Property Details", 
+        "titleNumber": "Title Number", 
+        "testTitleNumber": "CA5006683", 
+        "landTitleDistrict": "Land Title District", 
+        "testLandTitleDistrict": "Burnby", 
+        "parcelIdentifier": "Parcel Identifier", 
+        "testParcelIdentifier": "029-366-937", 
+        "shortLegalDescription": "Short Legal Description", 
+        "testShortLegalDescription": "S/EPS2032//20", 
+        "ownership": "Ownership", 
+        "numberOfOwner": "Number of Owner(s): "
     }
 }
