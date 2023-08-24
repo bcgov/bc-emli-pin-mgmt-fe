@@ -9,3 +9,8 @@ export default {
 const Template = (args) => <ManagePINDropdown {...args} />
 
 export const PrimaryTemplate = Template.bind({})
+
+export const SuperAdminTemplate = Template.bind({})
+SuperAdminTemplate.args = {
+    role: 'SuperAdmin',
+}
