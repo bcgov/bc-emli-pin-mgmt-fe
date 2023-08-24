@@ -10,8 +10,6 @@ COPY ./ ./
 # Install dependencies
 RUN npm install --production
 
-RUN npm rebuild node-sass
-
 # Build app
 RUN npm run build
 
