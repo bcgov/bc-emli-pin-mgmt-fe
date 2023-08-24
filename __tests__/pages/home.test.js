@@ -10,7 +10,7 @@ describe('Home', () => {
   it('renders a heading', () => {
     render(<Home />)
 
-    const heading = screen.getByRole('heading', {
+    const heading = screen.getByTestId('homepage', {
       name: Text.app.title,
     })
 
@@ -23,7 +23,7 @@ describe('next-router-mock', () => {
   it('mocks the useRouter hook', () => {
     // Set the initial url:
     mockRouter.push("/");
-    
+
     // Render the component:
     render(<Home href="/" />);
     // expect(screen.getByRole('button')).toHaveText(
@@ -32,9 +32,9 @@ describe('next-router-mock', () => {
 
     // Click the button:
     // fireEvent.click(screen.getByRole('button'));
-    
+
     // Ensure the router was updated:
-    expect(mockRouter).toMatchObject({ 
+    expect(mockRouter).toMatchObject({
       asPath: "/",
       pathname: "/",
       // query: { bar: "baz" },

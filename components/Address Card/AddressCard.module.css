@@ -1,0 +1,38 @@
+.addressCard .address {
+    color: var(--primary-primary-100-bc-blue, #234075);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.375rem; /* 137.5% */
+}
+
+.addressCard .city {
+    color: var(--primary-primary-75, #2464a4);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    text-align: left;
+}
+
+.addressCard {
+    width: 19.75rem;
+    padding-top: 1.69rem;
+    padding-bottom: 1.56rem;
+    border-bottom: #c7c7c7 2px solid;
+    display: flex;
+    cursor: pointer;
+}
+
+.addressCard:hover,
+.addressCard:active {
+    background: var(--primary-primary-0, #ecf6ff);
+}
+
+.addressCard .icon {
+    color: var(--primary-primary-100-bc-blue, #234075);
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    padding-right: 0.38rem;
+}

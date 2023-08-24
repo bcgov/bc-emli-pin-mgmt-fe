@@ -1,0 +1,40 @@
+.searchResultList {
+    display: flex;
+    flex-direction: column;
+    max-height: 800px;
+    overflow: scroll;
+    width: 19.6875rem;
+    overflow-x: hidden;
+}
+
+.searchResultList::-webkit-scrollbar {
+    display: none;
+}
+
+.searchResultTitle {
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 140% */
+    border-bottom: #234075 2px solid;
+    padding-bottom: 11px;
+    width: 19.6875rem;
+}
+
+.scrollMsg {
+    color: var(--grayscale-gray-80, #656565);
+    text-align: center;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1rem; /* 133.333% */
+    letter-spacing: 0.025rem;
+    width: 19.6875rem;
+    padding-top: 21px;
+}
+
+.hiddenScrollMsg {
+    display: none;
+}
