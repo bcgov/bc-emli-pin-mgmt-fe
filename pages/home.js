@@ -1,16 +1,17 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import Content from '../content.json'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import PropertySearchHeader from '../components/Property/PropertySearchHeader/PropertySearchHeader'
 import PropertySearch from '../components/Property/PropertySearch/PropertySearch'
+import { getUserInfo } from '../services/authentication/user'
 import PropertyDetails from '../components/Property/PropertyDetails/PropertyDetails'
 import Property from '../components/Property'
 import SearchResults from '../components/Search Results/SearchResults'
 
-export default function Home() {
+export default function Home(props) {
+    const { userName } = props
     return (
         <>
             <Head>
@@ -25,7 +26,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
+            <Header userName={userName} />
             {/* pass role for different active tabs */}
             <Navigation role="admin" />
             <main
@@ -33,14 +34,22 @@ export default function Home() {
                 className="w-full h-full text-center"
                 data-testid="homepage"
             >
-                {/* <PropertySearchHeader />
-                <div className='homePropertySearchWrap'>
-                    <PropertySearch/>
-                </div> */}
-                <Property />
-                {/* <SearchResults searchString="5021 Kingsway, Burnby" /> */}
+                <PropertySearchHeader />
+                <div className="homePropertySearchWrap">
+                    {/* <PropertySearch /> */}
+                    <Property />
+                </div>
             </main>
             <Footer />
         </>
     )
+}
+
+export async function getServerSideProps({ req }) {
+    const userInfo = getUserInfo(req)
+    return {
+        props: {
+            userName: `${userInfo.given_name} ${userInfo.family_name}`,
+        },
+    }
 }

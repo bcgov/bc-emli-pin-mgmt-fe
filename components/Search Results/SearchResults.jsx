@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import AddressCard from '../Address Card/index'
 import Endpoints from '../../apiManager/endpoints'
-import HttpRequest from '../../apiManager/httpRequestHandler'
+import HttpRequest from '../../apiManager/httpRequestHandler/index'
 
 export default function SearchResults({ searchString }) {
     const [results, setResults] = useState(null)
@@ -14,16 +14,13 @@ export default function SearchResults({ searchString }) {
 
     console.log(address)
     useEffect(() => {
-        console.log('here')
-        if (address) {
-            HttpRequest.getSearchResults(address)
-                .then((response) => {
-                    setResults(response?.data?.results)
-                })
-                .catch((error) => {
-                    console.error(error)
-                })
-        }
+        HttpRequest.getSearchResults(address)
+            .then((response) => {
+                setResults(response?.data?.results)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }, [])
 
     if (!results) {

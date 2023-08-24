@@ -5,6 +5,8 @@ import CleanBCLogo from '../../assets/svgs/CleanBCLogo'
 import Text from '../../content.json'
 import UserIcon from '../../assets/svgs/UserIcon'
 import QuestionIcon from '../../assets/svgs/QuestionIcon'
+import Endpoints from '../../apiManager/endpoints'
+
 
 function Header  ({
 	title,
@@ -37,9 +39,11 @@ function Header  ({
 						</div>
 						<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
 					</div>
-					<div className={`${Styles.helpSection}`}>
-						{Text.header.logout}
-					</div>
+          <div className={`${Styles.helpSection}`}>
+            <button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
+              {Text.header.logout}
+            </button>
+          </div>
 				</div>
 			</div>
 		</div>

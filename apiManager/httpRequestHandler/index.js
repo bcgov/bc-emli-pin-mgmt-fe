@@ -16,7 +16,6 @@ const GetRequest = (url, params = {}, headers = {}) => {
 }
 
 const getSearchResults = (address) => {
-    console.log('getSearchResults')
     return axios.get(
         `${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`,
         {
