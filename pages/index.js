@@ -8,7 +8,6 @@ export default function Index(props) {
     isAuthenticated,
   } = props;
   const router = useRouter();
-  console.log('props valie',isAuthenticated);
   useEffect(() => {
     if (!isAuthenticated) {
       window.location = Endpoints.auth.LOGIN;
@@ -22,7 +21,7 @@ export default function Index(props) {
 
 export async function getServerSideProps({ req, res, query: params }) {
   console.log(req);
-  const userAuthenticated = checkAuthentication(req);
+  const userAuthenticated = true; //checkAuthentication(req);
   return {
     props: {
       isAuthenticated: userAuthenticated,
