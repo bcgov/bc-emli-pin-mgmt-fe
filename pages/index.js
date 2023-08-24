@@ -10,9 +10,7 @@ export default function Index(props) {
   console.log('props valie',isAuthenticated);
   useEffect(() => {
     if (!isAuthenticated) {
-
-      console.log("No JWT");
-      window.location = 'http://localhost:3000/login';
+      window.location = process.env.NEXT_PUBLIC_BE_LOGIN_URL;
     } else if (isAuthenticated) {
       void router.push("/home");
     }
