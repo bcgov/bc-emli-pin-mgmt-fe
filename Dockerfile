@@ -8,7 +8,7 @@ WORKDIR /usr/app
 COPY ./ ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
 
 # Build app
 RUN npm run build
