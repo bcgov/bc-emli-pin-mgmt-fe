@@ -1,5 +1,3 @@
-/* eslint-disable testing-library/prefer-screen-queries */
-/* eslint-disable testing-library/no-node-access */
 import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 import userEvent from '@testing-library/user-event'
