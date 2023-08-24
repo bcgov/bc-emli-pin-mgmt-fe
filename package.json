@@ -29,10 +29,11 @@
     "react-dom": "18.2.0",
     "storybook": "^7.1.1",
     "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "@tailwindcss/typography": "^0.5.0",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "babel-jest": "^27.1.0",
@@ -43,7 +44,6 @@
     "jest-axe": "^5.0.1",
     "jest-environment-jsdom": "^29.3.1",
     "next-router-mock": "^0.9.9",
-    "postcss": "^8.4.21",
     "start-server-and-test": "^1.14.0"
   }
 }
