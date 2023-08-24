@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import * as cookie from 'cookie'
+import Endpoints from '../apiManager/endpoints'
 
 export default function Index(props) {
   const {
@@ -10,7 +11,7 @@ export default function Index(props) {
   console.log('props valie',isAuthenticated);
   useEffect(() => {
     if (!isAuthenticated) {
-      window.location = process.env.NEXT_PUBLIC_BE_LOGIN_URL;
+      window.location = Endpoints.auth.LOGIN;
     } else if (isAuthenticated) {
       void router.push("/home");
     }

@@ -5,6 +5,8 @@ import CleanBCLogo from '../../assets/svgs/CleanBCLogo'
 import Text from '../../content.json'
 import UserIcon from '../../assets/svgs/UserIcon'
 import QuestionIcon from '../../assets/svgs/QuestionIcon'
+import Endpoints from '../../apiManager/endpoints'
+
 
 function Header  ({
 	title,
@@ -38,7 +40,7 @@ function Header  ({
 						<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
 					</div>
           <div className={`${Styles.helpSection}`}>
-            <button onClick={() => (window.location = process.env.NEXT_PUBLIC_BE_LOGOUT_URL)} >
+            <button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
               {Text.header.logout}
             </button>
           </div>

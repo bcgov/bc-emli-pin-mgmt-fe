@@ -6,8 +6,6 @@ const nextConfig = {
     env: {
         BE_APP_URL: process.env.BE_APP_URL,
         NEXT_PUBLIC_BE_APP_URL: process.env.NEXT_PUBLIC_BE_APP_URL,
-        NEXT_PUBLIC_BE_LOGIN_URL: process.env.NEXT_PUBLIC_BE_LOGIN_URL,
-        NEXT_PUBLIC_BE_LOGOUT_URL: process.env.NEXT_PUBLIC_BE_LOGOUT_URL,
     },
 }
 
