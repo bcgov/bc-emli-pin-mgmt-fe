@@ -11,8 +11,7 @@
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "test:unit": "jest",
-    "test:coverage": "jest --coverage --forceExit",
-    "prepare": "husky install"
+    "test:coverage": "jest --coverage --forceExit"
   },
   "dependencies": {
     "@bcgov/bc-sans": "^2.0.0",
