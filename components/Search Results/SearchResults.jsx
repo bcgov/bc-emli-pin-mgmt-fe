@@ -12,20 +12,6 @@ export default function SearchResults({ searchString }) {
 
     let address = searchString?.toLowerCase()
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-    //             mode: 'cors',
-    //             withCredentials: false,
-    //         })
-    //         .then((response) => {
-    //             setResults(response?.data?.results)
-    //         })
-    //         .catch((error) => {
-    //             console.error(error)
-    //         })
-    // }, [])
-
     useEffect(() => {
         HttpRequest.getSearchResults(address)
             .then((response) => {
