@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import * as cookie from 'cookie'
 import Endpoints from '../apiManager/endpoints'
+import { checkAuthentication } from "../services/authentication/user";
 
 export default function Index(props) {
   const {
@@ -21,9 +21,7 @@ export default function Index(props) {
 }
 
 export async function getServerSideProps({ req, res, query: params }) {
-  let hasToken = cookie.parse(req.headers.cookie);
-  const userAuthenticated = hasToken.token === undefined ? false : true;
-  console.log(userAuthenticated);
+  const userAuthenticated = checkAuthentication(req);
   return {
     props: {
       isAuthenticated: userAuthenticated,
