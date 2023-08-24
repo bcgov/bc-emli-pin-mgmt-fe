@@ -5,20 +5,16 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import AddressCard from '../Address Card/index'
 import Endpoints from '../../apiManager/endpoints'
+import HttpRequest from '../../apiManager/httpRequestHandler/index'
 
 export default function SearchResults({ searchString }) {
-
     const [results, setResults] = useState(null)
 
     let address = searchString?.toLowerCase()
 
     console.log(address)
     useEffect(() => {
-        axios
-            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-                mode: 'cors',
-                withCredentials: false,
-            })
+        HttpRequest.getSearchResults(address)
             .then((response) => {
                 setResults(response?.data?.results)
             })
