@@ -21,7 +21,7 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN npm install
+RUN npm install --production
 
 # Rebuild the source code only when needed
 FROM registry.access.redhat.com/ubi8/nodejs-16 AS builder
