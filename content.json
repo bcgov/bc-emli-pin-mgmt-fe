@@ -35,6 +35,12 @@
     }, 
     "accessRequest": {
         "pageTitle": "Access Requet"
+    },
+    "managePINDropdown": {
+        "label": "Manage PIN",
+        "recreateOption": "Recreate PIN",
+        "expireOption": "Expire PIN",
+        "viewOption": "View PIN"
     }, 
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"

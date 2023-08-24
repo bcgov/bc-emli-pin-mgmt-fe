@@ -55,7 +55,7 @@ export default function Dropdown({
                             : styles.collapsedChevron
                     }`}
                 >
-                    <ArrowDown width="12px" height="7.4px" />
+                    <ArrowDown />
                 </span>
             </button>
             {toggleDropdown && (
