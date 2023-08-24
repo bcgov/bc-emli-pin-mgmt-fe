@@ -1,5 +1,6 @@
 import Content from '../../../content.json'
 import Dropdown from '../../Dropdown/index'
+import PropTypes from 'prop-types'
 
 export default function ManagePINDropdown({ role }) {
     const options = [
@@ -30,4 +31,8 @@ export default function ManagePINDropdown({ role }) {
             ></Dropdown>
         </div>
     )
+}
+
+Dropdown.protoTypes = {
+    role: PropTypes.string,
 }
