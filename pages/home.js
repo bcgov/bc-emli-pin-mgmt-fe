@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import PropertySearchHeader from '../components/Property/PropertySearchHeader/PropertySearchHeader'
 import PropertySearch from '../components/Property/PropertySearch/PropertySearch'
+import PropertyDetails from '../components/Property/PropertyDetails/PropertyDetails'
 
 export default function Home() {
     return (
@@ -24,6 +25,7 @@ export default function Home() {
                 <div className='homePropertySearchWrap'>
                     <PropertySearch/>
                 </div>
+                <PropertyDetails />
             </main>
             <Footer />
         </>
