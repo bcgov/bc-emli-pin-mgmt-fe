@@ -29,16 +29,8 @@ export default function Home(props) {
             <Header userName={userName} />
             {/* pass role for different active tabs */}
             <Navigation role="admin" />
-            <main
-                id="main"
-                className="w-full h-full text-center"
-                data-testid="homepage"
-            >
-                <PropertySearchHeader />
-                <div className="homePropertySearchWrap">
-                    {/* <PropertySearch /> */}
-                    <Property />
-                </div>
+            <main id='main' className='w-full h-full text-center' data-testid="homepage">
+                <Property />
             </main>
             <Footer />
         </>
