@@ -4,8 +4,13 @@ import Text from '../content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
+import {getUserInfo} from '../services/authentication/user'
 
-export default function UserManagement() {
+
+export default function UserManagement(props) {
+  const {
+    userName
+  } = props;
   return (
     <>
       <Head>
@@ -14,7 +19,7 @@ export default function UserManagement() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      <Header userName={userName}/>
       {/* pass role for different active tabs */}
       <Navigation role="admin"/>
       <main id="main">
@@ -25,5 +30,14 @@ export default function UserManagement() {
       <Footer />
     </>
   )
+}
+
+export async function getServerSideProps({ req }) {
+  const userInfo = getUserInfo(req);
+  return {
+    props: {
+      userName: `${userInfo.given_name} ${userInfo.family_name}`,
+    },
+  };
 }
 
