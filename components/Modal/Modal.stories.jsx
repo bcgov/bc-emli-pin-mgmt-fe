@@ -13,28 +13,23 @@ export default {
 }
 
 const Template = (args) => {
-    const [mockIsOpen, setMockIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    function modalFunction() {
+        console.log('hi')
+    }
 
     return (
         <>
-            <Button
-                handleOnClick={() => setMockIsOpen(true)}
-                variant="primary"
-                size="medium"
-            >
-                Click Me
-            </Button>
-
             <Modal
-                {...args}
-                isOpen={mockIsOpen}
-                setIsOpen={setMockIsOpen}
+                modalHeader="Basic Modal"
+                modalId="basicModal"
+                isOpen={true}
+                setIsOpen={setIsOpen}
                 modalMainBtn={{
-                    id: 'btnCloseModal',
                     text: 'Close',
-                    size: '',
+                    size: 'medium',
                     variant: 'primary',
-                    onClickHandler: () => setMockIsOpen(false),
+                    onClickHandler: () => modalFunction(),
                 }}
             >
                 Modal Text
