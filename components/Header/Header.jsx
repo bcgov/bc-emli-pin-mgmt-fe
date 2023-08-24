@@ -37,9 +37,11 @@ function Header  ({
 						</div>
 						<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
 					</div>
-					<div className={`${Styles.helpSection}`}>
-						{Text.header.logout}
-					</div>
+          <div className={`${Styles.helpSection}`}>
+            <button onClick={() => (window.location = 'http://localhost:3000/logout')} >
+              {Text.header.logout}
+            </button>
+          </div>
 				</div>
 			</div>
 		</div>
