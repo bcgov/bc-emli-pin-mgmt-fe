@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
 import Modal from '.'
-import TextBox from '../Textbox/index'
-import Button from '../Button/index'
+import { Button } from '../Button/index'
 
 export default {
     title: 'Modal',
@@ -10,7 +9,6 @@ export default {
     args: {
         modalHeader: 'Basic Modal',
         modalId: 'basicModal',
-        children: <p>Modal Text</p>,
     },
 }
 
@@ -20,9 +18,9 @@ const Template = (args) => {
     return (
         <>
             <Button
-                buttonId="btnOpenModal"
-                onClickHandler={() => setMockIsOpen(true)}
+                handleOnClick={() => setMockIsOpen(true)}
                 variant="primary"
+                size="medium"
             >
                 Click Me
             </Button>
@@ -38,7 +36,9 @@ const Template = (args) => {
                     variant: 'primary',
                     onClickHandler: () => setMockIsOpen(false),
                 }}
-            ></Modal>
+            >
+                Modal Text
+            </Modal>
         </>
     )
 }
@@ -54,24 +54,4 @@ TwoButtonTemplate.args = {
         variant: 'danger',
         onClickHandler: () => {},
     },
-}
-
-export const FormModalTemplate = Template.bind({})
-FormModalTemplate.args = {
-    modalHeader: 'Login Form',
-    children: (
-        <div>
-            <TextBox
-                textBoxId="txtUsername"
-                textBoxLabel="Username"
-                textBoxFooter="Please Enter a username."
-            ></TextBox>
-
-            <TextBox
-                textBoxId="txtPassword"
-                textBoxLabel="Password"
-                textBoxFooter="Please enter a password."
-            ></TextBox>
-        </div>
-    ),
 }

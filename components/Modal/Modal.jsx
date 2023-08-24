@@ -9,8 +9,8 @@ import { testAttr } from '../../utils/test.utils'
 import { useState } from 'react'
 
 export default function Modal({
-    open,
-    // setIsOpen,
+    isOpen,
+    setIsOpen,
     modalHeader,
     modalId,
     children,
@@ -19,8 +19,6 @@ export default function Modal({
     modalSecondaryBtn,
     ...props
 }) {
-    const [isOpen, setIsOpen] = useState(open)
-
     return (
         <>
             {isOpen && (

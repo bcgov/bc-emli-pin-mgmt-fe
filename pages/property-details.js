@@ -1,37 +1,28 @@
 import Dropdown from '../components/Dropdown/index'
 import Content from '../content.json'
 import Modal from '../components/Modal'
+import { useState } from 'react'
+import { Button } from '../components/Button'
 
 export default function PropertyDetails() {
+    const [isOpen, setIsOpen] = useState(false)
     function modalFunction() {
         console.log('hi')
     }
     return (
         <div>
-            <Dropdown
-                label={Content.managePINDropdown.label}
-                options={[
-                    {
-                        label: Content.managePINDropdown.recreateOption,
-                        value: 'recreate-pin',
-                        isDisabled: false,
-                    },
-                    {
-                        label: Content.managePINDropdown.expireOption,
-                        value: 'expire-pin',
-                        isDisabled: false,
-                    },
-                    {
-                        label: Content.managePINDropdown.viewOption,
-                        value: 'view-pin',
-                        isDisabled: false,
-                    },
-                ]}
-            ></Dropdown>
+            <Button
+                handleOnClick={() => setIsOpen(true)}
+                variant="primary"
+                size="medium"
+            >
+                Click Me
+            </Button>
             <Modal
                 modalHeader="Basic Modal"
                 modalId="basicModal"
-                open={true}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
                 modalMainBtn={{
                     text: 'Close',
                     size: 'medium',
@@ -43,7 +34,6 @@ export default function PropertyDetails() {
                     text: 'Close',
                     size: '',
                     variant: 'secondary',
-                    // isDarkBackground: true
                     onClickHandler: () => modalFunction(),
                 }}
             >
