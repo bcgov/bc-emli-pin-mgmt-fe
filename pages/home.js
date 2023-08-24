@@ -34,7 +34,6 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps({ req }) {
-  console.log(req);
   const userInfo = getUserInfo(req);
   return {
     props: {
