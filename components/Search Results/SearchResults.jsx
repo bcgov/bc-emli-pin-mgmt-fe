@@ -14,17 +14,16 @@ export default function SearchResults({ results, isLoading, handleClick }) {
     }
 
     useEffect(() => {
-        axios
-            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-                mode: 'cors',
-                withCredentials: false,
-            })
-            .then((response) => {
-                setResults(response?.data?.results)
-            })
-            .catch((error) => {
-                console.error(error)
-            })
+        console.log('here')
+        if (address) {
+            HttpRequest.getSearchResults(address)
+                .then((response) => {
+                    setResults(response?.data?.results)
+                })
+                .catch((error) => {
+                    console.error(error)
+                })
+        }
     }, [])
 
     if (!results) {
