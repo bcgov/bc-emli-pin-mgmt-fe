@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "next start -p 3001",
     "lint": "next lint",
     "test": "npm run lint && npm run test:unit",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
