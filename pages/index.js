@@ -20,8 +20,7 @@ export default function Index(props) {
 }
 
 export async function getServerSideProps({ req, res, query: params }) {
-  console.log(res);
-  const userAuthenticated = true; //checkAuthentication(req);
+  const userAuthenticated = true;//checkAuthentication(params);
   return {
     props: {
       isAuthenticated: userAuthenticated,
