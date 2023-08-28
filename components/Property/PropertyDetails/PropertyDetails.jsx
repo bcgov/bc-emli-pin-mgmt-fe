@@ -8,6 +8,7 @@ import PropertyIconSmall from '../../../assets/svgs/PropertyIconSmall'
 import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
 import PropTypes from 'prop-types'
+// import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon';
 
 function PropertyDetails({
 	searchResultLayout,
@@ -23,7 +24,7 @@ function PropertyDetails({
 	const layoutClass = searchResultLayout ? 
 		Styles.propertyDetailsWrap + " " + Styles.paddingSmall :
 		Styles.propertyDetailsWrap + " " + Styles.paddingLarge
-	const showNoResult = !displayDetails && resultCount 
+	console.log(resultCount)	
 
 	if (displayDetails) {
 		return (
@@ -92,11 +93,16 @@ function PropertyDetails({
 		)
 	} else if (resultCount === 0){
 		return (
-			<div className={layoutClass}>no result</div>
+			<div className={layoutClass + " flex items-center justify-center"}>
+				{/* <PropertyNoResultIcon /> */}
+				<div>
+
+				</div>
+			</div>
 		)
 	} else {
 		return (
-			<div className={layoutClass}>house icon</div>
+			<div className={layoutClass + " flex items-center justify-center"}>house icon</div>
 		)
 	}
 }
@@ -110,7 +116,7 @@ PropertyDetails.protoTypes = {
 
 }
 
-PropertyDetails.prototype = {
+PropertyDetails.defaultProps = {
 	searchResultLayout: true,
 	resultCount: 0,
 	displayDetails: false

@@ -2,6 +2,7 @@
 .propertyDetailsWrap{
     background-color: #F1F1F1;
     min-height: 857px;
+    min-width: 600px;
 }
 
 .paddingLarge{
