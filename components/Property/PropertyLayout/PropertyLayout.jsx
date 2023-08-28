@@ -4,12 +4,13 @@ import PropertyDetails from '../PropertyDetails/PropertyDetails'
 import SearchResults from '../../Search Results/SearchResults'
 import Styles from './PropertyLayout.module.css'
 import { useEffect, useState } from 'react'
-import Endpoints from '../../../apiManager/endpoints'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 
 export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
-    const [showPropertySearchHeaher, setShowPropertySearchHeader] = useState(true)
+    const [showPropertySearchHeaher, setShowPropertySearchHeader] =
+        useState(true)
+    const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
 
     const getSearchString = (newSearchString) => {
@@ -18,42 +19,49 @@ export default function PropertyLayout() {
         togglePropertySearch()
     }
 
-    function getSearchResults(searchAddressString){
-        // console.log(searchAddressString)
+    function getSearchResults(searchAddressString) {
+        setLoading(true)
         let address = searchAddressString?.toLowerCase()
         HttpRequest.getSearchResults(address)
             .then((response) => {
                 setResults(response?.data?.results)
+                setLoading(false)
             })
             .catch((error) => {
                 console.error(error)
+                setLoading(false)
             })
     }
 
-    function togglePropertySearch(){
+    function togglePropertySearch() {
         setShowPropertySearchHeader(false)
     }
 
     return (
         <>
-            <div style={{display: showPropertySearchHeaher ? "block" : "none"}}>
+            <div
+                style={{
+                    display: showPropertySearchHeaher ? 'block' : 'none',
+                }}
+            >
                 <PropertySearchHeader />
             </div>
             <div className="homePropertySearchWrap">
                 <PropertySearch getSearchString={getSearchString} />
             </div>
-            {
-                searchString &&
-                <div className={`${Styles.propertyResultWrap}` + " flex"}>
+            {searchString && (
+                <div className={`${Styles.propertyResultWrap}` + ' flex'}>
                     <div className={`${Styles.seachResultWrap}`}>
-                        <SearchResults results={results} />
+                        <SearchResults
+                            results={results}
+                            isLoading={isLoading}
+                        />
                     </div>
                     <div>
-                        <PropertyDetails searchResultLayout={true}/>
+                        <PropertyDetails searchResultLayout={true} />
                     </div>
                 </div>
-            }
-            
+            )}
         </>
     )
 }
