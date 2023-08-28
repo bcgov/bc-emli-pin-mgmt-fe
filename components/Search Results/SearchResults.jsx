@@ -1,27 +1,9 @@
-import PropTypes from 'prop-types'
-
 import styles from './SearchResults.module.css'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import AddressCard from '../Address Card/index'
-import Endpoints from '../../apiManager/endpoints'
-import HttpRequest from '../../apiManager/httpRequestHandler/index'
+import LoadingIcon from '../../assets/svgs/LoadingIcon'
+import LoadingScreen from '../LoadingScreen'
 
-export default function SearchResults({ searchString }) {
-    const [results, setResults] = useState(null)
-
-    let address = searchString?.toLowerCase()
-
-    useEffect(() => {
-        HttpRequest.getSearchResults(address)
-            .then((response) => {
-                setResults(response?.data?.results)
-            })
-            .catch((error) => {
-                console.error(error)
-            })
-    }, [])
-
+export default function SearchResults({ results, isLoading }) {
     if (!results) {
         return (
             <div>
@@ -31,9 +13,17 @@ export default function SearchResults({ searchString }) {
                 >
                     0 addresses found.
                 </h1>
+                <div>
+                    {isLoading && (
+                        <LoadingScreen
+                            loadingText=""
+                            loaderIcon={<LoadingIcon />}
+                        />
+                    )}
+                </div>
             </div>
         )
-    } else if (results) {
+    } else if (results && !isLoading) {
         return (
             <div>
                 <h1
@@ -63,8 +53,4 @@ export default function SearchResults({ searchString }) {
             </div>
         )
     }
-}
-
-SearchResults.propTypes = {
-    searchString: PropTypes.string,
 }
