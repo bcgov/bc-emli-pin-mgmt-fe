@@ -42,6 +42,14 @@ export default function SearchResults({ results, isLoading, handleClick }) {
                     {results?.length}
                     {Content.searchResults.addressesFound}
                 </h1>
+                {/* <div>
+                    {isLoading && (
+                        <LoadingScreen
+                            loadingText=""
+                            loaderIcon={<LoadingIcon />}
+                        />
+                    )}
+                </div> */}
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result, i) => (
                         <div onClick={() => getProperty(result)} key={i}>

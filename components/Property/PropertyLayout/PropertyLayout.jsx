@@ -21,8 +21,8 @@ export default function PropertyLayout() {
         togglePropertySearch()
     }
 
-    function getSearchResults(searchAddressString){
-        // console.log(searchAddressString)
+    function getSearchResults(searchAddressString) {
+        setLoading(true)
         let address = searchAddressString?.toLowerCase()
         HttpRequest.getSearchResults(address)
             .then((response) => {
