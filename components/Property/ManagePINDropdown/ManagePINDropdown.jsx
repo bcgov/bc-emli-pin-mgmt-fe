@@ -40,7 +40,6 @@ export default function ManagePINDropdown({
             })
     }
 
-
     const options = [
         {
             label: Content.managePINDropdown.recreateOption,
@@ -111,6 +110,7 @@ export default function ManagePINDropdown({
                 modalId="expire-pin-failure-modal"
                 isOpen={openExpireFailureModal}
                 setIsOpen={setOpenExpireFailureModal}
+                variant="error"
                 modalMainBtn={{
                     text: `${Content.expirePINFailureModal.primaryButton}`,
                     size: 'medium',
