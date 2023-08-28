@@ -7,8 +7,10 @@ import axios from 'axios'
 import PropertyIconSmall from '../../../assets/svgs/PropertyIconSmall'
 import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
+import PropTypes from 'prop-types'
 
 function PropertyDetails  ({
+	searchResultLayout
 })  {
 	const propertyAddress = Content.propertyDetails.testAddress
 	const titleNumber = Content.propertyDetails.testTitleNumber
@@ -16,9 +18,10 @@ function PropertyDetails  ({
 	const parcelIdentifier = Content.propertyDetails.testParcelIdentifier
 	const shortLegalDescription = Content.propertyDetails.testShortLegalDescription
 	const numberOfOwner = 2
+	const layoutClass = searchResultLayout ? Styles.paddingSmall : Styles.paddingLarge
 
 	return (
-		<div className={`${Styles.propertyDetailsWrap}` + " text-left"}>
+		<div className={`${Styles.propertyDetailsWrap}` + " text-left " + layoutClass}>
 			<div className={`${Styles.addressWrap}`}>
 				<div className={`${Styles.title}`}>
 					{Content.propertyDetails.residentialAddress}
@@ -86,5 +89,14 @@ function PropertyDetails  ({
 	)
 }
 
+
+
+PropertyDetails.protoTypes = {
+    searchResultLayout: PropTypes.boolean,
+}
+
+PropertyDetails.prototype = {
+	searchResultLayout: true
+}
 
 export default PropertyDetails;

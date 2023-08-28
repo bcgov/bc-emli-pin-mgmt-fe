@@ -7,7 +7,7 @@ import PropertySearchHeader from '../components/Property/PropertySearchHeader/Pr
 import PropertySearch from '../components/Property/PropertySearch/PropertySearch'
 import { getUserInfo } from '../services/authentication/user'
 import PropertyDetails from '../components/Property/PropertyDetails/PropertyDetails'
-import Property from '../components/Property'
+import PropertyLayout from '../components/Property/PropertyLayout'
 import SearchResults from '../components/Search Results/SearchResults'
 
 export default function Home(props) {
@@ -30,7 +30,7 @@ export default function Home(props) {
             {/* pass role for different active tabs */}
             <Navigation role="admin" />
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
-                <Property />
+                <PropertyLayout />
             </main>
             <Footer />
         </>

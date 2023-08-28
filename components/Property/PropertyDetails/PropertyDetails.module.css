@@ -1,8 +1,15 @@
 
 .propertyDetailsWrap{
     background-color: #F1F1F1;
-    
+    min-height: 857px;
+}
+
+.paddingLarge{
     padding: 32px 110px;
+}
+
+.paddingSmall{
+    padding: 32px 44px
 }
 
 .addressWrap{
@@ -39,7 +46,7 @@
     margin-top: 31px;
 }
 
-.propertyInfoWrap .content .item{
+.propertyInfoWrap .content .item:not(:last-child){
     margin-right: 45px;
 }
 
