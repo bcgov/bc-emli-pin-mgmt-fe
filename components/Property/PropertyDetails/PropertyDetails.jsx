@@ -9,94 +9,112 @@ import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
 import PropTypes from 'prop-types'
 
-function PropertyDetails  ({
-	searchResultLayout
-})  {
+function PropertyDetails({
+	searchResultLayout,
+	resultCount,
+	displayDetails
+}) {
 	const propertyAddress = Content.propertyDetails.testAddress
 	const titleNumber = Content.propertyDetails.testTitleNumber
 	const landTitleDistrict = Content.propertyDetails.testLandTitleDistrict
 	const parcelIdentifier = Content.propertyDetails.testParcelIdentifier
 	const shortLegalDescription = Content.propertyDetails.testShortLegalDescription
 	const numberOfOwner = 2
-	const layoutClass = searchResultLayout ? Styles.paddingSmall : Styles.paddingLarge
+	const layoutClass = searchResultLayout ? 
+		Styles.propertyDetailsWrap + " " + Styles.paddingSmall :
+		Styles.propertyDetailsWrap + " " + Styles.paddingLarge
+	const showNoResult = !displayDetails && resultCount 
 
-	return (
-		<div className={`${Styles.propertyDetailsWrap}` + " text-left " + layoutClass}>
-			<div className={`${Styles.addressWrap}`}>
-				<div className={`${Styles.title}`}>
-					{Content.propertyDetails.residentialAddress}
+	if (displayDetails) {
+		return (
+			<div className={layoutClass}>
+			 	<div className={`${Styles.addressWrap}`}>
+			 		<div className={`${Styles.title}`}>
+						{Content.propertyDetails.residentialAddress}
+					</div>
+					<div className={`${Styles.content}`}>
+						{propertyAddress}
+					</div>
 				</div>
-				<div className={`${Styles.content}`}>
-					{propertyAddress}
+				<div className={`${Styles.propertyInfoWrap}` + " " + `${Styles.leftBuleBar}`}>
+					<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
+						<PropertyIconSmall />
+						<span>{Content.propertyDetails.propertyDetails}</span>
+					</div>
+					<div className={`${Styles.content}` + " flex "}>
+						<div className={`${Styles.item}`}>
+							<div className={`${Styles.title}`}>
+								{Content.propertyDetails.titleNumber}
+							</div>
+							<div className={`${Styles.content}`}>
+								{titleNumber}
+							</div>
+						</div>
+						<div className={`${Styles.item}`}>
+							<div className={`${Styles.title}`}>
+								{Content.propertyDetails.landTitleDistrict}
+							</div>
+							<div className={`${Styles.content}`}>
+								{landTitleDistrict}
+							</div>
+						</div>
+				 		<div className={`${Styles.item}`}>
+							<div className={`${Styles.title}`}>
+								{Content.propertyDetails.parcelIdentifier}
+							</div>
+							<div className={`${Styles.content}`}>
+								{parcelIdentifier}
+							</div>
+						</div>
+						<div className={`${Styles.item}`}>
+							<div className={`${Styles.title}`}>
+								{Content.propertyDetails.shortLegalDescription}
+							</div>
+							<div className={`${Styles.content}`}>
+								{shortLegalDescription}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className={`${Styles.ownershipWrap}` + " " + `${Styles.leftBuleBar}`}>
+					<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
+						<GroupUserIcon />
+						<span>{Content.propertyDetails.ownership}</span>
+					</div>
+					<div className={`${Styles.ownerWrap}`}>
+						<div className={`${Styles.title}`}>
+							{Content.propertyDetails.numberOfOwner} {numberOfOwner}
+						</div>
+						<PropertyOwner />
+					</div>
 				</div>
 			</div>
-			<div className={`${Styles.propertyInfoWrap}` + " " + `${Styles.leftBuleBar}`}>
-				<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-					<PropertyIconSmall />
-					<span>{Content.propertyDetails.propertyDetails}</span>
-				</div>
-				<div className={`${Styles.content}` + " flex "}>
-					<div className={`${Styles.item}`}>
-						<div className={`${Styles.title}`}>
-							{Content.propertyDetails.titleNumber}
-						</div>
-						<div className={`${Styles.content}`}>
-							{titleNumber}
-						</div>
-					</div>
-					<div className={`${Styles.item}`}>
-						<div className={`${Styles.title}`}>
-							{Content.propertyDetails.landTitleDistrict}
-						</div>
-						<div className={`${Styles.content}`}>
-							{landTitleDistrict}
-						</div>
-					</div>
-					<div className={`${Styles.item}`}>
-						<div className={`${Styles.title}`}>
-							{Content.propertyDetails.parcelIdentifier}
-						</div>
-						<div className={`${Styles.content}`}>
-							{parcelIdentifier}
-						</div>
-					</div>
-					<div className={`${Styles.item}`}>
-						
-						<div className={`${Styles.title}`}>
-							{Content.propertyDetails.shortLegalDescription}
-						</div>
-						<div className={`${Styles.content}`}>
-							{shortLegalDescription}
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			<div className={`${Styles.ownershipWrap}` + " " + `${Styles.leftBuleBar}`}>
-				<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-					<GroupUserIcon />
-					<span>{Content.propertyDetails.ownership}</span>
-				</div>
-				<div className={`${Styles.ownerWrap}`}>
-					<div className={`${Styles.title}`}>
-						{Content.propertyDetails.numberOfOwner} {numberOfOwner}
-					</div>
-					<PropertyOwner />
-				</div>
-				
-			</div>
-		</div>
-	)
+		)
+	} else if (resultCount === 0){
+		return (
+			<div className={layoutClass}>no result</div>
+		)
+	} else {
+		return (
+			<div className={layoutClass}>house icon</div>
+		)
+	}
 }
 
 
 
 PropertyDetails.protoTypes = {
-    searchResultLayout: PropTypes.boolean,
+	searchResultLayout: PropTypes.boolean,
+	resultCount: PropTypes.number,
+	displayDetails: PropTypes.boolean
+
 }
 
 PropertyDetails.prototype = {
-	searchResultLayout: true
+	searchResultLayout: true,
+	resultCount: 0,
+	displayDetails: false
+
 }
 
 export default PropertyDetails;
