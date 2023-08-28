@@ -58,7 +58,9 @@
         "shortLegalDescription": "Short Legal Description",
         "testShortLegalDescription": "S/EPS2032//20",
         "ownership": "Ownership",
-        "numberOfOwner": "Number of Owner(s): "
+        "numberOfOwner": "Number of Owner(s): ", 
+        "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "searchResultMsg": "Select an address to view property details"
     },
     "searchResults": {
         "addressesFound": " addresses found.",

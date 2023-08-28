@@ -50,7 +50,7 @@ export default function PropertyLayout() {
                 <PropertySearch getSearchString={getSearchString} />
             </div>
             {searchString && (
-                <div className={`${Styles.propertyResultWrap}` + ' flex'}>
+                <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
                     <div className={`${Styles.seachResultWrap}`}>
                         <SearchResults
                             results={results}
@@ -58,7 +58,9 @@ export default function PropertyLayout() {
                         />
                     </div>
                     <div>
-                        <PropertyDetails searchResultLayout={true} />
+                        <PropertyDetails 
+                            searchResultLayout={true} 
+                            resultCount= {results?.length}/>
                     </div>
                 </div>
             )}

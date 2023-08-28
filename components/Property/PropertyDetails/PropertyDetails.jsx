@@ -9,7 +9,7 @@ import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
 import PropTypes from 'prop-types'
 // import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon';
-
+import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 function PropertyDetails({
 	searchResultLayout,
 	resultCount,
@@ -24,7 +24,6 @@ function PropertyDetails({
 	const layoutClass = searchResultLayout ? 
 		Styles.propertyDetailsWrap + " " + Styles.paddingSmall :
 		Styles.propertyDetailsWrap + " " + Styles.paddingLarge
-	console.log(resultCount)	
 
 	if (displayDetails) {
 		return (
@@ -93,16 +92,21 @@ function PropertyDetails({
 		)
 	} else if (resultCount === 0){
 		return (
-			<div className={layoutClass + " flex items-center justify-center"}>
+			<div className={layoutClass + " flex items-center justify-center content-center flex-col"}>
 				{/* <PropertyNoResultIcon /> */}
-				<div>
-
+				<div className={`${Styles.noResultMsgWrap}`}>
+					{Content.propertyDetails.noSearchResultMsg}
 				</div>
 			</div>
 		)
 	} else {
 		return (
-			<div className={layoutClass + " flex items-center justify-center"}>house icon</div>
+			<div className={layoutClass + " flex items-center justify-center content-center flex-col"}>
+				<PropertyResultIcon />
+				<div className={`${Styles.resultMsgWrap}`}>
+					{Content.propertyDetails.searchResultMsg}
+				</div>
+			</div>
 		)
 	}
 }
@@ -118,7 +122,7 @@ PropertyDetails.protoTypes = {
 
 PropertyDetails.defaultProps = {
 	searchResultLayout: true,
-	resultCount: 0,
+	resultCount: 1,
 	displayDetails: false
 
 }

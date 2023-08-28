@@ -1,16 +1,35 @@
 
 .propertyDetailsWrap{
     background-color: #F1F1F1;
-    min-height: 857px;
     min-width: 600px;
 }
 
 .paddingLarge{
     padding: 32px 110px;
+    min-height: 857px;
 }
 
 .paddingSmall{
-    padding: 32px 44px
+    padding: 32px 44px;
+    min-height: 857px;
+}
+
+.noResultMsgWrap{
+    margin-top: 36px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #002A4E;
+}
+
+.resultMsgWrap{
+    margin-top: 41px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #002A4E;
 }
 
 .addressWrap{
