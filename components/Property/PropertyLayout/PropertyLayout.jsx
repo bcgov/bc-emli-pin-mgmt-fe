@@ -20,6 +20,7 @@ export default function PropertyLayout() {
     }
 
     function getSearchResults(searchAddressString) {
+        setLoading(true)
         let address = searchAddressString?.toLowerCase()
         HttpRequest.getSearchResults(address)
             .then((response) => {
@@ -28,6 +29,7 @@ export default function PropertyLayout() {
             })
             .catch((error) => {
                 console.error(error)
+                setLoading(false)
             })
     }
 

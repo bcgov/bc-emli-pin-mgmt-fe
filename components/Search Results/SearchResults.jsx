@@ -2,9 +2,10 @@ import styles from './SearchResults.module.css'
 import AddressCard from '../Address Card/index'
 import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
+import Content from '../../content.json'
 
 export default function SearchResults({ results, isLoading }) {
-    if (!results) {
+    if (!results || isLoading) {
         return (
             <div>
                 <h1
@@ -30,8 +31,16 @@ export default function SearchResults({ results, isLoading }) {
                     data-testid="searchResultTitle"
                     className={`${styles.searchResultTitle}`}
                 >
-                    {results?.length} addresses found.
+                    {results?.length}{Content.searchResults.addressesFound}
                 </h1>
+                {/* <div>
+                    {isLoading && (
+                        <LoadingScreen
+                            loadingText=""
+                            loaderIcon={<LoadingIcon />}
+                        />
+                    )}
+                </div> */}
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result) => (
                         <AddressCard
@@ -48,7 +57,7 @@ export default function SearchResults({ results, isLoading }) {
                             : styles.hiddenScrollMsg
                     }`}
                 >
-                    Scroll down to view more results
+                    {Content.searchResults.scrollMessage}
                 </div>
             </div>
         )
