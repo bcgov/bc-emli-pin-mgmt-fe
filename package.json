@@ -11,8 +11,7 @@
     "e2e": "start-server-and-test dev http://localhost:3000 cypress",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "test:unit": "jest",
-    "test:coverage": "jest --coverage --forceExit",
-    "prepare": "husky install"
+    "test:coverage": "jest --coverage --forceExit"
   },
   "dependencies": {
     "@bcgov/bc-sans": "^2.0.0",
@@ -20,6 +19,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/testing-react": "^2.0.1",
     "@svgr/webpack": "^8.0.1",
+    "axios": "^1.4.0",
     "cookie": "^0.5.0",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
@@ -27,13 +27,15 @@
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook": "^7.1.1"
+    "storybook": "^7.1.1",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "@tailwindcss/typography": "^0.5.0",
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "autoprefixer": "^10.4.13",
     "babel-jest": "^27.1.0",
     "cypress": "^12.3.0",
     "husky": "^8.0.0",
@@ -42,8 +44,6 @@
     "jest-axe": "^5.0.1",
     "jest-environment-jsdom": "^29.3.1",
     "next-router-mock": "^0.9.9",
-    "postcss": "^8.4.21",
-    "start-server-and-test": "^1.14.0",
-    "tailwindcss": "^3.2.4"
+    "start-server-and-test": "^1.14.0"
   }
 }
