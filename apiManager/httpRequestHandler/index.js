@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios from 'axios'
+import Endpoints from '../endpoints/index'
 // import UserService from 'services/userService';
 
 // GET request example
@@ -11,8 +12,8 @@ const GetRequest = (url, params = {}, headers = {}) => {
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
             // ...headers,
         },
-    });
-};
+    })
+}
 
 // POST request example
 const PostRequest = (url, data = {}, params = {}) => {
@@ -23,8 +24,12 @@ const PostRequest = (url, data = {}, params = {}) => {
             // Authorization: `Bearer ${UserService.getToken()}`,
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
-    });
-};
+    })
+}
+
+const expirePIN = (data) => {
+    return axios.post(`${Endpoints.managePIN.EXPIRE_PIN}`, data)
+}
 
 // PUT request example
 const PutRequest = (url, data = {}, params = {}) => {
@@ -35,8 +40,8 @@ const PutRequest = (url, data = {}, params = {}) => {
             // Authorization: `Bearer ${UserService.getToken()}`,
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
-    });
-};
+    })
+}
 
 // PATCH request example
 const PatchRequest = (url, data = {}) => {
@@ -46,8 +51,8 @@ const PatchRequest = (url, data = {}) => {
             // Authorization: `Bearer ${UserService.getToken()}`,
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
-    });
-};
+    })
+}
 
 // DELETE request example
 const DeleteRequest = (url, params = {}) => {
@@ -58,9 +63,8 @@ const DeleteRequest = (url, params = {}) => {
             // Authorization: `Bearer ${UserService.getToken()}`,
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
-    });
-};
-
+    })
+}
 
 export const OSSGetRequest = (url, requestOptions) => {
     return axios.get(url, {
@@ -70,8 +74,8 @@ export const OSSGetRequest = (url, requestOptions) => {
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
         responseType: 'blob',
-    });
-};
+    })
+}
 
 export const OSSPutRequest = (url, data, requestOptions) => {
     return axios.put(url, data, {
@@ -80,8 +84,8 @@ export const OSSPutRequest = (url, data, requestOptions) => {
             // Authorization: requestOptions.authHeader,
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
-    });
-};
+    })
+}
 
 const HttpRequest = {
     GetRequest,
@@ -91,6 +95,7 @@ const HttpRequest = {
     DeleteRequest,
     OSSGetRequest,
     OSSPutRequest,
+    expirePIN,
 }
 
-export default HttpRequest;
+export default HttpRequest

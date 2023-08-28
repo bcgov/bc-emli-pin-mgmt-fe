@@ -5,6 +5,9 @@ const Endpoints = {
     propertySearch: {
         GET_SEARCH_RESULTS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/properties/address/`,
     },
+    managePIN: {
+      EXPIRE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/expire/`,
+    },
     auth: {
       LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,
       LOGOUT: `${process.env.NEXT_PUBLIC_BE_APP_URL}/logout`,

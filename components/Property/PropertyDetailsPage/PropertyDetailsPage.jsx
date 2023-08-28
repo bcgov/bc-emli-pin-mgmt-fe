@@ -3,9 +3,14 @@ import PropTypes from 'prop-types'
 import ManagePINDropdown from '../ManagePINDropdown/ManagePINDropdown'
 import Modal from '../../Modal'
 import { useState } from 'react'
-import axios from 'axios'
+import HttpRequest from '../../../apiManager/httpRequestHandler'
 
-export default function PropertyDetailsPage({}) {
+export default function PropertyDetailsPage({
+    livePinId,
+    expirationReason,
+    expiredByName,
+    expiredByUsername,
+}) {
     const [selectedValue, setSelectedValue] = useState()
     const [openExpireConfirmationModal, setOpenExpireConfirmationModal] =
         useState()
@@ -20,28 +25,20 @@ export default function PropertyDetailsPage({}) {
     }
 
     function expirePIN() {
-        console.log('expiring PIN')
-        setOpenExpireConfirmationModal(false)
-        setOpenExpireFailureModal(true)
-        // axios
-        //     .get(`http://localhost:3000/pins/expire`, {
-        //         mode: 'cors',
-        //         withCredentials: false,
-        //         data: {
-        //             livePinId: '61f54f51-5e79-4f7e-a376-4b6c382abe74',
-        //             expirationReason: 'OP',
-        //             expiredByName: 'John Smith',
-        //             expiredByUsername: 'jsmith',
-        //         },
-        //     })
-        //     .then((response) => {
-        //         setOpenExpireConfirmationModal(false)
-        //         setOpenExpireFailureModal(true)
-        //     })
-        //     .catch((error) => {
-        //         setOpenExpireConfirmationModal(false)
-        //         setOpenExpireFailureModal(true)
-        //     })
+        HttpRequest.expirePIN({
+            livePinId: livePinId,
+            expirationReason: expirationReason,
+            expiredByName: expiredByName,
+            expiredByUsername: expiredByUsername,
+        })
+            .then((response) => {
+                setOpenExpireConfirmationModal(false)
+                setOpenExpireSuccessModal(true)
+            })
+            .catch((error) => {
+                setOpenExpireConfirmationModal(false)
+                setOpenExpireFailureModal(true)
+            })
     }
 
     return (
