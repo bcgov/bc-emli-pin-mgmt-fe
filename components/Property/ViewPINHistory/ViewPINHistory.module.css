@@ -1,0 +1,45 @@
+.numberRow {
+    width: 36px;
+    min-height: 48px;
+    text-align: center;
+}
+
+.updatedByRow {
+    width: 115px;
+    height: 48px;
+    text-align: left;
+}
+
+.usernameRow {
+    width: 112px;
+    height: 48px;
+    text-align: left;
+}
+
+.modifiedOnRow {
+    width: 117px;
+    text-align: left;
+}
+
+.actionRow {
+    width: 99px;
+    text-align: left;
+}
+
+.typeRow {
+    width: 133px;
+    text-align: left;
+}
+
+.notificationViaRow {
+    width: 181px;
+    text-align: left;
+}
+
+td .notificationViaRow {
+}
+
+.pinHistoryTable td,
+.pinHistoryTable th {
+    padding-left: 16px;
+}
