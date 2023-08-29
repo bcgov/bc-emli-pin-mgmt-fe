@@ -5,6 +5,8 @@ import Modal from '../../Modal'
 import { useState } from 'react'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import styles from './ViewPINHistory.module.css'
+import PhoneIcon from '../../../assets/svgs/PhoneIcon'
+import EmailIcon from '../../../assets/svgs/EmailIcon'
 
 export default function ViewPINHistory({ pinHistory }) {
     console.log(pinHistory[0].date)
@@ -29,7 +31,7 @@ export default function ViewPINHistory({ pinHistory }) {
                 <tbody>
                     {pinHistory.map((row, i) => (
                         <tr key={i}>
-                            <td className={`${styles.numberRow}`}>{i}</td>
+                            <td className={`${styles.numberRow}`}>{i + 1}</td>
                             <td className={`${styles.updatedByRow}`}>
                                 {row.updatedBy}
                             </td>
@@ -44,8 +46,18 @@ export default function ViewPINHistory({ pinHistory }) {
                             </td>
                             <td className={`${styles.typeRow}`}>{row.type}</td>
                             <td className={`${styles.notificationViaRow}`}>
-                                <div>{row.notificationViaPhone}</div>
-                                <div>{row.notificationViaEmail}</div>
+                                {row.notificationViaPhone && (
+                                    <div>
+                                        <PhoneIcon />
+                                        {row.notificationViaPhone}
+                                    </div>
+                                )}
+                                {row.notificationViaPhone && (
+                                    <div>
+                                        <EmailIcon />
+                                        {row.notificationViaEmail}
+                                    </div>
+                                )}
                             </td>
                         </tr>
                     ))}
