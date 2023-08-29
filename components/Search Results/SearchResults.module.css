@@ -18,9 +18,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: 1.75rem; /* 140% */
-    border-bottom: #234075 2px solid;
+    border-bottom: #234075 1.5px solid;
     padding-bottom: 11px;
     width: 19.6875rem;
+    text-align: left;
 }
 
 .scrollMsg {

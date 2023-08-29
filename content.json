@@ -3,36 +3,36 @@
         "title": "CleanBC VHERS PIN system"
     },
     "header": {
-        "title": "CleanBC", 
-        "logo": "CleanBC Logo", 
+        "title": "CleanBC",
+        "logo": "CleanBC Logo",
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
         "help": "Help"
     },
-    "navigation":{
-        "home": "Home", 
-        "usermanagement": "User Management", 
+    "navigation": {
+        "home": "Home",
+        "usermanagement": "User Management",
         "accessrequest": "Access Request"
     },
     "footer": {
-        "home": "Home", 
-        "about": "About gov.bc.ca", 
-        "disclaimer": "Disclaimer", 
+        "home": "Home",
+        "about": "About gov.bc.ca",
+        "disclaimer": "Disclaimer",
         "privacy": "Privacy",
         "accessibility": "Accessibility",
-        "copyright": "Copyright", 
+        "copyright": "Copyright",
         "contact": "Contact Us"
     },
     "home": {
-        "searchHeader": "Find a property", 
-        "searchContent": "Enter property information to locate a property and view property details.", 
-        "searchPlaceHolder": "Enter residential address", 
-        "search": "Search" 
+        "searchHeader": "Find a property",
+        "searchContent": "Enter property information to locate a property and view property details.",
+        "searchPlaceHolder": "Enter residential address",
+        "search": "Search"
     },
     "userManagement": {
         "pageTitle": "User Management"
-    }, 
+    },
     "accessRequest": {
         "pageTitle": "Access Requet"
     },
@@ -41,8 +41,29 @@
         "recreateOption": "Recreate PIN",
         "expireOption": "Expire PIN",
         "viewOption": "View PIN"
-    }, 
+    },
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"
+    },
+    "propertyDetails": {
+        "residentialAddress": "Residential Address",
+        "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
+        "propertyDetails": "Property Details",
+        "titleNumber": "Title Number",
+        "testTitleNumber": "CA5006683",
+        "landTitleDistrict": "Land Title District",
+        "testLandTitleDistrict": "Burnby",
+        "parcelIdentifier": "Parcel Identifier",
+        "testParcelIdentifier": "029-366-937",
+        "shortLegalDescription": "Short Legal Description",
+        "testShortLegalDescription": "S/EPS2032//20",
+        "ownership": "Ownership",
+        "numberOfOwner": "Number of Owner(s): ", 
+        "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "searchResultMsg": "Select an address to view property details"
+    },
+    "searchResults": {
+        "addressesFound": " addresses found.",
+        "scrollMessage": "Scroll down to view more results"
     }
 }

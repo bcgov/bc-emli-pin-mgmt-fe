@@ -1,0 +1,128 @@
+
+.propertyDetailsWrap{
+    background-color: #F1F1F1;
+    min-width: 600px;
+}
+
+.paddingLarge{
+    padding: 32px 110px;
+    min-height: 857px;
+}
+
+.paddingSmall{
+    padding: 32px 44px;
+    min-height: 857px;
+}
+
+.noResultMsgWrap{
+    margin-top: 36px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #002A4E;
+}
+
+.resultMsgWrap{
+    margin-top: 41px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #002A4E;
+}
+
+.addressWrap{
+    background-color: #E4F2FF;
+    padding: 23px 32px;
+    color: #1A1A1A;
+    margin-bottom: 34px;
+}
+
+.addressWrap .title{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.addressWrap .content{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+}
+
+.propertyInfoWrap{
+    margin-bottom: 48px;
+}
+
+.propertyInfoWrap svg{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.propertyInfoWrap .content{
+    margin-top: 31px;
+}
+
+.propertyInfoWrap .content .item:not(:last-child){
+    margin-right: 45px;
+}
+
+.propertyInfoWrap .content .item .title{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 137.5% */
+    color: #656565;
+}
+
+.propertyInfoWrap .content .item .content{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    color: #2464A4;
+    margin-top: 5px;
+}
+
+
+.ownershipWrap svg{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.ownershipWrap .ownerWrap{
+    padding: 5px 40px;
+}
+
+.ownershipWrap .ownerWrap .title{
+    margin-top: 19px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #005C97;
+}
+
+.sectionTitle{
+    display: flex;
+    align-items: center;
+}
+
+.sectionTitle span{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+    color: #234075;
+}
+
+.leftBuleBar{
+    border-left: 8px solid #008FB4;
+    padding-left: 19px;
+    padding-right: 27px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}

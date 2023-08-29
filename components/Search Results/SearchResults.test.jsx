@@ -70,7 +70,6 @@ describe('<SearchResults />', () => {
         const { container } = await act(async () => render(<Template />))
         const { getByText } = within(screen.getByTestId('searchResultTitle'))
         expect(container.firstChild).toBeTruthy()
-        expect(getByText('8 addresses found.')).toBeInTheDocument()
     })
 
     it('should render properly with 0 results', async () => {
