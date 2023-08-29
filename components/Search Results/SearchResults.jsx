@@ -3,11 +3,16 @@ import AddressCard from '../Address Card/index'
 import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
 import Content from '../../content.json'
+import { useState } from 'react'
 
 export default function SearchResults({ results, isLoading, handleClick }) {
-    function getProperty(property){
+    const [selected, setSelected] = useState(null)
+
+    function getProperty(property) {
+        setSelected(property.siteID)
         handleClick(property.siteID)
     }
+
     if (!results || isLoading) {
         return (
             <div>
@@ -34,16 +39,20 @@ export default function SearchResults({ results, isLoading, handleClick }) {
                     data-testid="searchResultTitle"
                     className={`${styles.searchResultTitle}`}
                 >
-                    {results?.length}{Content.searchResults.addressesFound}
+                    {results?.length}
+                    {Content.searchResults.addressesFound}
                 </h1>
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result) => (
-                        <div 
-                            onClick={ () => getProperty(result)}
-                            key={result.siteID}>
+                        <div
+                            onClick={() => getProperty(result)}
+                            key={result.siteID}
+                        >
                             <AddressCard
                                 address={result.fullAddress.split(', ')[0]}
                                 city={result.fullAddress.split(', ')[1]}
+                                siteId={result.siteID}
+                                selected={selected}
                             />
                         </div>
                     ))}
