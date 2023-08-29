@@ -1,31 +1,11 @@
-import PropTypes from 'prop-types'
-
 import styles from './SearchResults.module.css'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import AddressCard from '../Address Card/index'
-import Endpoints from '../../apiManager/endpoints'
+import LoadingIcon from '../../assets/svgs/LoadingIcon'
+import LoadingScreen from '../LoadingScreen'
+import Content from '../../content.json'
 
-export default function SearchResults({ searchString }) {
-    const [results, setResults] = useState(null)
-
-    let address = searchString?.toLowerCase()
-
-    useEffect(() => {
-        axios
-            .get(`${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`, {
-                mode: 'cors',
-                withCredentials: false,
-            })
-            .then((response) => {
-                setResults(response?.data?.results)
-            })
-            .catch((error) => {
-                console.error(error)
-            })
-    }, [])
-
-    if (!results) {
+export default function SearchResults({ results, isLoading }) {
+    if (!results || isLoading) {
         return (
             <div>
                 <h1
@@ -34,17 +14,33 @@ export default function SearchResults({ searchString }) {
                 >
                     0 addresses found.
                 </h1>
+                <div>
+                    {isLoading && (
+                        <LoadingScreen
+                            loadingText=""
+                            loaderIcon={<LoadingIcon />}
+                        />
+                    )}
+                </div>
             </div>
         )
-    } else if (results) {
+    } else if (results && !isLoading) {
         return (
             <div>
                 <h1
                     data-testid="searchResultTitle"
                     className={`${styles.searchResultTitle}`}
                 >
-                    {results?.length} addresses found.
+                    {results?.length}{Content.searchResults.addressesFound}
                 </h1>
+                {/* <div>
+                    {isLoading && (
+                        <LoadingScreen
+                            loadingText=""
+                            loaderIcon={<LoadingIcon />}
+                        />
+                    )}
+                </div> */}
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result) => (
                         <AddressCard
@@ -61,13 +57,9 @@ export default function SearchResults({ searchString }) {
                             : styles.hiddenScrollMsg
                     }`}
                 >
-                    Scroll down to view more results
+                    {Content.searchResults.scrollMessage}
                 </div>
             </div>
         )
     }
-}
-
-SearchResults.propTypes = {
-    searchString: PropTypes.string,
 }

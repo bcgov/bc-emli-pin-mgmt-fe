@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Endpoints from '../endpoints/index'
-// import UserService from 'services/userService';
 
 // GET request example
 const GetRequest = (url, params = {}, headers = {}) => {
@@ -13,6 +12,16 @@ const GetRequest = (url, params = {}, headers = {}) => {
             // ...headers,
         },
     })
+}
+
+const getSearchResults = (address) => {
+    return axios.get(
+        `${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`,
+        {
+            mode: 'cors',
+            withCredentials: false,
+        }
+    )
 }
 
 // POST request example
@@ -96,6 +105,7 @@ const HttpRequest = {
     OSSGetRequest,
     OSSPutRequest,
     expirePIN,
+    getSearchResults,
 }
 
 export default HttpRequest

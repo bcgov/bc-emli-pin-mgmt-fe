@@ -1,0 +1,24 @@
+.loading {
+    padding-bottom: 64px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingImg {
+    margin-bottom: 16px;
+	margin-top: 16px;
+    animation: rotating 2s linear infinite;
+}
