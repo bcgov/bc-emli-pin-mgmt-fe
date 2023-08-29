@@ -34,9 +34,14 @@
     color: #234075;
 }
 
-/* .secondry{
-
-} */
+.secondary{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 133.333% */
+    border-radius: 4px;
+    padding: 7px 16px;
+}
 
 .BCGovPrimaryButton {
     background-color: #003366;

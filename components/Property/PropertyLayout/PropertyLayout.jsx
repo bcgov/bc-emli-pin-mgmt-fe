@@ -49,6 +49,10 @@ export default function PropertyLayout() {
             <div className="homePropertySearchWrap">
                 <PropertySearch getSearchString={getSearchString} />
             </div>
+            {/* for development */}
+            <PropertyDetails 
+                            searchResultLayout={false} 
+                            displayDetails={true}/>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
                     <div className={`${Styles.seachResultWrap}`}>
