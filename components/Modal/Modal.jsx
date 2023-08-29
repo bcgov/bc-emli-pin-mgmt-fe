@@ -17,13 +17,18 @@ export default function Modal({
     ariaModalLabels,
     modalMainBtn,
     modalSecondaryBtn,
+    variant,
     ...props
 }) {
     return (
         <>
             {isOpen && (
                 <div {...testAttr(modalId)} className={styles.overlay}>
-                    <div className={styles.container}>
+                    <div
+                        className={`${styles.container} ${
+                            variant ? styles[variant] : ''
+                        }`}
+                    >
                         {modalHeader && (
                             <div className={styles.header}>
                                 {modalHeader}

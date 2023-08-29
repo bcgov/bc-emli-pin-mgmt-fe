@@ -1,6 +1,5 @@
 import axios from 'axios'
-import Endpoints from '../endpoints'
-// import UserService from 'services/userService';
+import Endpoints from '../endpoints/index'
 
 // GET request example
 const GetRequest = (url, params = {}, headers = {}) => {
@@ -35,6 +34,10 @@ const PostRequest = (url, data = {}, params = {}) => {
             // 'tenant-id': `${sessionStorage.getItem('tenantId')}`,
         },
     })
+}
+
+const expirePIN = (data) => {
+    return axios.post(`${Endpoints.managePIN.EXPIRE_PIN}`, data)
 }
 
 // PUT request example
@@ -101,6 +104,7 @@ const HttpRequest = {
     DeleteRequest,
     OSSGetRequest,
     OSSPutRequest,
+    expirePIN,
     getSearchResults,
 }
 
