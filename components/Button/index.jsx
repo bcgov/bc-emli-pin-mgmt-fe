@@ -10,7 +10,7 @@ export const Button = ({
 	handleOnClick,
 	...props
 }) => {
-	const backgroundStyle = isDarkBackground ? Styles.dark : '' 
+	const backgroundStyle = isDarkBackground ? Styles.dark : Styles.light 
 	const buttonLevel = variant === 'primary' ? Styles.primary :  variant === 'secondary' ? Styles.primary : ''
     const className = Styles.btn + " " + buttonLevel + " " + backgroundStyle
 	return (
