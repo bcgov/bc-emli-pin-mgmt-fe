@@ -12,6 +12,7 @@ export default function PropertyLayout() {
         useState(true)
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
+    const [currentProperty, setProperty] = useState(null)
 
     const getSearchString = (newSearchString) => {
         setSearchString(newSearchString)
@@ -37,6 +38,14 @@ export default function PropertyLayout() {
         setShowPropertySearchHeader(false)
     }
 
+    function handleSearchResultClick(siteID){
+        getPropertyDetail(siteID)
+    }
+
+    function getPropertyDetail(siteID){
+        console.log(siteID)
+    }
+
     return (
         <>
             <div
@@ -49,21 +58,18 @@ export default function PropertyLayout() {
             <div className="homePropertySearchWrap">
                 <PropertySearch getSearchString={getSearchString} />
             </div>
-            {/* for development */}
-            <PropertyDetails 
-                            searchResultLayout={false} 
-                            displayDetails={true}/>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
                     <div className={`${Styles.seachResultWrap}`}>
                         <SearchResults
                             results={results}
                             isLoading={isLoading}
+                            handleClick={handleSearchResultClick}
                         />
                     </div>
                     <div>
                         <PropertyDetails 
-                            searchResultLayout={true} 
+                            searchResultLayout={false} 
                             resultCount= {results?.length}/>
                     </div>
                 </div>

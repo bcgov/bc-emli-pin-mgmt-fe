@@ -4,7 +4,10 @@ import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
 import Content from '../../content.json'
 
-export default function SearchResults({ results, isLoading }) {
+export default function SearchResults({ results, isLoading, handleClick }) {
+    function getProperty(property){
+        handleClick(property.siteID)
+    }
     if (!results || isLoading) {
         return (
             <div>
@@ -33,21 +36,16 @@ export default function SearchResults({ results, isLoading }) {
                 >
                     {results?.length}{Content.searchResults.addressesFound}
                 </h1>
-                {/* <div>
-                    {isLoading && (
-                        <LoadingScreen
-                            loadingText=""
-                            loaderIcon={<LoadingIcon />}
-                        />
-                    )}
-                </div> */}
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result) => (
-                        <AddressCard
-                            key={result.siteID}
-                            address={result.fullAddress.split(', ')[0]}
-                            city={result.fullAddress.split(', ')[1]}
-                        />
+                        <div 
+                            onClick={ () => getProperty(result)}
+                            key={result.siteID}>
+                            <AddressCard
+                                address={result.fullAddress.split(', ')[0]}
+                                city={result.fullAddress.split(', ')[1]}
+                            />
+                        </div>
                     ))}
                 </div>
                 <div
