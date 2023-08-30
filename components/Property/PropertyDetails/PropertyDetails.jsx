@@ -54,7 +54,7 @@ function PropertyDetails({
 						<PropertyIconSmall />
 						<span>{Content.propertyDetails.propertyDetails}</span>
 					</div>
-					<div className={`${Styles.content}` + " flex text-left"}>
+					<div className={`${Styles.content}` + " flex text-left justify-between"}>
 						<div className={`${Styles.item}`}>
 							<div className={`${Styles.title}`}>
 								{Content.propertyDetails.titleNumber}

@@ -3,7 +3,6 @@
     flex-direction: column;
     max-height: 800px;
     overflow: scroll;
-    width: 19.6875rem;
     overflow-x: hidden;
 }
 
@@ -20,7 +19,6 @@
     line-height: 1.75rem; /* 140% */
     border-bottom: #234075 1.5px solid;
     padding-bottom: 11px;
-    width: 19.6875rem;
     text-align: left;
 }
 
@@ -32,10 +30,25 @@
     font-weight: 400;
     line-height: 1rem; /* 133.333% */
     letter-spacing: 0.025rem;
-    width: 19.6875rem;
     padding-top: 21px;
 }
 
 .hiddenScrollMsg {
     display: none;
+}
+
+@media (min-width: 1260px) {
+    .searchResultTitle, 
+    .searchResultList,
+    .scrollMsg { 
+        width: 19.6875rem;
+    }
+}
+
+@media (max-width: 1260px) {
+    .searchResultTitle,
+    .searchResultList, 
+    .scrollMsg {
+        width: 263px;
+    }
 }

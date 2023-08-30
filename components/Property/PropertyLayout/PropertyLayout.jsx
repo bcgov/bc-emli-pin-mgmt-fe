@@ -85,7 +85,7 @@ export default function PropertyLayout() {
                     </div>
                     <div>
                         <PropertyDetails 
-                            displayDetails={showPropertyDetail} 
+                            displayDetails={true} 
                             resultCount= {results?.length}/>
                     </div>
                 </div>
