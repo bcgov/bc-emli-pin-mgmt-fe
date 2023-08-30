@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import styles from './AddressCard.module.css'
 import LocationDot from '../../assets/svgs/LocationDot'
 
-export default function AddressCard({ address, city, siteId, handleClick }) {
+export default function AddressCard({ address, city, siteId}) {
     return (
         // On click call api to use siteId to get property details
-        <button type="button" id={`${siteId}`} onClick={handleClick}>
+        <button type="button" id={`${siteId}`}>
             <div className={`${styles.addressCard}`}>
                 <div className={`${styles.icon}`}>
                     <LocationDot />

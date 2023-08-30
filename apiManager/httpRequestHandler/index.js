@@ -24,6 +24,17 @@ const getSearchResults = (address) => {
     )
 }
 
+// TODO: the role will be retrieved in BE
+const getPropertyDetail = (siteID, role) => {
+    return axios.get(
+        `${Endpoints.propertySearch.GET_PROPERTY_DETATIL} + "?siteID=" + ${siteID} + "&role="`,
+        {
+            mode: 'cors',
+            withCredentials: false,
+        }
+    )
+}
+
 // POST request example
 const PostRequest = (url, data = {}, params = {}) => {
     return axios.post(url, data, {
@@ -106,6 +117,7 @@ const HttpRequest = {
     OSSPutRequest,
     expirePIN,
     getSearchResults,
+    getPropertyDetail, 
 }
 
 export default HttpRequest
