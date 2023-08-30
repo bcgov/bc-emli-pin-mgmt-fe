@@ -43,11 +43,8 @@ export default function SearchResults({ results, isLoading, handleClick }) {
                     {Content.searchResults.addressesFound}
                 </h1>
                 <div className={`${styles.searchResultList}`}>
-                    {results?.map((result) => (
-                        <div
-                            onClick={() => getProperty(result)}
-                            key={result.siteID}
-                        >
+                    {results?.map((result, i) => (
+                        <div onClick={() => getProperty(result)} key={i}>
                             <AddressCard
                                 address={result.fullAddress.split(', ')[0]}
                                 city={result.fullAddress.split(', ')[1]}
@@ -57,6 +54,7 @@ export default function SearchResults({ results, isLoading, handleClick }) {
                         </div>
                     ))}
                 </div>
+
                 <div
                     className={`${
                         results?.length > 8

@@ -28,5 +28,4 @@ AddressCard.propTypes = {
     city: PropTypes.string,
     siteId: PropTypes.string,
     handleClick: PropTypes.func,
-    // selected: PropTypes.bool,
 }

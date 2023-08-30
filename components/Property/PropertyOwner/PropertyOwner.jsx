@@ -13,17 +13,19 @@ import HttpRequest from '../../../apiManager/httpRequestHandler'
 
 function PropertyOwner({ fullName, mailingAddress, livePinId }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
+    const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] =
+        useState(false)
     const [pinHistory, setPinHistory] = useState(null)
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
             .then((response) => {
-                console.log(response.data.logs)
                 setPinHistory(response.data.logs)
-                console.log('getting pin history')
                 setOpenPINHistoryModal(true)
             })
-            .catch((error) => {})
+            .catch((error) => {
+                setOpenPINHistoryFailureModal(true)
+            })
     }
 
     return (
@@ -72,20 +74,29 @@ function PropertyOwner({ fullName, mailingAddress, livePinId }) {
                         onClickHandler: () => setOpenPINHistoryModal(false),
                     }}
                 >
-                    <ViewPINHistory
-                        pinHistory={pinHistory}
-                        // pinHistory={[
-                        //     {
-                        //         expiredByName: 'Test Test',
-                        //         expiredByUsername: 'testtest',
-                        //         updatedAt: 'Jan 1',
-                        //         action: 'Test Action',
-                        //         updatedAt: 'Test Type',
-                        //         sentToPhone: '41612131234',
-                        //         sentToEmail: 'Test@test.ca',
-                        //     },
-                        // ]}
-                    />
+                    <ViewPINHistory pinHistory={pinHistory} />
+                </Modal>
+                <Modal
+                    modalHeader="Viewing PIN history failed"
+                    modalId="pin-history-failure-modal"
+                    isOpen={openPINHistoryFailureModal}
+                    setIsOpen={setOpenPINHistoryFailureModal}
+                    variant="error"
+                    modalMainBtn={{
+                        text: `Retry`,
+                        size: 'medium',
+                        variant: 'primary',
+                        onClickHandler: () => getPINHistory(),
+                    }}
+                    modalSecondaryBtn={{
+                        text: `Cancel`,
+                        size: 'medium',
+                        variant: 'primary',
+                        onClickHandler: () =>
+                            setOpenPINHistoryFailureModal(false),
+                    }}
+                >
+                    There was a problem. Try again later.
                 </Modal>
             </div>
         </div>

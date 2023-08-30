@@ -9,9 +9,7 @@ import PhoneIcon from '../../../assets/svgs/PhoneIcon'
 import EmailIcon from '../../../assets/svgs/EmailIcon'
 
 export default function ViewPINHistory({ pinHistory }) {
-    console.log(pinHistory[0].updatedAt)
-
-    function dateFormatter() {}
+    // console.log(pinHistory[0].updatedAt)
 
     return (
         <div className={`${styles.pinHistoryTable} ${styles.scrollable}`}>
@@ -82,18 +80,4 @@ export default function ViewPINHistory({ pinHistory }) {
             </table>
         </div>
     )
-}
-
-ViewPINHistory.propTypes = {
-    // pinHistory: PropTypes.arrayOf(
-    //     PropTypes.shape({
-    //         updatedBy: PropTypes.string.isRequired,
-    //         username: PropTypes.string.isRequired,
-    //         modifiedOn: PropTypes.string,
-    //         action: PropTypes.string.isRequired,
-    //         type: PropTypes.string.isRequired,
-    //         notificationViaPhone: PropTypes.string,
-    //         notificationViaEmail: PropTypes.string,
-    //     })
-    // ),
 }
