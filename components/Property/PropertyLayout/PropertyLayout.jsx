@@ -46,6 +46,8 @@ export default function PropertyLayout() {
 
     function getPropertyDetail(siteID){
         setLoading(true)
+        // TODO: the role will be retrieved in BE
+        // TO BE REMOVED
         const role = "SuperAdmin"
         
         HttpRequest.getPropertyDetail(siteID, role)
