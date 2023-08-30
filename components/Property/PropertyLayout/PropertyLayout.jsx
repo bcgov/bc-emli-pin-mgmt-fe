@@ -13,6 +13,7 @@ export default function PropertyLayout() {
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
     const [currentProperty, setProperty] = useState(null)
+    const [showPropertyDetail, setShowPropertyDetail] = useState(false)
 
     const getSearchString = (newSearchString) => {
         setSearchString(newSearchString)
@@ -40,10 +41,23 @@ export default function PropertyLayout() {
 
     function handleSearchResultClick(siteID){
         getPropertyDetail(siteID)
+        setShowPropertyDetail(currentProperty == null ? false : true)
     }
 
     function getPropertyDetail(siteID){
-        console.log(siteID)
+        setLoading(true)
+        const role = "SuperAdmin"
+        
+        HttpRequest.getPropertyDetail(siteID, role)
+            .then((response) => {
+                setShowPropertyDetail(response?.data)
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.error(error)
+                setLoading(false)
+            })
+        console.log(currentProperty);
     }
 
     return (
@@ -69,7 +83,7 @@ export default function PropertyLayout() {
                     </div>
                     <div>
                         <PropertyDetails 
-                            searchResultLayout={false} 
+                            displayDetails={showPropertyDetail} 
                             resultCount= {results?.length}/>
                     </div>
                 </div>

@@ -11,7 +11,6 @@ import PropTypes from 'prop-types'
 import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon';
 import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 function PropertyDetails({
-	searchResultLayout,
 	resultCount,
 	displayDetails
 }) {
@@ -32,17 +31,12 @@ function PropertyDetails({
 			id: 2,
 			fullName: Content.propertyDetails.testFullName2,
 			mailingAddress: Content.propertyDetails.testMailingAddress2
-		}, 
-		{
-			id: 3,
-			fullName: Content.propertyDetails.testFullName2,
-			mailingAddress: Content.propertyDetails.testMailingAddress2
 		}
 	]
 	
-	const layoutClass = searchResultLayout ? 
-		Styles.propertyDetailsWrap + " " + Styles.paddingSmall :
-		Styles.propertyDetailsWrap + " " + Styles.paddingLarge
+	const layoutClass = displayDetails ? 
+		Styles.propertyDetailsWrap + " " + Styles.paddingLarge : 
+		Styles.propertyDetailsWrap + " " + Styles.paddingSmall 
 
 	if (displayDetails) {
 		return (
@@ -139,17 +133,13 @@ function PropertyDetails({
 
 
 PropertyDetails.protoTypes = {
-	searchResultLayout: PropTypes.boolean,
 	resultCount: PropTypes.number,
 	displayDetails: PropTypes.boolean
 
 }
 
 PropertyDetails.defaultProps = {
-	searchResultLayout: true,
 	resultCount: 1,
-	displayDetails: true
-
 }
 
 export default PropertyDetails;

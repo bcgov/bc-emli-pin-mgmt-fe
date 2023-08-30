@@ -15,7 +15,7 @@ export default function SearchResults({ results, isLoading, handleClick }) {
                     data-testid="searchResultTitle"
                     className={`${styles.searchResultTitle}`}
                 >
-                    0 addresses found.
+                    {Content.searchResults.noAddressFound}
                 </h1>
                 <div>
                     {isLoading && (
