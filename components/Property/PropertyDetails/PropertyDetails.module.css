@@ -2,6 +2,7 @@
 .propertyDetailsWrap{
     background-color: #F1F1F1;
     min-width: 600px;
+    width: 857px;
 }
 
 .paddingLarge{
@@ -10,8 +11,8 @@
 }
 
 .paddingSmall{
-    padding: 32px 44px;
     min-height: 857px;
+    opacity: 0.6;
 }
 
 .noResultMsgWrap{
@@ -104,6 +105,7 @@
     font-weight: 700;
     line-height: 28px; /* 140% */
     color: #005C97;
+    margin-bottom: 19px;
 }
 
 .sectionTitle{
