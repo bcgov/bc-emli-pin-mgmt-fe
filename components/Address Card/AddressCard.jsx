@@ -3,11 +3,14 @@ import PropTypes from 'prop-types'
 import styles from './AddressCard.module.css'
 import LocationDot from '../../assets/svgs/LocationDot'
 
-export default function AddressCard({ address, city, siteId}) {
+export default function AddressCard({ address, city, siteId, selected }) {
     return (
         // On click call api to use siteId to get property details
         <button type="button" id={`${siteId}`}>
-            <div className={`${styles.addressCard}`}>
+            <div
+                className={`${styles.addressCard} 
+                ${selected === siteId ? styles.selectedColour : ''}`}
+            >
                 <div className={`${styles.icon}`}>
                     <LocationDot />
                 </div>
@@ -25,4 +28,5 @@ AddressCard.propTypes = {
     city: PropTypes.string,
     siteId: PropTypes.string,
     handleClick: PropTypes.func,
+    // selected: PropTypes.bool,
 }
