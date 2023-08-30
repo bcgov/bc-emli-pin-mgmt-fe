@@ -9,9 +9,12 @@ import PhoneIcon from '../../../assets/svgs/PhoneIcon'
 import EmailIcon from '../../../assets/svgs/EmailIcon'
 
 export default function ViewPINHistory({ pinHistory }) {
-    console.log(pinHistory[0].date)
+    console.log(pinHistory[0].updatedAt)
+
+    function dateFormatter() {}
+
     return (
-        <div className={`${styles.pinHistoryTable}`}>
+        <div className={`${styles.pinHistoryTable} ${styles.scrollable}`}>
             <table>
                 <thead>
                     <tr>
@@ -33,29 +36,43 @@ export default function ViewPINHistory({ pinHistory }) {
                         <tr key={i}>
                             <td className={`${styles.numberRow}`}>{i + 1}</td>
                             <td className={`${styles.updatedByRow}`}>
-                                {row.updatedBy}
+                                {row.expiredByName}
                             </td>
                             <td className={`${styles.usernameRow}`}>
-                                {row.username}
+                                {row.expiredByUsername}
                             </td>
                             <td className={`${styles.modifiedOnRow}`}>
-                                {row.modifiedOn.toString()}
+                                {new Date(row.updatedAt)
+                                    .toISOString()
+                                    .split('T')[0] +
+                                    ' ' +
+                                    new Date(row.updatedAt)
+                                        .toISOString()
+                                        .split('T')[1]
+                                        .split(':')[0] +
+                                    ':' +
+                                    new Date(row.updatedAt)
+                                        .toISOString()
+                                        .split('T')[1]
+                                        .split(':')[1]}
                             </td>
                             <td className={`${styles.actionRow}`}>
                                 {row.action}
                             </td>
-                            <td className={`${styles.typeRow}`}>{row.type}</td>
+                            <td className={`${styles.typeRow}`}>
+                                {row.expirationReason}
+                            </td>
                             <td className={`${styles.notificationViaRow}`}>
-                                {row.notificationViaPhone && (
+                                {row.sentToPhone && (
                                     <div>
                                         <PhoneIcon />
-                                        {row.notificationViaPhone}
+                                        {row.sentToPhone}
                                     </div>
                                 )}
-                                {row.notificationViaPhone && (
+                                {row.sentToEmail && (
                                     <div>
                                         <EmailIcon />
-                                        {row.notificationViaEmail}
+                                        {row.sentToEmail}
                                     </div>
                                 )}
                             </td>
@@ -68,15 +85,15 @@ export default function ViewPINHistory({ pinHistory }) {
 }
 
 ViewPINHistory.propTypes = {
-    pinHistory: PropTypes.arrayOf(
-        PropTypes.shape({
-            updatedBy: PropTypes.string.isRequired,
-            username: PropTypes.string.isRequired,
-            modifiedOn: PropTypes.string,
-            action: PropTypes.string.isRequired,
-            type: PropTypes.string.isRequired,
-            notificationViaPhone: PropTypes.string,
-            notificationViaEmail: PropTypes.string,
-        })
-    ),
+    // pinHistory: PropTypes.arrayOf(
+    //     PropTypes.shape({
+    //         updatedBy: PropTypes.string.isRequired,
+    //         username: PropTypes.string.isRequired,
+    //         modifiedOn: PropTypes.string,
+    //         action: PropTypes.string.isRequired,
+    //         type: PropTypes.string.isRequired,
+    //         notificationViaPhone: PropTypes.string,
+    //         notificationViaEmail: PropTypes.string,
+    //     })
+    // ),
 }

@@ -33,14 +33,6 @@ export default function SearchResults({ results, isLoading }) {
                 >
                     {results?.length}{Content.searchResults.addressesFound}
                 </h1>
-                {/* <div>
-                    {isLoading && (
-                        <LoadingScreen
-                            loadingText=""
-                            loaderIcon={<LoadingIcon />}
-                        />
-                    )}
-                </div> */}
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result) => (
                         <AddressCard

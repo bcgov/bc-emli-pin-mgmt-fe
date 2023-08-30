@@ -24,6 +24,13 @@ const getSearchResults = (address) => {
     )
 }
 
+const getPINHistory = (livePinId) => {
+    return axios.get(`${Endpoints.managePIN.VIEW_PIN_HISTORY}${livePinId}`, {
+        mode: 'cors',
+        withCredentials: false,
+    })
+}
+
 // POST request example
 const PostRequest = (url, data = {}, params = {}) => {
     return axios.post(url, data, {
@@ -106,6 +113,7 @@ const HttpRequest = {
     OSSPutRequest,
     expirePIN,
     getSearchResults,
+    getPINHistory,
 }
 
 export default HttpRequest

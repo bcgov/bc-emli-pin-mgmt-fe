@@ -1,30 +1,9 @@
-import ViewPINHistory from '../components/Property/ViewPINHistory'
+import PropertyOwner from '../components/Property/PropertyOwner/PropertyOwner'
 
 export default function TestPage() {
     return (
         <div>
-            <ViewPINHistory
-                pinHistory={[
-                    {
-                        updatedBy: 'Test Test',
-                        username: 'testtest',
-                        modifiedOn: 'Jan 1',
-                        action: 'Test Action',
-                        type: 'Test Type',
-                        notificationViaPhone: '41612131234',
-                        notificationViaEmail: 'Test@test.ca',
-                    },
-                    {
-                        updatedBy: 'Test Test',
-                        username: 'testtest',
-                        modifiedOn: 'Jan 1',
-                        action: 'Test Action',
-                        type: 'Test Type',
-                        notificationViaPhone: '41612131234',
-                        notificationViaEmail: 'Test@test.ca',
-                    },
-                ]}
-            />
+            <PropertyOwner livePinId={'bc7140ec-9f7b-4dde-960a-9ae9438318b1'} />
         </div>
     )
 }
