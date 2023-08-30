@@ -1,11 +1,14 @@
-.footerSection{
+.footerSectionWrap{
 	border-top: 2px solid #FCBA19;
+}
+
+.footerSection{
 	width: 100%;
 	height: 75px;
-	background-color: #003366;
 	display: flex;
 	align-items: center;
 	padding: 0 50px;
+	max-width: 1440px;
 }
 
 .footerSection .linkWrap{

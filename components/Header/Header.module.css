@@ -1,6 +1,12 @@
-.headerSection{
+
+
+.headerSectionWrap{
 	border-bottom: 2px solid #FCBA19;
+}
+
+.headerSection{
 	width: 100%;
+	max-width: 1440px;
 	background-color: #003366;
 	padding: 0 50px;
 }

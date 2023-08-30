@@ -8,15 +8,17 @@ export default function Footer ({
 }) {
 
 	return (
-		<div className={`${Styles.footerSection}`}>
-			{
-				links.map((item) => (
-					// eslint-disable-next-line react/jsx-key
-					<div className={`${Styles.linkWrap}`} key={item.index}>
-						<Link href='{item.href}'>{item.name}</Link>
-					</div>
-				))
-			}
+		<div className={`${Styles.footerSectionWrap}` + " headerFooterWrap flex justify-center"}>
+			<div className={`${Styles.footerSection}`}>
+				{
+					links.map((item) => (
+						// eslint-disable-next-line react/jsx-key
+						<div className={`${Styles.linkWrap}`} key={item.index}>
+							<Link href='{item.href}'>{item.name}</Link>
+						</div>
+					))
+				}
+			</div>
 		</div>
 	)
 }
