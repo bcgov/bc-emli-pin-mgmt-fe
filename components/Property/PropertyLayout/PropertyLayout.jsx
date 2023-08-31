@@ -39,20 +39,19 @@ export default function PropertyLayout() {
         setShowPropertySearchHeader(false)
     }
 
-    function handleSearchResultClick(siteID) {
+    function handleSearchResultClick(siteID){
         getPropertyDetail(siteID)
         setShowPropertyDetail(currentProperty == null ? false : true)
     }
 
-    function getPropertyDetail(siteID) {
+    function getPropertyDetail(siteID){
         setLoading(true)
         // TODO: the role will be retrieved in BE
         // TO BE REMOVED
-        const role = 'SuperAdmin'
+        const role = "SuperAdmin"
 
         HttpRequest.getPropertyDetail(siteID, role)
             .then((response) => {
-                console.log(response)
                 setShowPropertyDetail(response?.data)
                 setLoading(false)
             })
@@ -60,7 +59,6 @@ export default function PropertyLayout() {
                 console.error(error)
                 setLoading(false)
             })
-        console.log(currentProperty)
     }
 
     return (
@@ -76,12 +74,7 @@ export default function PropertyLayout() {
                 <PropertySearch getSearchString={getSearchString} />
             </div>
             {searchString && (
-                <div
-                    className={
-                        `${Styles.propertyResultWrap}` +
-                        ' flex justify-center content-center'
-                    }
-                >
+                <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
                     <div className={`${Styles.seachResultWrap}`}>
                         <SearchResults
                             results={results}
@@ -92,8 +85,7 @@ export default function PropertyLayout() {
                     <div>
                         <PropertyDetails
                             displayDetails={showPropertyDetail}
-                            resultCount={results?.length}
-                        />
+                            resultCount={results?.length}/>
                     </div>
                 </div>
             )}
