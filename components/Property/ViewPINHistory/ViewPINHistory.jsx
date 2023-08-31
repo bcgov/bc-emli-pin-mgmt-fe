@@ -9,23 +9,58 @@ import PhoneIcon from '../../../assets/svgs/PhoneIcon'
 import EmailIcon from '../../../assets/svgs/EmailIcon'
 
 export default function ViewPINHistory({ pinHistory }) {
-    // console.log(pinHistory[0].updatedAt)
+    function formatType(type) {
+        if (type === 'OP') {
+            return Content.pinHistoryModal.types.optOut
+        } else if (type === 'CC') {
+            return Content.pinHistoryModal.types.callCenter
+        } else if (type === 'OR') {
+            return Content.pinHistoryModal.types.onlineReset
+        } else if (type === 'CO') {
+            return Content.pinHistoryModal.types.changeOfOwnership
+        } else {
+            return type
+        }
+    }
+
+    function formatAction(action) {
+        if (action === 'D') {
+            return Content.pinHistoryModal.actions.deleted
+        } else if (action === 'C') {
+            return Content.pinHistoryModal.actions.created
+        } else if (action === 'R') {
+            return Content.pinHistoryModal.actions.recreated
+        }
+    }
 
     return (
         <div className={`${styles.pinHistoryTable} ${styles.scrollable}`}>
             <table>
                 <thead>
                     <tr>
-                        <th className={`${styles.numberRow}`}>#</th>
-                        <th className={`${styles.updatedByRow}`}>Updated by</th>
-                        <th className={`${styles.usernameRow}`}>Username</th>
-                        <th className={`${styles.modifiedOnRow}`}>
-                            Modified on
+                        <th className={`${styles.numberRow}`}>
+                            {Content.pinHistoryModal.table.numberColumn}
                         </th>
-                        <th className={`${styles.actionRow}`}>Action</th>
-                        <th className={`${styles.typeRow}`}>Type</th>
+                        <th className={`${styles.updatedByRow}`}>
+                            {Content.pinHistoryModal.table.UpdatedByColumn}
+                        </th>
+                        <th className={`${styles.usernameRow}`}>
+                            {Content.pinHistoryModal.table.UsernameColumn}
+                        </th>
+                        <th className={`${styles.modifiedOnRow}`}>
+                            {Content.pinHistoryModal.table.ModifiedOnColumn}
+                        </th>
+                        <th className={`${styles.actionRow}`}>
+                            {Content.pinHistoryModal.table.ActionColumn}
+                        </th>
+                        <th className={`${styles.typeRow}`}>
+                            {Content.pinHistoryModal.table.TypeColumn}
+                        </th>
                         <th className={`${styles.notificationViaRow}`}>
-                            Notification Via
+                            {
+                                Content.pinHistoryModal.table
+                                    .NotificationViaColumn
+                            }
                         </th>
                     </tr>
                 </thead>
@@ -55,24 +90,25 @@ export default function ViewPINHistory({ pinHistory }) {
                                         .split(':')[1]}
                             </td>
                             <td className={`${styles.actionRow}`}>
-                                {row.action}
+                                {formatAction(row.action)}
                             </td>
                             <td className={`${styles.typeRow}`}>
-                                {row.expirationReason}
+                                {formatType(row.expirationReason)}
                             </td>
                             <td className={`${styles.notificationViaRow}`}>
-                                {row.sentToPhone && (
-                                    <div>
-                                        <PhoneIcon />
-                                        {row.sentToPhone}
-                                    </div>
-                                )}
-                                {row.sentToEmail && (
-                                    <div>
-                                        <EmailIcon />
-                                        {row.sentToEmail}
-                                    </div>
-                                )}
+                                {row?.sentToPhone ||
+                                    (row?.sentToEmail && (
+                                        <div>
+                                            <div>
+                                                <PhoneIcon />
+                                                {row?.sentToPhone}
+                                            </div>
+                                            <div>
+                                                <EmailIcon />
+                                                <span>{row?.sentToEmail}</span>
+                                            </div>
+                                        </div>
+                                    ))}
                             </td>
                         </tr>
                     ))}

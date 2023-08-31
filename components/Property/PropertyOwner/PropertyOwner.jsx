@@ -63,12 +63,12 @@ function PropertyOwner({ fullName, mailingAddress, livePinId }) {
                     </Button>
                 </div>
                 <Modal
-                    modalHeader="View PIN History"
+                    modalHeader={Content.pinHistoryModal.title}
                     modalId="pin-history-modal"
                     isOpen={openPINHistoryModal}
                     setIsOpen={setOpenPINHistoryModal}
                     modalMainBtn={{
-                        text: `Close`,
+                        text: Content.pinHistoryModal.primaryButton,
                         size: 'medium',
                         variant: 'primary',
                         onClickHandler: () => setOpenPINHistoryModal(false),
@@ -77,26 +77,26 @@ function PropertyOwner({ fullName, mailingAddress, livePinId }) {
                     <ViewPINHistory pinHistory={pinHistory} />
                 </Modal>
                 <Modal
-                    modalHeader="Viewing PIN history failed"
+                    modalHeader={Content.pinHistoryFailureModal.title}
                     modalId="pin-history-failure-modal"
                     isOpen={openPINHistoryFailureModal}
                     setIsOpen={setOpenPINHistoryFailureModal}
                     variant="error"
                     modalMainBtn={{
-                        text: `Retry`,
+                        text: Content.pinHistoryFailureModal.primaryButton,
                         size: 'medium',
                         variant: 'primary',
                         onClickHandler: () => getPINHistory(),
                     }}
                     modalSecondaryBtn={{
-                        text: `Cancel`,
+                        text: Content.pinHistoryFailureModal.secondaryButton,
                         size: 'medium',
                         variant: 'primary',
                         onClickHandler: () =>
                             setOpenPINHistoryFailureModal(false),
                     }}
                 >
-                    There was a problem. Try again later.
+                    {Content.pinHistoryFailureModal.body}
                 </Modal>
             </div>
         </div>
