@@ -33,13 +33,6 @@ const getPINHistory = (livePinId) => {
 
 // TODO: the role will be retrieved in BE
 const getPropertyDetail = (siteID, role) => {
-    // return axios.get(
-    //     `${Endpoints.propertySearch.GET_PROPERTY_DETATIL} + "?siteID=" + ${siteID} + "&role=" + ${role}`,
-    //     {
-    //         mode: 'cors',
-    //         withCredentials: false,
-    //     }
-    // )
     return axios.get(
         `${Endpoints.propertySearch.GET_PROPERTY_DETATIL}?siteID=${siteID}&role=${role}`,
         {
