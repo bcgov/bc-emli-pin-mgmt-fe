@@ -2,8 +2,7 @@
 .ownerInfoCardWrap{
     border-top: 6px solid #005C97;
     background-color: #FFFFFF;
-    height: 197px;
-    padding: 17px 21px;
+    padding: 17px 21px 27px;
 }
 
 .ownerInfoCardWrap:not(:last-child){
@@ -17,6 +16,20 @@
     line-height: 28px; /* 140% */
     color: #005C97;
     margin-bottom: 19px;
+}
+
+@media (min-width: 1260px) {
+    .infoDetailWrap:first-child {
+        margin-right: 24px;
+        width: 262px;
+    }
+}
+
+@media (max-width: 1260px) {
+    .infoDetailWrap:first-child {
+        margin-right: 24px;
+        width: 157px;
+    }
 }
 
 .infoDetailWrap .title{

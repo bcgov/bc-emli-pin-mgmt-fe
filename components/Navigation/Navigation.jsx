@@ -11,7 +11,7 @@ function Navigation ({
 }) {
 
 	return (
-		<>
+		<div className={`${Styles.navigationSectionWrap}` + ' flex justify-center'}>
 			<div className={`${Styles.navigationSection}`}>
 				{
 					links.map((item) => (
@@ -22,7 +22,7 @@ function Navigation ({
 					))
 				}
 			</div>
-		</>
+		</div>
 	)
 }
 
