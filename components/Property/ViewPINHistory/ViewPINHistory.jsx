@@ -65,7 +65,7 @@ export default function ViewPINHistory({ pinHistory }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {pinHistory.map((row, i) => (
+                    {pinHistory?.map((row, i) => (
                         <tr key={i}>
                             <td className={`${styles.numberRow}`}>{i + 1}</td>
                             <td className={`${styles.updatedByRow}`}>
