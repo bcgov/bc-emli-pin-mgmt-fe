@@ -1,6 +1,16 @@
-.contentWrap{
-    padding-top: 93px;
-    margin-bottom: 36px;
+
+@media (min-width: 1260px) {
+    .contentWrap{
+        padding-top: 93px;
+        margin-bottom: 36px;
+    }
+}
+
+@media (max-width: 1260px){
+    .contentWrap {
+        padding-top: 318px;
+        margin-bottom: 104px;
+    }
 }
 
 .propertyIconWrap{
@@ -22,3 +32,5 @@
     line-height: 28px; /* 140% */
     color: #005C97;
 }
+
+

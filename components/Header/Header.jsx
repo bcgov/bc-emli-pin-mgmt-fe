@@ -14,36 +14,38 @@ function Header  ({
 })  {
 
 	return (
-		<div className={`${Styles.headerSection}`}>
-			<div className={`${Styles.logoBanner}`}>
-				<div className={`${Styles.left}`}>
-					<div className={`${Styles.imageWrap}`}>
-						<CleanBCLogo />
-					</div>
-					<div className={`${Styles.title}`}>
-						{title}
-					</div>
-				</div>
-				<div className={`${Styles.right}`}>
-					<div className={`${Styles.userSection}`}>
-						<div className={`${Styles.userImageWrap}`}>
-							<UserIcon />
+		<div className={`${Styles.headerSectionWrap}` + " headerFooterWrap flex justify-center"}>
+			<div className={`${Styles.headerSection}`}>
+				<div className={`${Styles.logoBanner}`}>
+					<div className={`${Styles.left}`}>
+						<div className={`${Styles.imageWrap}`}>
+							<CleanBCLogo />
 						</div>
-						<div className={`${Styles.userNameWrap}`}>
-							{userName}
+						<div className={`${Styles.title}`}>
+							{title}
 						</div>
 					</div>
-					<div className={`${Styles.helpSection}`}>
-						<div className={`${Styles.iconWrap}`}>
-							<QuestionIcon />
+					<div className={`${Styles.right}`}>
+						<div className={`${Styles.userSection}`}>
+							<div className={`${Styles.userImageWrap}`}>
+								<UserIcon />
+							</div>
+							<div className={`${Styles.userNameWrap}`}>
+								{userName}
+							</div>
 						</div>
-						<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
+						<div className={`${Styles.helpSection}`}>
+							<div className={`${Styles.iconWrap}`}>
+								<QuestionIcon />
+							</div>
+							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
+						</div>
+						<div className={`${Styles.helpSection}`}>
+							<button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
+								{Text.header.logout}
+							</button>
+						</div>
 					</div>
-          <div className={`${Styles.helpSection}`}>
-            <button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
-              {Text.header.logout}
-            </button>
-          </div>
 				</div>
 			</div>
 		</div>

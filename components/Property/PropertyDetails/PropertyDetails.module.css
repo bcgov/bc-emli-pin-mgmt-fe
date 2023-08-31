@@ -1,19 +1,40 @@
 
 .propertyDetailsWrap{
     background-color: #F1F1F1;
-    min-width: 600px;
-    width: 857px;
+    min-height: 913px;
 }
 
-.paddingLarge{
-    padding: 32px 110px;
-    min-height: 857px;
+@media (min-width: 1260px){
+    .propertyDetailsWrap{
+        width: 857px;
+    }
+
+    .paddingLarge{
+        padding: 32px 44px;
+    }
+    
+    .paddingSmall{
+        min-height: 857px;
+        opacity: 0.6;
+    }
 }
 
-.paddingSmall{
-    min-height: 857px;
-    opacity: 0.6;
+@media (max-width: 1260px) {
+    .propertyDetailsWrap{
+        width: 600px;
+    }
+
+    .paddingLarge{
+        padding: 28px 25px;
+    }
+    
+    .paddingSmall{
+        min-height: 857px;
+        opacity: 0.6;
+    }
+    
 }
+
 
 .noResultMsgWrap{
     margin-top: 36px;
@@ -67,10 +88,6 @@
     margin-top: 31px;
 }
 
-.propertyInfoWrap .content .item:not(:last-child){
-    margin-right: 45px;
-}
-
 .propertyInfoWrap .content .item .title{
     font-size: 16px;
     font-style: normal;
@@ -95,7 +112,7 @@
 }
 
 .ownershipWrap .ownerWrap{
-    padding: 5px 40px;
+    padding: 5px 0px 5px 40px;
 }
 
 .ownershipWrap .ownerWrap .title{
@@ -124,7 +141,6 @@
 .leftBuleBar{
     border-left: 8px solid #008FB4;
     padding-left: 19px;
-    padding-right: 27px;
     padding-top: 3px;
     padding-bottom: 5px;
 }

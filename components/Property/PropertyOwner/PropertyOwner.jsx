@@ -33,7 +33,7 @@ function PropertyOwner({ fullName, mailingAddress, livePinId }) {
             <div className={`${Styles.title}`}>
                 {Content.propertyDetails.owner}
             </div>
-            <div className="flex justify-items-start">
+            <div className="flex">
                 <div className={`${Styles.infoDetailWrap}`}>
                     <div className={`${Styles.title}`}>
                         {Content.propertyDetails.fullname}

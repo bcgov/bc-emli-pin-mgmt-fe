@@ -3,6 +3,15 @@
     padding: 48px 96px;
 }
 
-.seachResultWrap{
-    margin-right: 76px;
+
+@media (min-width: 1260px) {
+    .seachResultWrap{
+        margin-right: 76px;
+    }
+}
+
+@media (max-width: 1260px) {
+    .seachResultWrap{
+        margin-right: 23px;
+    }
 }
