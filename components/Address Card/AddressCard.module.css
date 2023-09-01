@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.selectedColour {
+    background-color: #ecf6ff;
+}
+
 .addressCard:hover,
 .addressCard:active {
     background: var(--primary-primary-0, #ecf6ff);

@@ -24,11 +24,13 @@ function PropertyDetails({
 	const ownerList = [
 		{
 			id: 1,
+			livePinId:'bc7140ec-9f7b-4dde-960a-9ae9438318b1',
 			fullName: Content.propertyDetails.testFullName1,
 			mailingAddress: Content.propertyDetails.testMailingAddress1
 		}, 
 		{
 			id: 2,
+			livePinId:'123',
 			fullName: Content.propertyDetails.testFullName2,
 			mailingAddress: Content.propertyDetails.testMailingAddress2
 		}
@@ -103,6 +105,7 @@ function PropertyDetails({
 								key={owner.id}
 								fullName={owner.fullName}
 								mailingAddress={owner.mailingAddress}
+								livePinId={owner.livePinId}
 								/>
 						))}
 					</div>

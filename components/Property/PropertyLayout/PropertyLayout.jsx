@@ -49,7 +49,7 @@ export default function PropertyLayout() {
         // TODO: the role will be retrieved in BE
         // TO BE REMOVED
         const role = "SuperAdmin"
-        
+
         HttpRequest.getPropertyDetail(siteID, role)
             .then((response) => {
                 setShowPropertyDetail(response?.data)
@@ -59,7 +59,6 @@ export default function PropertyLayout() {
                 console.error(error)
                 setLoading(false)
             })
-        console.log(currentProperty);
     }
 
     return (
@@ -84,9 +83,9 @@ export default function PropertyLayout() {
                         />
                     </div>
                     <div>
-                        <PropertyDetails 
-                            displayDetails={showPropertyDetail} 
-                            resultCount= {results?.length}/>
+                        <PropertyDetails
+                            displayDetails={showPropertyDetail}
+                            resultCount={results?.length}/>
                     </div>
                 </div>
             )}

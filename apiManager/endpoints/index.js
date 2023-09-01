@@ -7,12 +7,13 @@ const Endpoints = {
         GET_PROPERTY_DETATIL: `${process.env.NEXT_PUBLIC_BE_APP_URL}/properties/details`
     },
     managePIN: {
-      EXPIRE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/expire/`,
+        EXPIRE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/expire/`,
+        VIEW_PIN_HISTORY: `${process.env.NEXT_PUBLIC_BE_APP_URL}/audit-trails?livePinIds=`,
     },
     auth: {
-      LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,
-      LOGOUT: `${process.env.NEXT_PUBLIC_BE_APP_URL}/logout`,
-    }
+        LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,
+        LOGOUT: `${process.env.NEXT_PUBLIC_BE_APP_URL}/logout`,
+    },
 }
 
 export default Endpoints

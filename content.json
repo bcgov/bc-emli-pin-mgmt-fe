@@ -91,5 +91,35 @@
         "addressesFound": " addresses found.",
         "scrollMessage": "Scroll down to view more results", 
         "noAddressFound": "0 addresses found."
+    },
+    "pinHistoryModal": {
+        "title": "View PIN History",
+        "table": {
+            "numberColumn": "#",
+            "UpdatedByColumn": "Updated by",
+            "UsernameColumn": "Username",
+            "ModifiedOnColumn": "Modified on",
+            "ActionColumn": "Action",
+            "TypeColumn": "Type",
+            "NotificationViaColumn": "Notification via"
+        },
+        "actions": {
+            "deleted": "PIN deleted",
+            "created": "PIN created",
+            "recreated": "PIN recreated"
+        },
+        "types": {
+            "optOut": "Opt-out",
+            "callCenter": "Call center PIN reset",
+            "onlineReset": "Online PIN reset",
+            "changeOfOwnership": "Change of ownership"
+        },
+        "primaryButton": "Close"
+    },
+    "pinHistoryFailureModal": {
+        "title": "Viewing PIN history failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
     }
 }

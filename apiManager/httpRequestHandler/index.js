@@ -24,10 +24,17 @@ const getSearchResults = (address) => {
     )
 }
 
+const getPINHistory = (livePinId) => {
+    return axios.get(`${Endpoints.managePIN.VIEW_PIN_HISTORY}${livePinId}`, {
+        mode: 'cors',
+        withCredentials: false,
+    })
+}
+
 // TODO: the role will be retrieved in BE
 const getPropertyDetail = (siteID, role) => {
     return axios.get(
-        `${Endpoints.propertySearch.GET_PROPERTY_DETATIL} + "?siteID=" + ${siteID} + "&role="`,
+        `${Endpoints.propertySearch.GET_PROPERTY_DETATIL}?siteID=${siteID}&role=${role}`,
         {
             mode: 'cors',
             withCredentials: false,
@@ -117,7 +124,8 @@ const HttpRequest = {
     OSSPutRequest,
     expirePIN,
     getSearchResults,
-    getPropertyDetail, 
+    getPINHistory,
+    getPropertyDetail,
 }
 
 export default HttpRequest
