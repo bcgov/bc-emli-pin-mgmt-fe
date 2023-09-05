@@ -22,10 +22,10 @@ describe('Home', () => {
 describe('next-router-mock', () => {
   it('mocks the useRouter hook', () => {
     // Set the initial url:
-    mockRouter.push("/");
+    mockRouter.push("/home");
 
     // Render the component:
-    render(<Home href="/" />);
+    render(<Home href="/home" />);
     // expect(screen.getByRole('button')).toHaveText(
     //   'The current route is: "/initial-path"'
     // );
@@ -35,8 +35,8 @@ describe('next-router-mock', () => {
 
     // Ensure the router was updated:
     expect(mockRouter).toMatchObject({
-      asPath: "/",
-      pathname: "/",
+      asPath: "/home",
+      pathname: "/home",
       // query: { bar: "baz" },
     });
   });

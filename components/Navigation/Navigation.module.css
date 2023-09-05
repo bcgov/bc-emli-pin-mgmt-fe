@@ -14,24 +14,3 @@
 	max-width: 1440px;
 	width: 100%;
 }
-
-.navigationSection .linkWrap{
-	list-style-type: none;
-	width: 170px;
-	vertical-align: middle;
-	color: #FFFFFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-right: 8px;
-	border-bottom: 1px solid #C7C7C7;
-}
-
-.navigationSection .linkWrap .link{
-	text-decoration: none;
-	color: #FFFFFF;
-}
-
-.active{
-	border-bottom: 2px solid #FFFFFF !important;
-}
