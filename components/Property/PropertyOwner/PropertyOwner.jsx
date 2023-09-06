@@ -11,7 +11,7 @@ import ViewPINHistory from '../ViewPINHistory/ViewPINHistory'
 import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 
-function PropertyOwner({ fullName, mailingAddress, livePinId }) {
+function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
     const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] =
         useState(false)
@@ -49,7 +49,9 @@ function PropertyOwner({ fullName, mailingAddress, livePinId }) {
             </div>
             <div className={`${Styles.buttonWrap}` + ' flex justify-start'}>
                 <div className={`${Styles.buttonItem}`}>
-                    <ManagePINDropdown />
+                    <ManagePINDropdown 
+                        showPINOption={true} 
+                        livePIN={livePIN}/>
                 </div>
                 <div className={`${Styles.buttonItem}`}>
                     <Button

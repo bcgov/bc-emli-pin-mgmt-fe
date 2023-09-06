@@ -11,15 +11,23 @@ export default function ManagePINDropdown({
     expirationReason,
     expiredByName,
     expiredByUsername,
+    livePIN
 }) {
     const [openExpireConfirmationModal, setOpenExpireConfirmationModal] =
         useState()
     const [openExpireSuccessModal, setOpenExpireSuccessModal] = useState()
     const [openExpireFailureModal, setOpenExpireFailureModal] = useState()
+    const [openViewPINModal, setOpenViewPINModal] = useState()
+    const [openViewPINFailureModal, setOpenViewPINFailureModal] = useState()
+    const noLivePINMag = Content.viewPINModal.noLivePINMag
 
     function handleSelect(value) {
         if (value === 'expire-pin') {
             setOpenExpireConfirmationModal(true)
+        } else if (value === 'recreate-pin') {
+
+        } else if (value === 'view-pin') {
+            setOpenViewPINModal(true)
         }
     }
 
@@ -39,6 +47,9 @@ export default function ManagePINDropdown({
                 setOpenExpireFailureModal(true)
             })
     }
+
+    
+
 
     const options = [
         {
@@ -69,6 +80,7 @@ export default function ManagePINDropdown({
                 handleSelection={handleSelect}
             ></Dropdown>
 
+            {/* expire PIN modal section */}
             <Modal
                 modalHeader={Content.expirePINConfirmationModal.title}
                 modalId="expire-pin-confirmation-modal"
@@ -120,6 +132,32 @@ export default function ManagePINDropdown({
             >
                 {Content.expirePINFailureModal.body}
             </Modal>
+            {/* end expire PIN modal section */}
+
+            {/* view PIN modal section */}
+            <Modal
+                modalHeader={Content.viewPINModal.title}
+                modalId="view-pin-modal"
+                isOpen={openViewPINModal}
+                setIsOpen={setOpenViewPINModal}
+                variant="error"
+                modalMainBtn={{
+                    text: `${Content.expirePINFailureModal.primaryButton}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    onClickHandler: () => setOpenViewPINModal(false),
+                }}
+            >
+                {  
+                    livePIN &&
+                    livePIN
+                }
+                {
+                    (!livePIN) && 
+                    noLivePINMag
+                }
+            </Modal>
+            {/* end view PIN modal section */}
         </div>
     )
 }
