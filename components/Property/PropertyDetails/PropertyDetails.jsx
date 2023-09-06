@@ -4,7 +4,10 @@ import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 import Endpoints from '../../../apiManager/endpoints'
 import axios from 'axios'
-
+import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
+import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
+import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
+import PropTypes from 'prop-types'
 
 function PropertyDetails({
 	resultCount,
@@ -64,46 +67,6 @@ function PropertyDetails({
 						{propertyAddress}
 					</div>
 				</div>
-				{/* <div className={`${Styles.propertyInfoWrap}` + " " + `${Styles.leftBuleBar}`}>
-					<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-						<PropertyIconSmall />
-						<span>{Content.propertyDetails.propertyDetails}</span>
-					</div>
-					<div className={`${Styles.content}` + " flex text-left justify-between"}>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.titleNumber}
-							</div>
-							<div className={`${Styles.content}`}>
-								{titleNumber}
-							</div>
-						</div>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.landTitleDistrict}
-							</div>
-							<div className={`${Styles.content}`}>
-								{landTitleDistrict}
-							</div>
-						</div>
-				 		<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.parcelIdentifier}
-							</div>
-							<div className={`${Styles.content}`}>
-								{parcelIdentifier}
-							</div>
-						</div>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.shortLegalDescription}
-							</div>
-							<div className={`${Styles.content}`}>
-								{shortLegalDescription}
-							</div>
-						</div>
-					</div>
-				</div> */}
 				{
 					titleList.map((item) => (
 						<PropertyTitleDetails 

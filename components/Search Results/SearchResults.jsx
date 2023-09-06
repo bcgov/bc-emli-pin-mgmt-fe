@@ -13,19 +13,6 @@ export default function SearchResults({ results, isLoading, handleClick }) {
         handleClick(property.siteID)
     }
 
-    useEffect(() => {
-        console.log('here')
-        if (address) {
-            HttpRequest.getSearchResults(address)
-                .then((response) => {
-                    setResults(response?.data?.results)
-                })
-                .catch((error) => {
-                    console.error(error)
-                })
-        }
-    }, [])
-
     if (!results) {
         return (
             <div>
