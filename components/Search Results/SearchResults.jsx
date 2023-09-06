@@ -13,7 +13,7 @@ export default function SearchResults({ results, isLoading, handleClick }) {
         handleClick(property.siteID)
     }
 
-    if (!results || isLoading ) {
+    if (!results || isLoading) {
         return (
             <div>
                 <h1
