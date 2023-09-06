@@ -12,9 +12,8 @@ export default function Footer ({
 			<div className={`${Styles.footerSection}`}>
 				{
 					links.map((item) => (
-						// eslint-disable-next-line react/jsx-key
 						<div className={`${Styles.linkWrap}`} key={item.index}>
-							<Link href='{item.href}'>{item.name}</Link>
+							<Link href={item.href}>{item.name}</Link>
 						</div>
 					))
 				}
@@ -29,7 +28,7 @@ Footer.defaultProps = {
 		{
 			index: 1, 
 			name: Text.footer.home, 
-			href: '/'
+			href: '/home'
 		}, 
 		{
 			index: 2, 
