@@ -124,6 +124,7 @@
     }, 
     "viewPINModal": {
         "title": "View PIN", 
-        "noLivePINMag": "There is no valid PIN."
+        "noLivePINMag": "There is no valid PIN.", 
+        "close": "Close"
     }
 }
