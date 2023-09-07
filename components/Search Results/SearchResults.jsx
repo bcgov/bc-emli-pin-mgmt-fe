@@ -5,12 +5,15 @@ import LoadingScreen from '../LoadingScreen'
 import Content from '../../content.json'
 import { useState } from 'react'
 
-export default function SearchResults({ searchString }) {
-    const [results, setResults] = useState(null)
+export default function SearchResults({ results, isLoading, handleClick }) {
+    const [selected, setSelected] = useState(null)
 
-    let address = searchString?.toLowerCase()
+    function getProperty(property) {
+        setSelected(property.siteID)
+        handleClick(property.siteID)
+    }
 
-    if (!results|| isLoading) {
+    if (!results || isLoading) {
         return (
             <div>
                 <h1
