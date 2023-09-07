@@ -54,6 +54,10 @@
     color: #002A4E;
 }
 
+.paddingSmall{
+    padding: 32px 44px
+}
+
 .addressWrap{
     background-color: #E4F2FF;
     padding: 23px 32px;
