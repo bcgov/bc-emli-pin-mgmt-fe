@@ -21,8 +21,8 @@ export default function PropertyLayout() {
         togglePropertySearch()
     }
 
-    function getSearchResults(searchAddressString) {
-        setLoading(true)
+    function getSearchResults(searchAddressString){
+        // console.log(searchAddressString)
         let address = searchAddressString?.toLowerCase()
         HttpRequest.getSearchResults(address)
             .then((response) => {
@@ -73,22 +73,17 @@ export default function PropertyLayout() {
             <div className="homePropertySearchWrap">
                 <PropertySearch getSearchString={getSearchString} />
             </div>
-            {searchString && (
-                <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
+            {
+                searchString &&
+                <div className={`${Styles.propertyResultWrap}` + " flex"}>
                     <div className={`${Styles.seachResultWrap}`}>
-                        <SearchResults
-                            results={results}
-                            isLoading={isLoading}
-                            handleClick={handleSearchResultClick}
-                        />
+                        <SearchResults results={results} />
                     </div>
                     <div>
-                        <PropertyDetails
-                            displayDetails={showPropertyDetail}
-                            resultCount={results?.length}/>
+                        <PropertyDetails searchResultLayout={true}/>
                     </div>
                 </div>
-            )}
+            }
         </>
     )
 }
