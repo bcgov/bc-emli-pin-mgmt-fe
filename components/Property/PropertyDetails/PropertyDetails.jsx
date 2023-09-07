@@ -4,23 +4,18 @@ import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 import Endpoints from '../../../apiManager/endpoints'
 import axios from 'axios'
-import PropertyIconSmall from '../../../assets/svgs/PropertyIconSmall'
-import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
-import PropertyOwner from '../PropertyOwner/PropertyOwner'
-import PropTypes from 'prop-types'
-import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon';
+import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
+import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
+import PropTypes from 'prop-types'
+
 function PropertyDetails({
 	resultCount,
 	displayDetails
 }) {
 	// TODO: change to data from api
 	const propertyAddress = Content.propertyDetails.testAddress
-	const titleNumber = Content.propertyDetails.testTitleNumber
-	const landTitleDistrict = Content.propertyDetails.testLandTitleDistrict
-	const parcelIdentifier = Content.propertyDetails.testParcelIdentifier
-	const shortLegalDescription = Content.propertyDetails.testShortLegalDescription
-	const numberOfOwner = 2
+
 	const ownerList = [
 		{
 			id: 1,
@@ -36,6 +31,27 @@ function PropertyDetails({
 		}
 	]
 	
+	const titleList = [
+		{
+			id: 1,
+			titleNumber: Content.propertyDetails.testTitleNumber,
+			landTitleDistrict: Content.propertyDetails.testLandTitleDistrict,
+			parcelIdentifier: Content.propertyDetails.testParcelIdentifier,
+			shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
+			numberOfOwner: 2,
+			ownerList: ownerList
+		},
+		{
+			id: 2,
+			titleNumber: Content.propertyDetails.testTitleNumber,
+			landTitleDistrict: Content.propertyDetails.testLandTitleDistrict,
+			parcelIdentifier: Content.propertyDetails.testParcelIdentifier,
+			shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
+			numberOfOwner: 2,
+			ownerList: ownerList
+		}, 
+	]
+
 	const layoutClass = displayDetails ? 
 		Styles.propertyDetailsWrap + " " + Styles.paddingLarge : 
 		Styles.propertyDetailsWrap + " " + Styles.paddingSmall 
@@ -51,65 +67,19 @@ function PropertyDetails({
 						{propertyAddress}
 					</div>
 				</div>
-				<div className={`${Styles.propertyInfoWrap}` + " " + `${Styles.leftBuleBar}`}>
-					<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-						<PropertyIconSmall />
-						<span>{Content.propertyDetails.propertyDetails}</span>
-					</div>
-					<div className={`${Styles.content}` + " flex text-left justify-between"}>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.titleNumber}
-							</div>
-							<div className={`${Styles.content}`}>
-								{titleNumber}
-							</div>
-						</div>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.landTitleDistrict}
-							</div>
-							<div className={`${Styles.content}`}>
-								{landTitleDistrict}
-							</div>
-						</div>
-				 		<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.parcelIdentifier}
-							</div>
-							<div className={`${Styles.content}`}>
-								{parcelIdentifier}
-							</div>
-						</div>
-						<div className={`${Styles.item}`}>
-							<div className={`${Styles.title}`}>
-								{Content.propertyDetails.shortLegalDescription}
-							</div>
-							<div className={`${Styles.content}`}>
-								{shortLegalDescription}
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className={`${Styles.ownershipWrap}` + " " + `${Styles.leftBuleBar}`}>
-					<div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-						<GroupUserIcon />
-						<span>{Content.propertyDetails.ownership}</span>
-					</div>
-					<div className={`${Styles.ownerWrap}` + " " + "text-left"}>
-						<div className={`${Styles.title}`}>
-							{Content.propertyDetails.numberOfOwner} {numberOfOwner}
-						</div>
-						{ownerList.map((owner) => (
-							<PropertyOwner 
-								key={owner.id}
-								fullName={owner.fullName}
-								mailingAddress={owner.mailingAddress}
-								livePinId={owner.livePinId}
-								/>
-						))}
-					</div>
-				</div>
+				{
+					titleList.map((item) => (
+						<PropertyTitleDetails 
+							key={item.id}
+							titleNumber={item.titleNumber}
+							landTitleDistrict={item.landTitleDistrict}
+							parcelIdentifier={item.parcelIdentifier}
+							shortLegalDescription={item.shortLegalDescription}
+							numberOfOwner={item.numberOfOwner}
+							ownerList={item.ownerList}
+						/>
+						))
+				}
 			</div>
 		)
 	} else if (resultCount === 0){

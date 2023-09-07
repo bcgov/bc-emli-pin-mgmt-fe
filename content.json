@@ -65,7 +65,7 @@
     "propertyDetails": {
         "residentialAddress": "Residential Address",
         "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
-        "propertyDetails": "Property Details",
+        "titleDetails": "Title Details",
         "titleNumber": "Title Number",
         "testTitleNumber": "CA5006683",
         "landTitleDistrict": "Land Title District",
