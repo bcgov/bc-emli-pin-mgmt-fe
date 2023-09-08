@@ -20,12 +20,14 @@ function PropertyDetails({
 		{
 			id: 1,
 			livePinId:'bc7140ec-9f7b-4dde-960a-9ae9438318b1',
+			livePIN: '3Z4K2GA9',
 			fullName: Content.propertyDetails.testFullName1,
-			mailingAddress: Content.propertyDetails.testMailingAddress1
+			mailingAddress: Content.propertyDetails.testMailingAddress1,
 		}, 
 		{
 			id: 2,
 			livePinId:'123',
+			livePIN: '',
 			fullName: Content.propertyDetails.testFullName2,
 			mailingAddress: Content.propertyDetails.testMailingAddress2
 		}
