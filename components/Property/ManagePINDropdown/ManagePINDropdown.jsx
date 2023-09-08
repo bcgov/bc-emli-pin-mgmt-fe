@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Modal from '../../Modal'
 import { useState } from 'react'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
+import Styles from './ManagePINDropdown.module.css'
 
 export default function ManagePINDropdown({
     showPINOption,
@@ -19,7 +20,10 @@ export default function ManagePINDropdown({
     const [openExpireFailureModal, setOpenExpireFailureModal] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openViewPINFailureModal, setOpenViewPINFailureModal] = useState()
-    const noLivePINMag = Content.viewPINModal.noLivePINMag
+
+    // console.log(livePIN)
+    const livePINArray1 = livePIN?.substring(0,4).split('')
+    const livePINArray2 = livePIN?.substring(4,8).split('')
 
     function handleSelect(value) {
         if (value === 'expire-pin') {
@@ -140,21 +144,30 @@ export default function ManagePINDropdown({
                 modalId="view-pin-modal"
                 isOpen={openViewPINModal}
                 setIsOpen={setOpenViewPINModal}
-                variant="error"
                 modalMainBtn={{
-                    text: `${Content.expirePINFailureModal.primaryButton}`,
+                    text: `${Content.viewPINModal.close}`,
                     size: 'medium',
                     variant: 'primary',
                     onClickHandler: () => setOpenViewPINModal(false),
                 }}
             >
-                {  
+               {
                     livePIN &&
-                    livePIN
+                    <div className={`${Styles.pinWrap}` + " text-center"}>
+                        {
+                            livePINArray1.map((char, index) => (
+                                <span key={index} className={`${Styles.pinSpan}`}>{char}</span>
+                            ))}
+                        <span className={`${Styles.dash}`}>-</span>
+                        {
+                            livePINArray2.map((char, index) => (
+                                <span key={index} className={`${Styles.pinSpan}`}>{char}</span>
+                            ))}
+                    </div>
                 }
                 {
                     (!livePIN) && 
-                    noLivePINMag
+                    Content.viewPINModal.noLivePINMag
                 }
             </Modal>
             {/* end view PIN modal section */}
