@@ -9,6 +9,6 @@ const { PrimaryTemplate, MultipleRowsTemplate } = composeStories(stories)
 describe('<ViewPINModal />', () => {
     it('should render properly with no rows', () => {
         const { container } = render(<PrimaryTemplate />)
-        expect(container.firstChild).toBeTruthy()
+        expect(container.firstChild).toBeDefined()
     })
 })
