@@ -74,6 +74,7 @@ function PropertyTitleDetails({
                         fullName={owner.fullName}
                         mailingAddress={owner.mailingAddress}
                         livePinId={owner.livePinId}
+                        livePIN={owner.livePIN}
                     />
                 ))}
             </div>

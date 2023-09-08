@@ -121,5 +121,10 @@
         "body": "There was a problem. Try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
+    }, 
+    "viewPINModal": {
+        "title": "View PIN", 
+        "noLivePINMag": "There is no valid PIN.",
+        "close": "Close"
     }
 }

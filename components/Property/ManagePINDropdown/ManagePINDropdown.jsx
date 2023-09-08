@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Modal from '../../Modal'
 import { useState } from 'react'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
+import Styles from './ManagePINDropdown.module.css'
 
 export default function ManagePINDropdown({
     showPINOption,
@@ -11,16 +12,15 @@ export default function ManagePINDropdown({
     expirationReason,
     expiredByName,
     expiredByUsername,
+    handleSelection
 }) {
     const [openExpireConfirmationModal, setOpenExpireConfirmationModal] =
         useState()
     const [openExpireSuccessModal, setOpenExpireSuccessModal] = useState()
     const [openExpireFailureModal, setOpenExpireFailureModal] = useState()
 
-    function handleSelect(value) {
-        if (value === 'expire-pin') {
-            setOpenExpireConfirmationModal(true)
-        }
+    function getSelection(value) {
+        handleSelection(value)
     }
 
     function expirePIN() {
@@ -39,6 +39,9 @@ export default function ManagePINDropdown({
                 setOpenExpireFailureModal(true)
             })
     }
+
+    
+
 
     const options = [
         {
@@ -66,9 +69,10 @@ export default function ManagePINDropdown({
             <Dropdown
                 label={Content.managePINDropdown.label}
                 options={options}
-                handleSelection={handleSelect}
+                handleSelection={getSelection}
             ></Dropdown>
 
+            {/* expire PIN modal section */}
             <Modal
                 modalHeader={Content.expirePINConfirmationModal.title}
                 modalId="expire-pin-confirmation-modal"
@@ -120,6 +124,7 @@ export default function ManagePINDropdown({
             >
                 {Content.expirePINFailureModal.body}
             </Modal>
+            {/* end expire PIN modal section */}
         </div>
     )
 }
