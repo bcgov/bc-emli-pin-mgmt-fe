@@ -10,12 +10,14 @@ import ManagePINDropdown from '../ManagePINDropdown/index'
 import ViewPINHistory from '../ViewPINHistory/ViewPINHistory'
 import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
+import ViewPINModal from '../ViewPINModal/ViewPINModal'
 
 function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
-    const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] =
-        useState(false)
+    const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
     const [pinHistory, setPinHistory] = useState(null)
+    const [getMangePINSelection, setGetMangePINSelection] = useState()
+    const [openViewPINModal, setOpenViewPINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -26,6 +28,17 @@ function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
             .catch((error) => {
                 setOpenPINHistoryFailureModal(true)
             })
+    }
+
+    function handleMangePINSelection (value){
+        setGetMangePINSelection(value)
+        if (value === 'expire-pin') {
+            // TODO expire popup 
+        } else if (value === 'recreate-pin') {
+            // TODO recreate popup
+        } else if (value === 'view-pin') {
+            setOpenViewPINModal(true)
+        }
     }
 
     return (
@@ -51,7 +64,8 @@ function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
                 <div className={`${Styles.buttonItem}`}>
                     <ManagePINDropdown 
                         showPINOption={true} 
-                        livePIN={livePIN}/>
+                        livePIN={livePIN}
+                        handleSelection={handleMangePINSelection}/>
                 </div>
                 <div className={`${Styles.buttonItem}`}>
                     <Button
@@ -100,6 +114,11 @@ function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
                 >
                     {Content.pinHistoryFailureModal.body}
                 </Modal>
+                <ViewPINModal 
+                    isOpen={openViewPINModal}
+                    setIsOpen={setOpenViewPINModal}
+                    livePIN={livePIN}
+                />
             </div>
         </div>
     )

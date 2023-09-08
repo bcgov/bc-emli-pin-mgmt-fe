@@ -12,27 +12,15 @@ export default function ManagePINDropdown({
     expirationReason,
     expiredByName,
     expiredByUsername,
-    livePIN
+    handleSelection
 }) {
     const [openExpireConfirmationModal, setOpenExpireConfirmationModal] =
         useState()
     const [openExpireSuccessModal, setOpenExpireSuccessModal] = useState()
     const [openExpireFailureModal, setOpenExpireFailureModal] = useState()
-    const [openViewPINModal, setOpenViewPINModal] = useState()
-    const [openViewPINFailureModal, setOpenViewPINFailureModal] = useState()
 
-    // console.log(livePIN)
-    const livePINArray1 = livePIN?.substring(0,4).split('')
-    const livePINArray2 = livePIN?.substring(4,8).split('')
-
-    function handleSelect(value) {
-        if (value === 'expire-pin') {
-            setOpenExpireConfirmationModal(true)
-        } else if (value === 'recreate-pin') {
-
-        } else if (value === 'view-pin') {
-            setOpenViewPINModal(true)
-        }
+    function getSelection(value) {
+        handleSelection(value)
     }
 
     function expirePIN() {
@@ -81,7 +69,7 @@ export default function ManagePINDropdown({
             <Dropdown
                 label={Content.managePINDropdown.label}
                 options={options}
-                handleSelection={handleSelect}
+                handleSelection={getSelection}
             ></Dropdown>
 
             {/* expire PIN modal section */}
@@ -137,40 +125,6 @@ export default function ManagePINDropdown({
                 {Content.expirePINFailureModal.body}
             </Modal>
             {/* end expire PIN modal section */}
-
-            {/* view PIN modal section */}
-            <Modal
-                modalHeader={Content.viewPINModal.title}
-                modalId="view-pin-modal"
-                isOpen={openViewPINModal}
-                setIsOpen={setOpenViewPINModal}
-                modalMainBtn={{
-                    text: `${Content.viewPINModal.close}`,
-                    size: 'medium',
-                    variant: 'primary',
-                    onClickHandler: () => setOpenViewPINModal(false),
-                }}
-            >
-               {
-                    livePIN &&
-                    <div className={`${Styles.pinWrap}` + " text-center"}>
-                        {
-                            livePINArray1.map((char, index) => (
-                                <span key={index} className={`${Styles.pinSpan}`}>{char}</span>
-                            ))}
-                        <span className={`${Styles.dash}`}>-</span>
-                        {
-                            livePINArray2.map((char, index) => (
-                                <span key={index} className={`${Styles.pinSpan}`}>{char}</span>
-                            ))}
-                    </div>
-                }
-                {
-                    (!livePIN) && 
-                    Content.viewPINModal.noLivePINMag
-                }
-            </Modal>
-            {/* end view PIN modal section */}
         </div>
     )
 }
