@@ -1,5 +1,4 @@
 import Content from '../../../content.json'
-import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
 import Styles from './ViewPINModal.module.css'
 

@@ -1,50 +1,32 @@
 import PropTypes from 'prop-types'
-import Image from 'next/image'
 import Styles from './PropertyOwner.module.css'
 import Content from '../../../content.json'
 import { Button } from '../../Button/index'
-import { useState, useEffect } from 'react'
-import Endpoints from '../../../apiManager/endpoints'
-import axios from 'axios'
+import { useState } from 'react'
 import ManagePINDropdown from '../ManagePINDropdown/index'
-import ViewPINHistory from '../ViewPINHistory/ViewPINHistory'
-import Modal from '../../Modal'
-import HttpRequest from '../../../apiManager/httpRequestHandler'
 import ViewPINModal from '../ViewPINModal/ViewPINModal'
 import ExpirePINModal from '../ExpirePINModal'
+import ViewPINHistoryModal from '../ViewPINHistoryModal'
 
-function PropertyOwner({ 
-    fullName, 
-    mailingAddress, 
-    livePinId, 
-    livePIN, 
-    expirationReason, 
-    expiredByName, 
-    expiredByUsername 
+function PropertyOwner({
+    fullName,
+    mailingAddress,
+    livePinId,
+    livePIN,
+    expirationReason,
+    expiredByName,
+    expiredByUsername,
 }) {
-    const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
-    const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
-    const [pinHistory, setPinHistory] = useState(null)
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openExpirePINModal, setOpenExpirePINModal] = useState()
+    const [openViewPINHistoryModal, setOpenViewPINHistoryModal] = useState()
 
-    function getPINHistory() {
-        HttpRequest.getPINHistory(livePinId)
-            .then((response) => {
-                setPinHistory(response.data.logs)
-                setOpenPINHistoryModal(true)
-            })
-            .catch((error) => {
-                setOpenPINHistoryFailureModal(true)
-            })
-    }
-
-    function handleMangePINSelection (value){
+    function handleMangePINSelection(value) {
         setGetMangePINSelection(value)
         if (value === 'expire-pin') {
             setOpenExpirePINModal(true)
-            // TODO expire popup 
+            // TODO expire popup
         } else if (value === 'recreate-pin') {
             // TODO recreate popup
         } else if (value === 'view-pin') {
@@ -73,10 +55,11 @@ function PropertyOwner({
             </div>
             <div className={`${Styles.buttonWrap}` + ' flex justify-start'}>
                 <div className={`${Styles.buttonItem}`}>
-                    <ManagePINDropdown 
-                        showPINOption={true} 
+                    <ManagePINDropdown
+                        showPINOption={true}
                         livePIN={livePIN}
-                        handleSelection={handleMangePINSelection}/>
+                        handleSelection={handleMangePINSelection}
+                    />
                 </div>
                 <div className={`${Styles.buttonItem}`}>
                     <Button
@@ -84,53 +67,18 @@ function PropertyOwner({
                         isDarkBackground={false}
                         disabled={false}
                         aria-disabled={false}
-                        handleOnClick={() => getPINHistory()}
+                        handleOnClick={() => setOpenViewPINHistoryModal(true)}
                     >
                         {Content.propertyDetails.viewPINHistory}
                     </Button>
                 </div>
-                <Modal
-                    modalHeader={Content.pinHistoryModal.title}
-                    modalId="pin-history-modal"
-                    isOpen={openPINHistoryModal}
-                    setIsOpen={setOpenPINHistoryModal}
-                    modalMainBtn={{
-                        text: Content.pinHistoryModal.primaryButton,
-                        size: 'medium',
-                        variant: 'primary',
-                        onClickHandler: () => setOpenPINHistoryModal(false),
-                    }}
-                >
-                    <ViewPINHistory pinHistory={pinHistory} />
-                </Modal>
-                <Modal
-                    modalHeader={Content.pinHistoryFailureModal.title}
-                    modalId="pin-history-failure-modal"
-                    isOpen={openPINHistoryFailureModal}
-                    setIsOpen={setOpenPINHistoryFailureModal}
-                    variant="error"
-                    modalMainBtn={{
-                        text: Content.pinHistoryFailureModal.primaryButton,
-                        size: 'medium',
-                        variant: 'primary',
-                        onClickHandler: () => getPINHistory(),
-                    }}
-                    modalSecondaryBtn={{
-                        text: Content.pinHistoryFailureModal.secondaryButton,
-                        size: 'medium',
-                        variant: 'primary',
-                        onClickHandler: () =>
-                            setOpenPINHistoryFailureModal(false),
-                    }}
-                >
-                    {Content.pinHistoryFailureModal.body}
-                </Modal>
-                <ViewPINModal 
+
+                <ViewPINModal
                     isOpen={openViewPINModal}
                     setIsOpen={setOpenViewPINModal}
                     livePIN={livePIN}
                 />
-                <ExpirePINModal 
+                <ExpirePINModal
                     isOpen={openExpirePINModal}
                     setIsOpen={setOpenExpirePINModal}
                     livePinId={livePinId}
@@ -138,6 +86,13 @@ function PropertyOwner({
                     expiredByName={expiredByName}
                     expiredByUsername={expiredByUsername}
                 />
+                {openViewPINHistoryModal && (
+                    <ViewPINHistoryModal
+                        isOpen={openViewPINHistoryModal}
+                        setIsOpen={setOpenViewPINHistoryModal}
+                        livePinId={livePinId}
+                    />
+                )}
             </div>
         </div>
     )
