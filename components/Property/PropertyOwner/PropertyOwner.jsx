@@ -11,13 +11,23 @@ import ViewPINHistory from '../ViewPINHistory/ViewPINHistory'
 import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import ViewPINModal from '../ViewPINModal/ViewPINModal'
+import ExpirePINModal from '../ExpirePINModal'
 
-function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
+function PropertyOwner({ 
+    fullName, 
+    mailingAddress, 
+    livePinId, 
+    livePIN, 
+    expirationReason, 
+    expiredByName, 
+    expiredByUsername 
+}) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
     const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
     const [pinHistory, setPinHistory] = useState(null)
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
+    const [openExpirePINModal, setOpenExpirePINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -33,7 +43,7 @@ function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
     function handleMangePINSelection (value){
         setGetMangePINSelection(value)
         if (value === 'expire-pin') {
-            // TODO expire popup 
+            setOpenExpirePINModal(true)
         } else if (value === 'recreate-pin') {
             // TODO recreate popup
         } else if (value === 'view-pin') {
@@ -118,6 +128,14 @@ function PropertyOwner({ fullName, mailingAddress, livePinId, livePIN }) {
                     isOpen={openViewPINModal}
                     setIsOpen={setOpenViewPINModal}
                     livePIN={livePIN}
+                />
+                <ExpirePINModal 
+                    isOpen={openExpirePINModal}
+                    setIsOpen={setOpenExpirePINModal}
+                    livePinId={livePinId}
+                    expirationReason={expirationReason}
+                    expiredByName={expiredByName}
+                    expiredByUsername={expiredByUsername}
                 />
             </div>
         </div>
