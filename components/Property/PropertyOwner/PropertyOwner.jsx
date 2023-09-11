@@ -44,7 +44,6 @@ function PropertyOwner({
         setGetMangePINSelection(value)
         if (value === 'expire-pin') {
             setOpenExpirePINModal(true)
-            // TODO expire popup 
         } else if (value === 'recreate-pin') {
             // TODO recreate popup
         } else if (value === 'view-pin') {
