@@ -2,15 +2,15 @@ import { useState } from 'react'
 import Content from '../../../content.json'
 import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
-import Styles from './RecreatePINModal.module.css'
+import Styles from './RegeneratePINModal.module.css'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 
-export default function RecreatePINModal({
+export default function RegeneratePINModal({
     isOpen, 
     setIsOpen
 }) {
-    const [openRecreateSuccessModal, setOpenRecreateSuccessModal] = useState()
-    const [openRecreateFailureModal, setOpenRecreateFailureModal] = useState()
+    const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
+    const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
 
     function recreatePIN(){
         HttpRequest.expirePIN({
@@ -21,36 +21,36 @@ export default function RecreatePINModal({
         })
             .then((response) => {
                 setIsOpen(false)
-                setOpenRecreateSuccessModal(true)
+                setOpenRegenerateSuccessModal(true)
             })
             .catch((error) => {
                 setIsOpen(false)
-                setOpenRecreateFailureModal(true)
+                setOpenRegenerateFailureModal(true)
             })
     }
 
     return (
         <>
             <Modal
-                modalHeader={Content.recreatePINModal.title}
-                modalId="recreate-pin-modal"
+                modalHeader={Content.regeneratePINModal.title}
+                modalId="regenerate-pin-modal"
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 modalMainBtn={{
-                    text: `${Content.recreatePINModal.recreatePINButton}`,
+                    text: `${Content.regeneratePINModal.title}`,
                     size: 'medium',
                     variant: 'primary',
                     disable: true,
                     onClickHandler: () => recreatePIN(),
                 }}
                 modalSecondaryBtn={{
-                    text: `${Content.recreatePINModal.cancelButton}`,
+                    text: `${Content.regeneratePINModal.cancelButton}`,
                     size: 'medium',
                     variant: 'secondary',
                     onClickHandler: () => setIsOpen(false),
                 }}
             >
-            {Content.recreatePINModal.contentMsg}
+            {Content.regeneratePINModal.contentMsg}
             <div>
 
             </div>

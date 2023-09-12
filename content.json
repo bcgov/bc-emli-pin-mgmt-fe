@@ -38,7 +38,7 @@
     },
     "managePINDropdown": {
         "label": "Manage PIN",
-        "recreateOption": "Recreate PIN",
+        "recreateOption": "Regenerate PIN",
         "expireOption": "Expire PIN",
         "viewOption": "View PIN"
     },
@@ -127,12 +127,11 @@
         "noLivePINMag": "There is no valid PIN.",
         "close": "Close"
     }, 
-    "recreatePINModal": {
+    "regeneratePINModal": {
         "title": "Regenerate PIN",
         "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
         "phone": "Phone", 
         "email": "Email",
-        "recreatePINButton": "Recreate PIN", 
         "cancelButton": "Cancel"
     }
 }

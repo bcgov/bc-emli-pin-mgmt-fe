@@ -14,7 +14,7 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
     const options = [
         {
             label: Content.managePINDropdown.recreateOption,
-            value: 'recreate-pin',
+            value: 'regenerate-pin',
             isDisabled: false,
         },
         {

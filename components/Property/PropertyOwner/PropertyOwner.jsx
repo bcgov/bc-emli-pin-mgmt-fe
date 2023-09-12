@@ -12,7 +12,7 @@ import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import ViewPINModal from '../ViewPINModal/ViewPINModal'
 import ExpirePINModal from '../ExpirePINModal'
-import RecreatePINModal from '../RecreatePINModal/RecreatePINModal'
+import RegeneratePINModal from '../RegeneratePINModal/RegeneratePINModal'
 
 function PropertyOwner({ 
     fullName, 
@@ -29,7 +29,7 @@ function PropertyOwner({
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openExpirePINModal, setOpenExpirePINModal] = useState()
-    const [openRecreatePINModal, setOpenRecreatePINModal] = useState()
+    const [openRegenertePINModal, setOpenRegenertePINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -46,8 +46,8 @@ function PropertyOwner({
         setGetMangePINSelection(value)
         if (value === 'expire-pin') {
             setOpenExpirePINModal(true)
-        } else if (value === 'recreate-pin') {
-            setOpenRecreatePINModal(true)
+        } else if (value === 'regenerate-pin') {
+            setOpenRegenertePINModal(true)
         } else if (value === 'view-pin') {
             setOpenViewPINModal(true)
         }
@@ -139,9 +139,9 @@ function PropertyOwner({
                     expiredByName={expiredByName}
                     expiredByUsername={expiredByUsername}
                 />
-                <RecreatePINModal 
-                    isOpen={openRecreatePINModal}
-                    setIsOpen={setOpenExpirePINModal}
+                <RegeneratePINModal 
+                    isOpen={openRegenertePINModal}
+                    setIsOpen={setOpenRegenertePINModal}
                 />
             </div>
         </div>
