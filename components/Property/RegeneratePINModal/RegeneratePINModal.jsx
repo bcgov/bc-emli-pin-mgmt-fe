@@ -3,21 +3,27 @@ import Content from '../../../content.json'
 import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
 import Styles from './RegeneratePINModal.module.css'
-import HttpRequest from '../../../apiManager/httpRequestHandler'
+import HttpRequest from '../../../apiManager/httpRequestHandler/index'
+import Textbox from '../../Textbox/index'
 
 export default function RegeneratePINModal({
     isOpen, 
-    setIsOpen
+    setIsOpen, 
+    livePinId, 
+    regenerationReason, 
+    regeneratedByName,
+    regeneratedByUsername
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
 
-    function recreatePIN(){
-        HttpRequest.expirePIN({
+    function regeneratePIN(){
+        HttpRequest.regeneratePIN({
+            // TODO: check param for be api call
             livePinId: livePinId,
-            expirationReason: expirationReason,
-            expiredByName: expiredByName,
-            expiredByUsername: expiredByUsername,
+            expirationReason: regenerationReason,
+            expiredByName: regeneratedByName,
+            expiredByUsername: regeneratedByUsername,
         })
             .then((response) => {
                 setIsOpen(false)
@@ -41,7 +47,7 @@ export default function RegeneratePINModal({
                     size: 'medium',
                     variant: 'primary',
                     disable: true,
-                    onClickHandler: () => recreatePIN(),
+                    onClickHandler: () => regeneratePIN(),
                 }}
                 modalSecondaryBtn={{
                     text: `${Content.regeneratePINModal.cancelButton}`,
@@ -50,10 +56,66 @@ export default function RegeneratePINModal({
                     onClickHandler: () => setIsOpen(false),
                 }}
             >
-            {Content.regeneratePINModal.contentMsg}
-            <div>
+                <div className={`${Styles.contentWrap}`}>
+                    {Content.regeneratePINModal.contentMsg}
+                </div>
+                <div className='flex justify-between'>
+                    <div className={`${Styles.inputWrap}`}>
+                        <Textbox
+                            textBoxId='phone'
+                            textBoxLabel={Content.regeneratePINModal.phone}
+                            textBoxAriaLabel={Content.regeneratePINModal.phone}
+                            textBoxPlaceholder={Content.regeneratePINModal.phonePlaceHolder}
+                            inputType="tel"
+                        />
+                    </div>
+                    <div className={`${Styles.inputWrap}`}>
+                        <Textbox
+                            textBoxId='email'
+                            textBoxLabel={Content.regeneratePINModal.email}
+                            textBoxAriaLabel={Content.regeneratePINModal.email}
+                            textBoxPlaceholder={Content.regeneratePINModal.emailPlaceHolder}
+                            inputType="email"
+                        />
+                    </div>
+                </div>
+            </Modal>
 
-            </div>
+            <Modal
+                modalHeader={Content.regeneratePINModal.successModalTitle}
+                modalId="regenerate-pin-success-modal"
+                isOpen={openRegenerateSuccessModal}
+                setIsOpen={setOpenRegenerateSuccessModal}
+                modalMainBtn={{
+                    text: `${Content.expirePINSuccessModal.primaryButton}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    onClickHandler: () => setOpenRegenerateSuccessModal(false),
+                }}
+            >
+                {Content.regeneratePINModal.successModalMsg}
+            </Modal>
+
+            <Modal
+                modalHeader={Content.regeneratePINModal.failureModalTitle}
+                modalId="regenerate-pin-failure-modal"
+                isOpen={openRegenerateFailureModal}
+                setIsOpen={setOpenRegenerateFailureModal}
+                variant="error"
+                modalMainBtn={{
+                    text: `${Content.expirePINFailureModal.primaryButton}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    onClickHandler: () => regeneratePIN(),
+                }}
+                modalSecondaryBtn={{
+                    text: `${Content.regeneratePINModal.cancelButton}`,
+                    size: 'medium',
+                    variant: 'secondary',
+                    onClickHandler: () => setOpenRegenerateFailureModal(false),
+                }}
+            >
+                {Content.regeneratePINModal.failureModalMag}
             </Modal>
         </>
     )

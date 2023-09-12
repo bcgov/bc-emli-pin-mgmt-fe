@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import './style.css'
+import Styles from './Textbox.module.css'
 
 function TextBox({
 	textBoxId,
@@ -21,22 +21,26 @@ function TextBox({
 	moreClasses,
 	...props
 }) {
-	const rootClass = 'text-box'
+	const rootClass = Styles.textBoxWrap
 
 	const errorMessageSelector = () =>
 		(!isValid && errorMessage) || (!isRegexValid && regexErrorMessage)
 	return (
-		// <section className={rootClass}>
-			<div className="text_label">
-				{textBoxLabel && (
-					<label htmlFor={textBoxId}>
-						{textBoxLabel}
-						{isRequired && !isDisabled && (
-							<span className={`${rootClass}__required-field`}>*</span>
-						)}
-					</label>
-				)}
+		<>
+			<div className={`${Styles.textBoxWrap}`}>
+				<div className={`${Styles.textLabel}`}>
+					{textBoxLabel && (
+						<label htmlFor={textBoxId}>
+							{textBoxLabel}
+							{isRequired && !isDisabled && (
+								<span className={`${Styles.required}`}>*</span>
+							)}
+						</label>
+					)}
+				</div>
+			</div>
 
+			<div>
 				<input
 					type={inputType}
 					id={textBoxId}
@@ -46,27 +50,25 @@ function TextBox({
 					required={isRequired}
 					aria-required={isRequired}
 					onChange={(e) => onHandleChange(e.target.value)}
-					className={`text_input ${moreClasses} ${
-						hasError
+					className={`${Styles.textInput} ${moreClasses} ${hasError
 							? `error-input`
 							: isDisabled
-							? `${rootClass}__disabled-div`
-							: ''
-					}`}
+								? `${rootClass}__disabled-div`
+								: ''
+						}`}
 					maxLength={textBoxLimit}
 					aria-label={textBoxAriaLabel}
 					{...props}
 				/>
-				<div className={`${rootClass}__footer-text`}>{textBoxFooter}</div>
+				<div className={`${Styles.footerText}`}>{textBoxFooter}</div>
 				<div
-					className={`${
-						hasError ? `${rootClass}__error-message` : `${rootClass}__hide-div`
-					}`}
+					className={`${hasError ? `${rootClass}__error-message` : `${rootClass}__hide-div`
+						}`}
 				>
 					{errorMessageSelector()}
 				</div>
 			</div>
-		// </section>
+		</>
 	)
 }
 

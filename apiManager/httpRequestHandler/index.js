@@ -131,6 +131,7 @@ const HttpRequest = {
     getSearchResults,
     getPINHistory,
     getPropertyDetail,
+    regeneratePIN
 }
 
 export default HttpRequest

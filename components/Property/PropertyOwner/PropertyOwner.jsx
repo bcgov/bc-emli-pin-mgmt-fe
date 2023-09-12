@@ -44,10 +44,10 @@ function PropertyOwner({
 
     function handleMangePINSelection (value){
         setGetMangePINSelection(value)
-        if (value === 'expire-pin') {
-            setOpenExpirePINModal(true)
-        } else if (value === 'regenerate-pin') {
+        if (value === Content.managePINDropdown.valueOptions.regenerate) {
             setOpenRegenertePINModal(true)
+        } else if (value === Content.managePINDropdown.valueOptions.expire) {
+            setOpenExpirePINModal(true)
         } else if (value === 'view-pin') {
             setOpenViewPINModal(true)
         }
