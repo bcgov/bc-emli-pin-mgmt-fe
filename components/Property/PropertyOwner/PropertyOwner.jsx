@@ -12,6 +12,7 @@ import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import ViewPINModal from '../ViewPINModal/ViewPINModal'
 import ExpirePINModal from '../ExpirePINModal'
+import RecreatePINModal from '../RecreatePINModal/RecreatePINModal'
 
 function PropertyOwner({ 
     fullName, 
@@ -28,6 +29,7 @@ function PropertyOwner({
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openExpirePINModal, setOpenExpirePINModal] = useState()
+    const [openRecreatePINModal, setOpenRecreatePINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -45,7 +47,7 @@ function PropertyOwner({
         if (value === 'expire-pin') {
             setOpenExpirePINModal(true)
         } else if (value === 'recreate-pin') {
-            // TODO recreate popup
+            setOpenRecreatePINModal(true)
         } else if (value === 'view-pin') {
             setOpenViewPINModal(true)
         }
@@ -136,6 +138,10 @@ function PropertyOwner({
                     expirationReason={expirationReason}
                     expiredByName={expiredByName}
                     expiredByUsername={expiredByUsername}
+                />
+                <RecreatePINModal 
+                    isOpen={openRecreatePINModal}
+                    setIsOpen={setOpenExpirePINModal}
                 />
             </div>
         </div>
