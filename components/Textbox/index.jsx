@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Styles from './Textbox.module.css'
+import { useState, useRef, useEffect } from 'react'
 
 function TextBox({
 	textBoxId,
@@ -22,9 +23,21 @@ function TextBox({
 	...props
 }) {
 	const rootClass = Styles.textBoxWrap
+	const field = useRef(null)
 
 	const errorMessageSelector = () =>
 		(!isValid && errorMessage) || (!isRegexValid && regexErrorMessage)
+
+	useEffect(() => {
+		let interVal = setInterval(() => {
+			if(field.current){
+				onHandleChange(field.current.value)
+				clearInterval(interVal)
+			}
+		}, 100)
+	})
+
+		
 	return (
 		<>
 			<div className={`${Styles.textBoxWrap}`}>
@@ -42,6 +55,7 @@ function TextBox({
 
 			<div>
 				<input
+					ref={field}
 					type={inputType}
 					id={textBoxId}
 					name={textBoxId}

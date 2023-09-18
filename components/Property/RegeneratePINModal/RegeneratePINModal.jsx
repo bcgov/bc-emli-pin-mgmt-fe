@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import Content from '../../../content.json'
 import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
@@ -16,8 +16,44 @@ export default function RegeneratePINModal({
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
+    const [isRegeneratePINButtonDisabled, setIsRegeneratePINDisabled] = useState(true)
+    const [phone, setPhoneValue] = useState()
+    const [email, setEmailValue] = useState()
 
-    function regeneratePIN(){
+    const setPhoneValueOnChange = (phoneValue) => {
+        setPhoneValue(phoneValue)
+        console.log(phoneValue)
+        if (validatePhoneRegex(phone) || validateEmailRegex(email)){
+            setIsRegeneratePINDisabled(false)
+        } else {
+            setIsRegeneratePINDisabled(true)
+        }
+    }
+
+    const setEmailValueOnChange = (emailValue) => {
+        setEmailValue(emailValue)
+        if (validatePhoneRegex(phone) || validateEmailRegex(email)){
+            setIsRegeneratePINDisabled(false)
+        } else {
+            setIsRegeneratePINDisabled(true)
+        }
+    }
+
+    const validatePhoneRegex = (phone) => {
+        if (/[0-9]{10}/.test(phone)){
+            return true
+        }
+        return false
+    }
+
+    const validateEmailRegex = (email) => {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            return true;
+        }
+        return false;
+    }
+
+    const regeneratePIN = () => {
         HttpRequest.regeneratePIN({
             // TODO: check param for be api call
             livePinId: livePinId,
@@ -35,6 +71,7 @@ export default function RegeneratePINModal({
             })
     }
 
+
     return (
         <>
             <Modal
@@ -46,7 +83,7 @@ export default function RegeneratePINModal({
                     text: `${Content.regeneratePINModal.title}`,
                     size: 'medium',
                     variant: 'primary',
-                    disable: true,
+                    disabled: isRegeneratePINButtonDisabled,
                     onClickHandler: () => regeneratePIN(),
                 }}
                 modalSecondaryBtn={{
@@ -67,6 +104,7 @@ export default function RegeneratePINModal({
                             textBoxAriaLabel={Content.regeneratePINModal.phone}
                             textBoxPlaceholder={Content.regeneratePINModal.phonePlaceHolder}
                             inputType="tel"
+                            onHandleChange={setPhoneValueOnChange}
                         />
                     </div>
                     <div className={`${Styles.inputWrap}`}>
@@ -76,6 +114,7 @@ export default function RegeneratePINModal({
                             textBoxAriaLabel={Content.regeneratePINModal.email}
                             textBoxPlaceholder={Content.regeneratePINModal.emailPlaceHolder}
                             inputType="email"
+                            onHandleChange={setEmailValueOnChange}
                         />
                     </div>
                 </div>
