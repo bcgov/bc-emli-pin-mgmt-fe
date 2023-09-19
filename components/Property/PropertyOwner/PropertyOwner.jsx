@@ -12,6 +12,7 @@ import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import ViewPINModal from '../ViewPINModal/ViewPINModal'
 import ExpirePINModal from '../ExpirePINModal'
+import RegeneratePINModal from '../RegeneratePINModal/RegeneratePINModal'
 
 function PropertyOwner({ 
     fullName, 
@@ -28,6 +29,7 @@ function PropertyOwner({
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openExpirePINModal, setOpenExpirePINModal] = useState()
+    const [openRegenertePINModal, setOpenRegenertePINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -42,11 +44,11 @@ function PropertyOwner({
 
     function handleMangePINSelection (value){
         setGetMangePINSelection(value)
-        if (value === 'expire-pin') {
+        if (value === Content.managePINDropdown.valueOptions.regenerate) {
+            setOpenRegenertePINModal(true)
+        } else if (value === Content.managePINDropdown.valueOptions.expire) {
             setOpenExpirePINModal(true)
-        } else if (value === 'recreate-pin') {
-            // TODO recreate popup
-        } else if (value === 'view-pin') {
+        } else if (value === Content.managePINDropdown.valueOptions.view) {
             setOpenViewPINModal(true)
         }
     }
@@ -136,6 +138,10 @@ function PropertyOwner({
                     expirationReason={expirationReason}
                     expiredByName={expiredByName}
                     expiredByUsername={expiredByUsername}
+                />
+                <RegeneratePINModal 
+                    isOpen={openRegenertePINModal}
+                    setIsOpen={setOpenRegenertePINModal}
                 />
             </div>
         </div>

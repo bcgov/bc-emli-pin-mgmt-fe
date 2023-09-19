@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Endpoints from '../endpoints/index'
+import { data } from 'autoprefixer'
 
 // GET request example
 const GetRequest = (url, params = {}, headers = {}) => {
@@ -56,6 +57,10 @@ const PostRequest = (url, data = {}, params = {}) => {
 
 const expirePIN = (data) => {
     return axios.post(`${Endpoints.managePIN.EXPIRE_PIN}`, data)
+}
+
+const regeneratePIN = (data) =>{
+    return axios.post(`${Endpoints.managePIN.REGENERATE_PIN}`, data)
 }
 
 // PUT request example
@@ -126,6 +131,7 @@ const HttpRequest = {
     getSearchResults,
     getPINHistory,
     getPropertyDetail,
+    regeneratePIN
 }
 
 export default HttpRequest

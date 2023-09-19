@@ -14,12 +14,12 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
     const options = [
         {
             label: Content.managePINDropdown.recreateOption,
-            value: 'recreate-pin',
+            value: Content.managePINDropdown.valueOptions.regenerate,
             isDisabled: false,
         },
         {
             label: Content.managePINDropdown.expireOption,
-            value: 'expire-pin',
+            value: Content.managePINDropdown.valueOptions.expire,
             isDisabled: false,
         },
     ]
@@ -27,7 +27,7 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
     if (showPINOption) {
         options.push({
             label: Content.managePINDropdown.viewOption,
-            value: 'view-pin',
+            value: Content.managePINDropdown.valueOptions.view,
             isDisabled: false,
         })
     }

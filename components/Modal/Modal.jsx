@@ -59,6 +59,7 @@ export default function Modal({
                                         modalMainBtn.onClickHandler()
                                     }
                                     isDarkBackground={true}
+                                    disabled={modalMainBtn.disabled}
                                 >
                                     {modalMainBtn.text}
                                 </Button>
