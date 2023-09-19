@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Content from '../content.json'
+import Content from '../assets/content/content.json'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'

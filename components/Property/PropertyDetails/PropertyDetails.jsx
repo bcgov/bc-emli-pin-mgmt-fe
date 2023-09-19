@@ -1,5 +1,5 @@
 import Styles from './PropertyDetails.module.css'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 import Endpoints from '../../../apiManager/endpoints'

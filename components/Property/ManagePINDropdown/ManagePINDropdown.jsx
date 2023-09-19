@@ -1,4 +1,4 @@
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import PropTypes from 'prop-types'
 import Modal from '../../Modal'

@@ -1,0 +1,130 @@
+{
+    "app": {
+        "title": "CleanBC VHERS PIN system"
+    },
+    "header": {
+        "title": "CleanBC",
+        "logo": "CleanBC Logo",
+        "avatar": "Avatar",
+        "testusername": "Rob Johnson",
+        "logout": "Logout",
+        "help": "Help"
+    },
+    "navigation": {
+        "home": "Home",
+        "usermanagement": "User Management",
+        "accessrequest": "Access Request"
+    },
+    "footer": {
+        "home": "Home",
+        "about": "About gov.bc.ca",
+        "disclaimer": "Disclaimer",
+        "privacy": "Privacy",
+        "accessibility": "Accessibility",
+        "copyright": "Copyright",
+        "contact": "Contact Us"
+    },
+    "home": {
+        "searchHeader": "Find a property",
+        "searchContent": "Enter property information to locate a property and view property details.",
+        "searchPlaceHolder": "Enter residential address",
+        "search": "Search"
+    },
+    "userManagement": {
+        "pageTitle": "User Management"
+    },
+    "accessRequest": {
+        "pageTitle": "Access Requet"
+    },
+    "managePINDropdown": {
+        "label": "Manage PIN",
+        "recreateOption": "Recreate PIN",
+        "expireOption": "Expire PIN",
+        "viewOption": "View PIN"
+    },
+    "propertySearch": {
+        "searchBoxError": "Enter at least 3 characters to get started"
+    },
+    "expirePINConfirmationModal": {
+        "title": "Expire PIN",
+        "body": "The current PIN will be void and the property owner will need to request a new PIN to manage the VHERS portal.",
+        "primaryButton": "Expire PIN",
+        "secondaryButton": "Cancel"
+    },
+    "expirePINSuccessModal": {
+        "title": "PIN has been expired",
+        "body": "The property owner will not be able to access VHERS system until a new PIN is requested.",
+        "primaryButton": "Close"
+    },
+    "expirePINFailureModal": {
+        "title": "Expiring PIN failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    },
+    "propertyDetails": {
+        "residentialAddress": "Residential Address",
+        "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
+        "titleDetails": "Title Details",
+        "titleNumber": "Title Number",
+        "testTitleNumber": "CA5006683",
+        "landTitleDistrict": "Land Title District",
+        "testLandTitleDistrict": "Burnby",
+        "parcelIdentifier": "Parcel Identifier",
+        "testParcelIdentifier": "029-366-937",
+        "shortLegalDescription": "Short Legal Description",
+        "testShortLegalDescription": "S/EPS2032//20",
+        "ownership": "Ownership",
+        "numberOfOwner": "Number of Owner(s): ", 
+        "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "searchResultMsg": "Select an address to view property details", 
+        "owner": "Owner",
+        "fullname": "Full Name", 
+        "mailingAddress": "Mailing Address", 
+        "testFullName1": "Joshua Contreras", 
+        "testFullName2": "Leila Contreras", 
+        "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
+        "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
+        "viewPINHistory": "View PIN History"
+    },
+    "searchResults": {
+        "addressesFound": " addresses found.",
+        "scrollMessage": "Scroll down to view more results", 
+        "noAddressFound": "0 addresses found."
+    },
+    "pinHistoryModal": {
+        "title": "View PIN History",
+        "table": {
+            "numberColumn": "#",
+            "UpdatedByColumn": "Updated by",
+            "UsernameColumn": "Username",
+            "ModifiedOnColumn": "Modified on",
+            "ActionColumn": "Action",
+            "TypeColumn": "Type",
+            "NotificationViaColumn": "Notification via"
+        },
+        "actions": {
+            "deleted": "PIN deleted",
+            "created": "PIN created",
+            "recreated": "PIN recreated"
+        },
+        "types": {
+            "optOut": "Opt-out",
+            "callCenter": "Call center PIN reset",
+            "onlineReset": "Online PIN reset",
+            "changeOfOwnership": "Change of ownership"
+        },
+        "primaryButton": "Close"
+    },
+    "pinHistoryFailureModal": {
+        "title": "Viewing PIN history failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    }, 
+    "viewPINModal": {
+        "title": "View PIN", 
+        "noLivePINMag": "There is no valid PIN.",
+        "close": "Close"
+    }
+}

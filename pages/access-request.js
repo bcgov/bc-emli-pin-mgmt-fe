@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Text from '../content.json'
+import Text from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'

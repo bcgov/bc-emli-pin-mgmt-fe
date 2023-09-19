@@ -1,4 +1,4 @@
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
 import Styles from './ViewPINModal.module.css'

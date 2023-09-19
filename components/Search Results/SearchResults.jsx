@@ -2,7 +2,7 @@ import styles from './SearchResults.module.css'
 import AddressCard from '../Address Card/index'
 import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
-import Content from '../../content.json'
+import Content from '../../assets/content/content.json'
 import { useState } from 'react'
 
 export default function SearchResults({ results, isLoading, handleClick }) {
