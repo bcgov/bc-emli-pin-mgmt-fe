@@ -48,7 +48,7 @@ function PropertyOwner({
             setOpenRegenertePINModal(true)
         } else if (value === Content.managePINDropdown.valueOptions.expire) {
             setOpenExpirePINModal(true)
-        } else if (value === 'view-pin') {
+        } else if (value === Content.managePINDropdown.valueOptions.view) {
             setOpenViewPINModal(true)
         }
     }

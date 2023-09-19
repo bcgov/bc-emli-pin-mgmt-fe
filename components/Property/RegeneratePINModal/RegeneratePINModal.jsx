@@ -22,7 +22,6 @@ export default function RegeneratePINModal({
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
-        console.log(phoneValue)
         if (validatePhoneRegex(phone) || validateEmailRegex(email)){
             setIsRegeneratePINDisabled(false)
         } else {
