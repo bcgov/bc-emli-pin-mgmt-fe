@@ -10,12 +10,13 @@ import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import PropTypes from 'prop-types'
 
 function PropertyDetails({
+	propertyDetails,
 	resultCount,
-	displayDetails
 }) {
-	// TODO: change to data from api
+			// TODO: change to data from api
 	const propertyAddress = Content.propertyDetails.testAddress
-
+	const [currentPropertyDetail, setCurrentPropertyDetail] = useState()
+	
 	const ownerList = [
 		{
 			id: 1,
@@ -39,7 +40,7 @@ function PropertyDetails({
 			titleNumber: Content.propertyDetails.testTitleNumber,
 			landTitleDistrict: Content.propertyDetails.testLandTitleDistrict,
 			parcelIdentifier: Content.propertyDetails.testParcelIdentifier,
-			shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
+			// shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
 			numberOfOwner: 2,
 			ownerList: ownerList
 		},
@@ -48,17 +49,64 @@ function PropertyDetails({
 			titleNumber: Content.propertyDetails.testTitleNumber,
 			landTitleDistrict: Content.propertyDetails.testLandTitleDistrict,
 			parcelIdentifier: Content.propertyDetails.testParcelIdentifier,
-			shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
+			// shortLegalDescription: Content.propertyDetails.testShortLegalDescription,
 			numberOfOwner: 2,
 			ownerList: ownerList
 		}, 
 	]
+    console.log(propertyDetails)
 
+	function convertDetails (propertyDetails) {
+		// propertyDetails
+		const arr = []
+		// console.log(propertyDetails)
+
+		// for (const item in propertyDetails){
+		// 	console.log(item)
+		// 	const key = item.key
+		// 	const item = {
+		// 		id: 1,
+		// 		titleNumber: key.slice('|')[0],
+		// 		landTitleDistrict: key.slice('|')[1],
+		// 		// parcelIdentifier: 
+		// 	}
+		// 	arr.push(item)
+		// }
+		// propertyDetails.map((element, index) => {
+		// console.log(element)
+		// const key = elemevnt.key
+		// 	const item = {
+		// 		id: 1,
+		// 		titleNumber: key.slice('|')[0],
+		// 		landTitleDistrict: key.slice('|')[1],
+		// 		// parcelIdentifier: 
+		// 	}
+		// 	arr.push(item)
+		// })
+
+		// for (let i = 0; i < propertyDetails.length; i++){
+		// 	const key = propertyDetails[i].key
+		// 	console.log(key)
+		// 	const item = {
+		// 		id: 1,
+		// 		titleNumber: key.slice('|')[0],
+		// 		landTitleDistrict: key.slice('|')[1],
+		// 		// parcelIdentifier: 
+		// 	}
+		// 	arr.push(item)
+		// }
+		// console.log(arr)
+		// setCurrentPropertyDetail(arr)
+	}
+
+	const displayDetails = propertyDetails !== null ? true : false
 	const layoutClass = displayDetails ? 
 		Styles.propertyDetailsWrap + " " + Styles.paddingLarge : 
 		Styles.propertyDetailsWrap + " " + Styles.paddingSmall 
 
-	if (displayDetails) {
+
+	if (propertyDetails !== null) {
+		convertDetails(propertyDetails)
 		return (
 			<div className={layoutClass}>
 			 	<div className={`${Styles.addressWrap}` + " " + "text-left"}>
@@ -76,7 +124,6 @@ function PropertyDetails({
 							titleNumber={item.titleNumber}
 							landTitleDistrict={item.landTitleDistrict}
 							parcelIdentifier={item.parcelIdentifier}
-							shortLegalDescription={item.shortLegalDescription}
 							numberOfOwner={item.numberOfOwner}
 							ownerList={item.ownerList}
 						/>
@@ -108,6 +155,7 @@ function PropertyDetails({
 
 
 PropertyDetails.protoTypes = {
+	propertyDetails: PropTypes.array,
 	resultCount: PropTypes.number,
 	displayDetails: PropTypes.boolean
 

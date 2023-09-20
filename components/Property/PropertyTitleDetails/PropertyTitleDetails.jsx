@@ -14,7 +14,6 @@ function PropertyTitleDetails({
     titleNumber,
     landTitleDistrict,
     parcelIdentifier,
-    shortLegalDescription,
     numberOfOwner,
     ownerList
 }) {
@@ -47,14 +46,6 @@ function PropertyTitleDetails({
                     </div>
                     <div className={`${Styles.content}`}>
                         {parcelIdentifier}
-                    </div>
-                </div>
-                <div className={`${Styles.item}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.shortLegalDescription}
-                    </div>
-                    <div className={`${Styles.content}`}>
-                        {shortLegalDescription}
                     </div>
                 </div>
             </div>
