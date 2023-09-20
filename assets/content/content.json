@@ -13,7 +13,8 @@
     "navigation": {
         "home": "Home",
         "usermanagement": "User Management",
-        "accessrequest": "Access Request"
+        "accessrequest": "Access Request",
+        "requestaccessform":"Request Access to Admin Portal"
     },
     "footer": {
         "home": "Home",
