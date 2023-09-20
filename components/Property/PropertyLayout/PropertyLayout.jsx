@@ -12,13 +12,12 @@ export default function PropertyLayout() {
         useState(true)
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
-    const [currentProperty, setProperty] = useState(null)
-    const [showPropertyDetail, setShowPropertyDetail] = useState(false)
+    const [selectedProperty, setSelectProperty] = useState([])
 
-    const getSearchString = (newSearchString) => {
+    function getSearchString (newSearchString) {
         setSearchString(newSearchString)
         getSearchResults(newSearchString)
-        togglePropertySearch()
+        setShowPropertySearchHeader(false)
     }
 
     function getSearchResults(searchAddressString) {
@@ -35,29 +34,23 @@ export default function PropertyLayout() {
             })
     }
 
-    function togglePropertySearch() {
-        setShowPropertySearchHeader(false)
+    function handleSearchResultClick(siteID) {
+        const siteIDTest = '06996c2e-cf0f-4bb8-812a-4597e680818c'
+        getPropertyDetail(siteIDTest)
     }
 
-    function handleSearchResultClick(siteID){
-        getPropertyDetail(siteID)
-        setShowPropertyDetail(currentProperty == null ? false : true)
-    }
-
-    function getPropertyDetail(siteID){
-        setLoading(true)
+    function getPropertyDetail (siteID) {
         // TODO: the role will be retrieved in BE
         // TO BE REMOVED
         const role = "SuperAdmin"
 
         HttpRequest.getPropertyDetail(siteID, role)
             .then((response) => {
-                setShowPropertyDetail(response?.data)
-                setLoading(false)
+                setSelectProperty(response?.data)
+                console.log(selectedProperty)
             })
             .catch((error) => {
                 console.error(error)
-                setLoading(false)
             })
     }
 
@@ -84,7 +77,7 @@ export default function PropertyLayout() {
                     </div>
                     <div>
                         <PropertyDetails
-                            displayDetails={showPropertyDetail}
+                            propertyDetails={selectedProperty}
                             resultCount={results?.length}/>
                     </div>
                 </div>
