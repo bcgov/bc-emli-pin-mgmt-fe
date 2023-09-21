@@ -119,6 +119,12 @@
             "onlineReset": "Online PIN reset",
             "changeOfOwnership": "Change of ownership"
         },
+        "typeCode": {
+            "optOut": "OP",
+            "callCenter": "CC",
+            "onlineReset": "OR",
+            "changeOfOwnership": "CO"
+        },
         "primaryButton": "Close"
     },
     "pinHistoryFailureModal": {

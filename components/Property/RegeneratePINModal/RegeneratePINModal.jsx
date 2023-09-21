@@ -10,9 +10,7 @@ export default function RegeneratePINModal({
     isOpen, 
     setIsOpen, 
     livePinId, 
-    regenerationReason, 
-    regeneratedByName,
-    regeneratedByUsername
+    ownerDetails
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
@@ -54,11 +52,9 @@ export default function RegeneratePINModal({
 
     const regeneratePIN = () => {
         HttpRequest.regeneratePIN({
-            // TODO: check param for be api call
+            phoneNumber: phone,
+            email: email,
             livePinId: livePinId,
-            expirationReason: regenerationReason,
-            expiredByName: regeneratedByName,
-            expiredByUsername: regeneratedByUsername,
         })
             .then((response) => {
                 setIsOpen(false)

@@ -19,8 +19,6 @@ function PropertyOwner({
     mailingAddress, 
     livePinId, 
     livePIN, 
-    expirationReason, 
-    expiredByName, 
     expiredByUsername 
 }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
@@ -135,9 +133,6 @@ function PropertyOwner({
                     isOpen={openExpirePINModal}
                     setIsOpen={setOpenExpirePINModal}
                     livePinId={livePinId}
-                    expirationReason={expirationReason}
-                    expiredByName={expiredByName}
-                    expiredByUsername={expiredByUsername}
                 />
                 <RegeneratePINModal 
                     isOpen={openRegenertePINModal}
