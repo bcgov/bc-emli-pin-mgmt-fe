@@ -2,63 +2,43 @@ import PropertySearchHeader from '../PropertySearchHeader/PropertySearchHeader'
 import PropertySearch from '../PropertySearch/PropertySearch'
 import PropertyDetails from '../PropertyDetails/PropertyDetails'
 import SearchResults from '../../Search Results/SearchResults'
+import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import Styles from './PropertyLayout.module.css'
-import { useEffect, useState } from 'react'
-import HttpRequest from '../../../apiManager/httpRequestHandler/index'
+import Content from '../../../content.json'
+
+import { useState } from 'react'
 
 export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
-    const [showPropertySearchHeaher, setShowPropertySearchHeader] =
+    const [showPropertySearchHeader, setShowPropertySearchHeader] =
         useState(true)
-    const [isLoading, setLoading] = useState(true)
-    const [results, setResults] = useState(null)
-    const [selectedProperty, setSelectProperty] = useState([])
+
+    const [propertySiteId, setPropertySiteId] = useState('')
 
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
-        getSearchResults(newSearchString)
         setShowPropertySearchHeader(false)
     }
 
-    function getSearchResults(searchAddressString) {
-        setLoading(true)
-        let address = searchAddressString?.toLowerCase()
-        HttpRequest.getSearchResults(address)
-            .then((response) => {
-                setResults(response?.data?.results)
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.error(error)
-                setLoading(false)
-            })
-    }
-
-    function handleSearchResultClick(siteID) {
+    /* function handleSearchResultClick(siteID) {
         const siteIDTest = '06996c2e-cf0f-4bb8-812a-4597e680818c'
-        getPropertyDetail(siteIDTest)
-    }
+        setPropertySiteId(siteIDTest);
+    } */
 
-    function getPropertyDetail (siteID) {
-        // TODO: the role will be retrieved in BE
-        // TO BE REMOVED
-        const role = "SuperAdmin"
-
-        HttpRequest.getPropertyDetail(siteID, role)
-            .then((response) => {
-                setSelectProperty(response?.data)
-                console.log(selectedProperty)
-            })
-            .catch((error) => {
-                console.error(error)
-            })
-    }
+    const propertyDetailMsg = (
+      <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
+				<PropertyResultIcon />
+				<div className={`${Styles.resultMsgWrap}`}>
+					{Content.propertyDetails.searchResultMsg}
+				</div>
+			</div>
+    )
 
     return (
         <>
             <div
                 style={{
-                    display: showPropertySearchHeaher ? 'block' : 'none',
+                    display: showPropertySearchHeader ? 'block' : 'none',
                 }}
             >
                 <PropertySearchHeader />
@@ -68,17 +48,16 @@ export default function PropertyLayout() {
             </div>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
-                    <div className={`${Styles.seachResultWrap}`}>
+                    <div className={`${Styles.searchResultWrap}`}>
                         <SearchResults
-                            results={results}
-                            isLoading={isLoading}
-                            handleClick={handleSearchResultClick}
+                            searchAddress={searchString}
+                            handleClick={setPropertySiteId}
                         />
                     </div>
                     <div>
-                        <PropertyDetails
-                            propertyDetails={selectedProperty}
-                            resultCount={results?.length}/>
+                      { propertySiteId === '' && propertyDetailMsg }
+
+                      {propertySiteId !== '' && <PropertyDetails propertySiteId={propertySiteId} />}
                     </div>
                 </div>
             )}

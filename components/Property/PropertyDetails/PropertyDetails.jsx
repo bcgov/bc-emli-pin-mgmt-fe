@@ -8,15 +8,37 @@ import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
 import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import PropTypes from 'prop-types'
+import HttpRequest from '../../../apiManager/httpRequestHandler/index'
+
 
 function PropertyDetails({
-	propertyDetails,
-	resultCount,
+	propertySiteId,
 }) {
-			// TODO: change to data from api
+
 	const propertyAddress = Content.propertyDetails.testAddress
-	const [currentPropertyDetail, setCurrentPropertyDetail] = useState()
-	
+	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
+  const [isLoading, setLoading] = useState(false)
+
+  const displayDetails = propertySiteId !== '' ? true : false
+  useEffect(() => {
+    setLoading(true)
+    if(propertySiteId !== '') {
+      const role = "SuperAdmin"
+
+        HttpRequest.getPropertyDetail(propertySiteId, role)
+            .then((response) => {
+                // call converting data here
+                const propertyDetails = propertyDetailsMapping(response?.data)
+                setCurrentPropertyDetail(propertyDetails)
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.error(error)
+                setLoading(false)
+            })
+    }
+  }, [propertySiteId]);
+
 	const ownerList = [
 		{
 			id: 1,
@@ -33,7 +55,7 @@ function PropertyDetails({
 			mailingAddress: Content.propertyDetails.testMailingAddress2
 		}
 	]
-	
+
 	const titleList = [
 		{
 			id: 1,
@@ -54,102 +76,52 @@ function PropertyDetails({
 			ownerList: ownerList
 		}, 
 	]
-    console.log(propertyDetails)
 
-	function convertDetails (propertyDetails) {
-		// propertyDetails
-		const arr = []
-		// console.log(propertyDetails)
-
-		// for (const item in propertyDetails){
-		// 	console.log(item)
-		// 	const key = item.key
-		// 	const item = {
-		// 		id: 1,
-		// 		titleNumber: key.slice('|')[0],
-		// 		landTitleDistrict: key.slice('|')[1],
-		// 		// parcelIdentifier: 
-		// 	}
-		// 	arr.push(item)
-		// }
-		// propertyDetails.map((element, index) => {
-		// console.log(element)
-		// const key = elemevnt.key
-		// 	const item = {
-		// 		id: 1,
-		// 		titleNumber: key.slice('|')[0],
-		// 		landTitleDistrict: key.slice('|')[1],
-		// 		// parcelIdentifier: 
-		// 	}
-		// 	arr.push(item)
-		// })
-
-		// for (let i = 0; i < propertyDetails.length; i++){
-		// 	const key = propertyDetails[i].key
-		// 	console.log(key)
-		// 	const item = {
-		// 		id: 1,
-		// 		titleNumber: key.slice('|')[0],
-		// 		landTitleDistrict: key.slice('|')[1],
-		// 		// parcelIdentifier: 
-		// 	}
-		// 	arr.push(item)
-		// }
-		// console.log(arr)
-		// setCurrentPropertyDetail(arr)
-	}
-
-	const displayDetails = propertyDetails !== null ? true : false
-	const layoutClass = displayDetails ? 
-		Styles.propertyDetailsWrap + " " + Styles.paddingLarge : 
-		Styles.propertyDetailsWrap + " " + Styles.paddingSmall 
+  const propertyDetailsMapping = (data) => {
+    const details = data ? data : null
+      // enter mapping login here
+    return details
+  }
 
 
-	if (propertyDetails !== null) {
-		convertDetails(propertyDetails)
-		return (
-			<div className={layoutClass}>
-			 	<div className={`${Styles.addressWrap}` + " " + "text-left"}>
-			 		<div className={`${Styles.title}`}>
-						{Content.propertyDetails.residentialAddress}
-					</div>
-					<div className={`${Styles.content}`}>
-						{propertyAddress}
-					</div>
-				</div>
-				{
-					titleList.map((item) => (
-						<PropertyTitleDetails 
-							key={item.id}
-							titleNumber={item.titleNumber}
-							landTitleDistrict={item.landTitleDistrict}
-							parcelIdentifier={item.parcelIdentifier}
-							numberOfOwner={item.numberOfOwner}
-							ownerList={item.ownerList}
-						/>
-						))
-				}
-			</div>
-		)
-	} else if (resultCount === 0){
-		return (
-			<div className={layoutClass + " flex items-center justify-center content-center flex-col"}>
-				<PropertyNoResultIcon />
-				<div className={`${Styles.noResultMsgWrap}`}>
-					{Content.propertyDetails.noSearchResultMsg}
-				</div>
-			</div>
-		)
-	} else {
-		return (
-			<div className={layoutClass + " flex items-center justify-center content-center flex-col"}>
-				<PropertyResultIcon />
-				<div className={`${Styles.resultMsgWrap}`}>
-					{Content.propertyDetails.searchResultMsg}
-				</div>
-			</div>
-		)
-	}
+	const layoutClass = displayDetails ?
+		Styles.propertyDetailsWrap + " " + Styles.paddingLarge :
+		Styles.propertyDetailsWrap + " " + Styles.paddingSmall
+
+
+
+  return (
+    <div className={layoutClass}>
+      {(currentPropertyDetail !== null && !isLoading) && <div className="details">
+        <div className={`${Styles.addressWrap}` + " " + "text-left"}>
+          <div className={`${Styles.title}`}>
+            {Content.propertyDetails.residentialAddress}
+          </div>
+          <div className={`${Styles.content}`}>
+            {propertyAddress}
+          </div>
+        </div>
+        {
+          titleList.map((item) => (
+            <PropertyTitleDetails
+              key={item.id}
+              titleNumber={item.titleNumber}
+              landTitleDistrict={item.landTitleDistrict}
+              parcelIdentifier={item.parcelIdentifier}
+              numberOfOwner={item.numberOfOwner}
+              ownerList={item.ownerList}
+            />
+            ))
+        }
+      </div>}
+      {(currentPropertyDetail === null && !isLoading) && <div className={"flex items-center justify-center content-center flex-col"}>
+        <PropertyNoResultIcon />
+        <div className={`${Styles.noResultMsgWrap}`}>
+          {Content.propertyDetails.noSearchResultMsg}
+        </div>
+      </div>}
+    </div>
+  )
 }
 
 
