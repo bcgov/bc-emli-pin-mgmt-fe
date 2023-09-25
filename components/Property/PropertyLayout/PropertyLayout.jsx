@@ -14,16 +14,17 @@ export default function PropertyLayout() {
         useState(true)
 
     const [propertySiteId, setPropertySiteId] = useState('')
+    const [propertyAddress, setPropertyAddress] = useState('')
 
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
         setShowPropertySearchHeader(false)
     }
 
-    /* function handleSearchResultClick(siteID) {
-        const siteIDTest = '06996c2e-cf0f-4bb8-812a-4597e680818c'
-        setPropertySiteId(siteIDTest);
-    } */
+    function getSelectedValues (siteId, propertyAddress){
+        setPropertySiteId(siteId)
+        setPropertyAddress(propertyAddress)
+    }
 
     const propertyDetailMsg = (
       <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
@@ -51,13 +52,18 @@ export default function PropertyLayout() {
                     <div className={`${Styles.searchResultWrap}`}>
                         <SearchResults
                             searchAddress={searchString}
-                            handleClick={setPropertySiteId}
+                            handleClick={getSelectedValues}
                         />
                     </div>
                     <div>
                       { propertySiteId === '' && propertyDetailMsg }
 
-                      {propertySiteId !== '' && <PropertyDetails propertySiteId={propertySiteId} />}
+                      { 
+                        propertySiteId !== '' && 
+                        <PropertyDetails 
+                            propertySiteId={propertySiteId} 
+                            propertyAddress={propertyAddress}/>
+                        }
                     </div>
                 </div>
             )}

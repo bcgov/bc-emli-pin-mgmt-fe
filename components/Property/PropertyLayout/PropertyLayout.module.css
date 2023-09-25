@@ -27,19 +27,41 @@
   }
 }
 
+.propertyDetailsWrap{
+    background-color: #F1F1F1;
+    min-height: 913px;
+    opacity: 60%;
+}
+
+
+@media (min-width: 1260px){
+    .propertyDetailsWrap{
+        width: 857px;
+    }
+
+    .paddingLarge{
+        padding: 32px 44px;
+    }
+
+    .paddingSmall{
+        min-height: 857px;
+        opacity: 0.6;
+    }
+}
+
 @media (max-width: 1260px) {
-  .propertyDetailsWrap{
-      width: 600px;
-  }
+    .propertyDetailsWrap{
+        width: 600px;
+    }
 
-  .paddingLarge{
-      padding: 28px 25px;
-  }
+    .paddingLarge{
+        padding: 28px 25px;
+    }
 
-  .paddingSmall{
-      min-height: 857px;
-      opacity: 0.6;
-  }
+    .paddingSmall{
+        min-height: 857px;
+        opacity: 0.6;
+    }
 
 }
 

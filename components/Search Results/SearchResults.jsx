@@ -11,6 +11,7 @@ export default function SearchResults(props) {
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
     const [selected, setSelected] = useState(null)
+    
     useEffect(() => {
      getSearchResults(searchAddress)
     }, [searchAddress]);
@@ -30,7 +31,7 @@ export default function SearchResults(props) {
   }
     function getProperty(property) {
         setSelected(property.siteID)
-        handleClick(property.siteID)
+        handleClick(property.siteID, property.fullAddress)
     }
 
     if (!results || isLoading) {
