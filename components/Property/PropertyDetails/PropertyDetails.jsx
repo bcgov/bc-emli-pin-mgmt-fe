@@ -20,12 +20,13 @@ function PropertyDetails({
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
       
-  const siteIDTest = '06996c2e-cf0f-4bb8-812a-4597e680818c'
+ 
   useEffect(() => {
     setLoading(true)
-    if (siteIDTest !== '') {
+    if (propertySiteId !== '') {
+      // TO DO: to be removed after backend finish
       const role = "SuperAdmin"
-      HttpRequest.getPropertyDetail(siteIDTest, role)
+      HttpRequest.getPropertyDetail(propertySiteId, role)
         .then((response) => {
           // call converting data here
           const propertyDetails = propertyDetailsMapping(response?.data)
