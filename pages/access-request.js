@@ -5,6 +5,7 @@ import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import {getUserInfo} from '../services/authentication/user'
+import Table from '../components/Table/Table'
 
 
 export default function UserManagement(props) {
@@ -26,6 +27,7 @@ export default function UserManagement(props) {
         <div role="heading" aria-level="2">
         {Text.accessRequest.pageTitle}
         </div>
+        <Table />
       </main>
       <Footer />
     </>

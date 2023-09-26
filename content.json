@@ -34,7 +34,19 @@
         "pageTitle": "User Management"
     },
     "accessRequest": {
-        "pageTitle": "Access Requet"
+        "pageTitle": "Access Requet", 
+        "table": {
+            "userName": "Username", 
+            "identityType": "Identity Type", 
+            "firstName": "First Name", 
+            "lastName": "Last Name", 
+            "organization": "Organization", 
+            "email": "Email", 
+            "accessStatus": "Access Status", 
+            "roleType": "Role Type", 
+            "createdAt": "Created At", 
+            "reason": "Reason for requesting access"
+        }
     },
     "managePINDropdown": {
         "label": "Manage PIN",
