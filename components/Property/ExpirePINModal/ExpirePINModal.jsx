@@ -87,9 +87,6 @@ export default function ExpirePINModal({
 }
 
 ExpirePINModal.propTypes = {
-    role: PropTypes.bool,
     livePinId: PropTypes.string.isRequired,
-    expirationReason: PropTypes.string.isRequired,
-    expiredByName: PropTypes.string,
     expiredByUsername: PropTypes.string,
 }
