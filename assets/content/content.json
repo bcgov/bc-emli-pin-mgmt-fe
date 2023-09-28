@@ -35,7 +35,14 @@
         "pageTitle": "User Management"
     },
     "accessRequest": {
-        "pageTitle": "Access Requet"
+        "pageTitle": "Access Request"
+    },
+    "requestAccess": {
+      "pageTitle": "Request Access"
+    },
+    "requestAccessBanner": {
+      "title": "Request Access to VHERS PIN Admin Portal",
+      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to obtain access"
     },
     "managePINDropdown": {
         "label": "Manage PIN",

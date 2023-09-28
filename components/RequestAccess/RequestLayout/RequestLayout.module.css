@@ -1,0 +1,13 @@
+.container {
+  display: inline;
+}
+
+.formSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
