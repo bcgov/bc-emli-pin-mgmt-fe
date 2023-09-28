@@ -13,8 +13,11 @@ import { info } from 'autoprefixer'
 
 
 export default function Table(
-    tableHeaderCols, 
-    withMultiSelect
+    tableHeaderCols,
+    type,
+    data, 
+    withMultiSelect, 
+    handleMultiSelect
 ) {
     console.log(tableHeaderCols)
     // TO DO get the request list from parenet component 
@@ -52,6 +55,7 @@ export default function Table(
 
     const columns = []
 
+    // use effect, put it into a function
     Object.keys(tableHeaderCols).forEach(key => {
         const colItem = columnHelper.accessor(tableHeaderCols[key], {
             cell: info => info.getValue(),
