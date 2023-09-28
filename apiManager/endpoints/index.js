@@ -9,6 +9,7 @@ const Endpoints = {
     managePIN: {
         EXPIRE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/expire/`,
         VIEW_PIN_HISTORY: `${process.env.NEXT_PUBLIC_BE_APP_URL}/audit-trails?livePinIds=`,
+        REGENERATE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/regenerate/`,
     },
     auth: {
         LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
-import './style.css'
+import Styles from './Textbox.module.css'
+import { useState, useRef, useEffect } from 'react'
 
 function TextBox({
 	textBoxId,
@@ -21,23 +22,40 @@ function TextBox({
 	moreClasses,
 	...props
 }) {
-	const rootClass = 'text-box'
+	const rootClass = Styles.textBoxWrap
+	const field = useRef(null)
 
 	const errorMessageSelector = () =>
 		(!isValid && errorMessage) || (!isRegexValid && regexErrorMessage)
-	return (
-		// <section className={rootClass}>
-			<div className="text_label">
-				{textBoxLabel && (
-					<label htmlFor={textBoxId}>
-						{textBoxLabel}
-						{isRequired && !isDisabled && (
-							<span className={`${rootClass}__required-field`}>*</span>
-						)}
-					</label>
-				)}
 
+	useEffect(() => {
+		let interVal = setInterval(() => {
+			if(field.current){
+				onHandleChange(field.current.value)
+				clearInterval(interVal)
+			}
+		}, 100)
+	})
+
+		
+	return (
+		<>
+			<div className={`${Styles.textBoxWrap}`}>
+				<div className={`${Styles.textLabel}`}>
+					{textBoxLabel && (
+						<label htmlFor={textBoxId}>
+							{textBoxLabel}
+							{isRequired && !isDisabled && (
+								<span className={`${Styles.required}`}>*</span>
+							)}
+						</label>
+					)}
+				</div>
+			</div>
+
+			<div>
 				<input
+					ref={field}
 					type={inputType}
 					id={textBoxId}
 					name={textBoxId}
@@ -46,27 +64,25 @@ function TextBox({
 					required={isRequired}
 					aria-required={isRequired}
 					onChange={(e) => onHandleChange(e.target.value)}
-					className={`text_input ${moreClasses} ${
-						hasError
+					className={`${Styles.textInput} ${moreClasses} ${hasError
 							? `error-input`
 							: isDisabled
-							? `${rootClass}__disabled-div`
-							: ''
-					}`}
+								? `${rootClass}__disabled-div`
+								: ''
+						}`}
 					maxLength={textBoxLimit}
 					aria-label={textBoxAriaLabel}
 					{...props}
 				/>
-				<div className={`${rootClass}__footer-text`}>{textBoxFooter}</div>
+				<div className={`${Styles.footerText}`}>{textBoxFooter}</div>
 				<div
-					className={`${
-						hasError ? `${rootClass}__error-message` : `${rootClass}__hide-div`
-					}`}
+					className={`${hasError ? `${rootClass}__error-message` : `${rootClass}__hide-div`
+						}`}
 				>
 					{errorMessageSelector()}
 				</div>
 			</div>
-		// </section>
+		</>
 	)
 }
 

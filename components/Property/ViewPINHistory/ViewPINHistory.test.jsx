@@ -36,7 +36,7 @@ describe('<ViewPINHistory />', () => {
         const { getAllByText, getByText } = render(<MultipleRowsTemplate />)
         expect(getAllByText('PIN deleted')[0]).toBeVisible()
         expect(getByText('PIN created')).toBeVisible()
-        expect(getByText('PIN recreated')).toBeVisible()
+        expect(getByText('PIN regenerated')).toBeVisible()
     })
 
     it('should properly format actions', () => {

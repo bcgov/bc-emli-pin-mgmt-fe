@@ -1,9 +1,49 @@
 /* keep for reference for error in future */
-.text-box__container {
+.textBoxWrap{
+	width: 100%;
+}
+
+.textBoxWrap .textLabel{
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+	color: #1A1A1A;
+}
+
+.textInput {
+	height: 48px;
+	border: 1px solid #C7C7C7;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; 
+	color: #1A1A1A;
+	width: 100%;
+  }
+  
+
+.footerText {
+	/* Primary / Navy */
+	color: #656565;
+	padding-top: 5px;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 142.857% */
+}
+
+
+/* previous code */
+.textBox.container {
 	padding-top: 16px;
 	padding-bottom: 16px;
 }
-.text-box__text {
+.textBox__text {
 	/* Primary / Navy */
 	color: #101820;
 	font-style: normal;
@@ -13,7 +53,7 @@
 	padding-bottom: 20px;
 	cursor: pointer;
 }
-.text-box__box {
+.textBox__box {
 	/* Primary / White */
 	background: #fff;
 	height: 50px;
@@ -31,65 +71,41 @@
 	letter-spacing: 0.5px;
 	text-indent: 15px;
 }
-.text-box__box::placeholder {
+.textBox__box::placeholder {
 	color: #636367;
 }
-.text-box__box:focus {
+.textBox__box:focus {
 	outline: none;
 	border: 1px solid #62b5e5;
 	box-sizing: border-box;
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
-.text-box__footer-text {
-	/* Primary / Navy */
-	color: #128fee;
-	font-style: normal;
-	font-weight: normal;
-	line-height: 16px;
-	letter-spacing: 0.5px;
-	padding-top: 5px;
-}
-.text-box__error-div {
+
+.textBox__error-div {
 	/* Primary / Red */
 	border: 1px solid #d0021b;
 }
-.text-box__error-message {
+.textBox__error-message {
 	/* Primary / Red */
 	color: #d0021b;
 	padding-top: 10px;
 }
-.text-box__hide-div {
+.textBox__hide-div {
 	display: none;
 }
-.text-box__disabled-div {
+.textBox__disabled-div {
 	background: #f4f4f4;
 	border: 1px solid #f4f4f4;
 	color: #636465;
 }
-.text-box__required-field {
+.textBox.required {
 	color: #101820;
 }
 
 /* bc style */
-.text_input {
-	font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
-	font-size: 18px;
-  }
   
-  .text_input {
-	height: 34px;
-	border: 2px solid #606060;
-	margin-top: 5px;
-	margin-bottom: 15px;
-	border-radius: 4px;
-	padding: 5px 5px 5px 7px;
-  }
-  
-  .text_input[type="text"]:focus {
+  .textInput[type="text"]:focus {
 	  outline: 4px solid #3B99FC;
 	  outline-offset: 1px;
   }
   
-  .text_label {
-	display: flex;
-  }

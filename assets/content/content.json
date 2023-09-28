@@ -39,9 +39,14 @@
     },
     "managePINDropdown": {
         "label": "Manage PIN",
-        "recreateOption": "Recreate PIN",
+        "recreateOption": "Regenerate PIN",
         "expireOption": "Expire PIN",
-        "viewOption": "View PIN"
+        "viewOption": "View PIN", 
+        "valueOptions": {
+            "regenerate": "regenerate-pin", 
+            "expire": "expire-pin", 
+            "view": "view-pin"
+        }
     },
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"
@@ -107,13 +112,19 @@
         "actions": {
             "deleted": "PIN deleted",
             "created": "PIN created",
-            "recreated": "PIN recreated"
+            "recreated": "PIN regenerated"
         },
         "types": {
             "optOut": "Opt-out",
             "callCenter": "Call center PIN reset",
             "onlineReset": "Online PIN reset",
             "changeOfOwnership": "Change of ownership"
+        },
+        "typeCode": {
+            "optOut": "OP",
+            "callCenter": "CC",
+            "onlineReset": "OR",
+            "changeOfOwnership": "CO"
         },
         "primaryButton": "Close"
     },
@@ -127,5 +138,18 @@
         "title": "View PIN", 
         "noLivePINMag": "There is no valid PIN.",
         "close": "Close"
+    }, 
+    "regeneratePINModal": {
+        "title": "Regenerate PIN",
+        "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
+        "phone": "Phone", 
+        "phonePlaceHolder": "E.g. (604)332-8930",
+        "email": "Email",
+        "emailPlaceHolder": "E.g. jcambie@govv.bc.ca",
+        "cancelButton": "Cancel", 
+        "successModalTitle": "PIN has been regenerated",
+        "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.", 
+        "failureModalTitle": "Recreating PIN failed", 
+        "failureModalMag": "There was a problem. Try again later."
     }
 }

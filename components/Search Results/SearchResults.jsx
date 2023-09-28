@@ -1,16 +1,37 @@
+import { useEffect, useState } from 'react'
 import styles from './SearchResults.module.css'
 import AddressCard from '../Address Card/index'
 import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
 import Content from '../../assets/content/content.json'
-import { useState } from 'react'
+import HttpRequest from '../../apiManager/httpRequestHandler'
 
-export default function SearchResults({ results, isLoading, handleClick }) {
+export default function SearchResults(props) {
+    const { searchAddress, handleClick } = props
+    const [isLoading, setLoading] = useState(true)
+    const [results, setResults] = useState(null)
     const [selected, setSelected] = useState(null)
 
+    useEffect(() => {
+      getSearchResults(searchAddress)
+    }, [searchAddress]);
+
+    function getSearchResults(searchAddressString) {
+      setLoading(true)
+      let address = searchAddressString?.toLowerCase()
+      HttpRequest.getSearchResults(address)
+          .then((response) => {
+              setResults(response?.data?.results)
+              setLoading(false)
+          })
+          .catch((error) => {
+              console.error(error)
+              setLoading(false)
+          })
+  }
     function getProperty(property) {
         setSelected(property.siteID)
-        handleClick(property.siteID)
+        handleClick(property.siteID, property.fullAddress)
     }
 
     if (!results || isLoading) {

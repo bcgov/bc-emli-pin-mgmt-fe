@@ -10,13 +10,13 @@ import EmailIcon from '../../../assets/svgs/EmailIcon'
 
 export default function ViewPINHistory({ pinHistory }) {
     function formatType(type) {
-        if (type === 'OP') {
+        if (type === Content.pinHistoryModal.typeCode.optOut) {
             return Content.pinHistoryModal.types.optOut
-        } else if (type === 'CC') {
+        } else if (type === Content.pinHistoryModal.typeCode.callCenter) {
             return Content.pinHistoryModal.types.callCenter
-        } else if (type === 'OR') {
+        } else if (type === Content.pinHistoryModal.typeCode.onlineReset) {
             return Content.pinHistoryModal.types.onlineReset
-        } else if (type === 'CO') {
+        } else if (type === Content.pinHistoryModal.typeCode.changeOfOwnership) {
             return Content.pinHistoryModal.types.changeOfOwnership
         } else {
             return type

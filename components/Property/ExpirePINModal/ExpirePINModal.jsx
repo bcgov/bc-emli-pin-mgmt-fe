@@ -6,9 +6,6 @@ import HttpRequest from '../../../apiManager/httpRequestHandler'
 
 export default function ExpirePINModal({
     livePinId,
-    expirationReason,
-    expiredByName,
-    expiredByUsername,
     setIsOpen,
     isOpen,
 }) {
@@ -18,9 +15,9 @@ export default function ExpirePINModal({
     function expirePIN() {
         HttpRequest.expirePIN({
             livePinId: livePinId,
-            expirationReason: expirationReason,
-            expiredByName: expiredByName,
-            expiredByUsername: expiredByUsername,
+            expirationReason: Content.pinHistoryModal.typeCode.callCenter,
+            // TO DO: to be removed after backend intergrated 
+            expiredByUsername: "First last name",
         })
             .then((response) => {
                 setIsOpen(false)
@@ -90,9 +87,6 @@ export default function ExpirePINModal({
 }
 
 ExpirePINModal.propTypes = {
-    role: PropTypes.bool,
     livePinId: PropTypes.string.isRequired,
-    expirationReason: PropTypes.string.isRequired,
-    expiredByName: PropTypes.string,
     expiredByUsername: PropTypes.string,
 }
