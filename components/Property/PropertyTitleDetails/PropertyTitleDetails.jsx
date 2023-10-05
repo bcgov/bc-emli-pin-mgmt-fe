@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Styles from './PropertyTitleDetails.module.css'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 

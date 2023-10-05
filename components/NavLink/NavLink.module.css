@@ -1,7 +1,7 @@
 
 .linkWrap{
 	list-style-type: none;
-	width: 170px;
+	min-width: 170px;
 	vertical-align: middle;
 	color: #FFFFFF;
 	display: flex;

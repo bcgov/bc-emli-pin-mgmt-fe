@@ -1,5 +1,5 @@
 import { use, useState } from 'react'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
 import Styles from './RegeneratePINModal.module.css'
@@ -7,9 +7,9 @@ import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 import Textbox from '../../Textbox/index'
 
 export default function RegeneratePINModal({
-    isOpen, 
-    setIsOpen, 
-    livePinId, 
+    isOpen,
+    setIsOpen,
+    livePinId,
     ownerDetails
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()

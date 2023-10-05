@@ -4,7 +4,7 @@ import PropertyDetails from '../PropertyDetails/PropertyDetails'
 import SearchResults from '../../Search Results/SearchResults'
 import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import Styles from './PropertyLayout.module.css'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 
 import { useState } from 'react'
 

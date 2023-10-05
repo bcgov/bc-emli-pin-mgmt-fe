@@ -1,5 +1,5 @@
 import Styles from './PropertySearch.module.css'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button/index'
 import { useState } from 'react'
 

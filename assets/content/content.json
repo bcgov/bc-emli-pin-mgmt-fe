@@ -13,7 +13,8 @@
     "navigation": {
         "home": "Home",
         "usermanagement": "User Management",
-        "accessrequest": "Access Request"
+        "accessrequest": "Access Request",
+        "requestaccessform":"Request Access to Admin Portal"
     },
     "footer": {
         "home": "Home",
@@ -34,7 +35,40 @@
         "pageTitle": "User Management"
     },
     "accessRequest": {
-        "pageTitle": "Access Requet"
+        "pageTitle": "Access Request"
+    },
+    "requestAccess": {
+      "pageTitle": "Request Access"
+    },
+    "requestAccessBanner": {
+      "title": "Request Access to VHERS PIN Admin Portal",
+      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access"
+    },
+    "requestForm": {
+      "formHeaderTitle": "Request details form",
+      "formRequiredText": "Indicates a required field",
+      "formInputs": {
+        "requesterName": "Your name",
+        "identityType": "Identity Type",
+        "userName": "Username",
+        "emailAddress": "Email address",
+        "organization": "Organization",
+        "businessName": "Business Name",
+        "organizationPlaceholder": "Enter your organization name",
+        "permissionType": "Permission type",
+        "reason": "Reason for access request",
+        "reasonPlaceHolder": "Describe the reason for wanting access to this application",
+        "submitBtnText" : "Submit"
+      }
+    },
+    "requestSubmitMessage": {
+      "successHeader": "Request submitted",
+      "successMessage": "Your request to access VHERS PIN Admin Portal has been submitted. A notification will be sent to you via email once the request is processed.",
+      "failureHeader": "Request could not be submitted",
+      "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
+      "requestExist": "A request already exists. Please contact the system administrator below",
+      "systemAdministrator": "System Administrator",
+      "systemAdminEmail": "hers_admin@gov.bc.ca"
     },
     "managePINDropdown": {
         "label": "Manage PIN",
@@ -147,8 +181,14 @@
         "emailPlaceHolder": "E.g. jcambie@govv.bc.ca",
         "cancelButton": "Cancel", 
         "successModalTitle": "PIN has been regenerated",
-        "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.", 
+        "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.",
         "failureModalTitle": "Recreating PIN failed", 
         "failureModalMag": "There was a problem. Try again later."
+    },
+    "back": "Back",
+    "portalUserRole" : {
+      "systemAdmin": "System administrator",
+      "admin" : "Administrator",
+      "clientSupport": "Client support"
     }
 }

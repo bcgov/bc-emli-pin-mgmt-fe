@@ -3,7 +3,7 @@ import styles from './SearchResults.module.css'
 import AddressCard from '../Address Card/index'
 import LoadingIcon from '../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../LoadingScreen'
-import Content from '../../content.json'
+import Content from '../../assets/content/content.json'
 import HttpRequest from '../../apiManager/httpRequestHandler'
 
 export default function SearchResults(props) {
@@ -11,11 +11,11 @@ export default function SearchResults(props) {
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
     const [selected, setSelected] = useState(null)
-    
+
     useEffect(() => {
-     getSearchResults(searchAddress)
+      getSearchResults(searchAddress)
     }, [searchAddress]);
-    
+
     function getSearchResults(searchAddressString) {
       setLoading(true)
       let address = searchAddressString?.toLowerCase()

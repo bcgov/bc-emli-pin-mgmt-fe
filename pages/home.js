@@ -1,14 +1,10 @@
 import Head from 'next/head'
-import Content from '../content.json'
+import Content from '../assets/content/content.json'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
-import PropertySearchHeader from '../components/Property/PropertySearchHeader/PropertySearchHeader'
-import PropertySearch from '../components/Property/PropertySearch/PropertySearch'
-import { getUserInfo } from '../services/authentication/user'
-import PropertyDetails from '../components/Property/PropertyDetails/PropertyDetails'
+import { getUserInfo } from '../services/authentication/userAuthService'
 import PropertyLayout from '../components/Property/PropertyLayout'
-import SearchResults from '../components/Search Results/SearchResults'
 
 export default function Home(props) {
     const { userName } = props
@@ -38,7 +34,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps({ req }) {
-    const userInfo = getUserInfo(req)
+    const userInfo = getUserInfo()
     return {
         props: {
             userName: `${userInfo.given_name} ${userInfo.family_name}`,

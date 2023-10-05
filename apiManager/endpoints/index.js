@@ -15,6 +15,9 @@ const Endpoints = {
         LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,
         LOGOUT: `${process.env.NEXT_PUBLIC_BE_APP_URL}/logout`,
     },
+    requestAccess: {
+      REQUEST_ACCESS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests`,
+    }
 }
 
 export default Endpoints

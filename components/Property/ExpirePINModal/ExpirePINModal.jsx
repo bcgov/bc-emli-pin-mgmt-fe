@@ -1,4 +1,4 @@
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import PropTypes from 'prop-types'
 import Modal from '../../Modal'
 import { useState } from 'react'
