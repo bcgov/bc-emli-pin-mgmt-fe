@@ -13,7 +13,6 @@ function TextBox({
 	regexErrorMessage,
 	hasValue,
 	onHandleChange,
-	isValid,
 	isRegexValid,
 	isRequired,
 	isDisabled,
@@ -23,30 +22,16 @@ function TextBox({
 	...props
 }) {
 	const rootClass = Styles.textBoxWrap
-	const field = useRef(null)
 
-	const errorMessageSelector = () =>
-		(!isValid && errorMessage) || (!isRegexValid && regexErrorMessage)
-
-	useEffect(() => {
-		let interVal = setInterval(() => {
-			if(field.current){
-				onHandleChange(field.current.value)
-				clearInterval(interVal)
-			}
-		}, 100)
-	})
-
-		
 	return (
 		<>
 			<div className={`${Styles.textBoxWrap}`}>
-				<div className={`${Styles.textLabel}`}>
+				<div className={`${Styles.textLabel} ${isDisabled ? Styles.textLabelDisabled : ''}`}>
 					{textBoxLabel && (
 						<label htmlFor={textBoxId}>
 							{textBoxLabel}
 							{isRequired && !isDisabled && (
-								<span className={`${Styles.required}`}>*</span>
+								<span className={`${Styles.required}`}>&nbsp;*</span>
 							)}
 						</label>
 					)}
@@ -55,7 +40,6 @@ function TextBox({
 
 			<div>
 				<input
-					ref={field}
 					type={inputType}
 					id={textBoxId}
 					name={textBoxId}
@@ -64,8 +48,8 @@ function TextBox({
 					required={isRequired}
 					aria-required={isRequired}
 					onChange={(e) => onHandleChange(e.target.value)}
-					className={`${Styles.textInput} ${moreClasses} ${hasError
-							? `error-input`
+					className={`${Styles.textInput} ${moreClasses}
+          ${hasError? Styles.error
 							: isDisabled
 								? `${rootClass}__disabled-div`
 								: ''
@@ -75,12 +59,6 @@ function TextBox({
 					{...props}
 				/>
 				<div className={`${Styles.footerText}`}>{textBoxFooter}</div>
-				<div
-					className={`${hasError ? `${rootClass}__error-message` : `${rootClass}__hide-div`
-						}`}
-				>
-					{errorMessageSelector()}
-				</div>
 			</div>
 		</>
 	)
@@ -116,6 +94,7 @@ TextBox.defaultProps = {
 	textBoxLimit: 256,
 	regexErrorMessage: '',
 	inputType: 'text',
+  onHandleChange: () => {}
 }
 
 export default TextBox

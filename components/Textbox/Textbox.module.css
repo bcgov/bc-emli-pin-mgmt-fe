@@ -11,6 +11,14 @@
 	color: #1A1A1A;
 }
 
+.textBoxWrap .textLabelDisabled{
+	color: #A1A1A1;
+}
+
+.textBoxWrap .required {
+	color: #ED3F45;
+}
+
 .textInput {
 	height: 48px;
 	border: 1px solid #C7C7C7;
@@ -81,7 +89,7 @@
 	box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
-.textBox__error-div {
+.error {
 	/* Primary / Red */
 	border: 1px solid #d0021b;
 }
@@ -98,14 +106,10 @@
 	border: 1px solid #f4f4f4;
 	color: #636465;
 }
-.textBox.required {
-	color: #101820;
-}
 
 /* bc style */
-  
+
   .textInput[type="text"]:focus {
-	  outline: 4px solid #3B99FC;
-	  outline-offset: 1px;
+    outline: 4px solid #3B99FC;
+    outline-offset: 1px;
   }
-  

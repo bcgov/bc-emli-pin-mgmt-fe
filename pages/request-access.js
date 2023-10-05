@@ -3,13 +3,14 @@ import Content from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
-import {getUserInfo} from '../services/authentication/user'
+import {getUserInfo} from '../services/authentication/userAuthService'
 import RequestLayout from '../components/RequestAccess/RequestLayout'
 
 
 export default function RequestAccess(props) {
   const {
-    userName
+    userName,
+    userInfo,
   } = props;
   return (
     <>
@@ -23,18 +24,19 @@ export default function RequestAccess(props) {
       {/* pass role for different active tabs */}
       <Navigation role="admin"/>
       <main id="main">
-        <RequestLayout userInfo={userName} />
+        <RequestLayout userInfo={userInfo} />
       </main>
       <Footer />
     </>
   )
 }
 
-export async function getServerSideProps({ req }) {
-  const userInfo = getUserInfo(req);
+export async function getServerSideProps(req) {
+  const userInfo = getUserInfo();
   return {
     props: {
       userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userInfo,
     },
   };
 }

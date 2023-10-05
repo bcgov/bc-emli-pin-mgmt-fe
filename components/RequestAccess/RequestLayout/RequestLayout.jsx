@@ -1,7 +1,8 @@
 import styles from './RequestLayout.module.css';
 import Content from '../../../assets/content/content.json'
-import AccessRequest from '../../../assets/svgs/AccessRequest';
-import PageBanner from '../../PageBanner';
+import AccessRequest from '../../../assets/svgs/AccessRequest'
+import PageBanner from '../../PageBanner'
+import RequestForm from '../RequestForm'
 
 export default function RequestLayout(props) {
     const {
@@ -18,7 +19,9 @@ export default function RequestLayout(props) {
             </PageBanner>
         </div>
         <div className={`${styles.formSection}`}>
-
+            <RequestForm
+              userInfo={userInfo}
+            />
         </div>
       </div>
     )
