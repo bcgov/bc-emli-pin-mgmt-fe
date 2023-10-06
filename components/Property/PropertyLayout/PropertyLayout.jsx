@@ -2,70 +2,44 @@ import PropertySearchHeader from '../PropertySearchHeader/PropertySearchHeader'
 import PropertySearch from '../PropertySearch/PropertySearch'
 import PropertyDetails from '../PropertyDetails/PropertyDetails'
 import SearchResults from '../../Search Results/SearchResults'
+import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import Styles from './PropertyLayout.module.css'
-import { useEffect, useState } from 'react'
-import HttpRequest from '../../../apiManager/httpRequestHandler/index'
+import Content from '../../../assets/content/content.json'
+
+import { useState } from 'react'
 
 export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
-    const [showPropertySearchHeaher, setShowPropertySearchHeader] =
+    const [showPropertySearchHeader, setShowPropertySearchHeader] =
         useState(true)
-    const [isLoading, setLoading] = useState(true)
-    const [results, setResults] = useState(null)
-    const [currentProperty, setProperty] = useState(null)
-    const [showPropertyDetail, setShowPropertyDetail] = useState(false)
 
-    const getSearchString = (newSearchString) => {
+    const [propertySiteId, setPropertySiteId] = useState('')
+    const [propertyAddress, setPropertyAddress] = useState('')
+
+    function getSearchString (newSearchString) {
         setSearchString(newSearchString)
-        getSearchResults(newSearchString)
-        togglePropertySearch()
-    }
-
-    function getSearchResults(searchAddressString) {
-        setLoading(true)
-        let address = searchAddressString?.toLowerCase()
-        HttpRequest.getSearchResults(address)
-            .then((response) => {
-                setResults(response?.data?.results)
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.error(error)
-                setLoading(false)
-            })
-    }
-
-    function togglePropertySearch() {
         setShowPropertySearchHeader(false)
     }
 
-    function handleSearchResultClick(siteID){
-        getPropertyDetail(siteID)
-        setShowPropertyDetail(currentProperty == null ? false : true)
+    function getSelectedValues (siteId, propertyAddress){
+        setPropertySiteId(siteId)
+        setPropertyAddress(propertyAddress)
     }
 
-    function getPropertyDetail(siteID){
-        setLoading(true)
-        // TODO: the role will be retrieved in BE
-        // TO BE REMOVED
-        const role = "SuperAdmin"
-
-        HttpRequest.getPropertyDetail(siteID, role)
-            .then((response) => {
-                setShowPropertyDetail(response?.data)
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.error(error)
-                setLoading(false)
-            })
-    }
+    const propertyDetailMsg = (
+      <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
+				<PropertyResultIcon />
+				<div className={`${Styles.resultMsgWrap}`}>
+					{Content.propertyDetails.searchResultMsg}
+				</div>
+			</div>
+    )
 
     return (
         <>
             <div
                 style={{
-                    display: showPropertySearchHeaher ? 'block' : 'none',
+                    display: showPropertySearchHeader ? 'block' : 'none',
                 }}
             >
                 <PropertySearchHeader />
@@ -75,17 +49,21 @@ export default function PropertyLayout() {
             </div>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
-                    <div className={`${Styles.seachResultWrap}`}>
+                    <div className={`${Styles.searchResultWrap}`}>
                         <SearchResults
-                            results={results}
-                            isLoading={isLoading}
-                            handleClick={handleSearchResultClick}
+                            searchAddress={searchString}
+                            handleClick={getSelectedValues}
                         />
                     </div>
                     <div>
-                        <PropertyDetails
-                            displayDetails={showPropertyDetail}
-                            resultCount={results?.length}/>
+                      { propertySiteId === '' && propertyDetailMsg }
+
+                      { 
+                        propertySiteId !== '' && 
+                        <PropertyDetails 
+                            propertySiteId={propertySiteId} 
+                            propertyAddress={propertyAddress}/>
+                        }
                     </div>
                 </div>
             )}

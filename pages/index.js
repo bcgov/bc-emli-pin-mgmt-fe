@@ -1,29 +1,33 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Endpoints from '../apiManager/endpoints'
-import { checkAuthentication } from "../services/authentication/user";
+import { checkAuthentication } from "../services/authentication/userAuthService";
 
 export default function Index(props) {
   const {
     isAuthenticated,
+    isRegistered,
   } = props;
   const router = useRouter();
   useEffect(() => {
     if (!isAuthenticated) {
       window.location = Endpoints.auth.LOGIN;
     } else if (isAuthenticated) {
-      void router.push("/home");
+      const path = isRegistered ? '/home' : '/request-access'
+      void router.push(path);
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, isRegistered]);
 
   return <div></div>;
 }
 
 export async function getServerSideProps({ req, res, query: params }) {
-  const userAuthenticated = true;//checkAuthentication(params);
+  console.log(params)
+  const { userAuthenticated, userRegistered } = checkAuthentication(params);
   return {
     props: {
       isAuthenticated: userAuthenticated,
+      isRegistered: userRegistered,
     },
   };
 }

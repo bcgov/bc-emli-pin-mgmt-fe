@@ -1,4 +1,4 @@
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import PropTypes from 'prop-types'
 import Modal from '../../Modal'
 import { useState } from 'react'
@@ -87,9 +87,6 @@ export default function ExpirePINModal({
 }
 
 ExpirePINModal.propTypes = {
-    role: PropTypes.bool,
     livePinId: PropTypes.string.isRequired,
-    expirationReason: PropTypes.string.isRequired,
-    expiredByName: PropTypes.string,
     expiredByUsername: PropTypes.string,
 }

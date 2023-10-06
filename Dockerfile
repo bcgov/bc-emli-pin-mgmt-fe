@@ -1,19 +1,3 @@
-# adapted from https://github.com/vercel/next.js/tree/canary/examples/with-docker
-# needs next.config.js to set build to stand-alone with context as follows
-# /** @type {import('next').NextConfig} */
-# module.exports = {
-#  output: 'standalone',
-# }
-
-# Recommended to have .dockerignore file with the following content
-# Dockerfile
-# .dockerignore
-# node_modules
-# npm-debug.log
-# README.md
-# .next
-# .git
-# ----------------------------------------------------------
 # Install dependencies only when needed
 FROM registry.access.redhat.com/ubi8/nodejs-16 AS deps
 USER 0

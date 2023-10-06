@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Styles from './PropertyTitleDetails.module.css'
-import Content from '../../../content.json'
+import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
 
@@ -14,7 +14,6 @@ function PropertyTitleDetails({
     titleNumber,
     landTitleDistrict,
     parcelIdentifier,
-    shortLegalDescription,
     numberOfOwner,
     ownerList
 }) {
@@ -49,14 +48,6 @@ function PropertyTitleDetails({
                         {parcelIdentifier}
                     </div>
                 </div>
-                <div className={`${Styles.item}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.shortLegalDescription}
-                    </div>
-                    <div className={`${Styles.content}`}>
-                        {shortLegalDescription}
-                    </div>
-                </div>
             </div>
 
             <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
@@ -73,7 +64,7 @@ function PropertyTitleDetails({
                         key={owner.id}
                         fullName={owner.fullName}
                         mailingAddress={owner.mailingAddress}
-                        livePinId={owner.livePinId}
+                        livePinId={owner.id}
                         livePIN={owner.livePIN}
                     />
                 ))}

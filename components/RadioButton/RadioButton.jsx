@@ -16,7 +16,7 @@ export default function RadioButton({
 }) {
 	const rootClass = 'radio-button'
 
-	const applySlectedRadio = (selected) => {
+	const applySelectedRadio = (selected) => {
 		setSelectedValue(selected)
 	}
 
@@ -25,7 +25,7 @@ export default function RadioButton({
 			<div className={styles.container}>
 				<label
 					htmlFor={radioButtonId}
-					className={`${styles.label} ${styles[size]}`}
+					className={`${styles.label}`}
 					disabled={isDisabled}
 				>
 					<input
@@ -37,11 +37,13 @@ export default function RadioButton({
 						className={`${styles.radiobutton} ${
 							hasError ? styles.alert : ''
 						}`}
-						onChange={(e) => applySlectedRadio(e.target.value)}
+						onChange={(e) => applySelectedRadio(e.target.value)}
 						disabled={isDisabled}
 						{...props}
 					/>
-
+          <div className={`${styles.customRadio} ${
+							hasError ? styles.alert : ''
+						}`}></div>
 					<p
 						className={`${styles.text} ${
 							hasError ? `error-label` : isDisabled ? styles.textDisabled : ''
