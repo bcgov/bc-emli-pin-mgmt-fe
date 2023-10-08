@@ -1,10 +1,6 @@
 import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import PropTypes from 'prop-types'
-import Modal from '../../Modal'
-import { useState } from 'react'
-import HttpRequest from '../../../apiManager/httpRequestHandler'
-import Styles from './ManagePINDropdown.module.css'
 
 export default function ManagePINDropdown({ showPINOption, handleSelection }) {
     function getSelection(value) {

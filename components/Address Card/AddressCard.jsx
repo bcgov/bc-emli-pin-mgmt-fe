@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-
 import styles from './AddressCard.module.css'
 import LocationDot from '../../assets/svgs/LocationDot'
 

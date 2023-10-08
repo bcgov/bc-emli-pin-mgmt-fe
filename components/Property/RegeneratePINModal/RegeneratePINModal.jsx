@@ -1,6 +1,5 @@
-import { use, useState } from 'react'
+import { useState } from 'react'
 import Content from '../../../assets/content/content.json'
-import Dropdown from '../../Dropdown/index'
 import Modal from '../../Modal'
 import Styles from './RegeneratePINModal.module.css'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'

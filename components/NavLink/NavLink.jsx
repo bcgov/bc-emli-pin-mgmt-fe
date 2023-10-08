@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import PropTypes from 'prop-types';
 import Styles from './NavLink.module.css'
-import Text from '../../assets/content/content.json'
 import { usePathname } from "next/navigation";
 import React, { Children } from "react";
 

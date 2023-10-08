@@ -6,7 +6,6 @@ import CloseIcon from '../../assets/svgs/CloseIcon'
 
 import styles from './Modal.module.css'
 import { testAttr } from '../../utils/test.utils'
-import { useState } from 'react'
 
 export default function Modal({
     isOpen,

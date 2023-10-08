@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import Styles from './Footer.module.css'
 import Text from '../../assets/content/content.json'
 import Link from 'next/link'

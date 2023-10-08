@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types'
 import Styles from './Textbox.module.css'
-import { useState, useRef, useEffect } from 'react'
-
 function TextBox({
 	textBoxId,
 	textBoxLabel,

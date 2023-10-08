@@ -1,13 +1,8 @@
 import Styles from './PropertyDetails.module.css'
 import Content from '../../../assets/content/content.json'
-import { Button } from '../../Button/index'
 import { useState, useEffect } from 'react'
-import Endpoints from '../../../apiManager/endpoints'
-import axios from 'axios'
 import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
 import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
-import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
-import PropTypes from 'prop-types'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 
 
