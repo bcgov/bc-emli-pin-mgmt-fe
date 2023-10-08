@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import Image from 'next/image'
 import Styles from './PropertySearchHeader.module.css'
 import Content from '../../../assets/content/content.json'
 import PropertyLogo from '../../../assets/svgs/PropertyIcon'

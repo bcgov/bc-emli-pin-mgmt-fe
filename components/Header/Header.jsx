@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import Image from 'next/image'
 import Styles from './Header.module.css'
 import CleanBCLogo from '../../assets/svgs/CleanBCLogo'
 import Text from '../../assets/content/content.json'
