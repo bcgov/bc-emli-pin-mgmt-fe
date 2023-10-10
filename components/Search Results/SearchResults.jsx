@@ -7,24 +7,31 @@ import Content from '../../assets/content/content.json'
 import HttpRequest from '../../apiManager/httpRequestHandler'
 
 export default function SearchResults(props) {
-    const { searchAddress, handleClick } = props
+    const { searchAddress, handleClick, handleCallback } = props
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
     const [selected, setSelected] = useState(null)
 
     useEffect(() => {
-      getSearchResults(searchAddress)
+      getSearchResults(searchAddress, handleCallback)
     }, [searchAddress]);
 
-    function getSearchResults(searchAddressString) {
+    function getSearchResults(searchAddressString, handleCallback) {
       setLoading(true)
       let address = searchAddressString?.toLowerCase()
       HttpRequest.getSearchResults(address)
           .then((response) => {
               setResults(response?.data?.results)
+              if (handleCallback) {
+                handleCallback(response?.data?.results.length)
+              }
               setLoading(false)
           })
           .catch((error) => {
+              setResults(null)
+              if (handleCallback) { 
+                handleCallback(0)
+              }
               console.error(error)
               setLoading(false)
           })

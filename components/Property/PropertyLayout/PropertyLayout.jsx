@@ -3,6 +3,7 @@ import PropertySearch from '../PropertySearch/PropertySearch'
 import PropertyDetails from '../PropertyDetails/PropertyDetails'
 import SearchResults from '../../Search Results/SearchResults'
 import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
+import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import Styles from './PropertyLayout.module.css'
 import Content from '../../../assets/content/content.json'
 
@@ -16,6 +17,8 @@ export default function PropertyLayout() {
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
 
+    const [searchResultLength, setSearchResultLength] = useState(0)
+
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
         setShowPropertySearchHeader(false)
@@ -27,14 +30,27 @@ export default function PropertyLayout() {
     }
 
     const propertyDetailMsg = (
-      <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
-				<PropertyResultIcon />
-				<div className={`${Styles.resultMsgWrap}`}>
-					{Content.propertyDetails.searchResultMsg}
-				</div>
-			</div>
+        <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
+            <PropertyResultIcon />
+            <div className={`${Styles.resultMsgWrap}`}>
+                {Content.propertyDetails.searchResultMsg}
+            </div>
+        </div>
     )
 
+    const noPropertyDetailMsg = (
+        <div className={`${Styles.propertyDetailsWrap}` + " flex items-center justify-center content-center flex-col"}>
+            <PropertyNoResultIcon />
+            <div className={`${Styles.noResultMsgWrap}`}>
+            {Content.propertyDetails.noSearchResultMsg}
+            </div>
+        </div>
+      )
+
+    function getSearchResultsLength (searchResultLength) {
+        setSearchResultLength(searchResultLength)
+    }
+    
     return (
         <>
             <div
@@ -53,11 +69,12 @@ export default function PropertyLayout() {
                         <SearchResults
                             searchAddress={searchString}
                             handleClick={getSelectedValues}
+                            handleCallback={getSearchResultsLength}
                         />
                     </div>
                     <div>
-                      { propertySiteId === '' && propertyDetailMsg }
-
+                      { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
+                      { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
                       { 
                         propertySiteId !== '' && 
                         <PropertyDetails 
