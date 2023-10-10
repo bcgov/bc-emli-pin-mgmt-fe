@@ -22,12 +22,16 @@ export default function SearchResults(props) {
       HttpRequest.getSearchResults(address)
           .then((response) => {
               setResults(response?.data?.results)
-              handleCallback(response?.data?.results.length)
+              if (handleCallback) {
+                handleCallback(response?.data?.results.length)
+              }
               setLoading(false)
           })
           .catch((error) => {
+              if (handleCallback) { 
+                handleCallback(0)
+              }
               console.error(error)
-              handleCallback(0)
               setLoading(false)
           })
   }
