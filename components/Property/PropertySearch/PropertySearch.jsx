@@ -5,7 +5,8 @@ import { useState } from 'react'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 
-export default function PropertySearch({ getSearchString }) {
+export default function PropertySearch({ getSearchString }) 
+{
     const [searchString, setSearchString] = useState('')
     const [showSearchError, setShowSearchError] = useState(false)
 
@@ -36,31 +37,23 @@ export default function PropertySearch({ getSearchString }) {
         setSearchString('')
     }
 
-    return (
-        <div
-            className={
-                `${Styles.searchWrap}` + ' flex items-start justify-center'
-            }
-        >
-            <div
-                className={
-                    `${Styles.searchContentWrap}` +
-                    ' flex items-start justify-center'
-                }
-            >
-                <div className="text-left">
-                    <div>
-                        <input
-                            id="searchInput"
-                            placeholder={Content.home.searchPlaceHolder}
-                            onChange={(e) => handleSearchString(e.target.value)}
-                            onFocus={(e) => handleOnFocus(e.target.value)}
-                        />
-                        {searchString.length < 3 && (
+	return (
+		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
+			<div className={`${Styles.searchContentWrap}` + " flex items-start justify-center"}>
+				<div className='text-left'>
+					<div>
+						<input
+							id="searchInput"
+							placeholder={Content.home.searchPlaceHolder}
+							onChange={(e) => handleSearchString(e.target.value)}
+							onFocus={handleOnFocus} />
+
+						{searchString.length < 3 && (
                             <span className={`${Styles.searchIcon}`}>
                                 <SearchIcon />
                             </span>
                         )}
+
                         {searchString.length >= 3 && (
                             <span className={`${Styles.searchIcon}`}>
                                 <button
@@ -71,26 +64,26 @@ export default function PropertySearch({ getSearchString }) {
                                 </button>
                             </span>
                         )}
-                    </div>
-                    {showSearchError && (
-                        <div id="error" className={`${Styles.error}`}>
-                            <span>{Content.propertySearch.searchBoxError}</span>
-                        </div>
-                    )}
-                </div>
-                <div className={`${Styles.searchButtonWrap}`}>
-                    <Button
-                        variant="primary"
-                        size="medium"
-                        isDarkBackground={true}
-                        disabled={searchString.length < 3}
-                        aria-disabled={searchString.length < 3}
-                        handleOnClick={handleSearch}
-                    >
-                        {Content.home.search}
-                    </Button>
-                </div>
-            </div>
-        </div>
-    )
+					</div>
+					{
+						showSearchError &&
+						<div id="error" className={`${Styles.error}`}>
+							<span>{Content.propertySearch.searchBoxError}</span>
+						</div>
+					}
+				</div>
+				<div className={`${Styles.searchButtonWrap}`}>
+					<Button
+						variant="primary"
+						size="medium" 
+						isDarkBackground={true}
+						disabled={searchString.length < 3}
+						aria-disabled={searchString.length < 3}
+						handleOnClick={handleSearch} >
+						{Content.home.search}
+					</Button>
+				</div>
+			</div>
+		</div>
+	)
 }
