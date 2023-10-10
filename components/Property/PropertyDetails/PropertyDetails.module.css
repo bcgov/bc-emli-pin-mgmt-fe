@@ -10,7 +10,7 @@
     }
 
     .paddingLarge{
-        padding: 32px 44px;
+        padding: 32px 44px 1px 44px;
     }
 
     .paddingSmall{
@@ -25,7 +25,7 @@
     }
 
     .paddingLarge{
-        padding: 28px 25px;
+        padding: 28px 25px 1px 25px;
     }
 
     .paddingSmall{

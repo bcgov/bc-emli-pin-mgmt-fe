@@ -28,6 +28,7 @@ export default function SearchResults(props) {
               setLoading(false)
           })
           .catch((error) => {
+              setResults(null)
               if (handleCallback) { 
                 handleCallback(0)
               }
