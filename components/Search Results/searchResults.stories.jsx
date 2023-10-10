@@ -11,4 +11,5 @@ export const Template = (args) => {
 
 Template.args = {
     searchString: '50 Main Street',
+    handleCallback: console.log('')
 }
