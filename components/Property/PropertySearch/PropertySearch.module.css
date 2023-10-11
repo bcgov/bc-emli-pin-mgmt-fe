@@ -1,0 +1,39 @@
+
+.searchWrap{
+    margin-top: 48px;
+}
+
+.searchContentWrap{
+    margin-left: 25px;
+}
+
+.searchWrap input{
+    width: 541px;
+}
+
+.searchWrap .error{
+    margin-top: 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    color: #656565;
+}
+
+.searchButtonWrap{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.searchIcon {
+    position: absolute;
+    margin-left: -38px;
+    margin-top: 12px;
+}
+
+.closeButton svg {
+    height: 16px;
+    width: 16px;
+    margin-top: 5px;
+    margin-left: 5px;
+}

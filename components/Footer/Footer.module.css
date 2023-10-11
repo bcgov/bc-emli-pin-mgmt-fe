@@ -1,0 +1,34 @@
+.footerSectionWrap{
+	border-top: 2px solid #FCBA19;
+}
+
+.footerSection{
+	width: 100%;
+	height: 75px;
+	display: flex;
+	align-items: center;
+	padding: 0 50px;
+	max-width: 1440px;
+}
+
+.footerSection .linkWrap{
+	padding: 0 24px;
+	height: 23px;
+	display: flex;
+	align-items: center;
+}
+
+.footerSection .linkWrap a{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 23px;
+}
+
+.footerSection .linkWrap{
+	border-left: 1px solid #4b5e73;
+}
+
+.footerSection .linkWrap:first-child{
+	border: none;
+}

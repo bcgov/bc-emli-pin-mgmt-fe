@@ -1,0 +1,194 @@
+{
+    "app": {
+        "title": "CleanBC VHERS PIN system"
+    },
+    "header": {
+        "title": "CleanBC",
+        "logo": "CleanBC Logo",
+        "avatar": "Avatar",
+        "testusername": "Rob Johnson",
+        "logout": "Logout",
+        "help": "Help"
+    },
+    "navigation": {
+        "home": "Home",
+        "usermanagement": "User Management",
+        "accessrequest": "Access Request",
+        "requestaccessform":"Request Access to Admin Portal"
+    },
+    "footer": {
+        "home": "Home",
+        "about": "About gov.bc.ca",
+        "disclaimer": "Disclaimer",
+        "privacy": "Privacy",
+        "accessibility": "Accessibility",
+        "copyright": "Copyright",
+        "contact": "Contact Us"
+    },
+    "home": {
+        "searchHeader": "Find a property",
+        "searchContent": "Enter property information to locate a property and view property details.",
+        "searchPlaceHolder": "Enter residential address",
+        "search": "Search"
+    },
+    "userManagement": {
+        "pageTitle": "User Management"
+    },
+    "accessRequest": {
+        "pageTitle": "Access Request"
+    },
+    "requestAccess": {
+      "pageTitle": "Request Access"
+    },
+    "requestAccessBanner": {
+      "title": "Request Access to VHERS PIN Admin Portal",
+      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access"
+    },
+    "requestForm": {
+      "formHeaderTitle": "Request details form",
+      "formRequiredText": "Indicates a required field",
+      "formInputs": {
+        "requesterName": "Your name",
+        "identityType": "Identity Type",
+        "userName": "Username",
+        "emailAddress": "Email address",
+        "organization": "Organization",
+        "businessName": "Business Name",
+        "organizationPlaceholder": "Enter your organization name",
+        "permissionType": "Permission type",
+        "reason": "Reason for access request",
+        "reasonPlaceHolder": "Describe the reason for wanting access to this application",
+        "submitBtnText" : "Submit"
+      }
+    },
+    "requestSubmitMessage": {
+      "successHeader": "Request submitted",
+      "successMessage": "Your request to access VHERS PIN Admin Portal has been submitted. A notification will be sent to you via email once the request is processed.",
+      "failureHeader": "Request could not be submitted",
+      "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
+      "requestExist": "A request already exists. Please contact the system administrator below",
+      "systemAdministrator": "System Administrator",
+      "systemAdminEmail": "hers_admin@gov.bc.ca"
+    },
+    "managePINDropdown": {
+        "label": "Manage PIN",
+        "recreateOption": "Regenerate PIN",
+        "expireOption": "Expire PIN",
+        "viewOption": "View PIN", 
+        "valueOptions": {
+            "regenerate": "regenerate-pin", 
+            "expire": "expire-pin", 
+            "view": "view-pin"
+        }
+    },
+    "propertySearch": {
+        "searchBoxError": "Enter at least 3 characters to get started"
+    },
+    "expirePINConfirmationModal": {
+        "title": "Expire PIN",
+        "body": "The current PIN will be void and the property owner will need to request a new PIN to manage the VHERS portal.",
+        "primaryButton": "Expire PIN",
+        "secondaryButton": "Cancel"
+    },
+    "expirePINSuccessModal": {
+        "title": "PIN has been expired",
+        "body": "The property owner will not be able to access VHERS system until a new PIN is requested.",
+        "primaryButton": "Close"
+    },
+    "expirePINFailureModal": {
+        "title": "Expiring PIN failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    },
+    "propertyDetails": {
+        "residentialAddress": "Residential Address",
+        "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
+        "titleDetails": "Title Details",
+        "titleNumber": "Title Number",
+        "testTitleNumber": "CA5006683",
+        "landTitleDistrict": "Land Title District",
+        "testLandTitleDistrict": "Burnby",
+        "parcelIdentifier": "Parcel Identifier",
+        "testParcelIdentifier": "029-366-937",
+        "shortLegalDescription": "Short Legal Description",
+        "testShortLegalDescription": "S/EPS2032//20",
+        "ownership": "Ownership",
+        "numberOfOwner": "Number of Owner(s): ", 
+        "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "searchResultMsg": "Select an address to view property details", 
+        "owner": "Owner",
+        "fullname": "Full Name", 
+        "mailingAddress": "Mailing Address", 
+        "testFullName1": "Joshua Contreras", 
+        "testFullName2": "Leila Contreras", 
+        "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
+        "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
+        "viewPINHistory": "View PIN History"
+    },
+    "searchResults": {
+        "addressesFound": " addresses found.",
+        "scrollMessage": "Scroll down to view more results", 
+        "noAddressFound": "0 addresses found."
+    },
+    "pinHistoryModal": {
+        "title": "View PIN History",
+        "table": {
+            "numberColumn": "#",
+            "UpdatedByColumn": "Updated by",
+            "UsernameColumn": "Username",
+            "ModifiedOnColumn": "Modified on",
+            "ActionColumn": "Action",
+            "TypeColumn": "Type",
+            "NotificationViaColumn": "Notification via"
+        },
+        "actions": {
+            "deleted": "PIN deleted",
+            "created": "PIN created",
+            "recreated": "PIN regenerated"
+        },
+        "types": {
+            "optOut": "Opt-out",
+            "callCenter": "Call center PIN reset",
+            "onlineReset": "Online PIN reset",
+            "changeOfOwnership": "Change of ownership"
+        },
+        "typeCode": {
+            "optOut": "OP",
+            "callCenter": "CC",
+            "onlineReset": "OR",
+            "changeOfOwnership": "CO"
+        },
+        "primaryButton": "Close"
+    },
+    "pinHistoryFailureModal": {
+        "title": "Viewing PIN history failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    }, 
+    "viewPINModal": {
+        "title": "View PIN", 
+        "noLivePINMag": "There is no valid PIN.",
+        "close": "Close"
+    }, 
+    "regeneratePINModal": {
+        "title": "Regenerate PIN",
+        "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
+        "phone": "Phone", 
+        "phonePlaceHolder": "E.g. (604)332-8930",
+        "email": "Email",
+        "emailPlaceHolder": "E.g. jcambie@govv.bc.ca",
+        "cancelButton": "Cancel", 
+        "successModalTitle": "PIN has been regenerated",
+        "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.",
+        "failureModalTitle": "Regenerating PIN failed", 
+        "failureModalMag": "There was a problem. Try again later."
+    },
+    "back": "Back",
+    "portalUserRole" : {
+      "systemAdmin": "System administrator",
+      "admin" : "Administrator",
+      "clientSupport": "Client support"
+    }
+}

@@ -1,0 +1,87 @@
+.container {
+  display: inline;
+  width: 100%;
+  max-width: 1440px;
+  padding: 50px 50px 0 50px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 35px;
+}
+
+.headerTxt {
+  color:  #002A4E;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+}d
+
+.requiredInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.requiredIndicator {
+  color: #ED3F45;
+}
+
+.formInputSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.formInput {
+  width: 350px;
+}
+
+.roleTypeSection {
+  width: 100%;
+}
+
+.roleTypeLabel {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+	color: #1A1A1A;
+}
+
+.roleTypeLabel .required {
+	color: #ED3F45;
+}
+
+.radioBtnSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px;
+}
+
+.formInputTextArea {
+  width: 100%;
+}
+.reasonSection {
+  width: 100%;
+}
+.btnSection {
+  padding-bottom: 60px;
+}
+
+
+
+
+

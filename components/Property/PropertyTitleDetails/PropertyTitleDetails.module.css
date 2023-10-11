@@ -1,0 +1,73 @@
+.propertyInfoWrap{
+    margin-bottom: 80px;
+}
+
+.propertyInfoWrap svg{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.propertyInfoWrap .content{
+    margin-top: 31px;
+}
+
+.propertyInfoWrap .content .item .title{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 137.5% */
+    color: #656565;
+}
+
+.propertyInfoWrap .content .item .content{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    color: #2464A4;
+    margin-top: 5px;
+}
+
+
+.ownershipWrap svg{
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.ownershipWrap .ownerWrap{
+    padding: 5px 0px 5px 40px;
+}
+
+.ownershipWrap .ownerWrap .title{
+    margin-top: 19px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; /* 140% */
+    color: #005C97;
+    margin-bottom: 19px;
+}
+
+.sectionTitle{
+    display: flex;
+    align-items: center;
+}
+
+.sectionTitle:not(:first-child){
+    margin-top: 42px;
+}
+
+.sectionTitle span{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+    color: #234075;
+}
+
+.leftBuleBar{
+    border-left: 8px solid #008FB4;
+    padding-left: 19px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+}

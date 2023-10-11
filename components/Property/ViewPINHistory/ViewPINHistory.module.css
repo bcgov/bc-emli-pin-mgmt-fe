@@ -1,0 +1,85 @@
+.numberRow {
+    width: 36px;
+    text-align: center;
+}
+
+.updatedByRow {
+    width: 115px;
+    text-align: left;
+}
+
+.usernameRow {
+    width: 112px;
+    text-align: left;
+}
+
+.modifiedOnRow {
+    width: 117px;
+    text-align: left;
+}
+
+.actionRow {
+    width: 99px;
+    text-align: left;
+}
+
+.typeRow {
+    width: 133px;
+    text-align: left;
+}
+
+.notificationViaRow {
+    width: 181px;
+    text-align: left;
+}
+
+.notificationViaRow svg {
+    display: inline;
+    margin-right: 5px;
+}
+
+td.notificationViaRow {
+    font-size: 12px;
+}
+
+.pinHistoryTable td {
+    height: 40px;
+}
+
+.pinHistoryTable td,
+.pinHistoryTable th {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 14px;
+    padding-bottom: 6px;
+}
+
+.pinHistoryTable {
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+    max-width: 794px;
+    font-size: 14px;
+    color: black;
+    line-height: 20px;
+    margin-bottom: -16px;
+}
+
+.pinHistoryTable tr {
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.pinHistoryTable th {
+    border-bottom: 2px solid #656565;
+    padding-bottom: 14px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: 500px;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.scrollable::-webkit-scrollbar {
+    display: none;
+}

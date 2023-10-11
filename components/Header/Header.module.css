@@ -1,0 +1,82 @@
+
+
+.headerSectionWrap{
+	border-bottom: 2px solid #FCBA19;
+}
+
+.headerSection{
+	width: 100%;
+	max-width: 1440px;
+	background-color: #003366;
+	padding: 0 50px;
+}
+
+.logoBanner{
+	color: #FFFFFF;
+	background-color: #003366;
+	height: 86px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.left{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+
+.left .title{
+	line-height: 32.69px;
+	font-size: 24px;
+	font-weight: 400;
+	/* font-family: Noto Sans ; */
+}
+
+.imageWrap{
+	margin-right: 26px;
+}
+
+.imageWrap img{
+	height: 40.41px;
+	width: 154.27px;
+}
+
+.right{
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	flex-direction: row;
+	font-weight: 700;
+}
+
+.right .userSection, 
+.right .helpSection{ 
+	width: auto;
+	margin-right: 25px;
+}
+
+.right .userSection{
+	display: flex;
+	align-items: center;
+}
+
+.right .userSection .userNameWrap{
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.right .userSection .userImageWrap, 
+.right .helpSection .iconWrap{
+	margin-right: 8px;
+}
+
+.right .helpSection{
+	display: flex;
+	align-items: center;
+}
+
+.right .helpSection .iconWrap svg{
+	height: 22px;
+}
