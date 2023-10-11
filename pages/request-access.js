@@ -3,7 +3,7 @@ import Content from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
-import {getUserInfo} from '../services/authentication/userAuthService'
+import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
 import RequestLayout from '../components/RequestAccess/RequestLayout'
 
 
@@ -31,8 +31,9 @@ export default function RequestAccess(props) {
   )
 }
 
-export async function getServerSideProps(req) {
-  const userInfo = getUserInfo();
+export async function getServerSideProps(ctx) {
+  const authInfo = getTokenInfo(ctx)
+  const userInfo = getUserInfo(authInfo);
   return {
     props: {
       userName: `${userInfo.given_name} ${userInfo.family_name}`,

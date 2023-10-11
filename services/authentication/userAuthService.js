@@ -1,23 +1,26 @@
-const jwtDecode = require('jwt-decode')
-const cookie = require('cookie')
+import jwtDecode from 'jwt-decode'
+import { parseCookies } from 'nookies'
 
 const getUserInfo = (token) => {
   const userInfo = token ? jwtDecode(token): {};
   return userInfo;
 }
 
+const getTokenInfo = (ctx) => {
+  const cookies = parseCookies(ctx);
+  return cookies.token;
+}
+
+
 const checkAuthorization = (userInfo) =>{
   return userInfo.hasOwnProperty('role') && userInfo.hasOwnProperty('permissions')
 
 }
 
-const checkAuthentication = (params) =>{
-  let hasToken = params.token !== undefined;
-  console.log(typeof window)
-  if (hasToken) {
-    cookie.serialize('s-token', params.token)
-  }
-  const userInfo = hasToken ? getUserInfo(params.token) : ''
+const checkAuthentication = (ctx) =>{
+  const token = getTokenInfo(ctx)
+  const hasToken = token !== undefined
+  const userInfo = hasToken ? getUserInfo(token) : ''
   const registration = checkAuthorization(userInfo)
   return {
     userAuthenticated: hasToken,
@@ -27,5 +30,6 @@ const checkAuthentication = (params) =>{
 
 export {
   getUserInfo,
-  checkAuthentication
+  checkAuthentication,
+  getTokenInfo
 }
