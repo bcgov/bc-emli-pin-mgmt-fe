@@ -20,7 +20,7 @@ export default function UserManagement(props) {
       </Head>
       <Header userName={userName}/>
       {/* pass role for different active tabs */}
-      <Navigation role="admin"/>
+      <Navigation role="admin" isUserRegistered={true}/>
       <main id="main">
         <div role="heading" aria-level="2">
         {Text.accessRequest.pageTitle}
@@ -33,6 +33,14 @@ export default function UserManagement(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  if (!authInfo) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
   const userInfo = getUserInfo(authInfo);
   return {
     props: {

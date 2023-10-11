@@ -22,7 +22,7 @@ export default function RequestAccess(props) {
       </Head>
       <Header userName={userName}/>
       {/* pass role for different active tabs */}
-      <Navigation role="admin"/>
+      <Navigation role="admin" isUserRegistered={false}/>
       <main id="main">
         <RequestLayout userInfo={userInfo} />
       </main>

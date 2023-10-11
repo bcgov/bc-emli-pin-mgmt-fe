@@ -3,7 +3,7 @@ import Content from '../assets/content/content.json'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
-import { getUserInfo } from '../services/authentication/userAuthService'
+import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthService'
 import PropertyLayout from '../components/Property/PropertyLayout'
 
 export default function Home(props) {
@@ -24,7 +24,7 @@ export default function Home(props) {
             </Head>
             <Header userName={userName} />
             {/* pass role for different active tabs */}
-            <Navigation role="admin" />
+            <Navigation role="admin" isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
                 <PropertyLayout />
             </main>
@@ -33,11 +33,20 @@ export default function Home(props) {
     )
 }
 
-export async function getServerSideProps({ req }) {
-    const userInfo = getUserInfo()
+export async function getServerSideProps(ctx) {
+  const authInfo = getTokenInfo(ctx)
+  if (!authInfo) {
     return {
-        props: {
-            userName: `${userInfo.given_name} ${userInfo.family_name}`,
-        },
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
     }
+  }
+  const userInfo = getUserInfo(authInfo);
+  return {
+    props: {
+      userName: `${userInfo.given_name} ${userInfo.family_name}`,
+    },
+  };
 }
