@@ -134,6 +134,7 @@ function PropertyOwner({
                 <RegeneratePINModal 
                     isOpen={openRegenertePINModal}
                     setIsOpen={setOpenRegenertePINModal}
+                    livePinId={livePinId}
                 />
             </div>
         </div>
