@@ -37,6 +37,7 @@ export default function RegeneratePINModal({
 
     const validatePhoneRegex = (phone) => {
         if (/[0-9]{10}/.test(phone)){
+            setPhoneValue(phone)
             return true
         }
         return false
@@ -50,6 +51,8 @@ export default function RegeneratePINModal({
     }
 
     const regeneratePIN = () => {
+        (phone.length == 11) ? setPhoneValue(phone) : setPhoneValue('1' + phone);
+
         HttpRequest.regeneratePIN({
             phoneNumber: phone,
             email: email,
