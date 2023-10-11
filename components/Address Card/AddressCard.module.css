@@ -17,11 +17,12 @@
 
 .addressCard {
     width: 19.75rem;
-    padding-top: 1.69rem;
-    padding-bottom: 1.56rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.5rem;
     border-bottom: #c7c7c7 1.5px solid;
     display: flex;
     cursor: pointer;
+    margin-top: 5px;
 }
 
 .selectedColour {
