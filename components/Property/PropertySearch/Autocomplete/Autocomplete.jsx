@@ -13,7 +13,9 @@ export default function Autocomplete({
     const [results, setResults] = useState(null)
 
     useEffect(() => {
-        getSearchResults(searchString)
+        if (searchString.length > 3) {
+            getSearchResults(searchString)
+        }
     }, [searchString])
 
     function getSearchResults(searchAddressString) {
@@ -58,7 +60,7 @@ export default function Autocomplete({
 }
 
 Autocomplete.propTypes = {
-    livePinId: PropTypes.string.isRequired,
+    livePinId: PropTypes.string,
     expiredByUsername: PropTypes.string,
     searchString: PropTypes.string.isRequired,
     getSiteId: PropTypes.func.isRequired,
