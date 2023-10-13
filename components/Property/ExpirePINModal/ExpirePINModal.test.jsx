@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
 import * as stories from './ExpirePINModal.stories'
-const { PrimaryTemplate, MultipleRowsTemplate } = composeStories(stories)
+const { PrimaryTemplate } = composeStories(stories)
 
 describe('<ExpirePINModal />', () => {
     it('should render properly', () => {

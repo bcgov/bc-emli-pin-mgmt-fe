@@ -2,6 +2,7 @@ import Styles from './Autocomplete.module.css'
 import { useEffect, useState } from 'react'
 import HttpRequest from '../../../../apiManager/httpRequestHandler'
 import { Button } from '../../../Button'
+import PropTypes from 'prop-types'
 
 export default function Autocomplete({
     searchString,
@@ -54,4 +55,13 @@ export default function Autocomplete({
             )}
         </>
     )
+}
+
+Autocomplete.propTypes = {
+    livePinId: PropTypes.string.isRequired,
+    expiredByUsername: PropTypes.string,
+    searchString: PropTypes.string.isRequired,
+    getSiteId: PropTypes.func.isRequired,
+    getSearchString: PropTypes.func.isRequired,
+    showResults: PropTypes.func.isRequired,
 }
