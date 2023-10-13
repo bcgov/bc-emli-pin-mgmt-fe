@@ -13,15 +13,23 @@ export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
     const [showPropertySearchHeader, setShowPropertySearchHeader] =
         useState(true)
-
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
-
     const [searchResultLength, setSearchResultLength] = useState(0)
+    const [singleProperty, setSingleProperty] = useState(false)
 
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
         setShowPropertySearchHeader(false)
+    }
+
+    function getSiteId (siteId, propertyAddress) {
+        setPropertySiteId(siteId)
+        setPropertyAddress(propertyAddress)
+    }
+
+    function getSingleProperty(isSingleProperty) {
+        setSingleProperty(isSingleProperty)
     }
 
     function getSelectedValues (siteId, propertyAddress){
@@ -54,29 +62,35 @@ export default function PropertyLayout() {
     return (
         <>
             <div
-                style={{
+                style={{ 
                     display: showPropertySearchHeader ? 'block' : 'none',
                 }}
             >
                 <PropertySearchHeader />
             </div>
             <div className="homePropertySearchWrap">
-                <PropertySearch getSearchString={getSearchString} />
+                <PropertySearch 
+                    getSearchString={getSearchString} 
+                    getSiteId={getSiteId} 
+                    getSingleProperty={getSingleProperty} 
+                />
             </div>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
-                    <div className={`${Styles.searchResultWrap}`}>
-                        <SearchResults
-                            searchAddress={searchString}
-                            handleClick={getSelectedValues}
-                            handleCallback={getSearchResultsLength}
-                        />
-                    </div>
+                    {!singleProperty && (
+                        <div className={`${Styles.searchResultWrap}`}>
+                            <SearchResults
+                                searchAddress={searchString}
+                                handleClick={getSelectedValues}
+                                handleCallback={getSearchResultsLength}
+                            />
+                        </div>
+                    )}
                     <div>
                       { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
                       { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
                       { 
-                        propertySiteId !== '' && 
+                        propertySiteId !== '' && searchResultLength > 0 &&
                         <PropertyDetails 
                             propertySiteId={propertySiteId} 
                             propertyAddress={propertyAddress}/>

@@ -1,0 +1,19 @@
+.autocompleteResults {
+    position: absolute;
+}
+
+.autocompleteResult Button {
+    width: 541px;
+    text-align: left;
+    border-color: #c7c7c7;
+    padding: 6px 16px;
+    color: var(--grayscale-gray-100, #1A1A1A);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px; 
+    background-color: white;
+}
+
+.autocompleteResult Button:hover {
+    opacity: 1;
+}
