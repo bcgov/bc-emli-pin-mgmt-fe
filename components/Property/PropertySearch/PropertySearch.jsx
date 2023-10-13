@@ -4,12 +4,14 @@ import { Button } from '../../Button/index'
 import { useState } from 'react'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
+import Autocomplete from './Autocomplete/Autocomplete'
 
-export default function PropertySearch({ getSearchString }) 
+export default function PropertySearch({ getSearchString, getSiteId, getSingleProperty }) 
 {
     const [searchString, setSearchString] = useState('')
     const [showSearchError, setShowSearchError] = useState(false)
-
+	const [showResults, setShowResults] = useState(true)
+	
     // Validate 3 chararater as minimum limit
     const handleSearchString = (searchText) => {
         searchText.length < 3
@@ -23,11 +25,21 @@ export default function PropertySearch({ getSearchString })
         searchText.length < 3
             ? setShowSearchError(true)
             : setShowSearchError(false)
+		
+		setShowResults(true)
     }
 
     let address = searchString?.toLowerCase()
 
     const handleSearch = () => {
+		setShowResults(false)
+		getSingleProperty(false)
+        getSearchString(address)
+    }
+
+	const handleAutocompleteSearch = () => {
+		setShowResults(false)
+		getSingleProperty(true)
         getSearchString(address)
     }
 
@@ -70,6 +82,15 @@ export default function PropertySearch({ getSearchString })
 						<div id="error" className={`${Styles.error}`}>
 							<span>{Content.propertySearch.searchBoxError}</span>
 						</div>
+					}
+					{
+						!showSearchError && 
+						<Autocomplete 
+							searchString={searchString} 
+							getSiteId={getSiteId}
+							getSearchString={handleAutocompleteSearch}
+							showResults={showResults}
+						/>
 					}
 				</div>
 				<div className={`${Styles.searchButtonWrap}`}>

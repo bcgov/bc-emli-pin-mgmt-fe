@@ -79,7 +79,7 @@ function PropertyDetails({
     <div className={layoutClass}>
       {
         (currentPropertyDetail !== null && !isLoading) &&
-        <div className="details">
+        <div className={`${Styles.details}`}>
           <div className={`${Styles.addressWrap}` + " " + "text-left"}>
             <div className={`${Styles.title}`}>
               {Content.propertyDetails.residentialAddress}
