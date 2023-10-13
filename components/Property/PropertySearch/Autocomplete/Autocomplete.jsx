@@ -60,7 +60,7 @@ export default function Autocomplete({
 }
 
 Autocomplete.propTypes = {
-    livePinId: PropTypes.string.isRequired,
+    livePinId: PropTypes.string,
     expiredByUsername: PropTypes.string,
     searchString: PropTypes.string.isRequired,
     getSiteId: PropTypes.func.isRequired,
