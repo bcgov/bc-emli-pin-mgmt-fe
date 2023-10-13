@@ -13,7 +13,9 @@ export default function Autocomplete({
     const [results, setResults] = useState(null)
 
     useEffect(() => {
-        getSearchResults(searchString)
+        if (searchString.length > 3) {
+            getSearchResults(searchString)
+        }
     }, [searchString])
 
     function getSearchResults(searchAddressString) {
