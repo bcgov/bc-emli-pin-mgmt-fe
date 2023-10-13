@@ -23,7 +23,6 @@ export default function Home(props) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header userName={userName} />
-            {/* pass role for different active tabs */}
             <Navigation role="admin" isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
                 <PropertyLayout />
