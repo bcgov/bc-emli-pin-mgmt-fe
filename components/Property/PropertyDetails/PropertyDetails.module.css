@@ -5,10 +5,11 @@
 }
 
 @media (min-width: 1260px){
-    .propertyDetailsWrap{
-        width: 857px;
+    .propertyDetailsWrap {
+        min-width: 857px;
+        width: 100%;
     }
-
+    
     .paddingLarge{
         padding: 32px 44px 1px 44px;
     }
@@ -20,8 +21,9 @@
 }
 
 @media (max-width: 1260px) {
-    .propertyDetailsWrap{
-        width: 600px;
+    .propertyDetailsWrap {
+        min-width: 600px;
+        width: 100%;
     }
 
     .paddingLarge{
@@ -73,5 +75,11 @@
     font-style: normal;
     font-weight: 700;
     line-height: 30px; /* 125% */
+}
+
+.details {
+    max-width: 1036px;
+    text-align: center;
+    margin: auto;
 }
 

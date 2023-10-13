@@ -36,9 +36,8 @@ export default function Autocomplete({
         <>
             {results && showResults && (
                 <div className={`${Styles.autocompleteResults}`}>
-                    {results?.map((result, i) => (
+                    {results?.slice(0, 5).map((result, i) => (
                         <div className={`${Styles.autocompleteResult}`} key={i}>
-                            {i < 5 ? (
                                 <Button
                                     handleOnClick={() =>
                                         handleClick(
@@ -49,9 +48,6 @@ export default function Autocomplete({
                                 >
                                     {result.fullAddress}
                                 </Button>
-                            ) : (
-                                <div></div>
-                            )}
                         </div>
                     ))}
                 </div>

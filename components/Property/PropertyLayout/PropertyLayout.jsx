@@ -57,6 +57,7 @@ export default function PropertyLayout() {
 
     function getSearchResultsLength (searchResultLength) {
         setSearchResultLength(searchResultLength)
+        setPropertySiteId('')
     }
     
     return (
@@ -87,13 +88,23 @@ export default function PropertyLayout() {
                         </div>
                     )}
                     <div>
-                      { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
-                      { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
-                      { 
-                        propertySiteId !== '' && searchResultLength > 0 &&
-                        <PropertyDetails 
-                            propertySiteId={propertySiteId} 
-                            propertyAddress={propertyAddress}/>
+                        { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
+                        { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
+                        {
+                            propertySiteId !== '' && !singleProperty &&
+                            <PropertyDetails 
+                                propertySiteId={propertySiteId} 
+                                propertyAddress={propertyAddress}
+                            />
+                        }
+                        { 
+                            propertySiteId !== '' && singleProperty &&
+                            <div id={`${Styles.singleProperty}`}>
+                                <PropertyDetails 
+                                    propertySiteId={propertySiteId} 
+                                    propertyAddress={propertyAddress}
+                                />
+                            </div>
                         }
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 
 .propertyResultWrap {
     padding: 48px 96px;
+    max-width: 1448px;
+    margin: auto;
 }
 
 .resultMsgWrap{
@@ -84,4 +86,9 @@
     font-weight: 700;
     line-height: 28px; /* 140% */
     color: #002A4E;
+}
+
+
+div:has(div#singleProperty) {
+    width: 100%;
 }
