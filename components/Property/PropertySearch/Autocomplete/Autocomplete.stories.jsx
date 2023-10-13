@@ -14,16 +14,12 @@ const Template = () => {
         console.log('Getting Search String')
     }
 
-    function getShowResults() {
-        console.log('Getting Show Results')
-    }
-
     return (
         <Autocomplete
             searchString={'123 Main Street'}
             getSiteId={getSiteId}
             getSearchString={getSearchString}
-            showResults={getShowResults}
+            showResults={true}
         />
     )
 }

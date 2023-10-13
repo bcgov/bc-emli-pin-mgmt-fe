@@ -63,5 +63,5 @@ Autocomplete.propTypes = {
     searchString: PropTypes.string.isRequired,
     getSiteId: PropTypes.func.isRequired,
     getSearchString: PropTypes.func.isRequired,
-    showResults: PropTypes.func.isRequired,
+    showResults: PropTypes.bool.isRequired,
 }
