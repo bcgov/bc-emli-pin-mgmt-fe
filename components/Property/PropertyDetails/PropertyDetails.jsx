@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import PropertyTitleDetails from '../PropertyTitleDetails/PropertyTitleDetails'
 import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
+import InfoIcon from '../../../assets/svgs/InfoIcon'
+import CloseIcon from '../../../assets/svgs/CloseIcon'
 
 
 function PropertyDetails({
@@ -14,6 +16,7 @@ function PropertyDetails({
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
+  const [multiplePropertiesAlert, setMultiplePropertiesAlert] = useState(true)
       
  
   useEffect(() => {
@@ -65,6 +68,7 @@ function PropertyDetails({
         details.push(item)
       }
     })
+    console.log(details)
     return details
   }
 
@@ -77,7 +81,7 @@ function PropertyDetails({
 
   return (
     <div className={layoutClass}>
-      {
+      { 
         (currentPropertyDetail !== null && !isLoading) &&
         <div className={`${Styles.details}`}>
           <div className={`${Styles.addressWrap}` + " " + "text-left"}>
@@ -89,13 +93,27 @@ function PropertyDetails({
             </div>
           </div>
           {
-            currentPropertyDetail.map((item) => (
+            currentPropertyDetail.length > 1 && multiplePropertiesAlert &&
+            <div className={`${Styles.multipleTitlesAlert}`}>
+              <InfoIcon />
+              <span className={`${Styles.alertText}`}>
+                {Content.propertyDetails.multipleTitlesAlertText}
+              </span>
+              <button className={`${Styles.closeIcon}`} onClick={() => setMultiplePropertiesAlert(false)}>
+                <CloseIcon />
+              </button>
+            </div>
+          }
+          {
+            currentPropertyDetail.map((item, i) => (
               <PropertyTitleDetails
                 key={item.id}
+                titleCount={i}
+                numberOfTitles={currentPropertyDetail.length}
                 titleNumber={item.titleNumber}
                 landTitleDistrict={item.landTitleDistrict}
                 parcelIdentifier={item.parcelIdentifier}
-                numberOfOwner={item.ownerList.count}
+                numberOfOwner={item.ownerList.length}
                 ownerList={item.ownerList}
               />
             ))

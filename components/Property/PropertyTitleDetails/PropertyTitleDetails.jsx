@@ -6,63 +6,71 @@ import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
 
 function PropertyTitleDetails({
+    titleCount,
     titleNumber,
     landTitleDistrict,
     parcelIdentifier,
     numberOfOwner,
-    ownerList
+    ownerList,
+    numberOfTitles
 }) {
     return (
-        <div className={`${Styles.ownershipWrap}` + " " + `${Styles.leftBuleBar}` + " " + `${Styles.propertyInfoWrap}`}>
-            <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-                <PropertyIconSmall />
-                <span>{Content.propertyDetails.titleDetails}</span>
-            </div>
-            <div className={`${Styles.content}` + " flex text-left justify-between"}>
-                <div className={`${Styles.item}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.titleNumber}
+        <div>
+            {
+                numberOfTitles > 1 &&
+                <div className={`${Styles.titleNumberTitle}`}>{Content.propertyDetails.titleNumberTitle} {titleCount + 1}</div>
+            }
+            <div className={`${Styles.ownershipWrap}` + " " + `${Styles.propertyInfoWrap}`}>
+                <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`}>
+                    <PropertyIconSmall />
+                    <span>{Content.propertyDetails.propertyDetails}</span>
+                </div>
+                <div className={`${Styles.content}` + " flex text-left justify-between" + " " + `${Styles.leftBlueBar}`}>
+                    <div className={`${Styles.item}`}>
+                        <div className={`${Styles.title}`}>
+                            {Content.propertyDetails.titleNumber}
+                        </div>
+                        <div className={`${Styles.content}`}>
+                            {titleNumber}
+                        </div>
                     </div>
-                    <div className={`${Styles.content}`}>
-                        {titleNumber}
+                    <div className={`${Styles.item}`}>
+                        <div className={`${Styles.title}`}>
+                            {Content.propertyDetails.landTitleDistrict}
+                        </div>
+                        <div className={`${Styles.content}`}>
+                            {landTitleDistrict}
+                        </div>
+                    </div>
+                    <div className={`${Styles.item}`}>
+                        <div className={`${Styles.title}`}>
+                            {Content.propertyDetails.parcelIdentifier}
+                        </div>
+                        <div className={`${Styles.content}`}>
+                            {parcelIdentifier}
+                        </div>
                     </div>
                 </div>
-                <div className={`${Styles.item}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.landTitleDistrict}
-                    </div>
-                    <div className={`${Styles.content}`}>
-                        {landTitleDistrict}
-                    </div>
-                </div>
-                <div className={`${Styles.item}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.parcelIdentifier}
-                    </div>
-                    <div className={`${Styles.content}`}>
-                        {parcelIdentifier}
-                    </div>
-                </div>
-            </div>
 
-            <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}`}>
-                <GroupUserIcon />
-                <span>{Content.propertyDetails.ownership}</span>
-            </div>
-            <div className={`${Styles.ownerWrap}` + " " + "text-left"}>
-                <div className={`${Styles.title}`}>
-                    {Content.propertyDetails.numberOfOwner} {numberOfOwner}
+                <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}`}>
+                    <GroupUserIcon />
+                    <span>{Content.propertyDetails.ownership}</span>
                 </div>
-                {
-                    ownerList && ownerList.map((owner) => (
-                    <PropertyOwner
-                        key={owner.id}
-                        fullName={owner.fullName}
-                        mailingAddress={owner.mailingAddress}
-                        livePinId={owner.id}
-                        livePIN={owner.livePIN}
-                    />
-                ))}
+                <div className={`${Styles.ownerWrap}` + " " + "text-left" + " " + `${Styles.leftBlueBar}`}>
+                    <div className={`${Styles.title}`}>
+                        {Content.propertyDetails.numberOfOwner} {numberOfOwner}
+                    </div>
+                    {
+                        ownerList && ownerList.map((owner) => (
+                        <PropertyOwner
+                            key={owner.id}
+                            fullName={owner.fullName}
+                            mailingAddress={owner.mailingAddress}
+                            livePinId={owner.id}
+                            livePIN={owner.livePIN}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )

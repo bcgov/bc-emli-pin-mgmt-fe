@@ -1,14 +1,10 @@
 .propertyInfoWrap{
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 .propertyInfoWrap svg{
     display: inline-block;
     margin-right: 6px;
-}
-
-.propertyInfoWrap .content{
-    margin-top: 31px;
 }
 
 .propertyInfoWrap .content .item .title{
@@ -53,6 +49,10 @@
     align-items: center;
 }
 
+.title.sectionTitle.propertyDetailsTitle{
+    padding-bottom: 26px;
+}
+
 .sectionTitle:not(:first-child){
     margin-top: 42px;
 }
@@ -65,13 +65,24 @@
     color: #234075;
 }
 
-.leftBuleBar{
+.leftBlueBar{
     border-left: 8px solid #008FB4;
     padding-left: 19px;
     padding-top: 3px;
     padding-bottom: 5px;
 }
 
-.ownershipWrap.leftBuleBar.propertyInfoWrap {
+.ownershipWrap.propertyInfoWrap {
     max-width: 756px;
+}
+
+.titleNumberTitle {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    border-bottom: 8px solid #75B343;
+    width: fit-content;
+    margin-bottom: 29px;
 }
