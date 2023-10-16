@@ -18,7 +18,7 @@ function PropertyTitleDetails({
         <div>
             {
                 numberOfTitles > 1 &&
-                <div className={`${Styles.titleNumberTitle}`}>{Content.propertyDetails.titleNumberTitle} {titleCount + 1}</div>
+                <div className={`${Styles.titleNumberHeader}`}>{Content.propertyDetails.titleNumberHeader} {titleCount + 1}</div>
             }
             <div className={`${Styles.ownershipWrap}` + " " + `${Styles.propertyInfoWrap}`}>
                 <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`}>
