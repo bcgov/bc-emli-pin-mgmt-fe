@@ -68,7 +68,6 @@ function PropertyDetails({
         details.push(item)
       }
     })
-    console.log(details)
     return details
   }
 
