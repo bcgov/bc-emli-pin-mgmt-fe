@@ -106,16 +106,8 @@ div:has(div#singleProperty) {
     color: #002A4E;
 }
 
-.backButton.singleProperty span {
-    padding-left: 82px;
-}
-
-.backButton.singleProperty svg {
-    margin-left: 16px;
-}
-
 .backButton span {
-    padding-left: 26px;
+    padding-left: 82px;
     margin-top: -2px;
 }
 
@@ -123,6 +115,7 @@ div:has(div#singleProperty) {
     height: 20px;
     width: 20px;
     position: absolute;
+    margin-left: 16px;
 }
 
 .backButtonContainer {
