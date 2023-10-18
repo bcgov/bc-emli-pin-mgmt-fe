@@ -123,8 +123,6 @@ div:has(div#singleProperty) {
     height: 20px;
     width: 20px;
     position: absolute;
-    fill: #002A4E;
-    color: #002A4E;
 }
 
 .backButtonContainer {
