@@ -8,6 +8,7 @@ import Styles from './PropertyLayout.module.css'
 import Content from '../../../assets/content/content.json'
 
 import { useState } from 'react'
+import BackArrow from '../../../assets/svgs/BackArrow'
 
 export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
@@ -59,6 +60,11 @@ export default function PropertyLayout() {
         setSearchResultLength(searchResultLength)
         setPropertySiteId('')
     }
+
+    function backToSearchPage() {
+        setShowPropertySearchHeader(true)
+        setSearchString('')
+    }
     
     return (
         <>
@@ -87,6 +93,14 @@ export default function PropertyLayout() {
                             />
                         </div>
                     )}
+                    {singleProperty && (
+                        <button className={`${Styles.backButton}` + " " + ' flex justify-center content-center'} onClick={() => backToSearchPage()}>
+                            <BackArrow />
+                            <span>{Content.propertyLayout.backButton}</span>
+                        </button>
+                    )}
+
+
                     <div>
                         { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
                         { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}

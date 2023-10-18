@@ -92,3 +92,33 @@
 div:has(div#singleProperty) {
     width: 100%;
 }
+
+.searchResultWrap .backButton {
+    color: #002A4E;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.backButton {
+    width: 0px;
+    margin-bottom: 16px;
+    margin-top: -40px;
+    color: #002A4E;
+}
+
+.backButton span {
+    padding-left: 82px;
+    margin-top: -2px;
+}
+
+.backButton svg {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    margin-left: 16px;
+}
+
+.backButtonContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
