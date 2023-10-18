@@ -16,7 +16,8 @@ function PropertyOwner({
     mailingAddress, 
     livePinId, 
     livePIN, 
-    expiredByUsername 
+    expiredByUsername,
+    propertyAddress
 }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
     const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
@@ -135,6 +136,7 @@ function PropertyOwner({
                     isOpen={openRegenertePINModal}
                     setIsOpen={setOpenRegenertePINModal}
                     livePinId={livePinId}
+                    propertyAddress={propertyAddress}
                 />
             </div>
         </div>
@@ -146,4 +148,5 @@ export default PropertyOwner
 PropertyOwner.protoTypes = {
     fullName: PropTypes.string,
     mailingAddress: PropTypes.string,
+    propertyAddress: PropTypes.string
 }

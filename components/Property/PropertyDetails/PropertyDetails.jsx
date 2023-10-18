@@ -114,6 +114,7 @@ function PropertyDetails({
                 parcelIdentifier={item.parcelIdentifier}
                 numberOfOwner={item.ownerList.length}
                 ownerList={item.ownerList}
+                propertyAddress={propertyAddress}
               />
             ))
           }

@@ -9,7 +9,7 @@ export default function RegeneratePINModal({
     isOpen,
     setIsOpen,
     livePinId,
-    ownerDetails
+    propertyAddress
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
@@ -19,7 +19,7 @@ export default function RegeneratePINModal({
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
-        if (validatePhoneRegex(phone) || validateEmailRegex(email)){
+        if (validatePhoneRegex(phoneValue) || validateEmailRegex(email)){
             setIsRegeneratePINDisabled(false)
         } else {
             setIsRegeneratePINDisabled(true)
@@ -28,7 +28,7 @@ export default function RegeneratePINModal({
 
     const setEmailValueOnChange = (emailValue) => {
         setEmailValue(emailValue)
-        if (validatePhoneRegex(phone) || validateEmailRegex(email)){
+        if (validatePhoneRegex(phone) || validateEmailRegex(emailValue)){
             setIsRegeneratePINDisabled(false)
         } else {
             setIsRegeneratePINDisabled(true)
@@ -51,12 +51,16 @@ export default function RegeneratePINModal({
     }
 
     const regeneratePIN = () => {
-        (phone.length == 11) ? setPhoneValue(phone) : setPhoneValue('1' + phone);
+        let formattedPhone
+        if (phone) {
+            (phone?.length == 11) ? formattedPhone = phone : formattedPhone = '1' + phone;
+        }
 
         HttpRequest.regeneratePIN({
-            phoneNumber: phone,
+            phoneNumber: formattedPhone,
             email: email,
             livePinId: livePinId,
+            propertyAddress: propertyAddress
         })
             .then((response) => {
                 setIsOpen(false)
