@@ -8,7 +8,8 @@ import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthServ
 
 export default function UserManagement(props) {
   const {
-    userName
+    userName,
+    userInfo
   } = props;
   return (
     <>
@@ -20,7 +21,7 @@ export default function UserManagement(props) {
       </Head>
       <Header userName={userName}/>
       {/* pass role for different active tabs */}
-      <Navigation role="admin" isUserRegistered={true}/>
+      <Navigation role={userInfo.role} isUserRegistered={true}/>
       <main id="main">
         <div role="heading" aria-level="2">
         {Text.accessRequest.pageTitle}
@@ -45,6 +46,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userInfo
     },
   };
 }
