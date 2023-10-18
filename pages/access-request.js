@@ -21,7 +21,7 @@ export default function UserManagement(props) {
       </Head>
       <Header userName={userName}/>
       {/* pass role for different active tabs */}
-      <Navigation role={userInfo.role} isUserRegistered={true}/>
+      <Navigation role={userInfo?.role} isUserRegistered={true}/>
       <main id="main">
         <div role="heading" aria-level="2">
         {Text.accessRequest.pageTitle}
