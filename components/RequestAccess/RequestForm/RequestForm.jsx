@@ -51,6 +51,9 @@ export default function RequestForm(props) {
     inputValue.identityType = userInfo.identity_provider
     inputValue.userGuid = userInfo.user_guid
     inputValue.organization = identityType === 'idir' ? '' : userInfo.bceid_business_name
+    if (identityType === 'bceidbusiness') {
+      setOrganization(userInfo.bceid_business_name);
+    }
     setFormData({ ...inputValue });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -169,7 +172,6 @@ export default function RequestForm(props) {
     if (requestReason === '') {
       errorFlagsInfo.requestReason = false;
     }
-
     if (Object.values(errorFlagsInfo).indexOf(false) > -1) {
       setErrorFlags({ ...errorFlagsInfo });
       return false;
@@ -184,14 +186,13 @@ export default function RequestForm(props) {
     inputValue.firstName = userInfo.given_name
     inputValue.lastName = userInfo.family_name
     inputValue.email = userInfo.email;
-    inputValue.userName = identityType === 'idir' ? userInfo.idir_username : userInfo.bceid_username
+    inputValue.userName = userInfo.username
     inputValue.identityType = userInfo.identity_provider
-    inputValue.userGuid = identityType === 'idir' ? userInfo.idir_user_guid : userInfo.bceid_user_guid
+    inputValue.userGuid = userInfo.user_guid
     inputValue.organization = identityType === 'idir' ? organization : userInfo.bceid_business_name
     inputValue.requestedRole = roleType === 'Administrator' ? 'Admin' : 'Standard'
     inputValue.requestReason = requestReason
 
-    console.log(inputValue)
     if(isFormValid) {
       setLoading(true)
 
