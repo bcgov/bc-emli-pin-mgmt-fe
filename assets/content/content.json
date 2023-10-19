@@ -81,6 +81,9 @@
             "view": "view-pin"
         }
     },
+    "propertyLayout": {
+        "backButton": "Back"
+    },
     "propertySearch": {
         "searchBoxError": "Enter at least 3 characters to get started"
     },

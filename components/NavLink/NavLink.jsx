@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import PropTypes from 'prop-types';
 import Styles from './NavLink.module.css'
 import { usePathname } from "next/navigation";
-import React, { Children } from "react";
+import React from "react";
 
 export default function NavLink ({
 	showToClientSupport,
@@ -13,7 +12,7 @@ export default function NavLink ({
 }) {
 
 	const asPath = usePathname();
-	const showLink = role === "admin" ? true : role === "cms" && showToClientSupport ? true : false
+	const showLink = role === "Admin" ? true : role === "Standard" && showToClientSupport ? true : false
   //const requestAccessStyle = role === '' ? Styles.linkWrapMax : Styles.linkWrap;
 
 	// check the current url and give the correct class name
