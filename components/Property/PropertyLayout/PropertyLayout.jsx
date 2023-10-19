@@ -8,20 +8,29 @@ import Styles from './PropertyLayout.module.css'
 import Content from '../../../assets/content/content.json'
 
 import { useState } from 'react'
+import BackArrow from '../../../assets/svgs/BackArrow'
 
 export default function PropertyLayout() {
     const [searchString, setSearchString] = useState('')
     const [showPropertySearchHeader, setShowPropertySearchHeader] =
         useState(true)
-
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
-
     const [searchResultLength, setSearchResultLength] = useState(0)
+    const [singleProperty, setSingleProperty] = useState(false)
 
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
         setShowPropertySearchHeader(false)
+    }
+
+    function getSiteId (siteId, propertyAddress) {
+        setPropertySiteId(siteId)
+        setPropertyAddress(propertyAddress)
+    }
+
+    function getSingleProperty(isSingleProperty) {
+        setSingleProperty(isSingleProperty)
     }
 
     function getSelectedValues (siteId, propertyAddress){
@@ -49,37 +58,67 @@ export default function PropertyLayout() {
 
     function getSearchResultsLength (searchResultLength) {
         setSearchResultLength(searchResultLength)
+        setPropertySiteId('')
+    }
+
+    function backToSearchPage() {
+        setShowPropertySearchHeader(true)
+        setSearchString('')
     }
     
     return (
         <>
             <div
-                style={{
+                style={{ 
                     display: showPropertySearchHeader ? 'block' : 'none',
                 }}
             >
                 <PropertySearchHeader />
             </div>
             <div className="homePropertySearchWrap">
-                <PropertySearch getSearchString={getSearchString} />
+                <PropertySearch 
+                    getSearchString={getSearchString} 
+                    getSiteId={getSiteId} 
+                    getSingleProperty={getSingleProperty} 
+                />
             </div>
             {searchString && (
                 <div className={`${Styles.propertyResultWrap}` + ' flex justify-center content-center'}>
-                    <div className={`${Styles.searchResultWrap}`}>
-                        <SearchResults
-                            searchAddress={searchString}
-                            handleClick={getSelectedValues}
-                            handleCallback={getSearchResultsLength}
-                        />
-                    </div>
+                    {!singleProperty && (
+                        <div className={`${Styles.searchResultWrap}`}>
+                            <SearchResults
+                                searchAddress={searchString}
+                                handleClick={getSelectedValues}
+                                handleCallback={getSearchResultsLength}
+                            />
+                        </div>
+                    )}
+                    {singleProperty && (
+                        <button className={`${Styles.backButton}` + " " + ' flex justify-center content-center'} onClick={() => backToSearchPage()}>
+                            <BackArrow />
+                            <span>{Content.propertyLayout.backButton}</span>
+                        </button>
+                    )}
+
+
                     <div>
-                      { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
-                      { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
-                      { 
-                        propertySiteId !== '' && 
-                        <PropertyDetails 
-                            propertySiteId={propertySiteId} 
-                            propertyAddress={propertyAddress}/>
+                        { propertySiteId === ''  && searchResultLength > 0 && propertyDetailMsg}
+                        { propertySiteId === '' && searchResultLength <= 0 && noPropertyDetailMsg}
+                        {
+                            propertySiteId !== '' && !singleProperty &&
+                            <PropertyDetails 
+                                propertySiteId={propertySiteId} 
+                                propertyAddress={propertyAddress}
+                            />
+                        }
+                        { 
+                            propertySiteId !== '' && singleProperty &&
+                            <div id={`${Styles.singleProperty}`}>
+                                <PropertyDetails 
+                                    propertySiteId={propertySiteId} 
+                                    propertyAddress={propertyAddress}
+                                />
+                            </div>
                         }
                     </div>
                 </div>

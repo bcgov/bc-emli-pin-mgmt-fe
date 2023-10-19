@@ -7,7 +7,7 @@ import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthSe
 import PropertyLayout from '../components/Property/PropertyLayout'
 
 export default function Home(props) {
-    const { userName } = props
+    const { userName, userInfo } = props
     return (
         <>
             <Head>
@@ -24,7 +24,7 @@ export default function Home(props) {
             </Head>
             <Header userName={userName} />
             {/* pass role for different active tabs */}
-            <Navigation role="admin" isUserRegistered={true}/>
+            <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
                 <PropertyLayout />
             </main>
@@ -47,6 +47,7 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userInfo: userInfo
     },
   };
 }

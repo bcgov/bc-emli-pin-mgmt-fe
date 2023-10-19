@@ -47,9 +47,9 @@ export default function RequestForm(props) {
     inputValue.firstName = userInfo.given_name
     inputValue.lastName = userInfo.family_name
     inputValue.email = userInfo.email;
-    inputValue.userName = identityType === 'idir' ? userInfo.idir_username : userInfo.bceid_username
+    inputValue.userName = userInfo.username;
     inputValue.identityType = userInfo.identity_provider
-    inputValue.userGuid = identityType === 'idir' ? userInfo.idir_user_guid : userInfo.bceid_user_guid
+    inputValue.userGuid = userInfo.user_guid
     inputValue.organization = identityType === 'idir' ? '' : userInfo.bceid_business_name
     setFormData({ ...inputValue });
   // eslint-disable-next-line react-hooks/exhaustive-deps

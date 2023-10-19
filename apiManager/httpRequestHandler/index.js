@@ -41,8 +41,11 @@ const regeneratePIN = (data) =>{
 }
 
 const submitUserAccessRequest = (data) => {
-  console.log(Endpoints.requestAccess)
-  return axios.post (Endpoints.requestAccess.REQUEST_ACCESS, data)
+  let config = {
+    withCredentials: true,
+    credentials: 'include',
+  }
+  return axios.post (Endpoints.requestAccess.REQUEST_ACCESS, data, config)
 }
 
 const HttpRequest = {
