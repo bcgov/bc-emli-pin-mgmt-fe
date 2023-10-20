@@ -12,7 +12,8 @@ function PropertyTitleDetails({
     parcelIdentifier,
     numberOfOwner,
     ownerList,
-    numberOfTitles
+    numberOfTitles,
+    propertyAddress
 }) {
     return (
         <div>
@@ -68,6 +69,7 @@ function PropertyTitleDetails({
                             mailingAddress={owner.mailingAddress}
                             livePinId={owner.id}
                             livePIN={owner.livePIN}
+                            propertyAddress={propertyAddress}
                         />
                     ))}
                 </div>
@@ -84,5 +86,6 @@ PropertyTitleDetails.protoTypes = {
     parcelIdentifier: PropTypes.string,
     shortLegalDescription: PropTypes.string,
     numberOfOwner: PropTypes.number,
-    ownerList: PropTypes.array
+    ownerList: PropTypes.array,
+    propertyAddress: PropTypes.string
 }
