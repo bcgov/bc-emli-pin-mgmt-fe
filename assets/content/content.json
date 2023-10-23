@@ -37,6 +37,31 @@
     "accessRequest": {
         "pageTitle": "Access Request"
     },
+    "accessRequestBanner" : {
+      "title": "Access Requests",
+      "description": "Grant or deny access requests"
+    },
+    "accessRequestDetails": {
+      "pendingRequest": "Pending Requests",
+      "completedRequest": "Completed Request"
+    },
+    "accessRequestForm": {
+      "grantRequest": "Grant Request",
+      "rejectRequest": "Reject Request"
+    },
+    "accessRequestSearchOptions": {
+      "userName": "Username",
+      "identityType":"Identity type",
+      "requestedRole":"Role Type",
+      "organization":"Organization",
+      "email":"Email",
+      "rejectionReason":"Reason for access rejection",
+      "firstName":"First Name",
+      "lastName":"Last Name",
+      "requestStatus":"Access Status",
+      "createdAt":"Created at",
+      "requestReason":"Reason for requesting access"
+    },
     "requestAccess": {
       "pageTitle": "Request Access"
     },

@@ -288,9 +288,9 @@ export default function RequestForm(props) {
             variant="primary"
             handleOnClick={handleSubmitForm}
             isDarkBackground={true}
-        >
-            {Content.requestForm.formInputs.submitBtnText}
-        </Button>
+          >
+              {Content.requestForm.formInputs.submitBtnText}
+          </Button>
         </div>
       </div>
     </div>
