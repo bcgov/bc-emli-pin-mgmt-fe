@@ -14,6 +14,7 @@ export const Medium = PrimaryTemplate.bind({})
 export const Small = PrimaryTemplate.bind({})
 export const Disabled = PrimaryTemplate.bind({})
 export const IsDarkBackground = PrimaryTemplate.bind({})
+export const IsDanger = PrimaryTemplate.bind({})
 
 Primary.args = {
 	variant: 'primary',
@@ -28,7 +29,7 @@ Secondary.args = {
 
 Danger.args = {
 	...Primary.args,
-	variant: 'danger',
+	variant: 'xlarge',
 }
 
 Medium.args = {
@@ -49,5 +50,10 @@ Disabled.args = {
 
 IsDarkBackground.args = {
 	...IsDarkBackground.args,
+	disabled: false
+}
+
+IsDanger.args = {
+	...IsDanger.args, 
 	disabled: false
 }
