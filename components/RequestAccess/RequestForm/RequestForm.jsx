@@ -17,7 +17,7 @@ const initialFormValue = {
   organization: '',
   email: '',
   userName: '',
-  firstName: '',
+  givenName: '',
   lastName: '',
   requestReason: '',
 }
@@ -44,7 +44,7 @@ export default function RequestForm(props) {
 
   useEffect(() => {
     const inputValue = formData;
-    inputValue.firstName = userInfo.given_name
+    inputValue.givenName = userInfo.given_name
     inputValue.lastName = userInfo.family_name
     inputValue.email = userInfo.email;
     inputValue.userName = userInfo.username;
@@ -183,7 +183,7 @@ export default function RequestForm(props) {
   const handleSubmitForm = () => {
     const isFormValid = validateForm();
     let inputValue = {}
-    inputValue.firstName = userInfo.given_name
+    inputValue.givenName = userInfo.given_name
     inputValue.lastName = userInfo.family_name
     inputValue.email = userInfo.email;
     inputValue.userName = userInfo.username
@@ -232,7 +232,7 @@ export default function RequestForm(props) {
               textBoxId='name'
               textBoxLabel={Content.requestForm.formInputs.requesterName}
               textBoxAriaLabel={Content.requestForm.formInputs.requesterName}
-              textBoxPlaceholder={`${formData.firstName} ${formData.lastName}`}
+              textBoxPlaceholder={`${formData.givenName} ${formData.lastName}`}
               inputType="text"
               isDisabled={true}
             />
