@@ -38,10 +38,22 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
-    line-height: 16px; /* 133.333% */
+    line-height: 22px; /* 133.333% */
     border-radius: 4px;
     padding: 7px 16px;
     width: 136px;
+}
+
+.danger{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 133.333% */
+    border-radius: 4px;
+    padding: 14px 32px;
+    border: solid 1px #D8292F;
+    color: #D8292F;
+    /* width: 136px; */
 }
 
 .BCGovPrimaryButton {
