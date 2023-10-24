@@ -5,15 +5,17 @@ export const Button = ({
 	variant,
 	size,
 	isDarkBackground,
+	isDanger,
 	disabled,
 	children,
 	handleOnClick,
 	...props
 }) => {
 	const backgroundStyle = isDarkBackground ? Styles.dark : Styles.light 
+	const dangerStyle = isDanger ? Styles.danger : ''
 	const buttonLevel = variant === 'primary' ? Styles.primary : variant === 'secondary' 
-	? Styles.secondary : variant === 'danger' ? Styles.danger : ''
-    const className = Styles.btn + " " + buttonLevel + " " + backgroundStyle
+	? Styles.secondary : variant === 'xlarge' ? Styles.xlarge : ''
+    const className = Styles.btn + " " + buttonLevel + " " + backgroundStyle + " " + dangerStyle
 	return (
 		<button
 			className={className}
@@ -29,10 +31,11 @@ export const Button = ({
 }
 
 Button.propTypes = {
-	variant: propTypes.oneOf(['primary', 'secondary', 'danger']),
+	variant: propTypes.oneOf(['primary', 'secondary', 'xlarge']),
 	size: propTypes.oneOf(['large', 'medium', 'small']),
 	disabled: propTypes.bool,
 	isDarkBackground: propTypes.bool,
+	isDanger: propTypes.bool,
 	handleOnClick: propTypes.func,
 }
 
