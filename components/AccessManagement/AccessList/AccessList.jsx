@@ -1,13 +1,11 @@
 import {
-  useState,
-  useEffect,
   useMemo,
   useContext,
 } from 'react'
 import styles from './AccessList.module.css';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import Table from '../../Table';
-
+import wrap from 'word-wrap'
 
 export default function AccessList() {
   const { setRowSelected, requestList, tabSelected } = useContext(AccessContext)
@@ -50,8 +48,8 @@ export default function AccessList() {
       accessor: 'email',
       width: 20,
       Cell: props => {
-        const email = props.value.split('@')
-        return `${email[0]+' @'+email[1]}`
+        const email = wrap(props.value, { width: 20,cut:true })
+        return email
       }
     },
     {
