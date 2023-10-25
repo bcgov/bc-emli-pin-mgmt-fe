@@ -1,8 +1,16 @@
 .actionDropdown {
     position: relative;
     /* width: 16.125rem; */
+}
+
+.large{
+    width: 186px;
+}
+
+.small{
     width: 136px;
 }
+
 .actionDropdownButton {
     display: flex;
     flex-direction: row;
@@ -29,6 +37,22 @@
     background: #ecf6ff;
     cursor: pointer;
 } */
+
+.actionDropdownButton.xlarge.medium{
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 142.857% */
+    padding: 12px 15px;
+    display: flex;
+    justify-content: center;
+    width: 186px;
+    justify-content: space-between;
+    color: #1A1A1A;
+}
+
 .actionDropdownButton.primary.medium.disabled {
     user-select: none;
     pointer-events: none;
@@ -42,7 +66,7 @@
 }
 .actionDropdownList {
     position: absolute;
-    width: 136px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: #fff;
