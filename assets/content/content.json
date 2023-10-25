@@ -32,7 +32,31 @@
         "search": "Search"
     },
     "userManagement": {
-        "pageTitle": "User Management"
+        "pageTitle": "User Management",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search"
+    },
+    "userManagementBanner" : {
+      "title": "User Management",
+      "description": "Edit or delete users here."
+    },
+    "userManagementTabs": {
+      "activeUsers": "Active users",
+      "deactivatedUsers": "Deactivated users"
+    },
+    "userUpdateForm": {
+      "editUser": "Edit user",
+      "deactivateUser": "Deactivate user"
+    },
+    "usersSearchOptions": {
+      "role":"Role Type",
+      "userName": "Username",
+      "identityType":"Identity type",
+      "givenName":"First Name",
+      "lastName":"Last Name",
+      "email":"Email",
+      "organization":"Organization",
+      "deactivationReason":"Reason for deactivation"
     },
     "accessRequest": {
         "pageTitle": "Access Request",

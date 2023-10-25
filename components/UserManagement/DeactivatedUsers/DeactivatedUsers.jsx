@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
-import styles from './CompletedRequests.module.css';
-import AccessSearch from '../AccessSearch'
-import AccessList from '../AccessList'
-import { AccessContext } from '../../../context/accessContext/AccessState'
+import styles from './DeactivatedUsers.module.css';
+import UserSearch from '../UserSearch'
+import UsersList from '../UsersList'
+import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 
 export default function CompletedRequests() {
-    const { setRequestList, setOriginalResult } = useContext(AccessContext)
+    const { setUsersList, setOriginalResult } = useContext(UserManagementContext)
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
       const result = [{
@@ -51,7 +51,7 @@ export default function CompletedRequests() {
         rejectionReason: ''
       }
     ]
-    setRequestList(result);
+    setUsersList(result);
     setOriginalResult(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -64,13 +64,13 @@ export default function CompletedRequests() {
       <div className={styles.mainSection}>
         <div className={styles.filterSection}>
           <div className={styles.searchSection}>
-            <AccessSearch />
+            <UserSearch />
           </div>
         </div>
         {isLoading && loadingSection}
         {!isLoading &&
           <div className={styles.tblSection}>
-            <AccessList />
+            <UsersList />
           </div>
         }
       </div>
