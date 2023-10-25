@@ -24,6 +24,7 @@
     "axios": "^1.4.0",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "filter-data": "^0.5.1",
     "jwt-decode": "^3.1.2",
     "next": "^13.5.4",
     "nookies": "^2.5.2",

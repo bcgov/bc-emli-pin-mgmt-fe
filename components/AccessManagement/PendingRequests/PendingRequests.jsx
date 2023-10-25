@@ -6,7 +6,7 @@ import AccessList from '../AccessList'
 import { AccessContext } from '../../../context/accessContext/AccessState'
 
 export default function PendingRequests() {
-    const { setRequestList } = useContext(AccessContext)
+    const { setRequestList, setOriginalResult } = useContext(AccessContext)
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
       const result = [{
@@ -16,7 +16,7 @@ export default function PendingRequests() {
         organization: 'test',
         email: 'hzaman@deloitte.ca',
         userName: 'HZAMAN',
-        firstName:'Habiba',
+        givenName:'Habiba',
         lastName: 'Zaman',
         requestStatus: 'NotGranted',
         createdAt: '2023-10-18 22:03:29.271 -0230',
@@ -30,7 +30,7 @@ export default function PendingRequests() {
         organization: '',
         email: 'alex.parker456@example.com',
         userName: 'AParker',
-        firstName:'Alex Parker',
+        givenName:'Alex Parker',
         lastName: '',
         requestStatus: 'NotGranted',
         createdAt: '2023-10-19 12:37:48.403 -0230',
@@ -44,7 +44,203 @@ export default function PendingRequests() {
         organization: '',
         email: 'alex.parker456@example.com',
         userName: 'AParker',
-        firstName:'Alex Parker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        givenName:'Alex Parker',
         lastName: '',
         requestStatus: 'NotGranted',
         createdAt: '2023-10-19 12:37:48.403 -0230',
@@ -53,6 +249,7 @@ export default function PendingRequests() {
       }
     ]
     setRequestList(result);
+    setOriginalResult(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

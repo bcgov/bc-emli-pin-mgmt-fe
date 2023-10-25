@@ -25,10 +25,15 @@ const AccessReducer = (state, action) => {
         ...state,
         searchString: action.payload,
       }
-    case 'SET_SEARCH_LIST':
+    case 'SET_ORIGINAL_DATA':
       return {
         ...state,
-        searchResult: action.payload,
+        originalResult: action.payload,
+      }
+    case 'RESET_DATA':
+      return {
+        ...state,
+        requestList: state.originalResult,
       }
     default:
       return state

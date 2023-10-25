@@ -6,7 +6,7 @@ const initialState = {
   rowSelected: [],
   searchField: '',
   searchString: '',
-  searchResult: []
+  originalResult: []
 }
 
 export const AccessContext = createContext(initialState)
@@ -22,7 +22,6 @@ export const AccessProvider = ({ children }) => {
   }
 
   function setRequestList (requests) {
-    console.log(requests)
     dispatch({
       type: 'SET_REQUEST_LIST',
       payload: requests,
@@ -30,7 +29,6 @@ export const AccessProvider = ({ children }) => {
   }
 
   function setRowSelected (selectedRows) {
-    console.log('res',selectedRows);
     dispatch({
       type: 'SET_SELECTED_ROW',
       payload: selectedRows,
@@ -51,11 +49,17 @@ export const AccessProvider = ({ children }) => {
     })
   }
 
-  function setSearchResult (searchResultList) {
+  function setOriginalResult (results) {
     dispatch({
-      type: 'SET_SEARCH_RESULT',
-      payload: searchResultList,
+      type: 'SET_ORIGINAL_DATA',
+      payload: results,
     })
+  }
+
+  function resetData() {
+    dispatch({
+      type: 'RESET_DATA',
+    });
   }
 
   return (
@@ -71,7 +75,8 @@ export const AccessProvider = ({ children }) => {
         setRowSelected,
         setSearchField,
         setSearchString,
-        setSearchResult
+        setOriginalResult,
+        resetData
       }}
     >
       {children}

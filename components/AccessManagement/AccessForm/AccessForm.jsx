@@ -25,7 +25,7 @@ export default function AccessForm() {
       <div className={styles.container}>
         <div className={styles.btn}>
           <Button
-              variant="primary"
+              variant="xlarge"
               handleOnClick={handleGrant}
               isDarkBackground={true}
             >
@@ -34,7 +34,8 @@ export default function AccessForm() {
         </div>
         <div className={styles.btn}>
           <Button
-            variant="primary"
+            variant="xlarge"
+            isDanger={true}
             handleOnClick={handleReject}
             isDarkBackground={false}
           >

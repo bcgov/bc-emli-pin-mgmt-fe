@@ -6,7 +6,7 @@ import AccessList from '../AccessList'
 import { AccessContext } from '../../../context/accessContext/AccessState'
 
 export default function CompletedRequests() {
-    const { setRequestList } = useContext(AccessContext)
+    const { setRequestList, setOriginalResult } = useContext(AccessContext)
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
       const result = [{
@@ -53,6 +53,7 @@ export default function CompletedRequests() {
       }
     ]
     setRequestList(result);
+    setOriginalResult(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -63,12 +64,9 @@ export default function CompletedRequests() {
     return (
       <div className={styles.mainSection}>
         <div className={styles.filterSection}>
-          <div className={styles.btnSection}>
-            <AccessForm />
-          </div>
-          {/* <div className={styles.searchSection}>
+          <div className={styles.searchSection}>
             <AccessSearch />
-          </div> */}
+          </div>
         </div>
         {isLoading && loadingSection}
         {!isLoading &&

@@ -35,7 +35,9 @@
         "pageTitle": "User Management"
     },
     "accessRequest": {
-        "pageTitle": "Access Request"
+        "pageTitle": "Access Request",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search"
     },
     "accessRequestBanner" : {
       "title": "Access Requests",
@@ -55,12 +57,12 @@
       "requestedRole":"Role Type",
       "organization":"Organization",
       "email":"Email",
-      "rejectionReason":"Reason for access rejection",
       "givenName":"First Name",
       "lastName":"Last Name",
       "requestStatus":"Access Status",
       "createdAt":"Created at",
-      "requestReason":"Reason for requesting access"
+      "requestReason":"Reason for requesting access",
+      "rejectionReason":"Reason for access rejection"
     },
     "requestAccess": {
       "pageTitle": "Request Access"

@@ -10,7 +10,8 @@
   margin: 0 auto;
   overflow-x: auto;
   border: 1px solid #C7C7C7;
-  height: 600px;
+  height:100%;
+  max-height: 600px;
   border-collapse: collapse;
   border-spacing: 0px;
   table-layout: fixed;
