@@ -7,17 +7,26 @@ import { Button } from '../../Button'
 export default function AccessForm() {
   const [showGrantModal, setShowGrantModal] = useState(false)
   const [showRejectModal, setRejectGrantModal] = useState(false)
-  const handleClick = () => {
-    console.log(showGrantModal,"----",showRejectModal )
+  console.log(showGrantModal, '-----', showRejectModal)
+  const handleGrant = () => {
+    if(showRejectModal){
+      setRejectGrantModal(false)
+    }
+    setShowGrantModal(true)
   }
 
-
+  const handleReject = () => {
+    if(showGrantModal){
+      setShowGrantModal(false)
+    }
+    setRejectGrantModal(true)
+  }
     return (
       <div className={styles.container}>
         <div className={styles.btn}>
           <Button
               variant="primary"
-              handleOnClick={handleClick}
+              handleOnClick={handleGrant}
               isDarkBackground={true}
             >
                 {Content.accessRequestForm.grantRequest}
@@ -26,7 +35,7 @@ export default function AccessForm() {
         <div className={styles.btn}>
           <Button
             variant="primary"
-            handleOnClick={handleClick}
+            handleOnClick={handleReject}
             isDarkBackground={false}
           >
               {Content.accessRequestForm.rejectRequest}

@@ -36,9 +36,22 @@ export default function PendingRequests() {
         createdAt: '2023-10-19 12:37:48.403 -0230',
         requestReason: 'test',
         rejectionReason: ''
+      },
+      {
+        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
+        identityType: 'Standard',
+        requestedRole: 'Super Cool Definitely Real Business',
+        organization: '',
+        email: 'alex.parker456@example.com',
+        userName: 'AParker',
+        firstName:'Alex Parker',
+        lastName: '',
+        requestStatus: 'NotGranted',
+        createdAt: '2023-10-19 12:37:48.403 -0230',
+        requestReason: 'test',
+        rejectionReason: ''
       }
     ]
-
     setRequestList(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -53,9 +66,9 @@ export default function PendingRequests() {
           <div className={styles.btnSection}>
             <AccessForm />
           </div>
-          {/* <div className={styles.searchSection}>
+          <div className={styles.searchSection}>
             <AccessSearch />
-          </div> */}
+          </div>
         </div>
         {isLoading && loadingSection}
         {!isLoading &&

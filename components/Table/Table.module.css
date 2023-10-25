@@ -1,0 +1,41 @@
+.tblSection {
+  display: block;
+
+}
+
+.tblSection table {
+  display: block;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  overflow-x: auto;
+  border: 1px solid #C7C7C7;
+  height: 600px;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  table-layout: fixed;
+}
+
+.tblSection  td {
+  border-bottom: 1px solid #C7C7C7;
+  text-align: left;
+  padding: 8px;
+  vertical-align: top;
+  overflow: hidden;
+  word-wrap:break-word;
+  table-layout: fixed;
+}
+
+.tblSection th {
+  border-bottom: 2px solid #656565;
+  text-align: left;
+  padding: 8px;
+  vertical-align: bottom;
+  word-wrap:break-word;
+  position: sticky;
+  top:0;
+  background: white;
+}
+
+
+

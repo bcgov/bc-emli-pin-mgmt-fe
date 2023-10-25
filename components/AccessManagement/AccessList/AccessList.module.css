@@ -1,43 +1,10 @@
-.tblSection {
-  display: inline;
+.granted {
+  color: #008556
 }
 
-.tblSection  table {
-  border: 1px solid #C7C7C7;
-  border-collapse: collapse;
-  width: 100%;
-  height: 100px;
-  overflow:scroll;
-  table-layout:fixed;
-  position: relative;
+.rejected {
+  color: #D8292F
 }
-
-
-
-.tblSection  td {
-  border-bottom: 1px solid #C7C7C7;
-  text-align: left;
-  padding: 8px;
-  vertical-align: top;
-  overflow: hidden;
-  word-wrap:break-word;
-}
-
-
-.tblSection th {
-  border-bottom: 2px solid #656565;
-  text-align: left;
-  padding: 8px;
-  vertical-align: bottom;
-  word-wrap:break-word;
-  position: sticky;
-  top:0;
-  background: white;
-}
-
-.tblSection td:first-child{width: 50px}
-.tblSection th:first-child{width: 50px}
-
 
 
 

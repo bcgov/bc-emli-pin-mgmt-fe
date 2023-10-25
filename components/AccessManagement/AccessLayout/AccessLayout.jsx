@@ -3,6 +3,7 @@ import Content from '../../../assets/content/content.json'
 import AccessManagement from '../../../assets/svgs/AccessManagement'
 import PageBanner from '../../PageBanner'
 import PendingRequest from '../PendingRequests'
+import CompletedRequests from '../CompletedRequests';
 import AccessNavigation from '../AccessNavigation';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import { useContext } from 'react'
@@ -22,6 +23,7 @@ export default function AccessLayout() {
         <div className={`${styles.mainSection}`}>
             <AccessNavigation />
             {tabSelected === 'pending' && <PendingRequest/>}
+            {tabSelected === 'completed' && <CompletedRequests/>}
         </div>
       </div>
     )

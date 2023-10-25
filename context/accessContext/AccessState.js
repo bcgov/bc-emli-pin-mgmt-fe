@@ -21,10 +21,11 @@ export const AccessProvider = ({ children }) => {
     })
   }
 
-  function setRequestList (requestList) {
+  function setRequestList (requests) {
+    console.log(requests)
     dispatch({
       type: 'SET_REQUEST_LIST',
-      payload: requestList,
+      payload: requests,
     })
   }
 

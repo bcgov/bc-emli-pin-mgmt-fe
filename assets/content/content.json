@@ -56,7 +56,7 @@
       "organization":"Organization",
       "email":"Email",
       "rejectionReason":"Reason for access rejection",
-      "firstName":"First Name",
+      "givenName":"First Name",
       "lastName":"Last Name",
       "requestStatus":"Access Status",
       "createdAt":"Created at",
