@@ -14,6 +14,17 @@
     cursor: not-allowed;
 }
 
+/* xlarge Button */
+.xlarge{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px; /* 142.857% */
+    padding: 12px 15px;
+    border-radius: 4px;
+    width: 180px; 
+}
+
 /* Primary Button */
 .primary {
     font-size: 14px;
@@ -23,6 +34,20 @@
     padding: 10px 26px;
     border-radius: 4px;
 }
+
+/* Secondary Button */
+.secondary{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 133.333% */
+    border-radius: 4px;
+    padding: 7px 16px;
+    width: 136px;
+}
+
+/*  */
+
 
 .dark {
     background-color: #234075;
@@ -34,14 +59,9 @@
     color: #234075;
 }
 
-.secondary{
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px; /* 133.333% */
-    border-radius: 4px;
-    padding: 7px 16px;
-    width: 136px;
+.danger{
+    border: solid 1px #D8292F;
+    color: #D8292F;
 }
 
 .BCGovPrimaryButton {
