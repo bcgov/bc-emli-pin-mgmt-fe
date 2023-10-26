@@ -69,10 +69,14 @@ export default function ExpirePINModal({
             .then((response) => {
                 setIsOpen(false)
                 setOpenExpireSuccessModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
             .catch((error) => {
                 setIsOpen(false)
                 setOpenExpireFailureModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
     }
 
