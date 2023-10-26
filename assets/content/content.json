@@ -8,7 +8,8 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Help"
+        "help": "Help", 
+        "helpLink": "https://cleanbc.gov.bc.ca/"
     },
     "navigation": {
         "home": "Home",
@@ -19,15 +20,21 @@
     "footer": {
         "home": "Home",
         "about": "About gov.bc.ca",
+        "aboutLink": "https://www2.gov.bc.ca/gov/content/about-gov-bc-ca",
         "disclaimer": "Disclaimer",
+        "disclaimerLink": "https://www2.gov.bc.ca/gov/content/home/disclaimer",
         "privacy": "Privacy",
+        "privacyLink": "https://www2.gov.bc.ca/gov/content/home/privacy", 
         "accessibility": "Accessibility",
+        "accessibilityLink": "https://www2.gov.bc.ca/gov/content/home/accessible-government",
         "copyright": "Copyright",
-        "contact": "Contact Us"
+        "copyrightLink": "https://www2.gov.bc.ca/gov/content/home/copyright",
+        "contact": "Contact Us",
+        "contactLink": "https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services"
     },
     "home": {
-        "searchHeader": "Find a property",
-        "searchContent": "Enter property information to locate a property and view property details.",
+        "searchHeader": "Search for a property",
+        "searchContent": "Enter a residential address to retrieve property details",
         "searchPlaceHolder": "Enter residential address",
         "search": "Search"
     },
@@ -85,7 +92,7 @@
         "backButton": "Back"
     },
     "propertySearch": {
-        "searchBoxError": "Enter at least 3 characters to get started"
+        "searchBoxError": "Begin typing address to get started. Partial addresses accepted"
     },
     "expirePINConfirmationModal": {
         "title": "Expire PIN",
@@ -132,7 +139,7 @@
         "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers."
     },
     "searchResults": {
-        "addressesFound": " addresses found.",
+        "addressesFound": "Addresses found: ",
         "scrollMessage": "Scroll down to view more results", 
         "noAddressFound": "0 addresses found."
     },

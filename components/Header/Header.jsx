@@ -12,6 +12,9 @@ function Header  ({
 	userName,
 })  {
 
+	const onClickHandle = () => {
+		window.open(Text.header.helpLink, "_black", "noreferrer")
+	}
 	return (
 		<div className={`${Styles.headerSectionWrap}` + " headerFooterWrap flex justify-center"}>
 			<div className={`${Styles.headerSection}`}>
@@ -33,7 +36,7 @@ function Header  ({
 								{userName}
 							</div>
 						</div>
-						<div className={`${Styles.helpSection}`}>
+						<div className={`${Styles.helpSection}`} onClick={onClickHandle}>
 							<div className={`${Styles.iconWrap}`}>
 								<QuestionIcon />
 							</div>
