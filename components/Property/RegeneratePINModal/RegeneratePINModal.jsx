@@ -9,17 +9,20 @@ export default function RegeneratePINModal({
     isOpen,
     setIsOpen,
     livePinId,
-    propertyAddress
+    propertyAddress,
 }) {
-    const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
-    const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
-    const [isRegeneratePINButtonDisabled, setIsRegeneratePINDisabled] = useState(true)
+    const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] =
+        useState()
+    const [openRegenerateFailureModal, setOpenRegenerateFailureModal] =
+        useState()
+    const [isRegeneratePINButtonDisabled, setIsRegeneratePINDisabled] =
+        useState(true)
     const [phone, setPhoneValue] = useState()
     const [email, setEmailValue] = useState()
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
-        if (validatePhoneRegex(phoneValue) || validateEmailRegex(email)){
+        if (validatePhoneRegex(phoneValue) || validateEmailRegex(email)) {
             setIsRegeneratePINDisabled(false)
         } else {
             setIsRegeneratePINDisabled(true)
@@ -28,7 +31,7 @@ export default function RegeneratePINModal({
 
     const setEmailValueOnChange = (emailValue) => {
         setEmailValue(emailValue)
-        if (validatePhoneRegex(phone) || validateEmailRegex(emailValue)){
+        if (validatePhoneRegex(phone) || validateEmailRegex(emailValue)) {
             setIsRegeneratePINDisabled(false)
         } else {
             setIsRegeneratePINDisabled(true)
@@ -36,7 +39,7 @@ export default function RegeneratePINModal({
     }
 
     const validatePhoneRegex = (phone) => {
-        if (/[0-9]{10}/.test(phone)){
+        if (/[0-9]{10}/.test(phone)) {
             setPhoneValue(phone)
             return true
         }
@@ -45,33 +48,38 @@ export default function RegeneratePINModal({
 
     const validateEmailRegex = (email) => {
         if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            return true;
+            return true
         }
-        return false;
+        return false
     }
 
     const regeneratePIN = () => {
         let formattedPhone
         if (phone) {
-            (phone?.length == 11) ? formattedPhone = phone : formattedPhone = '1' + phone;
+            phone?.length == 11
+                ? (formattedPhone = phone)
+                : (formattedPhone = '1' + phone)
         }
 
         HttpRequest.regeneratePIN({
             phoneNumber: formattedPhone,
             email: email,
             livePinId: livePinId,
-            propertyAddress: propertyAddress
+            propertyAddress: propertyAddress,
         })
             .then((response) => {
                 setIsOpen(false)
                 setOpenRegenerateSuccessModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
             .catch((error) => {
                 setIsOpen(false)
                 setOpenRegenerateFailureModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
     }
-
 
     return (
         <>
@@ -97,23 +105,27 @@ export default function RegeneratePINModal({
                 <div className={`${Styles.contentWrap}`}>
                     {Content.regeneratePINModal.contentMsg}
                 </div>
-                <div className='flex justify-between'>
+                <div className="flex justify-between">
                     <div className={`${Styles.inputWrap}`}>
                         <Textbox
-                            textBoxId='phone'
+                            textBoxId="phone"
                             textBoxLabel={Content.regeneratePINModal.phone}
                             textBoxAriaLabel={Content.regeneratePINModal.phone}
-                            textBoxPlaceholder={Content.regeneratePINModal.phonePlaceHolder}
+                            textBoxPlaceholder={
+                                Content.regeneratePINModal.phonePlaceHolder
+                            }
                             inputType="tel"
                             onHandleChange={setPhoneValueOnChange}
                         />
                     </div>
                     <div className={`${Styles.inputWrap}`}>
                         <Textbox
-                            textBoxId='email'
+                            textBoxId="email"
                             textBoxLabel={Content.regeneratePINModal.email}
                             textBoxAriaLabel={Content.regeneratePINModal.email}
-                            textBoxPlaceholder={Content.regeneratePINModal.emailPlaceHolder}
+                            textBoxPlaceholder={
+                                Content.regeneratePINModal.emailPlaceHolder
+                            }
                             inputType="email"
                             onHandleChange={setEmailValueOnChange}
                         />
