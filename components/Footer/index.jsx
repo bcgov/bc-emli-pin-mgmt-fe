@@ -1,13 +1,14 @@
 import Styles from './Footer.module.css'
 import Text from '../../assets/content/content.json'
 import Link from 'next/link'
+import GlobalStyles from '../../styles/globals.module.css'
 
 export default function Footer ({
 	links
 }) {
 
 	return (
-		<div className={`${Styles.footerSectionWrap}` + " headerFooterWrap flex justify-center"}>
+		<div className={`${Styles.headerSectionWrap + " " + GlobalStyles.headerFooterWrap + " " + GlobalStyles.flex + " " + GlobalStyles.justifyCenter}`}>
 			<div className={`${Styles.footerSection}`}>
 				{
 					links.map((item) => (

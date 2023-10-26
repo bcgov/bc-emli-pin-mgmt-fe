@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthService'
 import PropertyLayout from '../components/Property/PropertyLayout'
+import GlobalStyles from '../styles/globals.module.css'
 
 export default function Home(props) {
     if (typeof window !== 'undefined') {
@@ -29,7 +30,10 @@ export default function Home(props) {
             <Header userName={userName} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
-            <main id='main' className='w-full h-full text-center' data-testid="homepage">
+            <main 
+              id='main' 
+              className={`${GlobalStyles.main + " " + GlobalStyles.widthFull + " " + GlobalStyles.heightFull+ " " + GlobalStyles.textCentre}`} 
+              data-testid="homepage">
                 <PropertyLayout />
             </main>
             <Footer />

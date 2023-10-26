@@ -1,0 +1,31 @@
+#main{
+  min-height: calc(100vh - 220px);
+}
+
+.homePropertySearchWrap{
+  margin-left: 70px;
+}
+
+.headerFooterWrap{
+	background-color: #003366;
+}
+
+.flex {
+  display: flex;
+}
+
+.justifyCenter{
+  justify-content: center;
+}
+
+.widthFull{
+  width: 100%;
+}
+
+.heightFull{
+  height: 100%;
+}
+
+.textCentre{
+  text-align: center;
+}

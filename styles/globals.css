@@ -19,6 +19,10 @@
     font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
   }
 
+  body{
+    margin: 0px;
+  }
+
   h1{
     /* font-family: BC Sans; */
     font-size: 32px;
@@ -42,16 +46,9 @@
     border-color: #234075;
     outline: none;
   }
+
+  /* textarea:focus{
+    outline: none;
+  } */
 }
 
-#main{
-  min-height: calc(100vh - 220px);
-}
-
-.homePropertySearchWrap{
-  margin-left: 70px;
-}
-
-.headerFooterWrap{
-	background-color: #003366;
-}

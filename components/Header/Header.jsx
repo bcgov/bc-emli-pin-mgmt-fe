@@ -5,6 +5,7 @@ import Text from '../../assets/content/content.json'
 import UserIcon from '../../assets/svgs/UserIcon'
 import QuestionIcon from '../../assets/svgs/QuestionIcon'
 import Endpoints from '../../apiManager/endpoints'
+import GlobalStyles from '../../styles/globals.module.css'
 
 
 function Header  ({
@@ -16,7 +17,7 @@ function Header  ({
 		window.open(Text.header.helpLink, "_black", "noreferrer")
 	}
 	return (
-		<div className={`${Styles.headerSectionWrap}` + " headerFooterWrap flex justify-center"}>
+		<div className={`${Styles.headerSectionWrap + " " + GlobalStyles.headerFooterWrap + " " + GlobalStyles.flex + " " + GlobalStyles.justifyCenter}`}>
 			<div className={`${Styles.headerSection}`}>
 				<div className={`${Styles.logoBanner}`}>
 					<div className={`${Styles.left}`}>
