@@ -17,6 +17,9 @@ const Endpoints = {
     },
     requestAccess: {
       REQUEST_ACCESS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests`,
+    },
+    accessManagement: {
+      GET_REQUESTS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests/?status=`,
     }
 }
 

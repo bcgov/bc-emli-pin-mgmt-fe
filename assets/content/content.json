@@ -37,7 +37,8 @@
     "accessRequest": {
         "pageTitle": "Access Request",
         "searchInfoText": "Select columns to search",
-        "searchPlaceholder": "Search"
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found"
     },
     "accessRequestBanner" : {
       "title": "Access Requests",
@@ -50,6 +51,39 @@
     "accessRequestForm": {
       "grantRequest": "Grant Request",
       "rejectRequest": "Reject Request"
+    },
+    "accessStatus": {
+      "notgranted": "Not granted",
+      "granted": "Granted",
+      "rejected": "Rejected"
+    },
+    "accessGrantModal": {
+      "title":"Grant request?",
+      "titleMultiple": "Grant requests for multiple users",
+      "bodyText":"Are you sure that you want to grant this user’s request?",
+      "bodyMultipleText": "Are you sure that you want to grant requests for",
+      "btnText": "Grant request",
+      "multipleBtnText": "Grant requests",
+      "cancelButton": "Cancel",
+      "selectErrorMessage": "Please select request(s) to grant",
+      "successMessage": " request(s) submitted.",
+      "failureMessage": ""
+    },
+    "accessRejectModal": {
+      "title":"Reject request?",
+      "titleMultiple": "Reject requests for multiple users",
+      "bodyText":"Please provide the reason for rejecting the access request of this user",
+      "bodyMultipleText": "Please provide the reason for rejecting the access requests of multiple users",
+      "rejectTextAreaTitle": "Reason for access rejection",
+      "rejectTextAreaMessage": "The reason above will be applied to all users selected.",
+      "btnText": "Reject request",
+      "multipleBtnText": "Reject requests",
+      "cancelButton": "Cancel",
+      "successMessage": "  request has been rejected.",
+      "successMessageMultiple": "  requests have been rejected.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select request(s) to reject"
+
     },
     "accessRequestSearchOptions": {
       "userName": "Username",
@@ -219,8 +253,8 @@
     },
     "back": "Back",
     "portalUserRole" : {
-      "systemAdmin": "System administrator",
+      "superadmin": "System admin",
       "admin" : "Administrator",
-      "clientSupport": "Client support"
+      "standard": "Client support"
     }
 }
