@@ -9,7 +9,7 @@ export default function GrantModal(props) {
       isOpen,
       setIsOpen,
     } = props
-    const { rowSelected } = useContext(AccessContext)
+    const { rowSelected, setRequestList, setOriginalResult } = useContext(AccessContext)
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.accessGrantModal.titleMultiple
@@ -23,23 +23,33 @@ export default function GrantModal(props) {
       content.accessGrantModal.multipleBtnText
       : content.accessGrantModal.btnText
 
+      // TODO:Move refetch function to context
     function submitRequests() {
-      console.log('get ids and set as a part of the body');
-      // after update call main api again to setResultList
-       /*  HttpRequest.expirePIN({
-            livePinId: livePinId,
-            expirationReason: Content.pinHistoryModal.typeCode.callCenter,
-            // TO DO: to be removed after backend intergrated
-            expiredByUsername: "First last name",
-        })
-            .then((response) => {
+      if(rowSelected.length > 0){
+        const requestIds = rowSelected.map((item) => item.requestId);
+        const body = {
+          action: 'Granted',
+          requestIds
+        }
+        HttpRequest.updateAccessRequest(body)
+          .then((response) => {
+              HttpRequest.getRequestList('pending')
+              .then((response) => {
+                const result = response?.data
+                setRequestList(result)
+                setOriginalResult(result)
                 setIsOpen(false)
-                setOpenExpireSuccessModal(true)
-            })
-            .catch((error) => {
+              })
+              .catch((error) => {
+                console.error(error)
                 setIsOpen(false)
-                setOpenExpireFailureModal(true)
-            }) */
+              })
+          })
+          .catch((error) => {
+              setIsOpen(false)
+          })
+
+      }
     }
 
     return (

@@ -58,6 +58,14 @@ const getRequestList = (requestStatus) => {
   )
 }
 
+const updateAccessRequest = (data) => {
+  let config = {
+    withCredentials: true,
+    credentials: 'include',
+  }
+  return axios.put (Endpoints.requestAccess.REQUEST_ACCESS, data, config)
+}
+
 const HttpRequest = {
     expirePIN,
     getSearchResults,
@@ -66,6 +74,7 @@ const HttpRequest = {
     regeneratePIN,
     submitUserAccessRequest,
     getRequestList,
+    updateAccessRequest,
 }
 
 export default HttpRequest
