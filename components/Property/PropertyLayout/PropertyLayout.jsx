@@ -20,7 +20,6 @@ export default function PropertyLayout() {
 
     useEffect(() => {
         let storedSearchString = sessionStorage.getItem("searchString")
-        console.log(storedSearchString)
         setSearchString(storedSearchString)
         if (storedSearchString) {
             setShowPropertySearchHeader(false)
