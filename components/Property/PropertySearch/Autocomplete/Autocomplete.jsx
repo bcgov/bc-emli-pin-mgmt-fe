@@ -8,6 +8,7 @@ export default function Autocomplete({
     searchString,
     getSiteId,
     getSearchString,
+    getAddress,
     showResults,
 }) {
     const [results, setResults] = useState(null)
@@ -31,8 +32,10 @@ export default function Autocomplete({
 
     const handleClick = (siteId, address) => {
         getSiteId(siteId, address)
-        getSearchString(searchString)
+        getSearchString(address)
+        getAddress(address)
         document.getElementById('searchInput').value = address
+        getSearchResults(address)
     }
 
     return (
