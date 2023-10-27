@@ -52,6 +52,7 @@
 .dark {
     background-color: #234075;
     color: #ffffff;
+    border: solid 1px #234075;
 }
 
 .light {
