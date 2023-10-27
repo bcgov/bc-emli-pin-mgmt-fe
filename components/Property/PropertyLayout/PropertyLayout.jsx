@@ -6,17 +6,26 @@ import PropertyResultIcon from '../../../assets/svgs/PropertyResultIcon'
 import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import Styles from './PropertyLayout.module.css'
 import Content from '../../../assets/content/content.json'
+import Router from 'next/router'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import BackArrow from '../../../assets/svgs/BackArrow'
 
 export default function PropertyLayout() {
-    const [searchString, setSearchString] = useState('')
-    const [showPropertySearchHeader, setShowPropertySearchHeader] =
-        useState(true)
+    const [searchString, setSearchString] = useState()
+    const [showPropertySearchHeader, setShowPropertySearchHeader] = useState(true)
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
     const [searchResultLength, setSearchResultLength] = useState(0)
+
+    useEffect(() => {
+        let storedSearchString = sessionStorage.getItem("searchString")
+        setSearchString(storedSearchString)
+        if (storedSearchString) {
+            setShowPropertySearchHeader(false)
+            document.getElementById('searchInput').value = storedSearchString
+        }
+    }, [])
 
     function getSearchString (newSearchString) {
         setSearchString(newSearchString)
@@ -59,6 +68,8 @@ export default function PropertyLayout() {
     function backToSearchPage() {
         setShowPropertySearchHeader(true)
         setSearchString('')
+        sessionStorage.setItem("searchString", '')
+		Router.push('/home')
     }
     
     return (

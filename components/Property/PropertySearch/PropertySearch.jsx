@@ -5,6 +5,7 @@ import { useState } from 'react'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import Autocomplete from './Autocomplete/Autocomplete'
+import Router from 'next/router'
 
 export default function PropertySearch({ getSearchString, getSiteId }) 
 {
@@ -34,6 +35,8 @@ export default function PropertySearch({ getSearchString, getSiteId })
     const handleSearch = () => {
 		setShowResults(false)
         getSearchString(address)
+		sessionStorage.setItem("searchString", address)
+		Router.push('/property-search')
     }
 
     const clearSearch = () => {
