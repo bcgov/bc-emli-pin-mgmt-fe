@@ -67,8 +67,8 @@ export default function SearchResults(props) {
                     data-testid="searchResultTitle"
                     className={`${styles.searchResultTitle}`}
                 >
-                    {results?.length}
                     {Content.searchResults.addressesFound}
+                    {results?.length}
                 </h1>
                 <div className={`${styles.searchResultList}`}>
                     {results?.map((result, i) => (
