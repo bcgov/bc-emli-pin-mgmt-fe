@@ -188,6 +188,7 @@
         "ownership": "Ownership",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "noDataFoundMsg": "No data available for the selected property.",
         "searchResultMsg": "Select an address to view property details", 
         "owner": "Owner",
         "fullname": "Full Name", 
