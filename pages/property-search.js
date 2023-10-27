@@ -7,10 +7,6 @@ import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthSe
 import PropertyLayout from '../components/Property/PropertyLayout'
 
 export default function Home(props) {
-    if (typeof window !== 'undefined') {
-        sessionStorage.setItem("searchString", '')
-        console.log('here')
-    }
     const { userName, userInfo } = props
     return (
         <>
