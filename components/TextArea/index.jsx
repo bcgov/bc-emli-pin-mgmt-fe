@@ -24,7 +24,7 @@ function TextArea(props) {
         <span>
           {textAreaName}
           {isRequired && !isReadOnly && (
-            <span className={styles.requiredField}>*</span>
+            <span className={styles.requiredField}> *</span>
           )}
         </span>
       </label>

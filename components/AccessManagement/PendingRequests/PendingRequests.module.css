@@ -1,0 +1,16 @@
+.mainSection {
+  display: inline;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 37px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.tblSection {
+  padding-top: 43px;
+  padding-bottom: 50px;
+}

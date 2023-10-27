@@ -40,6 +40,17 @@ const submitUserAccessRequest = (data) => {
     return axios.post(Endpoints.requestAccess.REQUEST_ACCESS, data, config)
 }
 
+const getRequestList = (requestStatus) => {
+  return axios.get(
+    `${Endpoints.accessManagement.GET_REQUESTS}${requestStatus}`,
+    config
+  )
+}
+
+const updateAccessRequest = (data) => {
+  return axios.put (Endpoints.requestAccess.REQUEST_ACCESS, data, config)
+}
+
 const HttpRequest = {
     expirePIN,
     getSearchResults,
@@ -47,6 +58,8 @@ const HttpRequest = {
     getPropertyDetail,
     regeneratePIN,
     submitUserAccessRequest,
+    getRequestList,
+    updateAccessRequest,
 }
 
 export default HttpRequest
