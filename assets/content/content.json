@@ -8,7 +8,8 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Help"
+        "help": "Help", 
+        "helpLink": "https://cleanbc.gov.bc.ca/"
     },
     "navigation": {
         "home": "Home",
@@ -19,15 +20,21 @@
     "footer": {
         "home": "Home",
         "about": "About gov.bc.ca",
+        "aboutLink": "https://www2.gov.bc.ca/gov/content/about-gov-bc-ca",
         "disclaimer": "Disclaimer",
+        "disclaimerLink": "https://www2.gov.bc.ca/gov/content/home/disclaimer",
         "privacy": "Privacy",
+        "privacyLink": "https://www2.gov.bc.ca/gov/content/home/privacy", 
         "accessibility": "Accessibility",
+        "accessibilityLink": "https://www2.gov.bc.ca/gov/content/home/accessible-government",
         "copyright": "Copyright",
-        "contact": "Contact Us"
+        "copyrightLink": "https://www2.gov.bc.ca/gov/content/home/copyright",
+        "contact": "Contact Us",
+        "contactLink": "https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services"
     },
     "home": {
-        "searchHeader": "Find a property",
-        "searchContent": "Enter property information to locate a property and view property details.",
+        "searchHeader": "Search for a property",
+        "searchContent": "Enter a residential address to retrieve property details",
         "searchPlaceHolder": "Enter residential address",
         "search": "Search"
     },
@@ -35,7 +42,68 @@
         "pageTitle": "User Management"
     },
     "accessRequest": {
-        "pageTitle": "Access Request"
+        "pageTitle": "Access Request",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found"
+    },
+    "accessRequestBanner" : {
+      "title": "Access Requests",
+      "description": "Grant or deny access requests"
+    },
+    "accessRequestDetails": {
+      "pendingRequest": "Pending Requests",
+      "completedRequest": "Completed Request"
+    },
+    "accessRequestForm": {
+      "grantRequest": "Grant Request",
+      "rejectRequest": "Reject Request"
+    },
+    "accessStatus": {
+      "notgranted": "Not granted",
+      "granted": "Granted",
+      "rejected": "Rejected"
+    },
+    "accessGrantModal": {
+      "title":"Grant request?",
+      "titleMultiple": "Grant requests for multiple users",
+      "bodyText":"Are you sure that you want to grant this user’s request?",
+      "bodyMultipleText": "Are you sure that you want to grant requests for",
+      "btnText": "Grant request",
+      "multipleBtnText": "Grant requests",
+      "cancelButton": "Cancel",
+      "selectErrorMessage": "Please select request(s) to grant",
+      "successMessage": " request(s) submitted.",
+      "failureMessage": ""
+    },
+    "accessRejectModal": {
+      "title":"Reject request?",
+      "titleMultiple": "Reject requests for multiple users",
+      "bodyText":"Please provide the reason for rejecting the access request of this user",
+      "bodyMultipleText": "Please provide the reason for rejecting the access requests of multiple users",
+      "rejectTextAreaTitle": "Reason for access rejection",
+      "rejectTextAreaMessage": "The reason above will be applied to all users selected.",
+      "btnText": "Reject request",
+      "multipleBtnText": "Reject requests",
+      "cancelButton": "Cancel",
+      "successMessage": "  request has been rejected.",
+      "successMessageMultiple": "  requests have been rejected.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select request(s) to reject"
+
+    },
+    "accessRequestSearchOptions": {
+      "userName": "Username",
+      "identityType":"Identity type",
+      "requestedRole":"Role Type",
+      "organization":"Organization",
+      "email":"Email",
+      "givenName":"First Name",
+      "lastName":"Last Name",
+      "requestStatus":"Access Status",
+      "createdAt":"Created at",
+      "requestReason":"Reason for requesting access",
+      "rejectionReason":"Reason for access rejection"
     },
     "requestAccess": {
       "pageTitle": "Request Access"
@@ -85,7 +153,7 @@
         "backButton": "Back"
     },
     "propertySearch": {
-        "searchBoxError": "Enter at least 3 characters to get started"
+        "searchBoxError": "Begin typing address to get started. Partial addresses accepted"
     },
     "expirePINConfirmationModal": {
         "title": "Expire PIN",
@@ -132,9 +200,9 @@
         "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers."
     },
     "searchResults": {
-        "addressesFound": " addresses found.",
+        "addressesFound": "Addresses found: ",
         "scrollMessage": "Scroll down to view more results", 
-        "noAddressFound": "0 addresses found."
+        "noAddressFound": "Addresses found: 0"
     },
     "pinHistoryModal": {
         "title": "View PIN History",
@@ -192,8 +260,8 @@
     },
     "back": "Back",
     "portalUserRole" : {
-      "systemAdmin": "System administrator",
+      "superadmin": "System admin",
       "admin" : "Administrator",
-      "clientSupport": "Client support"
+      "standard": "Client support"
     }
 }

@@ -1,0 +1,40 @@
+.tabContainer {
+  display: flex;
+}
+
+.tab {
+  font-size: 20px;
+  padding: 10px 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  background: white;
+  border: 0;
+  outline: 0;
+  width: 190px;
+  border-bottom: 1px solid #C7C7C7;
+  opacity: 1;
+  margin-right: 5px;
+}
+
+.tabTextActive {
+  color:  #234075;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.tabText {
+  color: #1A1A1A;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.active {
+  border-bottom: 2px solid #234075;
+  opacity: 1;
+}

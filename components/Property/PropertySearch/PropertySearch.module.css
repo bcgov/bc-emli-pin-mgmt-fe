@@ -20,6 +20,10 @@
     color: #656565;
 }
 
+.errorPlaceholder {
+    height: 28px;
+}
+
 .searchButtonWrap{
     margin-left: 20px;
     margin-top: 5px;

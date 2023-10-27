@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
-
 import { Button } from '../Button/index'
-
 import CloseIcon from '../../assets/svgs/CloseIcon'
-
 import styles from './Modal.module.css'
 import { testAttr } from '../../utils/test.utils'
 

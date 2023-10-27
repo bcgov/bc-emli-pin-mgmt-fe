@@ -3,6 +3,7 @@ import { useClickOutSide } from '../../utils/customHooks/useClickOutSide'
 import PropTypes from 'prop-types'
 
 import ArrowDown from '../../assets/svgs/ArrowDown'
+import ArrowDownSolid from '../../assets/svgs/ArrowDownSolid'
 
 import styles from './Dropdown.module.css'
 
@@ -16,6 +17,7 @@ export default function Dropdown({
     label,
     disabled,
     selectedValue,
+    isDarkBackground
 }) {
     const [toggleDropdown, setToggleDropdown] = useState(false)
     const handleShowHideDropdown = () => setToggleDropdown((prev) => !prev)
@@ -31,8 +33,15 @@ export default function Dropdown({
         handleSelection(value)
         handleShowHideDropdown()
     }
+
+    // const backgroundStyle = isDarkBackground ? Styles.dark : Styles.light
+    // const buttonLevel = variant === 'primary' ? Styles.primary : variant === 'secondary' 
+	// ? Styles.secondary : variant === 'xlarge' ? Styles.xlarge : ''
+    // const classNameDropdown = styles.actionDropdownButton + " " + buttonLevel + " " + backgroundStyle 
+
+    const buttonWidth = variant === 'xlarge' ? styles.large : styles.small
     return (
-        <div className={`${className} ${styles.actionDropdown}`}>
+        <div className={`${className} ${styles.actionDropdown} ${buttonWidth}`}>
             <button
                 disabled={disabled}
                 className={`${styles.actionDropdownButton} ${
@@ -51,11 +60,16 @@ export default function Dropdown({
                 <span
                     className={`${
                         toggleDropdown
-                            ? styles.expandedChevron
-                            : styles.collapsedChevron
+                            ? styles.collapsedChevron
+                            : styles.expandedChevron
                     }`}
                 >
-                    <ArrowDown />
+                    {
+                        variant === 'xlarge' && <ArrowDownSolid />
+                    }
+                    {
+                        variant !== 'xlarge' && <ArrowDown />
+                    }
                 </span>
             </button>
             {toggleDropdown && (
@@ -89,7 +103,7 @@ export default function Dropdown({
 }
 
 Dropdown.protoTypes = {
-    variant: PropTypes.oneOf(['primary', 'secondary']).isRequired,
+    variant: PropTypes.oneOf(['primary', 'secondary', 'xlarge']).isRequired,
     size: PropTypes.oneOf(['medium']),
     options: PropTypes.shape({
         label: PropTypes.string.isRequired,

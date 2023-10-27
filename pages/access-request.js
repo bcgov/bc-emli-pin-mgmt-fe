@@ -3,7 +3,9 @@ import Text from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
+import { AccessProvider } from '../context/accessContext/AccessState'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
+import AccessLayout from '../components/AccessManagement/AccessLayout'
 
 
 export default function UserManagement(props) {
@@ -24,7 +26,9 @@ export default function UserManagement(props) {
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
       <main id="main">
         <div role="heading" aria-level="2">
-        {Text.accessRequest.pageTitle}
+        <AccessProvider>
+          <AccessLayout />
+        </AccessProvider>
         </div>
       </main>
       <Footer />

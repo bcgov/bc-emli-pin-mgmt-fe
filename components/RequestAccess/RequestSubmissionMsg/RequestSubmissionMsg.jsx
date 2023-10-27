@@ -12,8 +12,6 @@ export default function RequestLayout(props) {
       handleBack,
     } = props;
 
-    console.log(handleBack)
-
     const successMessage = () => (
       <div className={`${styles.section}`}>
         <div className={`${styles.msgHeader}`}>

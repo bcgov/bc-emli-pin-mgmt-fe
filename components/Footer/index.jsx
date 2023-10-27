@@ -32,32 +32,32 @@ Footer.defaultProps = {
 		{
 			index: 2, 
 			name: Text.footer.about, 
-			href: ''
+			href: Text.footer.aboutLink
 		},
 		{
 			index: 3, 
 			name: Text.footer.disclaimer, 
-			href: '', 
+			href: Text.footer.disclaimerLink 
 		}, 
 		{
 			index: 4, 
 			name: Text.footer.privacy, 
-			href: '', 
+			href: Text.footer.privacyLink 
 		}, 
 		{
 			index: 5, 
-			name: Text.footer.copyright, 
-			href: '', 
-		}, 
+			name: Text.footer.accessibility, 
+			href: Text.footer.accessibilityLink
+		},
 		{
 			index: 6, 
-			name: Text.footer.accessibility, 
-			href: '',
-		},
+			name: Text.footer.copyright, 
+			href: Text.footer.copyrightLink
+		}, 
 		{
 			index: 7, 
 			name: Text.footer.contact, 
-			href: '',
+			href: Text.footer.contactLink
 		}
 	]
 }
