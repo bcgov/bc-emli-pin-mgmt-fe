@@ -202,7 +202,7 @@
     "searchResults": {
         "addressesFound": "Addresses found: ",
         "scrollMessage": "Scroll down to view more results", 
-        "noAddressFound": "0 addresses found."
+        "noAddressFound": "Addresses found: 0"
     },
     "pinHistoryModal": {
         "title": "View PIN History",
