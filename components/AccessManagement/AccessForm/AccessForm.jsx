@@ -2,12 +2,12 @@ import { useState } from 'react'
 import styles from './AccessForm.module.css';
 import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button'
-
+import GrantModal from '../GrantModal';
+import RejectModal from '../RejectModal';
 
 export default function AccessForm() {
   const [showGrantModal, setShowGrantModal] = useState(false)
   const [showRejectModal, setRejectGrantModal] = useState(false)
-  console.log(showGrantModal, '-----', showRejectModal)
   const handleGrant = () => {
     if(showRejectModal){
       setRejectGrantModal(false)
@@ -42,6 +42,14 @@ export default function AccessForm() {
               {Content.accessRequestForm.rejectRequest}
           </Button>
         </div>
+        <GrantModal
+          isOpen={showGrantModal}
+          setIsOpen={setShowGrantModal}
+        />
+        <RejectModal
+          isOpen={showRejectModal}
+          setIsOpen={setRejectGrantModal}
+        />
       </div>
     )
 }

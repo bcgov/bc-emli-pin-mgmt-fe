@@ -6,6 +6,8 @@ import styles from './AccessList.module.css';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import Table from '../../Table';
 import wrap from 'word-wrap'
+import { getAccessStatusLabel } from '../../../utils/helper'
+import contents from '../../../assets/content/content.json'
 
 export default function AccessList() {
   const { setRowSelected, requestList, tabSelected } = useContext(AccessContext)
@@ -58,8 +60,8 @@ export default function AccessList() {
       width: 20,
       Cell: props => {
         const statusStyle = props.value === 'Granted' ?
-          styles.granted : (props.value === 'Denied' ? styles.rejected : '')
-        return <span className={statusStyle}>{props.value}</span>
+          styles.granted : (props.value === 'Rejected' ? styles.rejected : '')
+        return <span className={statusStyle}>{getAccessStatusLabel(props.value)}</span>
       }
 
     },
@@ -96,13 +98,23 @@ export default function AccessList() {
 
     return (
       <div className={styles.requestTable}>
-        <Table
-          columns={columns}
-          data={requestList}
-          initialState={initialState}
-          setSelectedRows={setRowSelected}
-          showSelectBox={showSelectBox}
-        />
+        {
+          requestList.length > 0 &&
+            <Table
+              columns={columns}
+              data={requestList}
+              initialState={initialState}
+              setSelectedRows={setRowSelected}
+              showSelectBox={showSelectBox}
+            />
+        }
+        {
+          requestList.length === 0 &&
+            <div className={styles.noResultSection}>
+                <span className={styles.noResultText}>{contents.accessRequest.noResultText}</span>
+            </div>
+
+        }
       </div>
     )
 }

@@ -75,6 +75,7 @@
 .right .helpSection{
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .right .helpSection .iconWrap svg{

@@ -65,10 +65,14 @@ export default function RegeneratePINModal({
             .then((response) => {
                 setIsOpen(false)
                 setOpenRegenerateSuccessModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
             .catch((error) => {
                 setIsOpen(false)
                 setOpenRegenerateFailureModal(true)
+                setPhoneValue('')
+                setEmailValue('')
             })
     }
 

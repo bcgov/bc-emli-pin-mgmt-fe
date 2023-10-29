@@ -22,9 +22,7 @@ function PropertyDetails({
   useEffect(() => {
     setLoading(true)
     if (propertySiteId !== '') {
-      // TO DO: to be removed after backend finish
-      const role = "SuperAdmin"
-      HttpRequest.getPropertyDetail(propertySiteId, role)
+      HttpRequest.getPropertyDetail(propertySiteId)
         .then((response) => {
           // call converting data here
           const propertyDetails = propertyDetailsMapping(response?.data)
@@ -81,7 +79,7 @@ function PropertyDetails({
   return (
     <div className={layoutClass}>
       { 
-        (currentPropertyDetail !== null && !isLoading) &&
+        (currentPropertyDetail?.length > 0 && !isLoading) &&
         <div className={`${Styles.details}`}>
           <div className={`${Styles.addressWrap}` + " " + "text-left"}>
             <div className={`${Styles.title}`}>
@@ -121,11 +119,13 @@ function PropertyDetails({
         </div>
       }
       {
-        (currentPropertyDetail === null && !isLoading) &&
+        (currentPropertyDetail?.length === 0 && !isLoading) &&
         <div className={"flex items-center justify-center content-center flex-col"}>
-          <PropertyNoResultIcon />
-          <div className={`${Styles.noResultMsgWrap}`}>
-            {Content.propertyDetails.noSearchResultMsg}
+          <span className={`${Styles.noDataFound}`}>
+            <PropertyNoResultIcon />
+          </span>
+          <div className={`${Styles.noDataFoundMsgWrap}`}>
+            {Content.propertyDetails.noDataFoundMsg}
           </div>
         </div>
       }

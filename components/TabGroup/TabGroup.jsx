@@ -3,7 +3,7 @@ import styles from './TabGroup.module.css'
 export default function TabGroup(props) {
   const {
     types,
-    active,
+    activeTab,
     setActive,
   } = props
 
@@ -13,11 +13,11 @@ export default function TabGroup(props) {
         {types.map(type => (
           <button
             key={type.value}
-            active={active === type.value}
+            active={activeTab === type.value}
             onClick={() => setActive(type.value)}
-            className={`${styles.tab}`+" "+`${active === type.value ? styles.active: " "}`}
+            className={`${styles.tab}`+" "+`${activeTab === type.value ? styles.active: ''}`}
           >
-            <span className={`${active === type.value ? styles.tabTextActive : styles.tabText}`}>{type.label}</span>
+            <span className={`${activeTab === type.value ? styles.tabTextActive : styles.tabText}`}>{type.label}</span>
           </button>
         ))}
       </div>

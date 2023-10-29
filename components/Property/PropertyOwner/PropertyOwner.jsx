@@ -25,7 +25,7 @@ function PropertyOwner({
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
     const [openExpirePINModal, setOpenExpirePINModal] = useState()
-    const [openRegenertePINModal, setOpenRegenertePINModal] = useState()
+    const [openRegeneratePINModal, setOpenRegeneratePINModal] = useState()
 
     function getPINHistory() {
         HttpRequest.getPINHistory(livePinId)
@@ -41,7 +41,7 @@ function PropertyOwner({
     function handleMangePINSelection (value){
         setGetMangePINSelection(value)
         if (value === Content.managePINDropdown.valueOptions.regenerate) {
-            setOpenRegenertePINModal(true)
+            setOpenRegeneratePINModal(true)
         } else if (value === Content.managePINDropdown.valueOptions.expire) {
             setOpenExpirePINModal(true)
         } else if (value === Content.managePINDropdown.valueOptions.view) {
@@ -131,10 +131,11 @@ function PropertyOwner({
                     isOpen={openExpirePINModal}
                     setIsOpen={setOpenExpirePINModal}
                     livePinId={livePinId}
+                    propertyAddress={propertyAddress}
                 />
                 <RegeneratePINModal 
-                    isOpen={openRegenertePINModal}
-                    setIsOpen={setOpenRegenertePINModal}
+                    isOpen={openRegeneratePINModal}
+                    setIsOpen={setOpenRegeneratePINModal}
                     livePinId={livePinId}
                     propertyAddress={propertyAddress}
                 />

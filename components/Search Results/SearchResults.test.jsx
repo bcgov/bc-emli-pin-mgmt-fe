@@ -77,6 +77,6 @@ describe('<SearchResults />', () => {
         const { container } = await act(async () => render(<Template />))
         const { getByText } = within(screen.getByTestId('searchResultTitle'))
         expect(container.firstChild).toBeTruthy()
-        expect(getByText('0 addresses found.')).toBeInTheDocument()
+        expect(getByText('Addresses found: 0')).toBeInTheDocument()
     })
 })

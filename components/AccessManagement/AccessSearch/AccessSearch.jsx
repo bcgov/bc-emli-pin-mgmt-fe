@@ -21,7 +21,8 @@ export default function AccessSearch() {
     requestList,
     setRequestList,
     resetData,
-    tabSelected
+    tabSelected,
+    originalResult
   } = useContext(AccessContext)
   const [valueSelected, setValueSelected] = useState(options[0])
   const [fieldOptions, setFieldOptions] = useState(options)
@@ -53,10 +54,13 @@ const clearSearch = () => {
 }
 
 const doSearch = (e) => {
-  if(e.keyCode == 13){
+  if(e.keyCode === 13){
     const searchResult = getSearchData(searchString, searchField, requestList)
     setRequestList(searchResult)
- }
+  }
+  if((e.type === 'click' || e.keyCode === 13 ) && searchString.length === 0){
+    resetData()
+  }
 }
 
   return (
@@ -78,12 +82,17 @@ const doSearch = (e) => {
             id="searchInput"
             placeholder={Content.accessRequest.searchPlaceholder}
             onChange={(e) => handleSearchString(e.target.value)}
-            onKeyDown={doSearch}
+            onKeyDown={(e) => doSearch(e)}
             />
 
-          {searchString.length < 1 && (
+          {searchString.length === 0 && (
               <span className={styles.searchIcon}>
+                <button
+                    className={styles.searchButton}
+                    onClick={(e) => doSearch(e)}
+                >
                   <SearchIcon />
+                </button>
               </span>
           )}
 

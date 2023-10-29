@@ -5,8 +5,9 @@ import { useState } from 'react'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import Autocomplete from './Autocomplete/Autocomplete'
+import Router from 'next/router'
 
-export default function PropertySearch({ getSearchString, getSiteId, getSingleProperty }) 
+export default function PropertySearch({ getSearchString, getSiteId }) 
 {
     const [searchString, setSearchString] = useState('')
     const [showSearchError, setShowSearchError] = useState(false)
@@ -33,14 +34,9 @@ export default function PropertySearch({ getSearchString, getSiteId, getSinglePr
 
     const handleSearch = () => {
 		setShowResults(false)
-		getSingleProperty(false)
         getSearchString(address)
-    }
-
-	const handleAutocompleteSearch = () => {
-		setShowResults(false)
-		getSingleProperty(true)
-        getSearchString(address)
+		sessionStorage.setItem("searchString", address)
+		Router.push('/property-search')
     }
 
     const clearSearch = () => {
@@ -48,6 +44,10 @@ export default function PropertySearch({ getSearchString, getSiteId, getSinglePr
         setShowSearchError(true)
         setSearchString('')
     }
+
+	const getAddress = (address) => {
+		getSearchString(address)
+	}
 
 	return (
 		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
@@ -85,12 +85,16 @@ export default function PropertySearch({ getSearchString, getSiteId, getSinglePr
 					}
 					{
 						!showSearchError && 
-						<Autocomplete 
-							searchString={searchString} 
-							getSiteId={getSiteId}
-							getSearchString={handleAutocompleteSearch}
-							showResults={showResults}
-						/>
+						<>
+							<div className={`${Styles.errorPlaceholder}`}></div>
+							<Autocomplete 
+								searchString={searchString} 
+								getSiteId={getSiteId}
+								getSearchString={handleSearch}
+								showResults={showResults}
+								getAddress={getAddress}
+							/>
+						</>
 					}
 				</div>
 				<div className={`${Styles.searchButtonWrap}`}>
