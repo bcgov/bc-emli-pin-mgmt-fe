@@ -19,7 +19,7 @@ export default function UserManagementNavigation() {
       <div className={`${styles.mainSection}`}>
           <TabGroup
             types={options}
-            active={tabSelected}
+            activeTab={tabSelected}
             setActive={selectTab}
           />
       </div>

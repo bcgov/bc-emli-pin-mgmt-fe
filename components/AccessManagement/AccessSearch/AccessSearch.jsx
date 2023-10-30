@@ -22,7 +22,6 @@ export default function AccessSearch() {
     setRequestList,
     resetData,
     tabSelected,
-    originalResult
   } = useContext(AccessContext)
   const [valueSelected, setValueSelected] = useState(options[0])
   const [fieldOptions, setFieldOptions] = useState(options)

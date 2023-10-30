@@ -41,7 +41,10 @@
     "userManagement": {
         "pageTitle": "User Management",
         "searchInfoText": "Select columns to search",
-        "searchPlaceholder": "Search"
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found",
+        "editWarningMessage": "Editing multiple users is not allowed.",
+        "closeText": "Always dismiss"
     },
     "userManagementBanner" : {
       "title": "User Management",

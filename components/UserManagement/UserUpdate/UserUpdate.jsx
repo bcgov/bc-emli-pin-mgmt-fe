@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import styles from './UserUpdate.module.css';
 import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button'
-
+import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 
 export default function UserUpdate() {
+  const { rowSelected } = useContext(UserManagementContext)
   const [showEditModal, setShowEditModal] = useState(false)
   const [showDeactivateModal, setShowDeactivateModal] = useState(false)
-  console.log(showEditModal, '-----', showDeactivateModal)
   const handleEdit = () => {
     if(showDeactivateModal){
       setShowDeactivateModal(false)
@@ -28,6 +28,7 @@ export default function UserUpdate() {
               variant="xlarge"
               handleOnClick={handleEdit}
               isDarkBackground={true}
+              disabled={rowSelected.length > 1}
             >
                 {Content.userUpdateForm.editUser}
           </Button>

@@ -4,258 +4,129 @@ import UserUpdate from '../UserUpdate'
 import UserSearch from '../UserSearch'
 import UsersList from '../UsersList'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
+import LoadingIcon from '../../../assets/svgs/LoadingIcon'
+import LoadingScreen from '../../LoadingScreen'
+import InfoIcon from '../../../assets/svgs/InfoIcon'
+import CloseIcon from '../../../assets/svgs/CloseIcon'
+import content from '../../../assets/content/content.json'
+//import HttpRequest from '../../../apiManager/httpRequestHandler'
 
 export default function ActiveUsers() {
-    const { setUsersList, setOriginalResult } = useContext(UserManagementContext)
+    const { setUsersList, setOriginalResult, rowSelected } = useContext(UserManagementContext)
     const [isLoading, setIsLoading] = useState(false);
+    const [showWarnMsg, setShowWarnMsg] = useState(true);
     useEffect(() => {
       const result = [{
-        requestId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        identityType: 'idir',
-        requestedRole: 'Admin',
-        organization: 'test',
-        email: 'hzaman@deloitte.ca',
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
         userName: 'HZAMAN',
+        identityType: 'idir',
         givenName:'Habiba',
         lastName: 'Zaman',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-18 22:03:29.271 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
       },
       {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
       },
       {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
+      },{
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
+      },{
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
+      },{
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
+      },{
+        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
+        role: 'Admin',
+        userName: 'HZAMAN',
+        identityType: 'idir',
+        givenName:'Habiba',
+        lastName: 'Zaman',
+        email: 'hzaman@deloitte.ca',
+        organization: 'test',
       },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      },
-      {
-        requestId: '0554fb61-d874-4849-97b0-cb4439c9c33c',
-        identityType: 'Standard',
-        requestedRole: 'Super Cool Definitely Real Business',
-        organization: '',
-        email: 'alex.parker456@example.com',
-        userName: 'AParker',
-        givenName:'Alex Parker',
-        lastName: '',
-        requestStatus: 'NotGranted',
-        createdAt: '2023-10-19 12:37:48.403 -0230',
-        requestReason: 'test',
-        rejectionReason: ''
-      }
     ]
     setUsersList(result);
     setOriginalResult(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const loadingSection = () => {
-      return true;
-    }
+    useEffect(() => {
+      if(rowSelected.length > 1) {
+        setShowWarnMsg(true)
+      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[rowSelected])
+
+    const loadingSection =  (
+      <>
+        <LoadingScreen
+            loadingText=""
+            loaderIcon={<LoadingIcon />}
+        />
+      </>
+    )
+
+    const showEditWarning = (
+      <>
+        {
+            showWarnMsg &&
+            <div className={styles.editAlert}>
+              <div className={styles.leftSection}>
+                <InfoIcon />
+                <span className={styles.alertText}>
+                  {content.userManagement.editWarningMessage}
+                </span>
+              </div>
+              <div className={styles.rightSection}>
+              <span className={styles.closeText}>
+                  {content.userManagement.closeText}
+                </span>
+              <button className={styles.closeIcon} onClick={() => setShowWarnMsg(false)}>
+                <CloseIcon />
+              </button>
+              </div>
+            </div>
+          }
+      </>
+    )
 
     return (
       <div className={styles.mainSection}>
@@ -266,6 +137,9 @@ export default function ActiveUsers() {
           <div className={styles.searchSection}>
             <UserSearch />
           </div>
+        </div>
+        <div className={styles.editWarning}>
+            {rowSelected.length > 1 && showEditWarning}
         </div>
         {isLoading && loadingSection}
         {!isLoading &&

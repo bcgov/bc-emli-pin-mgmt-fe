@@ -3,8 +3,10 @@ import {
   useContext,
 } from 'react'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
-import Table from '../../Table';
+import Table from '../../Table'
 import wrap from 'word-wrap'
+import contents from '../../../assets/content/content.json'
+import styles from './UsersList.module.css'
 
 export default function UsersList() {
   const { setRowSelected, usersList, tabSelected } = useContext(UserManagementContext)
@@ -18,12 +20,12 @@ export default function UsersList() {
     {
       Header: 'Role Type',
       accessor: 'role',
-      width: 60,
+      width: 10,
 
     },
     {
       Header: 'Username',
-      accessor: 'username',
+      accessor: 'userName',
       width: 60,
     },
     {
@@ -35,7 +37,7 @@ export default function UsersList() {
     {
       Header: 'First name',
       accessor: 'givenName',
-      width: 20,
+      width: 150,
 
     },
     {
@@ -73,13 +75,22 @@ export default function UsersList() {
 
     return (
       <div className="list-table">
-        <Table
-          columns={columns}
-          data={usersList}
-          initialState={initialState}
-          setSelectedRows={setRowSelected}
-          showSelectBox={showSelectBox}
-        />
+        {
+          usersList.length > 0 &&
+          <Table
+            columns={columns}
+            data={usersList}
+            initialState={initialState}
+            setSelectedRows={setRowSelected}
+            showSelectBox={showSelectBox}
+          />
+        }
+        {
+          usersList.length === 0 &&
+          <div className={styles.noResultSection}>
+            <span className={styles.noResultText}>{contents.userManagement.noResultText}</span>
+          </div>
+        }
       </div>
     )
 }
