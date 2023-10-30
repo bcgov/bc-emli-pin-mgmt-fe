@@ -3,13 +3,21 @@ import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import {AccessContext} from '../../../context/accessContext/AccessState'
 import { useContext } from 'react'
+import { toast } from 'react-toastify'
+import styles from './GrantModal.module.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function GrantModal(props) {
     const {
       isOpen,
       setIsOpen,
     } = props
-    const { rowSelected, setRequestList, setOriginalResult } = useContext(AccessContext)
+    const {
+      rowSelected,
+      setRequestList,
+      setOriginalResult,
+      setRowSelected,
+    } = useContext(AccessContext)
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.accessGrantModal.titleMultiple
@@ -22,8 +30,18 @@ export default function GrantModal(props) {
     const modalBtnText = isMultipleSelected ?
       content.accessGrantModal.multipleBtnText
       : content.accessGrantModal.btnText
-
+    const successMessage = content.accessGrantModal.successMessage
+    const failureMessage = content.accessGrantModal.failureMessage
       // TODO:Move refetch function to context
+
+
+    const onSuccessAction = (result) => {
+      setRequestList(result)
+      setOriginalResult(result)
+      setRowSelected([])
+      setIsOpen(false)
+      setRejectReason('')
+    }
     function submitRequests() {
       if(rowSelected.length > 0){
         const requestIds = rowSelected.map((item) => item.requestId);
@@ -33,19 +51,29 @@ export default function GrantModal(props) {
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
+              toast.success(`${rowSelected.length} ${successMessage}`, {
+                position: toast.POSITION.TOP_RIGHT,
+                className: `${styles.toastMsgSuccess}`
+              });
               HttpRequest.getRequestList('pending')
               .then((response) => {
-                const result = response?.data
-                setRequestList(result)
-                setOriginalResult(result)
-                setIsOpen(false)
+                const result = response?.status === 204 ? [] : response?.data
+                onSuccessAction(result)
               })
               .catch((error) => {
                 console.error(error)
+                toast.error(` ${failureMessage}`, {
+                  position: toast.POSITION.TOP_RIGHT,
+                  className: `${styles.toastMsgFailure}`
+                });
                 setIsOpen(false)
               })
           })
           .catch((error) => {
+              toast.error(` ${failureMessage}`, {
+                position: toast.POSITION.TOP_RIGHT,
+                className: `${styles.toastMsgFailure}`
+              });
               setIsOpen(false)
           })
 

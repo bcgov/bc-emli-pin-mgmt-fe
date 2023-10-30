@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import styles from './AccessForm.module.css';
 import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button'
 import GrantModal from '../GrantModal';
 import RejectModal from '../RejectModal';
+import { AccessContext } from '../../../context/accessContext/AccessState';
 
 export default function AccessForm() {
+  const { requestList } = useContext(AccessContext)
   const [showGrantModal, setShowGrantModal] = useState(false)
   const [showRejectModal, setRejectGrantModal] = useState(false)
   const handleGrant = () => {
@@ -28,6 +30,7 @@ export default function AccessForm() {
               variant="xlarge"
               handleOnClick={handleGrant}
               isDarkBackground={true}
+              disabled={requestList.length === 0}
             >
                 {Content.accessRequestForm.grantRequest}
           </Button>
@@ -38,6 +41,7 @@ export default function AccessForm() {
             isDanger={true}
             handleOnClick={handleReject}
             isDarkBackground={false}
+            disabled={requestList.length === 0}
           >
               {Content.accessRequestForm.rejectRequest}
           </Button>
