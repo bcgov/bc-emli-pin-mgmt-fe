@@ -2,8 +2,10 @@
 .propertyDetailsWrap{
     background-color: #F1F1F1;
     min-height: 913px;
+}
+
+.noDataFoundWrap {
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
     margin-top: -32px;
