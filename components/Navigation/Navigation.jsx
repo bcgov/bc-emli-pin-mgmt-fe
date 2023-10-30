@@ -25,7 +25,7 @@ export default function Navigation ( props) {
 				{
 					isUserRegistered && links.map((item) => (
 						<NavLink href={item.href} showToClientSupport={item.showToClientSupport}
-							key={item.index} role={role} alt_href={item.alt_href}>
+							key={item.index} role={role} alt_route={item.alt_route}>
 							{item.name}
 						</NavLink>
 					))
@@ -54,7 +54,7 @@ Navigation.defaultProps = {
 			index: 1,
 			name: Text.navigation.home,
 			href: '/home',
-			alt_href: '/property-search',
+			alt_route: '/property-search',
 			active: true,
 			showToClientSupport: true,
 		},
