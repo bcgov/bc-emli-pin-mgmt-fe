@@ -92,6 +92,7 @@ export default function AccessList() {
       width: 20,
     })
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsList, [])
   const initialState = { hiddenColumns: ['requestId'] };
 

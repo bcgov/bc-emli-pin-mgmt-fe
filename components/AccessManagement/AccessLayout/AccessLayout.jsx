@@ -7,6 +7,8 @@ import CompletedRequests from '../CompletedRequests';
 import AccessNavigation from '../AccessNavigation';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import { useContext } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function AccessLayout() {
@@ -25,6 +27,12 @@ export default function AccessLayout() {
             {tabSelected === 'pending' && <PendingRequest/>}
             {tabSelected === 'completed' && <CompletedRequests/>}
         </div>
+        <ToastContainer
+          hideProgressBar
+          draggable={false}
+          role="alert"
+          autoClose={50000}
+        />
       </div>
     )
 }
