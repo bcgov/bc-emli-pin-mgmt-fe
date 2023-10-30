@@ -1,19 +1,3 @@
-.inputWrap {
-  width: 100%;
-}
-
-.contentWrap {
-  margin-bottom: 31px;
-}
-
-.footerText {
-  color: #656565;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
-
 .toastMsgSuccess{
   background: #008556;
   color: #fff;
@@ -31,3 +15,5 @@
   font-weight: 700;
   line-height: 20px;
 }
+
+

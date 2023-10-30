@@ -74,7 +74,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": ""
+      "failureMessage": "Something went wrong. Try again!!"
     },
     "accessRejectModal": {
       "title":"Reject request?",

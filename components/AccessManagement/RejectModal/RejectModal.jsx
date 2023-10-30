@@ -5,13 +5,20 @@ import HttpRequest from '../../../apiManager/httpRequestHandler'
 import {AccessContext} from '../../../context/accessContext/AccessState'
 import { useContext, useState } from 'react'
 import TextArea from '../../TextArea'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function GrantModal(props) {
+export default function RejectModal(props) {
     const {
       isOpen,
       setIsOpen,
     } = props
-    const { rowSelected } = useContext(AccessContext)
+    const {
+      rowSelected,
+      setRequestList,
+      setOriginalResult,
+      setRowSelected,
+    } = useContext(AccessContext)
     const [rejectReason, setRejectReason] =useState('')
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
@@ -25,7 +32,8 @@ export default function GrantModal(props) {
     const modalBtnText = isMultipleSelected ?
       content.accessRejectModal.multipleBtnText
       : content.accessRejectModal.btnText
-
+    const successMessage = content.accessGrantModal.successMessage
+    const failureMessage = content.accessGrantModal.failureMessage
     const onReasonInputChange = (value) => {
       setRejectReason(value)
     }
@@ -33,6 +41,14 @@ export default function GrantModal(props) {
     const onClose = () => {
       setRejectReason('')
       setIsOpen(false)
+    }
+
+    const onSuccessAction = (result) => {
+      setRequestList(result)
+      setOriginalResult(result)
+      setRowSelected([])
+      setIsOpen(false)
+      setRejectReason('')
     }
     // TODO:Move refetch function to context
     function submitRejectRequests() {
@@ -45,19 +61,29 @@ export default function GrantModal(props) {
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
+            toast.success(`${rowSelected.length} ${successMessage}`, {
+              position: toast.POSITION.TOP_RIGHT,
+              className: `${styles.toastMsgSuccess}`
+            });
               HttpRequest.getRequestList('pending')
               .then((response) => {
-                const result = response?.data
-                setRequestList(result)
-                setOriginalResult(result)
-                setIsOpen(false)
+                const result = response?.status === 204 ? [] : response?.data
+                onSuccessAction(result)
               })
               .catch((error) => {
                 console.error(error)
+                toast.error(` ${failureMessage}`, {
+                  position: toast.POSITION.TOP_RIGHT,
+                  className: `${styles.toastMsgFailure}`
+                });
                 setIsOpen(false)
               })
           })
           .catch((error) => {
+              toast.error(` ${failureMessage}`, {
+                position: toast.POSITION.TOP_RIGHT,
+                className: `${styles.toastMsgFailure}`
+              });
               setIsOpen(false)
           })
 
