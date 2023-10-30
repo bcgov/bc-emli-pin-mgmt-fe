@@ -7,7 +7,7 @@ import NavLink from '../NavLink/NavLink';
 export default function Navigation ( props) {
   const {
     role,
-	  links,
+	links,
     isUserRegistered,
   } = props;
 
@@ -25,7 +25,7 @@ export default function Navigation ( props) {
 				{
 					isUserRegistered && links.map((item) => (
 						<NavLink href={item.href} showToClientSupport={item.showToClientSupport}
-							key={item.index} role={role}>
+							key={item.index} role={role} alt_route={item.alt_route}>
 							{item.name}
 						</NavLink>
 					))
@@ -45,7 +45,7 @@ export default function Navigation ( props) {
 Navigation.protoTypes = {
 	// currentPath: PropTypes.string.required
 	role: PropTypes.string.isRequired,
-  links: PropTypes.string.isRequired,
+  	links: PropTypes.string.isRequired,
 }
 
 Navigation.defaultProps = {
@@ -54,6 +54,7 @@ Navigation.defaultProps = {
 			index: 1,
 			name: Text.navigation.home,
 			href: '/home',
+			alt_route: '/property-search',
 			active: true,
 			showToClientSupport: true,
 		},

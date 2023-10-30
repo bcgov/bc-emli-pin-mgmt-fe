@@ -1,7 +1,10 @@
-
 .propertyDetailsWrap{
     background-color: #F1F1F1;
     min-height: 913px;
+}
+
+.noDataFoundWrap {
+    padding-top: 338.5px;
 }
 
 @media (min-width: 1260px){
@@ -37,14 +40,18 @@
 
 }
 
-
-.noResultMsgWrap{
+.noDataFoundMsgWrap {
     margin-top: 36px;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: 28px; /* 140% */
     color: #002A4E;
+    opacity: 60%;
+}
+
+.noDataFound svg {
+    opacity: 60%;
 }
 
 .resultMsgWrap{

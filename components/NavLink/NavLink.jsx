@@ -8,15 +8,15 @@ export default function NavLink ({
 	children,
 	keyInfo,
 	role,
+	alt_route,
 	...props
 }) {
 
 	const asPath = usePathname();
 	const showLink = role === "Admin" ? true : role === "Standard" && showToClientSupport ? true : false
-  //const requestAccessStyle = role === '' ? Styles.linkWrapMax : Styles.linkWrap;
 
 	// check the current url and give the correct class name
-	const className = asPath === props.href || asPath === props.as
+	const className = asPath === props.href || asPath === props.as || asPath === alt_route
 		?  Styles.linkWrap + " " + Styles.active : Styles.linkWrap
 
 	if (showLink){

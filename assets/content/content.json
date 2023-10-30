@@ -74,7 +74,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": ""
+      "failureMessage": "Something went wrong. Try again!!"
     },
     "accessRejectModal": {
       "title":"Reject request?",
@@ -188,6 +188,7 @@
         "ownership": "Ownership",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "noDataFoundMsg": "No data available for the selected property.",
         "searchResultMsg": "Select an address to view property details", 
         "owner": "Owner",
         "fullname": "Full Name", 
