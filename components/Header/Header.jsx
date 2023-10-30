@@ -23,9 +23,6 @@ function Header  ({
 						<div className={`${Styles.imageWrap}`}>
 							<CleanBCLogo />
 						</div>
-						<div className={`${Styles.title}`}>
-							{title}
-						</div>
 					</div>
 					<div className={`${Styles.right}`}>
 						<div className={`${Styles.userSection}`}>
