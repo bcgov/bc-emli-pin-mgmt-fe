@@ -35,7 +35,7 @@ export default function PropertySearch({ getSearchString, getSiteId })
     const handleSearch = () => {
 		setShowResults(false)
         getSearchString(address)
-		sessionStorage.setItem("searchString", address)
+		sessionStorage.setItem("searchString", searchString)
 		Router.push('/property-search')
     }
 
