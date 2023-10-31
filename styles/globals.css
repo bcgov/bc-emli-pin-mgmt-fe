@@ -47,6 +47,10 @@
     outline: none;
   }
 
+  #main{
+    min-height: calc(100vh - 220px);
+  }
+  
   /* textarea:focus{
     outline: none;
   } */
