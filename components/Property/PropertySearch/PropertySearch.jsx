@@ -58,7 +58,8 @@ export default function PropertySearch({ getSearchString, getSiteId })
 							id="searchInput"
 							placeholder={Content.home.searchPlaceHolder}
 							onChange={(e) => handleSearchString(e.target.value)}
-							onFocus={handleOnFocus} />
+							onFocus={handleOnFocus} 
+							autoComplete="off"/>
 
 						{searchString.length < 3 && (
                             <span className={`${Styles.searchIcon}`}>
