@@ -63,7 +63,8 @@ export default function DeactivateModal(props) {
           .then((response) => {
             toast.success(`${rowSelected.length} ${successMessage}`, {
               position: toast.POSITION.TOP_RIGHT,
-              className: `${styles.toastMsgSuccess}`
+              className: `${styles.toastMsgSuccess}`,
+              toastId: 'deactivate-user-success'
             });
               HttpRequest.getUserList('true')
               .then((response) => {
@@ -74,7 +75,8 @@ export default function DeactivateModal(props) {
                 console.error(error)
                 toast.error(` ${failureMessage}`, {
                   position: toast.POSITION.TOP_RIGHT,
-                  className: `${styles.toastMsgFailure}`
+                  className: `${styles.toastMsgFailure}`,
+                  toastId: 'deactivate-user-failure'
                 });
                 setIsOpen(false)
               })
@@ -82,7 +84,8 @@ export default function DeactivateModal(props) {
           .catch((error) => {
               toast.error(` ${failureMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
-                className: `${styles.toastMsgFailure}`
+                className: `${styles.toastMsgFailure}`,
+                toastId: 'deactivate-user-failure'
               });
               setIsOpen(false)
           })

@@ -63,7 +63,8 @@ export default function RejectModal(props) {
           .then((response) => {
             toast.success(`${rowSelected.length} ${successMessage}`, {
               position: toast.POSITION.TOP_RIGHT,
-              className: `${styles.toastMsgSuccess}`
+              className: `${styles.toastMsgSuccess}`,
+              toastId: 'reject-access-success'
             });
               HttpRequest.getRequestList('pending')
               .then((response) => {
@@ -74,7 +75,8 @@ export default function RejectModal(props) {
                 console.error(error)
                 toast.error(` ${failureMessage}`, {
                   position: toast.POSITION.TOP_RIGHT,
-                  className: `${styles.toastMsgFailure}`
+                  className: `${styles.toastMsgFailure}`,
+                  toastId: 'reject-access-failure'
                 });
                 setIsOpen(false)
               })
@@ -82,7 +84,8 @@ export default function RejectModal(props) {
           .catch((error) => {
               toast.error(` ${failureMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
-                className: `${styles.toastMsgFailure}`
+                className: `${styles.toastMsgFailure}`,
+                toastId: 'reject-access-failure'
               });
               setIsOpen(false)
           })

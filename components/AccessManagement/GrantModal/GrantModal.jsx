@@ -53,7 +53,8 @@ export default function GrantModal(props) {
           .then((response) => {
               toast.success(`${rowSelected.length} ${successMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
-                className: `${styles.toastMsgSuccess}`
+                className: `${styles.toastMsgSuccess}`,
+                toastId: 'grant-access-success'
               });
               HttpRequest.getRequestList('pending')
               .then((response) => {
@@ -64,7 +65,8 @@ export default function GrantModal(props) {
                 console.error(error)
                 toast.error(` ${failureMessage}`, {
                   position: toast.POSITION.TOP_RIGHT,
-                  className: `${styles.toastMsgFailure}`
+                  className: `${styles.toastMsgFailure}`,
+                  toastId: 'grant-access-failure'
                 });
                 setIsOpen(false)
               })
@@ -72,7 +74,8 @@ export default function GrantModal(props) {
           .catch((error) => {
               toast.error(` ${failureMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
-                className: `${styles.toastMsgFailure}`
+                className: `${styles.toastMsgFailure}`,
+                toastId: 'grant-access-failure'
               });
               setIsOpen(false)
           })
