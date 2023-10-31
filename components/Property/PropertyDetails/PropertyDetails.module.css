@@ -1,12 +1,10 @@
-
 .propertyDetailsWrap{
     background-color: #F1F1F1;
     min-height: 913px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: -32px;
+}
+
+.noDataFoundWrap {
+    padding-top: 338.5px;
 }
 
 @media (min-width: 1260px){
