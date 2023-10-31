@@ -3,9 +3,10 @@ import styles from './UserUpdate.module.css';
 import Content from '../../../assets/content/content.json'
 import { Button } from '../../Button'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
+import DeactivateModal from '../DeactivateModal/DeactivateModal';
 
 export default function UserUpdate() {
-  const { rowSelected } = useContext(UserManagementContext)
+  const { rowSelected, usersList } = useContext(UserManagementContext)
   const [showEditModal, setShowEditModal] = useState(false)
   const [showDeactivateModal, setShowDeactivateModal] = useState(false)
   const handleEdit = () => {
@@ -28,7 +29,7 @@ export default function UserUpdate() {
               variant="xlarge"
               handleOnClick={handleEdit}
               isDarkBackground={true}
-              disabled={rowSelected.length > 1}
+              disabled={rowSelected.length > 1 || usersList.length === 0}
             >
                 {Content.userUpdateForm.editUser}
           </Button>
@@ -39,10 +40,15 @@ export default function UserUpdate() {
             isDanger={true}
             handleOnClick={handleDeactivate}
             isDarkBackground={false}
+            disabled={usersList.length === 0}
           >
               {Content.userUpdateForm.deactivateUser}
           </Button>
         </div>
+        <DeactivateModal
+          isOpen={showDeactivateModal}
+          setIsOpen={setShowDeactivateModal}
+        />
       </div>
     )
 }

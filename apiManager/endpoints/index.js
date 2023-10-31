@@ -20,7 +20,11 @@ const Endpoints = {
     },
     accessManagement: {
       GET_REQUESTS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests/?status=`,
-    }
+    },
+    userManagement: {
+      GET_USERS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/?active=`,
+      DEACTIVATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/deactivate`,
+    },
 }
 
 export default Endpoints

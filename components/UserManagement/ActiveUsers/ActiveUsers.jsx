@@ -9,82 +9,25 @@ import LoadingScreen from '../../LoadingScreen'
 import InfoIcon from '../../../assets/svgs/InfoIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import content from '../../../assets/content/content.json'
-//import HttpRequest from '../../../apiManager/httpRequestHandler'
+import HttpRequest from '../../../apiManager/httpRequestHandler'
 
 export default function ActiveUsers() {
     const { setUsersList, setOriginalResult, rowSelected } = useContext(UserManagementContext)
     const [isLoading, setIsLoading] = useState(false);
     const [showWarnMsg, setShowWarnMsg] = useState(true);
     useEffect(() => {
-      const result = [{
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },
-      {
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },
-      {
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },{
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },{
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },{
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },{
-        userId: '64d8d906-6e62-435f-9fc2-6e23fde91373',
-        role: 'Admin',
-        userName: 'HZAMAN',
-        identityType: 'idir',
-        givenName:'Habiba',
-        lastName: 'Zaman',
-        email: 'hzaman@deloitte.ca',
-        organization: 'test',
-      },
-    ]
-    setUsersList(result);
-    setOriginalResult(result);
+      setIsLoading(true)
+      HttpRequest.getUserList('true')
+      .then((response) => {
+        const result = response?.data
+        setUsersList(result)
+        setOriginalResult(result)
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.error(error)
+        setIsLoading(false)
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
