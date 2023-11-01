@@ -49,10 +49,6 @@ export default function UsersList() {
       Header: 'Email',
       accessor: 'email',
       width: 90,
-      Cell: props => {
-        const email = wrap(props.value, { width: 20,cut:true })
-        return email
-      }
     },
     {
       Header: 'Organization',
