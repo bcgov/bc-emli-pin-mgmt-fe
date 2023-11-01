@@ -64,10 +64,10 @@ export default function ViewPINHistory({ pinHistory }) {
                         <tr key={i}>
                             <td className={`${styles.numberRow}`}>{i + 1}</td>
                             <td className={`${styles.updatedByRow}`}>
-                                {row.expiredByName}
+                                {row.alteredByName}
                             </td>
                             <td className={`${styles.usernameRow}`}>
-                                {row.expiredByUsername}
+                                {row.alteredByUsername}
                             </td>
                             <td className={`${styles.modifiedOnRow}`}>
                                 {new Date(row.updatedAt)
