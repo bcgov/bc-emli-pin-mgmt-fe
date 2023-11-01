@@ -2,7 +2,7 @@ import content from '../../../assets/content/content.json'
 import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 import {AccessContext} from '../../../context/accessContext/AccessState'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import styles from './GrantModal.module.css'
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,7 @@ export default function GrantModal(props) {
       setOriginalResult,
       setRowSelected,
     } = useContext(AccessContext)
+    const [rejectReason, setRejectReason] = useState('')
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.accessGrantModal.titleMultiple
@@ -45,9 +46,19 @@ export default function GrantModal(props) {
     function submitRequests() {
       if(rowSelected.length > 0){
         const requestIds = rowSelected.map((item) => item.requestId);
+        const emails = rowSelected.map((item) => item.email);
+        const givenNames = rowSelected.map((item) => item.givenName);
+        const lastNames = rowSelected.map((item) => item.lastName);
+        const requestedRoles = rowSelected.map((item) => item.requestedRole);
+
         const body = {
           action: 'Granted',
-          requestIds
+          requestIds,
+          emails,
+          givenNames,
+          lastNames,
+          requestedRoles,
+          rejectionReason: rejectReason
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
