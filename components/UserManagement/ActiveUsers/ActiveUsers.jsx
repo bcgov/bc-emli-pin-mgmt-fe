@@ -72,26 +72,24 @@ export default function ActiveUsers() {
     )
 
     return (
-      <div className={styles.userManagement}>
-        <div className={styles.mainSection}>
-          <div className={styles.filterSection}>
-            <div className={styles.btnSection}>
-              <UserUpdate />
-            </div>
-            <div className={styles.searchSection}>
-              <UserSearch />
-            </div>
+      <div className={styles.mainSection}>
+        <div className={styles.filterSection}>
+          <div className={styles.btnSection}>
+            <UserUpdate />
           </div>
-          <div className={styles.editWarning}>
-              {rowSelected.length > 1 && showEditWarning}
+          <div className={styles.searchSection}>
+            <UserSearch />
           </div>
-          {isLoading && loadingSection}
-          {!isLoading &&
-            <div className={styles.tblSection}>
-              <UsersList />
-            </div>
-          }
         </div>
+        <div className={styles.editWarning}>
+            {rowSelected.length > 1 && showEditWarning}
+        </div>
+        {isLoading && loadingSection}
+        {!isLoading &&
+          <div className={styles.tblSection}>
+            <UsersList />
+          </div>
+        }
       </div>
     )
 }
