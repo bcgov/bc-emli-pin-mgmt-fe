@@ -29,18 +29,20 @@ export default function CompletedRequests() {
     }
 
     return (
-      <div className={styles.mainSection}>
-        <div className={styles.filterSection}>
-          <div className={styles.searchSection}>
-            <UserSearch />
+      <div className={styles.userManagement}>
+        <div className={styles.mainSection}>
+          <div className={styles.filterSection}>
+            <div className={styles.searchSection}>
+              <UserSearch />
+            </div>
           </div>
+          {isLoading && loadingSection}
+          {!isLoading &&
+            <div className={`${styles.tblSection}` + `${styles.tblSection}`}>
+              <UsersList />
+            </div>
+          }
         </div>
-        {isLoading && loadingSection}
-        {!isLoading &&
-          <div className={styles.tblSection}>
-            <UsersList />
-          </div>
-        }
       </div>
     )
 }

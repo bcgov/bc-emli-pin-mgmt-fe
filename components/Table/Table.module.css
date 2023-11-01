@@ -5,8 +5,8 @@
 
 .tblSection table {
   display: block;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  /* max-width: -moz-fit-content;
+  max-width: fit-content; */
   overflow-x: auto;
   border: 1px solid #C7C7C7;
   height:100%;
@@ -19,7 +19,7 @@
 .tblSection  td {
   border-bottom: 1px solid #C7C7C7;
   text-align: left;
-  padding: 8px;
+  padding: 16px;
   vertical-align: top;
   overflow: hidden;
   word-wrap:break-word;
@@ -29,7 +29,7 @@
 .tblSection th {
   border-bottom: 2px solid #656565;
   text-align: left;
-  padding: 8px;
+  padding: 16px;
   vertical-align: bottom;
   word-wrap:break-word;
   position: sticky;
@@ -37,4 +37,41 @@
   background: white;
 }
 
+.tblSection th:nth-child(1) {
+  width: 2.5%;
+}
+
+.tblSection th:nth-child(2) {
+  width: 7.5%;
+}
+
+.tblSection th:nth-child(3) {
+  width: 7.5%;
+}
+
+.tblSection th:nth-child(4) {
+  width: 7.5%;
+}
+
+.tblSection th:nth-child(5) {
+  width: 7.5%;
+}
+
+.tblSection th:nth-child(6) {
+  width: 7.5%;
+}
+
+.tblSection th:nth-child(7) {
+  width: 10%;
+}
+
+.tblSection th:nth-last-child(1) {
+  width: 20%;
+  min-width: 175px
+}
+
+.tblSection th:nth-last-child(2) {
+  width: 10%;
+  min-width: 175px
+}
 
