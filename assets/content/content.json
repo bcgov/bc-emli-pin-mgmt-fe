@@ -39,7 +39,50 @@
         "search": "Search"
     },
     "userManagement": {
-        "pageTitle": "User Management"
+        "pageTitle": "User Management",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found",
+        "editWarningMessage": "Editing multiple users is not allowed.",
+        "closeText": "Always dismiss"
+    },
+    "userManagementBanner" : {
+      "title": "User Management",
+      "description": "Edit or delete users here."
+    },
+    "userManagementTabs": {
+      "activeUsers": "Active users",
+      "deactivatedUsers": "Deactivated users"
+    },
+    "userUpdateForm": {
+      "editUser": "Edit user",
+      "deactivateUser": "Deactivate user"
+    },
+    "usersSearchOptions": {
+      "role":"Role Type",
+      "userName": "Username",
+      "identityType":"Identity type",
+      "givenName":"First Name",
+      "lastName":"Last Name",
+      "email":"Email",
+      "organization":"Organization",
+      "deactivationReason":"Reason for deactivation"
+    },
+    "userDeactivateModal": {
+      "title":"Deactivate user?",
+      "titleMultiple": "Deactivate multiple users?",
+      "bodyText":"Please provide the reason for deactivate this user",
+      "bodyMultipleText": "Please provide the reason for deactivate of multiple users",
+      "deactivateTextAreaTitle": "Reason for deactivation",
+      "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
+      "btnText": "Deactivate user",
+      "multipleBtnText": "Deactivate users",
+      "cancelButton": "Cancel",
+      "successMessage": "  user has been deactivated.",
+      "successMessageMultiple": "  users have been deactivated.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select user(s) to deactivate"
+
     },
     "accessRequest": {
         "pageTitle": "Access Request",

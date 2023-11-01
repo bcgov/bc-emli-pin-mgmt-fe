@@ -7,7 +7,6 @@
   display: block;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  margin: 0 auto;
   overflow-x: auto;
   border: 1px solid #C7C7C7;
   height:100%;
@@ -37,6 +36,5 @@
   top:0;
   background: white;
 }
-
 
 

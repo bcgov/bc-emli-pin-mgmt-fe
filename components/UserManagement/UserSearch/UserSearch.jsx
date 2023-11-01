@@ -1,37 +1,36 @@
 import { useState, useContext, useEffect } from 'react'
-import styles from './AccessSearch.module.css';
+import styles from './UserSearch.module.css';
 import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
-import { AccessContext } from '../../../context/accessContext/AccessState'
+import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import { getSearchData } from '../../../services/search/dataSearchService'
 
 
-const options = Object.entries(Content.accessRequestSearchOptions).map(([k,v]) => {
+const options = Object.entries(Content.usersSearchOptions).map(([k,v]) => {
   return  {label: v, value: k}
 });
 
-export default function AccessSearch() {
+export default function UserSearch() {
   const {
     setSearchField,
     searchField,
     setSearchString,
     searchString,
-    requestList,
-    setRequestList,
+    usersList,
+    setUsersList,
     resetData,
-    tabSelected,
-  } = useContext(AccessContext)
+    tabSelected
+  } = useContext(UserManagementContext)
   const [valueSelected, setValueSelected] = useState(options[0])
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
     setSearchField(options[0].value)
-    if(tabSelected === 'pending') {
-      const filteredOptions = options.filter(item => item.value !== 'rejectionReason')
+    if(tabSelected === 'active') {
+      const filteredOptions = options.filter(item => item.value !== 'deactivationReason')
       setFieldOptions(filteredOptions)
-      //const x = myArray.splice(index, 1);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[tabSelected])
@@ -53,13 +52,10 @@ const clearSearch = () => {
 }
 
 const doSearch = (e) => {
-  if(e.keyCode === 13){
-    const searchResult = getSearchData(searchString, searchField, requestList)
-    setRequestList(searchResult)
-  }
-  if((e.type === 'click' || e.keyCode === 13 ) && searchString.length === 0){
-    resetData()
-  }
+  if(e.keyCode == 13){
+    const searchResult = getSearchData(searchString, searchField, usersList)
+    setUsersList(searchResult)
+ }
 }
 
   return (
@@ -73,25 +69,20 @@ const doSearch = (e) => {
             selectedValue={valueSelected}
             className={styles.searchField}
         />
-        <span className={styles.searchInfo}>{Content.accessRequest.searchInfoText}</span>
+        <span className={styles.searchInfo}>{Content.userManagement.searchInfoText}</span>
       </div>
       <div className={styles.searchInput}>
         <div>
           <input
             id="searchInput"
-            placeholder={Content.accessRequest.searchPlaceholder}
+            placeholder={Content.userManagement.searchPlaceholder}
             onChange={(e) => handleSearchString(e.target.value)}
-            onKeyDown={(e) => doSearch(e)}
+            onKeyDown={doSearch}
             />
 
-          {searchString.length === 0 && (
+          {searchString.length < 1 && (
               <span className={styles.searchIcon}>
-                <button
-                    className={styles.searchButton}
-                    onClick={(e) => doSearch(e)}
-                >
                   <SearchIcon />
-                </button>
               </span>
           )}
 

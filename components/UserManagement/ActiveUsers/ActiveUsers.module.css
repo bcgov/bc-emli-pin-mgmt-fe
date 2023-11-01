@@ -1,0 +1,66 @@
+.mainSection {
+  display: inline;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 37px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.tblSection {
+  padding-top: 43px;
+  padding-bottom: 50px;
+}
+
+.editWarning {
+  display: block;
+}
+
+.editAlert {
+  display: flex;
+  width: 583px;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #E4F2FF;
+}
+
+.leftSection {
+  display: flex;
+  padding-left:10px;
+}
+
+.alertText {
+  color: #1A1A1A;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  padding-left: 16px;
+}
+
+.leftSection {
+  display: flex;
+  padding-right:10px;
+}
+.closeText {
+  color: #1A1A1A;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+}
+
+.closeIcon {
+  padding: 0 10px 0 10px;
+}
+
+.closeIcon svg {
+  width: 12px;
+  height: 12px;
+  text-align: left;
+}

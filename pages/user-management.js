@@ -3,6 +3,8 @@ import Text from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
+import { UserManagementProvider } from '../context/userManagementContext/UserManagementState'
+import UserManagementLayout from '../components/UserManagement/UserManagementLayout'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
 
 
@@ -24,7 +26,9 @@ export default function UserManagement(props) {
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
       <main id="main">
         <div role="heading" aria-level="2">
-        {Text.userManagement.pageTitle}
+          <UserManagementProvider>
+            <UserManagementLayout/>
+          </UserManagementProvider>
         </div>
       </main>
       <Footer />

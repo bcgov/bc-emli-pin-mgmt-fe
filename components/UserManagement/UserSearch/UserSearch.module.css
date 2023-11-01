@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.dropdownSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInfo {
+  color: #656565;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  padding-top: 8px;
+}
+.searchField {
+  width: 186px;
+}
+
+.searchField ul {
+  width: 186;
+}
+
+.searchInput {
+  padding-left: 6px;
+}
+
+.searchIcon {
+  position: absolute;
+  margin-left: -38px;
+  margin-top: 12px;
+}
+
+.closeButton svg {
+  height: 16px;
+  width: 16px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+
+
+

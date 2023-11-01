@@ -1,72 +1,72 @@
 import content from '../../../assets/content/content.json'
-import styles from './RejectModal.module.css'
+import styles from './DeactivateModal.module.css'
 import Modal from '../../Modal'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
-import {AccessContext} from '../../../context/accessContext/AccessState'
+import {UserManagementContext} from '../../../context/userManagementContext/UserManagementState'
 import { useContext, useState } from 'react'
 import TextArea from '../../TextArea'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function RejectModal(props) {
+export default function DeactivateModal(props) {
     const {
       isOpen,
       setIsOpen,
     } = props
     const {
       rowSelected,
-      setRequestList,
+      setUsersList,
       setOriginalResult,
       setRowSelected,
-    } = useContext(AccessContext)
-    const [rejectReason, setRejectReason] =useState('')
+    } = useContext(UserManagementContext)
+    const [reason, setReason] =useState('')
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
-    content.accessRejectModal.titleMultiple
-    : content.accessRejectModal.title
+    content.userDeactivateModal.titleMultiple
+    : content.userDeactivateModal.title
     const modalBodyText = rowSelected.length < 1 ?
-    content.accessRejectModal.selectErrorMessage
+    content.userDeactivateModal.selectErrorMessage
     : (isMultipleSelected ?
-      content.accessRejectModal.bodyMultipleText
-      : content.accessRejectModal.bodyText)
+      content.userDeactivateModal.bodyMultipleText
+      : content.userDeactivateModal.bodyText)
     const modalBtnText = isMultipleSelected ?
-      content.accessRejectModal.multipleBtnText
-      : content.accessRejectModal.btnText
-    const successMessage = content.accessGrantModal.successMessage
-    const failureMessage = content.accessGrantModal.failureMessage
+      content.userDeactivateModal.multipleBtnText
+      : content.userDeactivateModal.btnText
+    const successMessage = content.userDeactivateModal.successMessage
+    const failureMessage = content.userDeactivateModal.failureMessage
+
     const onReasonInputChange = (value) => {
-      setRejectReason(value)
+      setReason(value)
     }
 
     const onClose = () => {
-      setRejectReason('')
+      setReason('')
       setIsOpen(false)
     }
 
     const onSuccessAction = (result) => {
-      setRequestList(result)
+      setUsersList(result)
       setOriginalResult(result)
       setRowSelected([])
       setIsOpen(false)
-      setRejectReason('')
+      setReason('')
     }
     // TODO:Move refetch function to context
-    function submitRejectRequests() {
+    function submitRequests() {
       if(rowSelected.length > 0){
-        const requestIds = rowSelected.map((item) => item.requestId);
+        const userIds = rowSelected.map((item) => item.userId);
         const body = {
-          action: 'Rejected',
-          requestIds,
-          rejectionReason: rejectReason
+          userIds,
+          deactivationReason: reason
         }
-        HttpRequest.updateAccessRequest(body)
+        HttpRequest.deactivateUsers(body)
           .then((response) => {
             toast.success(`${rowSelected.length} ${successMessage}`, {
               position: toast.POSITION.TOP_RIGHT,
               className: `${styles.toastMsgSuccess}`,
-              toastId: 'reject-access-success'
+              toastId: 'deactivate-user-success'
             });
-              HttpRequest.getRequestList('pending')
+              HttpRequest.getUserList('true')
               .then((response) => {
                 const result = response?.status === 204 ? [] : response?.data
                 onSuccessAction(result)
@@ -76,7 +76,7 @@ export default function RejectModal(props) {
                 toast.error(` ${failureMessage}`, {
                   position: toast.POSITION.TOP_RIGHT,
                   className: `${styles.toastMsgFailure}`,
-                  toastId: 'reject-access-failure'
+                  toastId: 'deactivate-user-failure'
                 });
                 setIsOpen(false)
               })
@@ -85,7 +85,7 @@ export default function RejectModal(props) {
               toast.error(` ${failureMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
                 className: `${styles.toastMsgFailure}`,
-                toastId: 'reject-access-failure'
+                toastId: 'deactivate-user-failure'
               });
               setIsOpen(false)
           })
@@ -97,18 +97,18 @@ export default function RejectModal(props) {
         <div>
             <Modal
                 modalHeader={modalTitle}
-                modalId="access-reject-modal"
+                modalId="user-deactivation-modal"
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 modalMainBtn={{
                     text: `${modalBtnText}`,
                     size: 'medium',
                     variant: 'primary',
-                    disabled: rowSelected.length < 1 || rejectReason === '',
-                    onClickHandler: () => submitRejectRequests(),
+                    disabled: rowSelected.length < 1 || reason === '',
+                    onClickHandler: () => submitRequests(),
                 }}
                 modalSecondaryBtn={{
-                    text: `${content.accessRejectModal.cancelButton}`,
+                    text: `${content.userDeactivateModal.cancelButton}`,
                     size: 'medium',
                     variant: 'secondary',
                     onClickHandler: () => onClose(),
@@ -121,20 +121,20 @@ export default function RejectModal(props) {
                   rowSelected.length > 0 &&
                   <div className={styles.inputWrap}>
                     <TextArea
-                      textAreaId='requestReason'
-                      textAreaName={content.accessRejectModal.rejectTextAreaTitle}
+                      textAreaId='deactivate-reason'
+                      textAreaName={content.userDeactivateModal.deactivateTextAreaTitle}
                       isRequired
                       isValid={true}
-                      value={rejectReason}
+                      value={reason}
                       onChange={onReasonInputChange}
                       />
                   </div>
                 }
 
-                { isMultipleSelected &&
+                { /* isMultipleSelected &&
                   <span className={styles.footerText}>
-                    {content.accessRejectModal.rejectTextAreaMessage}
-                  </span>
+                    {content.userDeactivateModal.deactivateTextAreaMessage}
+                  </span> */
                 }
             </Modal>
         </div>
