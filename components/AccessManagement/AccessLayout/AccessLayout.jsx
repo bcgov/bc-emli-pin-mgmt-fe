@@ -28,6 +28,8 @@ export default function AccessLayout() {
             {tabSelected === 'completed' && <CompletedRequests/>}
         </div>
         <ToastContainer
+          enableMultiContainer
+          containerId="access-request"
           hideProgressBar
           draggable={false}
           role="alert"

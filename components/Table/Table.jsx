@@ -34,7 +34,8 @@ export default function Table(props) {
       )
     }
   )
-
+  
+  const tableClassName = styles.tblSection
 
   const {
     getTableProps,
@@ -83,7 +84,7 @@ export default function Table(props) {
   }, [selectedFlatRows]);
 
     return (
-      <div className={`${styles.tblSection}`}>
+      <div className={tableClassName}>
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
