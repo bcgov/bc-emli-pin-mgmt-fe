@@ -55,10 +55,18 @@ export default function DeactivateModal(props) {
     function submitRequests() {
       if(rowSelected.length > 0){
         const userIds = rowSelected.map((item) => item.userId);
+        const givenNames = rowSelected.map((item) => item.givenName);
+        const lastNames = rowSelected.map((item) => item.lastName);
+        const emails = rowSelected.map((item) => item.email);
+
         const body = {
           userIds,
-          deactivationReason: reason
+          deactivationReason: reason,
+          givenNames,
+          lastNames,
+          emails
         }
+
         HttpRequest.deactivateUsers(body)
           .then((response) => {
             toast.success(`${rowSelected.length} ${successMessage}`, {

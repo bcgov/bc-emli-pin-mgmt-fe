@@ -20,9 +20,16 @@ export default function PropertyLayout() {
 
     useEffect(() => {
         let storedSearchString = sessionStorage.getItem("searchString")
-        setSearchString(storedSearchString)
-        if (storedSearchString) {
+        let storedAutocompleteSearchString = sessionStorage.getItem("autocompleteSearchString")
+
+
+        if (storedAutocompleteSearchString) {
             setShowPropertySearchHeader(false)
+            setSearchString(storedAutocompleteSearchString)
+            document.getElementById('searchInput').value = storedAutocompleteSearchString
+        } else if (storedSearchString) {
+            setShowPropertySearchHeader(false)
+            setSearchString(storedSearchString)
             document.getElementById('searchInput').value = storedSearchString
         }
     }, [])
@@ -69,6 +76,7 @@ export default function PropertyLayout() {
         setShowPropertySearchHeader(true)
         setSearchString('')
         sessionStorage.setItem("searchString", '')
+        sessionStorage.setItem("autocompleteSearchString", '')
 		Router.push('/home')
     }
     

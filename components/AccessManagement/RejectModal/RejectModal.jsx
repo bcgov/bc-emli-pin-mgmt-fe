@@ -54,9 +54,18 @@ export default function RejectModal(props) {
     function submitRejectRequests() {
       if(rowSelected.length > 0){
         const requestIds = rowSelected.map((item) => item.requestId);
+        const emails = rowSelected.map((item) => item.email);
+        const givenNames = rowSelected.map((item) => item.givenName);
+        const lastNames = rowSelected.map((item) => item.lastName);
+        const requestedRoles = rowSelected.map((item) => item.requestedRole);
+
         const body = {
           action: 'Rejected',
           requestIds,
+          emails,
+          givenNames,
+          lastNames,
+          requestedRoles,
           rejectionReason: rejectReason
         }
         HttpRequest.updateAccessRequest(body)

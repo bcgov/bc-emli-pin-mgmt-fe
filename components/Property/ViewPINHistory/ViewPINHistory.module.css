@@ -36,6 +36,11 @@
 .notificationViaRow svg {
     display: inline;
     margin-right: 5px;
+    margin-top: 2px;
+}
+
+.notificationViaCell {
+    display: flex;
 }
 
 td.notificationViaRow {
@@ -48,8 +53,8 @@ td.notificationViaRow {
 
 .pinHistoryTable td,
 .pinHistoryTable th {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
     padding-top: 14px;
     padding-bottom: 6px;
 }
