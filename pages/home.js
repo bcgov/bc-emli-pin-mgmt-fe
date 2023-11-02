@@ -9,6 +9,7 @@ import PropertyLayout from '../components/Property/PropertyLayout'
 export default function Home(props) {
     if (typeof window !== 'undefined') {
         sessionStorage.setItem("searchString", '')
+        sessionStorage.setItem("autocompleteSearchString", '')
     }
     const { userName, userInfo } = props
     return (
