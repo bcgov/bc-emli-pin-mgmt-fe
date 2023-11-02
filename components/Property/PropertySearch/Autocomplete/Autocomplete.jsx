@@ -35,6 +35,7 @@ export default function Autocomplete({
         getSearchString(address)
         getAddress(address)
         document.getElementById('searchInput').value = address
+        sessionStorage.setItem("autocompleteSearchString", address)
         getSearchResults(address)
     }
 
