@@ -7,14 +7,12 @@ export default function ViewPINHistory({ pinHistory }) {
     function formatType(type) {
         if (type === Content.pinHistoryModal.typeCode.optOut) {
             return Content.pinHistoryModal.types.optOut
-        } else if (type === Content.pinHistoryModal.typeCode.callCenter) {
-            return Content.pinHistoryModal.types.callCenter
         } else if (type === Content.pinHistoryModal.typeCode.onlineReset) {
             return Content.pinHistoryModal.types.onlineReset
         } else if (type === Content.pinHistoryModal.typeCode.changeOfOwnership) {
             return Content.pinHistoryModal.types.changeOfOwnership
         } else {
-            return type
+            return Content.pinHistoryModal.types.callCenter
         }
     }
 
@@ -91,19 +89,19 @@ export default function ViewPINHistory({ pinHistory }) {
                                 {formatType(row.expirationReason)}
                             </td>
                             <td className={`${styles.notificationViaRow}`}>
-                                {row?.sentToPhone ||
-                                    (row?.sentToEmail && (
+                                {(row?.sentToPhone || row?.sentToEmail)
+                                    && (
                                         <div>
-                                            <div>
+                                            <div className={`${styles.notificationViaCell}`}>
                                                 <PhoneIcon />
                                                 {row?.sentToPhone}
                                             </div>
-                                            <div>
+                                            <div className={`${styles.notificationViaCell}`}>
                                                 <EmailIcon />
                                                 <span>{row?.sentToEmail}</span>
                                             </div>
                                         </div>
-                                    ))}
+                                    )}
                             </td>
                         </tr>
                     ))}
