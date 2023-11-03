@@ -59,7 +59,7 @@
 #errorWrap{
   background: linear-gradient(92deg, #0B5D95 2.02%, #158FB1 98.4%);
   padding: 147px 50px;
-  min-height: calc(100vh - 145px);
+  min-height: calc(100vh - 164px);
 
 }
 
