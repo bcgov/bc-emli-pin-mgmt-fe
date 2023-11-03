@@ -307,5 +307,18 @@
       "superadmin": "System admin",
       "admin" : "Administrator",
       "standard": "Client support"
-    }
+    }, 
+    "errorPage":{
+        "button": "Back to homepage",
+        "notFound": {
+            "code": "404",
+            "title": "Page Not Found",
+            "content": "The page you are looking for does not exist or has been moved. Please try again later or contact the system administrator below."
+        }, 
+        "serverError": {
+            "code": "500", 
+            "title": "Internal Server Error", 
+            "content": "We encountered an error and cannot fulfill this request. Please try again later or contact the system administrator below."
+        }
+    } 
 }

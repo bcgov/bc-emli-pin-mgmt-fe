@@ -8,13 +8,14 @@ import Endpoints from '../../apiManager/endpoints'
 
 
 function Header  ({
-	title,
 	userName,
 })  {
 
 	const onClickHandle = () => {
 		window.open(Text.header.helpLink, "_black", "noreferrer")
 	}
+
+	const helpSectionClass = userName === '' ? Styles.helpSection : Styles.helpSection + " " + Styles.marginRight
 	return (
 		<div className={`${Styles.headerSectionWrap}` + " headerFooterWrap flex justify-center"}>
 			<div className={`${Styles.headerSection}`}>
@@ -25,25 +26,32 @@ function Header  ({
 						</div>
 					</div>
 					<div className={`${Styles.right}`}>
-						<div className={`${Styles.userSection}`}>
-							<div className={`${Styles.userImageWrap}`}>
-								<UserIcon />
+						{
+							userName &&
+							<div className={`${Styles.userSection + ' ' + Styles.marginRight}`}>
+								<div className={`${Styles.userImageWrap}`}>
+									<UserIcon />
+								</div>
+								<div className={`${Styles.userNameWrap}`}>
+									{userName}
+								</div>
 							</div>
-							<div className={`${Styles.userNameWrap}`}>
-								{userName}
-							</div>
-						</div>
-						<div className={`${Styles.helpSection}`} onClick={onClickHandle}>
+						}
+						<div className={helpSectionClass} onClick={onClickHandle}>
 							<div className={`${Styles.iconWrap}`}>
 								<QuestionIcon />
 							</div>
 							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
 						</div>
-						<div className={`${Styles.helpSection}`}>
+						{
+							userName &&
+							<div className={`${Styles.helpSection}`}>
 							<button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
 								{Text.header.logout}
 							</button>
-						</div>
+							</div>
+						}
+						
 					</div>
 				</div>
 			</div>
@@ -52,14 +60,7 @@ function Header  ({
 }
 
 Header.protoTypes = {
-	/** @type {string} the Application name.*/
-	title: PropTypes.bool.isRequired,
 	userName: PropTypes.string,
-}
-
-Header.defaultProps = {
-	title: Text.header.title,
-	userName: Text.header.testusername,
 }
 
 export default  Header;
