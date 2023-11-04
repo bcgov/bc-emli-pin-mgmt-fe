@@ -29,8 +29,27 @@ const getUserName = (userInfo) => {
   return `${userInfo?.given_name} ${userInfo?.family_name}@${identity}`
 }
 
+const getLocalTime = (dateString) => {
+  const formattedDate = new Date(dateString)
+  .toISOString()
+  .split('T')[0] +
+  ' ' +
+  new Date(dateString)
+      .toISOString()
+      .split('T')[1]
+      .split(':')[0] +
+  ':' +
+  new Date(dateString)
+      .toISOString()
+      .split('T')[1]
+      .split(':')[1]
+
+      return formattedDate
+}
+
 export {
   getAccessStatusLabel,
   getRoleLabel,
-  getUserName
+  getUserName,
+  getLocalTime,
 }

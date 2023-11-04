@@ -8,6 +8,7 @@ import Table from '../../Table';
 import wrap from 'word-wrap'
 import { getAccessStatusLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
+import { getLocalTime } from '../../../utils/helper';
 
 export default function AccessList() {
   const { setRowSelected, requestList, tabSelected } = useContext(AccessContext)
@@ -75,6 +76,9 @@ export default function AccessList() {
       Header: 'Created at',
       accessor: 'createdAt',
       width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
 
     },
     {
