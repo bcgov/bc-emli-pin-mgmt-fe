@@ -46,7 +46,7 @@ export async function getServerSideProps(ctx) {
   const userInfo = getUserInfo(authInfo);
   return {
     props: {
-      userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userName: getUserName(userInfo),
       userInfo: userInfo
     },
   };

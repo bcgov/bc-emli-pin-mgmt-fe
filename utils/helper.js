@@ -22,7 +22,15 @@ const getRoleLabel = (keyText) => {
   return ''
 }
 
+const getUserName = (userInfo) => {
+  const identity = userInfo?.identity_provider === 'idir'
+    ? content.identity.idir
+    : content.identity.bceid
+  return `${userInfo?.given_name} ${userInfo?.family_name}@${identity}`
+}
+
 export {
   getAccessStatusLabel,
-  getRoleLabel
+  getRoleLabel,
+  getUserName
 }

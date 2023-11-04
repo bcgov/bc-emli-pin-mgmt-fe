@@ -307,5 +307,9 @@
       "superadmin": "System admin",
       "admin" : "Administrator",
       "standard": "Client support"
+    },
+    "identity":{
+      "idir": "IDIR",
+      "bceid": "BCeID"
     }
 }
