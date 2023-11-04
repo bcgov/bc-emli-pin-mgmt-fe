@@ -34,7 +34,7 @@ export default function Table(props) {
       )
     }
   )
-  
+
   const tableClassName = styles.tblSection
 
   const {
