@@ -5,7 +5,7 @@ import {
   forwardRef,
   useRef,
 } from 'react'
-import { useTable, useSortBy, useRowSelect } from 'react-table'
+import { useTable, useSortBy, useRowSelect, useRowState } from 'react-table'
 import styles from './Table.module.css';
 
 
@@ -48,6 +48,7 @@ export default function Table(props) {
     { columns, data, initialState},
     useSortBy,
     useRowSelect,
+    useRowState,
     hooks =>{
       hooks.visibleColumns.push(columns => [
         // Let's make a column for selection
@@ -101,7 +102,11 @@ export default function Table(props) {
             {rows.map((row) => {
               prepareRow(row);
                 return (
-                  <tr {...row.getRowProps()}>
+                  <tr
+                    className='dataRow'
+                    {...row.getRowProps()}
+                    onClick={() => row.toggleRowSelected(!row.isSelected)}
+                    >
                     {row.cells.map((cell) => {
                         return (
                             <td {...cell.getCellProps()}>
