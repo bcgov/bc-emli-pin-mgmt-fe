@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation/index'
 import { AccessProvider } from '../context/accessContext/AccessState'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
 import AccessLayout from '../components/AccessManagement/AccessLayout'
-
+import { getUserName } from '../utils/helper'
 
 export default function UserManagement(props) {
   const {
