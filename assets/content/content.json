@@ -343,7 +343,7 @@
             "title": "Internal Server Error", 
             "content": "We encountered an error and cannot fulfill this request. Please try again later or contact the system administrator below."
         }
-    } 
+    },
     "identity":{
       "idir": "IDIR",
       "bceid": "BCeID"
