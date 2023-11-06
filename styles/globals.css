@@ -55,3 +55,79 @@
 .headerFooterWrap{
 	background-color: #003366;
 }
+
+#errorWrap{
+  background: linear-gradient(92deg, #0B5D95 2.02%, #158FB1 98.4%);
+  padding: 147px 50px;
+  min-height: calc(100vh - 164px);
+
+}
+
+#errorWrap .errorBox{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+#errorWrap .errorMsg{
+  font-size: 130px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 108px; /* 83.077% */
+  letter-spacing: -2px;
+  padding: 0 42px;
+  border-right: 1px solid #EFEFEF;
+}
+
+#errorWrap .errorContent{
+  width: 538px;
+  text-align: left;
+  padding: 0 42px;
+
+}
+
+#errorWrap .errorContent .title{
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#errorWrap .errorContent .title .iconWrap{
+  margin-right: 9px;
+}
+
+#errorWrap .errorContent .content{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 29px;
+}
+
+#errorWrap .errorContent .contact{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 9px;
+}
+
+#errorWrap .errorContent .contactEmail{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.4px;
+  margin-bottom: 26px;
+  display: flex;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+#errorWrap .errorContent .contactEmail .iconWrap{
+  margin-right: 7px;
+  opacity: 0.72;
+}

@@ -16,6 +16,12 @@
   table-layout: fixed;
 }
 
+
+.tblSection tr:hover {
+  cursor: pointer;
+  background-color: #ECF6FF;
+}
+
 .tblSection  td {
   border-bottom: 1px solid #C7C7C7;
   text-align: left;

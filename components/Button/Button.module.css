@@ -43,7 +43,7 @@
     line-height: 16px; /* 133.333% */
     border-radius: 4px;
     padding: 7px 16px;
-    width: 136px;
+    min-width: 136px;
 }
 
 /*  */
