@@ -11,6 +11,7 @@ export default function RadioButton({
 	setSelectedValue,
 	selectedValue,
 	onChangeHandler,
+  value,
 	size,
 	...props
 }) {
@@ -19,6 +20,7 @@ export default function RadioButton({
 	const applySelectedRadio = (selected) => {
 		setSelectedValue(selected)
 	}
+
 
 	return (
 		<section className={rootClass}>
@@ -33,10 +35,11 @@ export default function RadioButton({
 						type="radio"
 						id={radioButtonId}
 						name={radioButtonName}
-						value={radioButtonLabel}
+						value={value}
 						className={`${styles.radiobutton} ${
 							hasError ? styles.alert : ''
 						}`}
+            checked={value===selectedValue}
 						onChange={(e) => applySelectedRadio(e.target.value)}
 						disabled={isDisabled}
 						{...props}

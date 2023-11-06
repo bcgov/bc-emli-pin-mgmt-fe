@@ -35,7 +35,7 @@
     "home": {
         "searchHeader": "Search for a property",
         "searchContent": "Enter a residential address to retrieve property details",
-        "searchPlaceHolder": "Enter residential address",
+        "searchPlaceHolder": "Enter residential street address",
         "search": "Search"
     },
     "userManagement": {
@@ -67,6 +67,29 @@
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation"
+    },
+    "userEditModal" : {
+      "title":"Edit user information",
+      "btnText": "Save changes",
+      "cancelButton": "Cancel and Close",
+      "successMessage": "  user has been updated.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select user(s) to deactivate"
+    },
+    "userEditForm": {
+      "formHeaderTitle": "Request details form",
+      "formRequiredText": "Indicates a required field",
+      "formInputs": {
+        "firstName": "First name",
+        "lastName" : "Last name",
+        "identityType": "Identity Type",
+        "userName": "Username",
+        "emailAddress": "Email address",
+        "organization": "Organization",
+        "permissionType": "Permission type",
+        "requiredLabel": "Indicates a required field",
+        "submitBtnText" : "Submit"
+      }
     },
     "userDeactivateModal": {
       "title":"Deactivate user?",
@@ -292,11 +315,11 @@
     "regeneratePINModal": {
         "title": "Regenerate PIN",
         "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
-        "phone": "Phone", 
+        "phone": "Phone",
         "phonePlaceHolder": "E.g. (604)332-8930",
         "email": "Email",
         "emailPlaceHolder": "E.g. jcambie@govv.bc.ca",
-        "cancelButton": "Cancel", 
+        "cancelButton": "Cancel",
         "successModalTitle": "PIN has been regenerated",
         "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.",
         "failureModalTitle": "Regenerating PIN failed", 
@@ -304,10 +327,10 @@
     },
     "back": "Back",
     "portalUserRole" : {
-      "superadmin": "System admin",
-      "admin" : "Administrator",
-      "standard": "Client support"
-    }, 
+      "SuperAdmin": "System admin",
+      "Admin" : "Admin",
+      "Standard": "Client support"
+    },
     "errorPage":{
         "button": "Back to homepage",
         "notFound": {
@@ -321,4 +344,8 @@
             "content": "We encountered an error and cannot fulfill this request. Please try again later or contact the system administrator below."
         }
     } 
+    "identity":{
+      "idir": "IDIR",
+      "bceid": "BCeID"
+    }
 }

@@ -125,7 +125,8 @@ export default function RequestForm(props) {
         <RadioButton
           radioButtonId='permissionType1'
           radioButtonName='permissionType'
-          radioButtonLabel={Content.portalUserRole.standard}
+          radioButtonLabel={Content.portalUserRole.Standard}
+          value={'Standard'}
           setSelectedValue={onRoleInputChange}
           selectedValue={roleType}
           hasError={!errorFlags.roleType}
@@ -134,8 +135,9 @@ export default function RequestForm(props) {
         <RadioButton
           radioButtonId='permissionType2'
           radioButtonName='permissionType'
-          radioButtonLabel={Content.portalUserRole.admin}
+          radioButtonLabel={Content.portalUserRole.Admin}
           setSelectedValue={onRoleInputChange}
+          value={'Admin'}
           hasError={!errorFlags.roleType}
           selectedValue={roleType}
           size='large'

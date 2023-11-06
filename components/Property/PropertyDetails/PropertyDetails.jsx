@@ -51,15 +51,16 @@ function PropertyDetails({
       if (data[key] != null){
         data[key].map((ownerData) => {
           const lastName2 = ownerData.lastName_2 ? ' ' + ownerData.lastName_2 : ''
-          const address2 = ownerData.addressLine_2 ? ', ' + ownerData.addressLine_2 : ''
-          const postalCode = ownerData.postalCode ? ' ' + ownerData.postalCode : ''
-          const country = ownerData.country.toLowerCase() === 'canada' ? ' ' : ' ' + ownerData.country
+          const address2 = ownerData.addressLine_2 ? ', ' + ownerData.addressLine_2.trim() : ''
+          const postalCode = ownerData.postalCode ? ' ' + ownerData.postalCode.trim() : ''
+          const province = ownerData.provinceAbbreviation ? ' ' + ownerData.provinceAbbreviation.trim() : ''
+          const country = ownerData.country ? ' ' + ownerData.country.trim() : ''
           
           const owner = {
             id: ownerData.livePinId,
             fullName: ownerData.givenName + ' ' + ownerData.lastName_1 + lastName2,
             livePIN: ownerData.pin,
-            mailingAddress: ownerData.addressLine_1 + address2 +  ', ' + ownerData.city + ' ' + postalCode + country
+            mailingAddress: ownerData.addressLine_1.trim() + address2 +  ', ' + ownerData.city.trim() +  ', ' + province + ' ' + postalCode + ', ' + country
           }
           item.ownerList.push(owner)
         })

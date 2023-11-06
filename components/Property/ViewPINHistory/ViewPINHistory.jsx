@@ -2,6 +2,7 @@ import Content from '../../../assets/content/content.json'
 import styles from './ViewPINHistory.module.css'
 import PhoneIcon from '../../../assets/svgs/PhoneIcon'
 import EmailIcon from '../../../assets/svgs/EmailIcon'
+import { getLocalTime } from '../../../utils/helper'
 
 export default function ViewPINHistory({ pinHistory }) {
     function formatType(type) {
@@ -68,19 +69,7 @@ export default function ViewPINHistory({ pinHistory }) {
                                 {row.alteredByUsername}
                             </td>
                             <td className={`${styles.modifiedOnRow}`}>
-                                {new Date(row.updatedAt)
-                                    .toISOString()
-                                    .split('T')[0] +
-                                    ' ' +
-                                    new Date(row.updatedAt)
-                                        .toISOString()
-                                        .split('T')[1]
-                                        .split(':')[0] +
-                                    ':' +
-                                    new Date(row.updatedAt)
-                                        .toISOString()
-                                        .split('T')[1]
-                                        .split(':')[1]}
+                                {getLocalTime(row.updatedAt)}
                             </td>
                             <td className={`${styles.actionRow}`}>
                                 {formatAction(row.action)}
