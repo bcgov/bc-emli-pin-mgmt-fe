@@ -13,11 +13,12 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
             value: Content.managePINDropdown.valueOptions.regenerate,
             isDisabled: false,
         },
-        {
-            label: Content.managePINDropdown.expireOption,
-            value: Content.managePINDropdown.valueOptions.expire,
-            isDisabled: false,
-        },
+        // Commenting out expire PIN option
+        // {
+        //     label: Content.managePINDropdown.expireOption,
+        //     value: Content.managePINDropdown.valueOptions.expire,
+        //     isDisabled: false,
+        // },
     ]
 
     if (showPINOption) {
