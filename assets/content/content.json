@@ -9,7 +9,7 @@
         "testusername": "Rob Johnson",
         "logout": "Logout",
         "help": "Help", 
-        "helpLink": "https://cleanbc.gov.bc.ca/"
+        "helpLink": "https://apps.nrs.gov.bc.ca/int/confluence/display/VHERS/PIN+System+Help+Materials"
     },
     "navigation": {
         "home": "Home",
@@ -34,7 +34,7 @@
     },
     "home": {
         "searchHeader": "Search for a property",
-        "searchContent": "Enter a residential address to retrieve property details",
+        "searchContent": "Enter a residential street address to retrieve property details",
         "searchPlaceHolder": "Enter residential street address",
         "search": "Search"
     },
@@ -48,7 +48,7 @@
     },
     "userManagementBanner" : {
       "title": "User Management",
-      "description": "Edit or delete users here."
+      "description": "Edit or deactivate users here"
     },
     "userManagementTabs": {
       "activeUsers": "Active users",
@@ -59,11 +59,11 @@
       "deactivateUser": "Deactivate user"
     },
     "usersSearchOptions": {
-      "role":"Role Type",
+      "role":"Role type",
       "userName": "Username",
       "identityType":"Identity type",
-      "givenName":"First Name",
-      "lastName":"Last Name",
+      "givenName":"First name",
+      "lastName":"Last name",
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation"
@@ -176,7 +176,7 @@
     },
     "requestAccessBanner": {
       "title": "Request Access to VHERS PIN Admin Portal",
-      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access"
+      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access."
     },
     "requestForm": {
       "formHeaderTitle": "Request details form",
@@ -239,11 +239,11 @@
         "secondaryButton": "Cancel"
     },
     "propertyDetails": {
-        "residentialAddress": "Residential Address",
+        "residentialAddress": "Residential Street Address",
         "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
         "propertyDetails": "Property Details",
         "titleNumber": "Title Number",
-        "titleNumberHeader": "Title number",
+        "titleNumberHeader": "Title",
         "testTitleNumber": "CA5006683",
         "landTitleDistrict": "Land Title District",
         "testLandTitleDistrict": "Burnby",
@@ -251,7 +251,7 @@
         "testParcelIdentifier": "029-366-937",
         "shortLegalDescription": "Short Legal Description",
         "testShortLegalDescription": "S/EPS2032//20",
-        "ownership": "Ownership",
+        "ownership": "Ownership Details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
         "noDataFoundMsg": "No data available for the selected property.",
@@ -327,8 +327,8 @@
     },
     "back": "Back",
     "portalUserRole" : {
-      "SuperAdmin": "System admin",
-      "Admin" : "Admin",
+      "SuperAdmin": "System administrator",
+      "Admin" : "Administrator",
       "Standard": "Client support"
     },
     "errorPage":{
