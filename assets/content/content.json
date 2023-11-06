@@ -35,7 +35,7 @@
     "home": {
         "searchHeader": "Search for a property",
         "searchContent": "Enter a residential address to retrieve property details",
-        "searchPlaceHolder": "Enter residential address",
+        "searchPlaceHolder": "Enter residential street address",
         "search": "Search"
     },
     "userManagement": {
