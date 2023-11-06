@@ -50,7 +50,7 @@ function PropertyOwner({
     }
 
     function formatMailingAddress(mailingAddress) {
-        const formattedMailingAddress = mailingAddress.split('\n').map(str, i => <p key={i}>{str}</p>);
+        const formattedMailingAddress = mailingAddress?.split('\n').map(str, i => <p key={i}>{str}</p>);
         return formattedMailingAddress;
       }
 
