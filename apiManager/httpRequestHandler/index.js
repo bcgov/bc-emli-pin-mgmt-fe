@@ -61,6 +61,10 @@ const deactivateUsers = (data) => {
   return axios.put (Endpoints.userManagement.DEACTIVATE_USER, data, config)
 }
 
+const updateUser = (data) => {
+  return axios.put (Endpoints.userManagement.UPDATE_USER, data, config)
+}
+
 const HttpRequest = {
     expirePIN,
     getSearchResults,
@@ -72,6 +76,7 @@ const HttpRequest = {
     updateAccessRequest,
     getUserList,
     deactivateUsers,
+    updateUser,
 }
 
 export default HttpRequest
