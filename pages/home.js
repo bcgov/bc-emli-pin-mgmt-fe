@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthService'
 import PropertyLayout from '../components/Property/PropertyLayout'
+import { getUserName } from '../utils/helper'
 
 export default function Home(props) {
     if (typeof window !== 'undefined') {
@@ -50,7 +51,7 @@ export async function getServerSideProps(ctx) {
   const userInfo = getUserInfo(authInfo);
   return {
     props: {
-      userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userName: getUserName(userInfo),
       userInfo: userInfo
     },
   };

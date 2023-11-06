@@ -6,7 +6,7 @@ import Navigation from '../components/Navigation/index'
 import { UserManagementProvider } from '../context/userManagementContext/UserManagementState'
 import UserManagementLayout from '../components/UserManagement/UserManagementLayout'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
-
+import { getUserName } from '../utils/helper'
 
 export default function UserManagement(props) {
   const {
@@ -49,7 +49,7 @@ export async function getServerSideProps(ctx) {
   const userInfo = getUserInfo(authInfo);
   return {
     props: {
-      userName: `${userInfo.given_name} ${userInfo.family_name}`,
+      userName: getUserName(userInfo),
       userInfo
     },
   };
