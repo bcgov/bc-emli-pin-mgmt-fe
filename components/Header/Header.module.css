@@ -54,6 +54,9 @@
 .right .userSection, 
 .right .helpSection{ 
 	width: auto;
+}
+
+.marginRight{
 	margin-right: 25px;
 }
 
