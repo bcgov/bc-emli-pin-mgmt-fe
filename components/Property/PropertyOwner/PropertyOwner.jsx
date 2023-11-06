@@ -49,6 +49,11 @@ function PropertyOwner({
         }
     }
 
+    function formatMailingAddress(mailingAddress) {
+        const formattedMailingAddress = mailingAddress.split('\n').map(str, i => <p key={i}>{str}</p>);
+        return formattedMailingAddress;
+      }
+
     return (
         <div className={`${Styles.ownerInfoCardWrap}` + ' text-left'}>
             <div className={`${Styles.title}`}>
@@ -65,7 +70,7 @@ function PropertyOwner({
                     <div className={`${Styles.title}`}>
                         {Content.propertyDetails.mailingAddress}
                     </div>
-                    <div className={`${Styles.content}`}>{mailingAddress}</div>
+                    <div className={`${Styles.content}`}>{formatMailingAddress(mailingAddress)}</div>
                 </div>
             </div>
             <div className={`${Styles.buttonWrap}` + ' flex justify-start'}>

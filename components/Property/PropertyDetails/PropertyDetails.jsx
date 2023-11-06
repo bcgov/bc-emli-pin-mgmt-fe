@@ -60,7 +60,7 @@ function PropertyDetails({
             id: ownerData.livePinId,
             fullName: ownerData.givenName + ' ' + ownerData.lastName_1 + lastName2,
             livePIN: ownerData.pin,
-            mailingAddress: ownerData.addressLine_1.trim() + address2 +  ', ' + ownerData.city.trim() +  ', ' + province + ' ' + postalCode + ', ' + country
+            mailingAddress: ownerData.addressLine_1.trim() + address2 +  '\n' + ownerData.city.trim() +  ', ' + province + ' ' + postalCode + '\n' + country
           }
           item.ownerList.push(owner)
         })
