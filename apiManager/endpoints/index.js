@@ -24,6 +24,7 @@ const Endpoints = {
     userManagement: {
       GET_USERS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/?active=`,
       DEACTIVATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/deactivate`,
+      UPDATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users`
     },
 }
 

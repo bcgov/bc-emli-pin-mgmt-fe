@@ -12,10 +12,9 @@ const getAccessStatusLabel = (keyText) => {
 }
 
 const getRoleLabel = (keyText) => {
-  const status = keyText.toLowerCase()
   const statusList = content.portalUserRole
   for ( const key in statusList) {
-    if(status === key) {
+    if(keyText === key) {
       return statusList[key]
     }
   }
