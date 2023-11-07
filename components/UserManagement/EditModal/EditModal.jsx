@@ -140,6 +140,15 @@ export default function EditModal(props) {
     function submitRequests() {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
+
+        if (formData.role === "Administrator") {
+          formData.role = "Admin"
+        } else if (formData.role === "System administrator") {
+          formData.role = "SuperAdmin"
+        } else if (formData.role === "Client support") {
+          formData.role = "Standard"
+        }
+
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
@@ -185,7 +194,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType1'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.Standard}
-            value={'Standard'}
+            value={'Client support'}
             setSelectedValue={onRoleInputChange}
             selectedValue={formData.role}
             hasError={!errorFlags.role}
@@ -195,7 +204,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType2'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.Admin}
-            value={'Admin'}
+            value={'Administrator'}
             setSelectedValue={onRoleInputChange}
             hasError={!errorFlags.role}
             selectedValue={formData.role}
@@ -205,7 +214,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType3'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.SuperAdmin}
-            value={'SuperAdmin'}
+            value={'System administrator'}
             setSelectedValue={onRoleInputChange}
             hasError={!errorFlags.role}
             selectedValue={formData.role}
