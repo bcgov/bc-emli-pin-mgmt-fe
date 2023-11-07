@@ -161,12 +161,12 @@
     "accessRequestSearchOptions": {
       "userName": "Username",
       "identityType":"Identity type",
-      "requestedRole":"Role Type",
+      "requestedRole":"Role type",
       "organization":"Organization",
       "email":"Email",
-      "givenName":"First Name",
-      "lastName":"Last Name",
-      "requestStatus":"Access Status",
+      "givenName":"First name",
+      "lastName":"Last name",
+      "requestStatus":"Access status",
       "createdAt":"Created at",
       "requestReason":"Reason for requesting access",
       "rejectionReason":"Reason for access rejection"
