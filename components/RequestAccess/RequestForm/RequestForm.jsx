@@ -40,6 +40,7 @@ export default function RequestForm(props) {
   const [errorFlags, setErrorFlags] = useState(initialValidation);
   const [isLoading, setLoading] = useState(false)
   const [requestSuccess, setRequestSuccess] = useState()
+  const [alreadyExists, setAlreadyExists] =useState(false)
   const identityType= userInfo.identity_provider
 
   useEffect(() => {
@@ -58,16 +59,22 @@ export default function RequestForm(props) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const requestSubmissionMessage = (isRequestSuccess) => (
+  const requestSubmissionMessage = (isRequestSuccess) => {
+    const failureMessage = alreadyExists
+    ? Content.requestSubmitMessage.requestExist :
+    Content.requestSubmitMessage.failureMessage
+
+    return (
       <RequestSubmissionMsg
         showSuccess={isRequestSuccess}
         message={isRequestSuccess ?
           Content.requestSubmitMessage.successMessage
-          : Content.requestSubmitMessage.failureMessage
+          : failureMessage
         }
         handleBack={() => setShowForm(true)}
       />
   )
+  }
 
   const resetError = (fieldName) => {
     const errorFlagsValues = errorFlags
@@ -192,7 +199,7 @@ export default function RequestForm(props) {
     inputValue.identityType = userInfo.identity_provider
     inputValue.userGuid = userInfo.user_guid
     inputValue.organization = identityType === 'idir' ? organization : userInfo.bceid_business_name
-    inputValue.requestedRole = roleType === 'Administrator' ? 'Admin' : 'Standard'
+    inputValue.requestedRole = roleType === 'Admin' ? 'Admin' : 'Standard'
     inputValue.requestReason = requestReason
 
     if(isFormValid) {
@@ -208,6 +215,9 @@ export default function RequestForm(props) {
       })
       .catch((error) => {
           console.error(error)
+          if(error?.response?.status === 409) {
+            setAlreadyExists(true)
+          }
           setShowForm(false)
           setRequestSuccess (false)
           setLoading(false)
