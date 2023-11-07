@@ -17,7 +17,8 @@ function PropertyOwner({
     livePinId, 
     livePIN, 
     expiredByUsername,
-    propertyAddress
+    propertyAddress,
+    role
 }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
     const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
@@ -52,7 +53,7 @@ function PropertyOwner({
     function formatMailingAddress(mailingAddress) {
         const formattedMailingAddress = mailingAddress?.split('\n').map((str, i) => <p key={i}>{str}</p>);
         return formattedMailingAddress;
-      }
+    }
 
     return (
         <div className={`${Styles.ownerInfoCardWrap}` + ' text-left'}>
@@ -76,9 +77,10 @@ function PropertyOwner({
             <div className={`${Styles.buttonWrap}` + ' flex justify-start'}>
                 <div className={`${Styles.buttonItem}`}>
                     <ManagePINDropdown 
-                        showPINOption={true} 
                         livePIN={livePIN}
-                        handleSelection={handleMangePINSelection}/>
+                        handleSelection={handleMangePINSelection}
+                        role={role}
+                    />
                 </div>
                 <div className={`${Styles.buttonItem}`}>
                     <Button
