@@ -4,7 +4,7 @@ import {
 } from 'react'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import Table from '../../Table'
-import wrap from 'word-wrap'
+import { getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import styles from './UsersList.module.css'
 
@@ -21,7 +21,9 @@ export default function UsersList() {
       Header: 'Role Type',
       accessor: 'role',
       width: 10,
-
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
     },
     {
       Header: 'Username',

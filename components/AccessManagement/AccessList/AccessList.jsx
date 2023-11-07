@@ -6,7 +6,7 @@ import styles from './AccessList.module.css';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import Table from '../../Table';
 import wrap from 'word-wrap'
-import { getAccessStatusLabel } from '../../../utils/helper'
+import { getAccessStatusLabel, getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import { getLocalTime } from '../../../utils/helper';
 
@@ -70,6 +70,9 @@ export default function AccessList() {
       Header: 'Role Type',
       accessor: 'requestedRole',
       width: 20,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
 
     },
     {
