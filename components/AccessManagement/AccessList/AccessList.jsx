@@ -67,7 +67,7 @@ export default function AccessList() {
 
     },
     {
-      Header: 'Role Type',
+      Header: 'Role type',
       accessor: 'requestedRole',
       width: 20,
       Cell: props => {
@@ -103,6 +103,15 @@ export default function AccessList() {
   const columns = useMemo(() => columnsList, [])
   const initialState = { hiddenColumns: ['requestId'] };
 
+  for (const request of requestList) {
+    if (request.requestedRole === "Admin") {
+      request.requestedRole = "Administrator"
+    } else if (request.requestedRole === "SuperAdmin") {
+      request.requestedRole = "System administrator"
+    } else if (request.requestedRole === "Standard") {
+      request.requestedRole = "Client support"
+    }
+  }
 
     return (
       <div className={styles.requestTable}>
