@@ -141,11 +141,11 @@ export default function EditModal(props) {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
 
-        if (formData.role === "Administrator") {
+        if (formData.role === content.portalUserRole.Admin) {
           formData.role = "Admin"
-        } else if (formData.role === "System administrator") {
+        } else if (formData.role === content.portalUserRole.SuperAdmin) {
           formData.role = "SuperAdmin"
-        } else if (formData.role === "Client support") {
+        } else if (formData.role === content.portalUserRole.Standard) {
           formData.role = "Standard"
         }
 
