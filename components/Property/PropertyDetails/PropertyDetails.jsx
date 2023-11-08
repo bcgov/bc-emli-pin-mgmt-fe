@@ -6,6 +6,7 @@ import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 import InfoIcon from '../../../assets/svgs/InfoIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
+import PropTypes from 'prop-types'
 
 
 function PropertyDetails({
@@ -15,6 +16,8 @@ function PropertyDetails({
   reloadPage,
   reloaded
 }) {
+
+  console.log(typeof reloaded)
 
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
@@ -36,7 +39,9 @@ function PropertyDetails({
           setLoading(false)
         })
       }
-    // reloaded()
+    if(typeof reloaded == "function") {
+      reloaded()
+    }
   }, [propertySiteId, reloadPage]);
 
 
@@ -143,3 +148,11 @@ function PropertyDetails({
 }
 
 export default PropertyDetails;
+
+PropertyDetails.protoTypes = {
+  propertySiteId: PropTypes.string,
+  propertyAddress: PropTypes.string,
+  role: PropTypes.object,
+  reloadPage: PropTypes.func,
+  reloaded: PropTypes.func,
+}
