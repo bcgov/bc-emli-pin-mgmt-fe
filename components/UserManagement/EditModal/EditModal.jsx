@@ -141,8 +141,6 @@ export default function EditModal(props) {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
 
-        formData.role = document.querySelector('input[name="permissionType"]:checked').value
-
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
