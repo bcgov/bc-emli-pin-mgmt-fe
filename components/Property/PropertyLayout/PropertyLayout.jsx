@@ -19,13 +19,11 @@ export default function PropertyLayout(
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
     const [searchResultLength, setSearchResultLength] = useState(0)
+    const [reload, setReload] = useState(false)
 
     useEffect(() => {
-        console.log('useeffect')
         let storedSearchString = sessionStorage.getItem("searchString")
         let storedAutocompleteSearchString = sessionStorage.getItem("autocompleteSearchString")
-        let storedSiteId = sessionStorage.getItem("siteId")
-        let storedPropertyAddress = sessionStorage.getItem("propertyAddress")
 
         if (storedAutocompleteSearchString) {
             setShowPropertySearchHeader(false)
@@ -36,11 +34,6 @@ export default function PropertyLayout(
             setSearchString(storedSearchString)
             document.getElementById('searchInput').value = storedSearchString
         }
-        
-        if (storedSiteId && storedPropertyAddress) {
-            setPropertySiteId(storedSiteId)
-            setPropertyAddress(storedPropertyAddress)
-        }
     }, [])
 
     function getSearchString (newSearchString) {
@@ -49,13 +42,11 @@ export default function PropertyLayout(
     }
 
     function getSiteId (siteId, propertyAddress) {
-        console.log('infunctions')
         setPropertySiteId(siteId)
         setPropertyAddress(propertyAddress)
     }
 
     function getSelectedValues (siteId, propertyAddress){
-        console.log('infunctions')
         setPropertySiteId(siteId)
         setPropertyAddress(propertyAddress)
     }
@@ -79,7 +70,6 @@ export default function PropertyLayout(
       )
 
     function getSearchResultsLength (searchResultLength) {
-        console.log('infunctions')
         setSearchResultLength(searchResultLength)
         setPropertySiteId('')
     }
@@ -92,7 +82,8 @@ export default function PropertyLayout(
 		Router.push('/home')
     }
 
-    console.log(propertyAddress, propertySiteId)
+    const reloadPage = () => setReload(true)
+    const reloaded = () => setReload(false)
     
     return (
         <>
@@ -119,7 +110,7 @@ export default function PropertyLayout(
                         <SearchResults
                             searchAddress={searchString}
                             handleClick={getSelectedValues}
-                            // handleCallback={getSearchResultsLength}
+                            handleCallback={getSearchResultsLength}
                         />
                     </div>
 
@@ -132,6 +123,8 @@ export default function PropertyLayout(
                                 propertySiteId={propertySiteId} 
                                 propertyAddress={propertyAddress}
                                 role={role}
+                                reloadPage={reloadPage}
+                                reloaded={() => reloaded()}
                             />
                         }
                     </div>

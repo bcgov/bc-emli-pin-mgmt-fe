@@ -15,7 +15,8 @@ function PropertyTitleDetails({
     numberOfTitles,
     propertyAddress,
     role,
-    siteId
+    siteId,
+    reloadPage
 }) {
     return (
         <div>
@@ -71,6 +72,7 @@ function PropertyTitleDetails({
                             propertyAddress={propertyAddress}
                             role={role}
                             siteId={siteId}
+                            reloadPage={reloadPage}
                         />
                     ))}
                 </div>

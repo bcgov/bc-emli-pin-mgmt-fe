@@ -11,17 +11,16 @@ import CloseIcon from '../../../assets/svgs/CloseIcon'
 function PropertyDetails({
 	propertySiteId,
   propertyAddress,
-  role
+  role,
+  reloadPage,
+  reloaded
 }) {
-
-  console.log('in here')
 
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
   const [multiplePropertiesAlert, setMultiplePropertiesAlert] = useState(true)
       
- 
   useEffect(() => {
     setLoading(true)
     if (propertySiteId !== '') {
@@ -36,8 +35,9 @@ function PropertyDetails({
           console.error(error)
           setLoading(false)
         })
-    }
-  }, [propertySiteId]);
+      }
+    // reloaded()
+  }, [propertySiteId, reloadPage]);
 
 
   const propertyDetailsMapping = (data) => {
@@ -119,6 +119,7 @@ function PropertyDetails({
                 propertyAddress={propertyAddress}
                 role={role}
                 siteId={propertySiteId}
+                reloadPage={reloadPage}
               />
             ))
           }
