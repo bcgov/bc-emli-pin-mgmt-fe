@@ -10,7 +10,8 @@ import CloseIcon from '../../../assets/svgs/CloseIcon'
 
 function PropertyDetails({
 	propertySiteId,
-  propertyAddress
+  propertyAddress,
+  role
 }) {
 
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
@@ -114,6 +115,7 @@ function PropertyDetails({
                 numberOfOwner={item.ownerList.length}
                 ownerList={item.ownerList}
                 propertyAddress={propertyAddress}
+                role={role}
               />
             ))
           }

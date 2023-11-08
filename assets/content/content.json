@@ -111,7 +111,8 @@
         "pageTitle": "Access Request",
         "searchInfoText": "Select columns to search",
         "searchPlaceholder": "Search",
-        "noResultText": "No record found"
+        "noResultText": "No record found",
+        "selectPlaceholder": "Select an option"
     },
     "accessRequestBanner" : {
       "title": "Access Requests",

@@ -2,7 +2,10 @@ import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import PropTypes from 'prop-types'
 
-export default function ManagePINDropdown({ showPINOption, handleSelection }) {
+export default function ManagePINDropdown({
+    handleSelection,
+    role
+}) {
     function getSelection(value) {
         handleSelection(value)
     }
@@ -21,7 +24,7 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
         // },
     ]
 
-    if (showPINOption) {
+    if (role === "SuperAdmin") {
         options.push({
             label: Content.managePINDropdown.viewOption,
             value: Content.managePINDropdown.valueOptions.view,
@@ -41,5 +44,6 @@ export default function ManagePINDropdown({ showPINOption, handleSelection }) {
 }
 
 ManagePINDropdown.protoTypes = {
-    showPINOption: PropTypes.bool,
+    handleSelection: PropTypes.func,
+    role: PropTypes.string,
 }

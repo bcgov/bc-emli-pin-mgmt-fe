@@ -21,7 +21,7 @@ describe('<ManagePINDropdown />', () => {
 
     it('should render properly without View PIN option', async () => {
         const { getByTestId } = render(
-            <PrimaryTemplate showPINOption={false} />
+            <PrimaryTemplate />
         )
         userEvent.click(getByTestId('dropdown-btn'))
         const viewPINOption = screen.queryByText('View PIN')

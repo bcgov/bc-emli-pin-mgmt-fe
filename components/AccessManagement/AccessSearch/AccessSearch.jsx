@@ -36,7 +36,12 @@ export default function AccessSearch() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[tabSelected])
 
-  const getSelection = (value) => {
+  useEffect(() => {
+    clearSearch()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[searchField])
+
+  const getSelection  = (value) => {
     const option = options.find((element) => element.value === value);
     setValueSelected(option)
     setSearchField(value)
@@ -67,7 +72,7 @@ const doSearch = (e) => {
       <div className={styles.dropdownSection}>
         <Dropdown
             variant='xlarge'
-            label={Content.managePINDropdown.label}
+            label={Content.accessRequest.selectPlaceholder}
             options={fieldOptions}
             handleSelection={getSelection}
             selectedValue={valueSelected}
