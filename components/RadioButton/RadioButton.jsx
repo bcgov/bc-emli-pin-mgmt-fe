@@ -11,7 +11,7 @@ export default function RadioButton({
 	setSelectedValue,
 	selectedValue,
 	onChangeHandler,
-  value,
+  	value,
 	size,
 	...props
 }) {
