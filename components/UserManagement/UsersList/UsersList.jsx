@@ -4,7 +4,7 @@ import {
 } from 'react'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import Table from '../../Table'
-import wrap from 'word-wrap'
+import { getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import styles from './UsersList.module.css'
 
@@ -18,10 +18,12 @@ export default function UsersList() {
       show: false,
     },
     {
-      Header: 'Role Type',
+      Header: 'Role type',
       accessor: 'role',
       width: 10,
-
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
     },
     {
       Header: 'Username',
@@ -68,6 +70,15 @@ export default function UsersList() {
   const columns = useMemo(() => columnsList, [])
   const initialState = { hiddenColumns: ['userId'] };
 
+  for (const user of usersList) {
+    if (user.role === "Admin") {
+      user.role = "Administrator"
+    } else if (user.role === "SuperAdmin") {
+      user.role = "System administrator"
+    } else if (user.role === "Standard") {
+      user.role = "Client support"
+    }
+  }
 
     return (
       <div className="list-table">

@@ -11,7 +11,9 @@ import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import BackArrow from '../../../assets/svgs/BackArrow'
 
-export default function PropertyLayout() {
+export default function PropertyLayout(
+    role
+) {
     const [searchString, setSearchString] = useState()
     const [showPropertySearchHeader, setShowPropertySearchHeader] = useState(true)
     const [propertySiteId, setPropertySiteId] = useState('')
@@ -117,6 +119,7 @@ export default function PropertyLayout() {
                             <PropertyDetails 
                                 propertySiteId={propertySiteId} 
                                 propertyAddress={propertyAddress}
+                                role={role}
                             />
                         }
                     </div>

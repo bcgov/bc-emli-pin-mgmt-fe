@@ -223,13 +223,26 @@ export default function EditModal(props) {
       <div className={`${styles.formInputSection}`}>
         <div className={`${styles.formInput}`}>
           <Textbox
+            textBoxId='identityType'
+            textBoxLabel={content.userEditForm.formInputs.identityType}
+            textBoxAriaLabel={content.userEditForm.formInputs.identityType}
+            textBoxPlaceholder={rowSelected[0]?.identityType}
+            inputType="text"
+            isRequired={true}
+            isDisabled={true}
+          />
+        </div>
+      </div>
+      <div className={`${styles.formInputSection}`}>
+        <div className={`${styles.formInput}`}>
+          <Textbox
             textBoxId='givenName'
             textBoxLabel={content.userEditForm.formInputs.firstName}
             textBoxAriaLabel={content.userEditForm.formInputs.firstName}
             value={formData.givenName}
             isRequired={true}
             inputType="text"
-            disabled={isBceid}
+            isDisabled={isBceid}
             onHandleChange={onFirstNameChange}
             hasError={!errorFlags.givenName}
           />
@@ -242,7 +255,7 @@ export default function EditModal(props) {
             value={formData.lastName}
             isRequired={true}
             inputType="text"
-            disabled={isBceid}
+            isDisabled={isBceid}
             onHandleChange={onLastNameChange}
             hasError={!errorFlags.lastName}
           />
@@ -255,7 +268,7 @@ export default function EditModal(props) {
             value={formData.userName}
             isRequired={true}
             inputType="text"
-            disabled={isBceid}
+            isDisabled={isBceid}
             onHandleChange={onUserNameChange}
             hasError={!errorFlags.userName}
           />
@@ -272,7 +285,7 @@ export default function EditModal(props) {
             hasError={!errorFlags.organization}
             value={formData.organization}
             onHandleChange={onOrgInputChange}
-            disabled={isBceid}
+            isDisabled={isBceid}
           />
         </div>
         <div className={`${styles.formInput}`}>
@@ -285,24 +298,11 @@ export default function EditModal(props) {
             inputType="text"
             onHandleChange={onEmailChange}
             hasError={!errorFlags.email}
-            disabled={isBceid}
+            isDisabled={isBceid}
           />
         </div>
         <div className={`${styles.formInput}`}>
           {roleTypeInput()}
-        </div>
-      </div>
-      <div className={`${styles.formInputSection}`}>
-        <div className={`${styles.formInput}`}>
-          <Textbox
-            textBoxId='identityType'
-            textBoxLabel={content.userEditForm.formInputs.identityType}
-            textBoxAriaLabel={content.userEditForm.formInputs.identityType}
-            textBoxPlaceholder={rowSelected[0]?.identityType}
-            inputType="text"
-            isRequired={true}
-            isDisabled={true}
-          />
         </div>
       </div>
     </div>
