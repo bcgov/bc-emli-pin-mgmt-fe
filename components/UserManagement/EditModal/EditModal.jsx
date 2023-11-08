@@ -140,7 +140,6 @@ export default function EditModal(props) {
     function submitRequests() {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
-
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
