@@ -141,6 +141,14 @@ export default function EditModal(props) {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
 
+        if (formData.role === "Administrator") {
+          formData.role = "Admin"
+        } else if (formData.role === "System administrator") {
+          formData.role = "SuperAdmin"
+        } else if (formData.role === "Client support") {
+          formData.role = "Standard"
+        }
+
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
