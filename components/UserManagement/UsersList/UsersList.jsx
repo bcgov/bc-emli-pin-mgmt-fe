@@ -70,16 +70,6 @@ export default function UsersList() {
   const columns = useMemo(() => columnsList, [])
   const initialState = { hiddenColumns: ['userId'] };
 
-  for (const user of usersList) {
-    if (user.role === "Admin") {
-      user.role = "Administrator"
-    } else if (user.role === "SuperAdmin") {
-      user.role = "System administrator"
-    } else if (user.role === "Standard") {
-      user.role = "Client support"
-    }
-  }
-
     return (
       <div className="list-table">
         {
