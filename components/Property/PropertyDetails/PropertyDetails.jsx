@@ -16,9 +16,6 @@ function PropertyDetails({
   reloadPage,
   reloaded
 }) {
-
-  console.log(typeof reloaded)
-
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
@@ -38,10 +35,8 @@ function PropertyDetails({
           console.error(error)
           setLoading(false)
         })
-      }
-    if(typeof reloaded == "function") {
-      reloaded()
     }
+      reloaded()
   }, [propertySiteId, reloadPage]);
 
 
