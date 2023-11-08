@@ -39,7 +39,7 @@ export default function RadioButton({
 						className={`${styles.radiobutton} ${
 							hasError ? styles.alert : ''
 						}`}
-            checked={value===selectedValue}
+            			checked={value===selectedValue || radioButtonLabel===selectedValue}
 						onChange={(e) => applySelectedRadio(e.target.value)}
 						disabled={isDisabled}
 						{...props}

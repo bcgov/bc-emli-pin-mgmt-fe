@@ -194,7 +194,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType1'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.Standard}
-            value={content.portalUserRole.Standard}
+            value={"Standard"}
             setSelectedValue={onRoleInputChange}
             selectedValue={formData.role}
             hasError={!errorFlags.role}
@@ -204,7 +204,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType2'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.Admin}
-            value={content.portalUserRole.Admin}
+            value={"Admin"}
             setSelectedValue={onRoleInputChange}
             hasError={!errorFlags.role}
             selectedValue={formData.role}
@@ -214,7 +214,7 @@ export default function EditModal(props) {
             radioButtonId='permissionType3'
             radioButtonName='permissionType'
             radioButtonLabel={content.portalUserRole.SuperAdmin}
-            value={content.portalUserRole.SuperAdmin}
+            value={"SuperAdmin"}
             setSelectedValue={onRoleInputChange}
             hasError={!errorFlags.role}
             selectedValue={formData.role}
