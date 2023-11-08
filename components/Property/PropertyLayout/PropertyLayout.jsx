@@ -21,9 +21,11 @@ export default function PropertyLayout(
     const [searchResultLength, setSearchResultLength] = useState(0)
 
     useEffect(() => {
+        console.log('useeffect')
         let storedSearchString = sessionStorage.getItem("searchString")
         let storedAutocompleteSearchString = sessionStorage.getItem("autocompleteSearchString")
-
+        let storedSiteId = sessionStorage.getItem("siteId")
+        let storedPropertyAddress = sessionStorage.getItem("propertyAddress")
 
         if (storedAutocompleteSearchString) {
             setShowPropertySearchHeader(false)
@@ -34,6 +36,11 @@ export default function PropertyLayout(
             setSearchString(storedSearchString)
             document.getElementById('searchInput').value = storedSearchString
         }
+        
+        if (storedSiteId && storedPropertyAddress) {
+            setPropertySiteId(storedSiteId)
+            setPropertyAddress(storedPropertyAddress)
+        }
     }, [])
 
     function getSearchString (newSearchString) {
@@ -42,11 +49,13 @@ export default function PropertyLayout(
     }
 
     function getSiteId (siteId, propertyAddress) {
+        console.log('infunctions')
         setPropertySiteId(siteId)
         setPropertyAddress(propertyAddress)
     }
 
     function getSelectedValues (siteId, propertyAddress){
+        console.log('infunctions')
         setPropertySiteId(siteId)
         setPropertyAddress(propertyAddress)
     }
@@ -70,6 +79,7 @@ export default function PropertyLayout(
       )
 
     function getSearchResultsLength (searchResultLength) {
+        console.log('infunctions')
         setSearchResultLength(searchResultLength)
         setPropertySiteId('')
     }
@@ -81,6 +91,8 @@ export default function PropertyLayout(
         sessionStorage.setItem("autocompleteSearchString", '')
 		Router.push('/home')
     }
+
+    console.log(propertyAddress, propertySiteId)
     
     return (
         <>
@@ -107,7 +119,7 @@ export default function PropertyLayout(
                         <SearchResults
                             searchAddress={searchString}
                             handleClick={getSelectedValues}
-                            handleCallback={getSearchResultsLength}
+                            // handleCallback={getSearchResultsLength}
                         />
                     </div>
 

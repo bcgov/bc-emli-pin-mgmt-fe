@@ -24,7 +24,7 @@ export default function ManagePINDropdown({
         // },
     ]
 
-    if (role === "SuperAdmin") {
+    if (role.role === "SuperAdmin") {
         options.push({
             label: Content.managePINDropdown.viewOption,
             value: Content.managePINDropdown.valueOptions.view,

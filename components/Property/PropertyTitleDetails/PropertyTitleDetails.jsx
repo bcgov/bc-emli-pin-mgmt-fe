@@ -14,7 +14,8 @@ function PropertyTitleDetails({
     ownerList,
     numberOfTitles,
     propertyAddress,
-    role
+    role,
+    siteId
 }) {
     return (
         <div>
@@ -69,6 +70,7 @@ function PropertyTitleDetails({
                             livePIN={owner.livePIN}
                             propertyAddress={propertyAddress}
                             role={role}
+                            siteId={siteId}
                         />
                     ))}
                 </div>

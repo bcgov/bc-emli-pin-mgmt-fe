@@ -18,7 +18,8 @@ function PropertyOwner({
     livePIN, 
     expiredByUsername,
     propertyAddress,
-    role
+    role,
+    siteId
 }) {
     const [openPINHistoryModal, setOpenPINHistoryModal] = useState(false)
     const [openPINHistoryFailureModal, setOpenPINHistoryFailureModal] = useState(false)
@@ -145,6 +146,7 @@ function PropertyOwner({
                     setIsOpen={setOpenRegeneratePINModal}
                     livePinId={livePinId}
                     propertyAddress={propertyAddress}
+                    siteId={siteId}
                 />
             </div>
         </div>

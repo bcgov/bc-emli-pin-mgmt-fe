@@ -14,6 +14,8 @@ function PropertyDetails({
   role
 }) {
 
+  console.log('in here')
+
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
@@ -116,6 +118,7 @@ function PropertyDetails({
                 ownerList={item.ownerList}
                 propertyAddress={propertyAddress}
                 role={role}
+                siteId={propertySiteId}
               />
             ))
           }
