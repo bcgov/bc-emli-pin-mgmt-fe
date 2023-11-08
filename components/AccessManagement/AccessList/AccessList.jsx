@@ -6,7 +6,7 @@ import styles from './AccessList.module.css';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import Table from '../../Table';
 import wrap from 'word-wrap'
-import { getAccessStatusLabel } from '../../../utils/helper'
+import { getAccessStatusLabel, getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import { getLocalTime } from '../../../utils/helper';
 
@@ -70,6 +70,9 @@ export default function AccessList() {
       Header: 'Role type',
       accessor: 'requestedRole',
       width: 20,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
     },
     {
       Header: 'Created at',
@@ -98,16 +101,6 @@ export default function AccessList() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsList, [])
   const initialState = { hiddenColumns: ['requestId'] };
-
-  for (const request of requestList) {
-    if (request.requestedRole === "Admin") {
-      request.requestedRole = "Administrator"
-    } else if (request.requestedRole === "SuperAdmin") {
-      request.requestedRole = "System administrator"
-    } else if (request.requestedRole === "Standard") {
-      request.requestedRole = "Client support"
-    }
-  }
 
     return (
       <div className={styles.requestTable}>
