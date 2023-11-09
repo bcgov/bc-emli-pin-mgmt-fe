@@ -3,16 +3,18 @@ import ManagePINDropdown from '.'
 export default {
     title: 'ManagePINDropdown',
     component: ManagePINDropdown,
-    args: {},
+    args: {
+        role: {
+            role: 'Admin',
+        }
+    },
 }
 
 const Template = (args) => <ManagePINDropdown {...args} />
 
-export const PrimaryTemplate = Template.bind({
-    role: "Admin"
-})
+export const PrimaryTemplate = Template.bind({})
 
 export const SuperAdminTemplate = Template.bind({})
 SuperAdminTemplate.args = {
-    role: "SuperAdmin"
+    role: { role: 'SuperAdmin' },
 }
