@@ -35,7 +35,7 @@
     "home": {
         "searchHeader": "Search for a property",
         "searchContent": "Enter a residential street address to retrieve property details",
-        "searchPlaceHolder": "Enter residential street address",
+        "searchPlaceHolder": "Enter a residential street address",
         "search": "Search"
     },
     "userManagement": {
@@ -116,7 +116,7 @@
     },
     "accessRequestBanner" : {
       "title": "Access Requests",
-      "description": "Grant or deny access requests"
+      "description": "Grant or reject access requests"
     },
     "accessRequestDetails": {
       "pendingRequest": "Pending Requests",
