@@ -6,20 +6,21 @@ import PropertyNoResultIcon from '../../../assets/svgs/PropertyNoResultIcon'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 import InfoIcon from '../../../assets/svgs/InfoIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
+import PropTypes from 'prop-types'
 
 
 function PropertyDetails({
 	propertySiteId,
   propertyAddress,
-  role
+  role,
+  reloadPage,
+  reloaded
 }) {
-
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
   const displayDetails = propertySiteId !== '' ? true : false
   const [multiplePropertiesAlert, setMultiplePropertiesAlert] = useState(true)
       
- 
   useEffect(() => {
     setLoading(true)
     if (propertySiteId !== '') {
@@ -35,7 +36,8 @@ function PropertyDetails({
           setLoading(false)
         })
     }
-  }, [propertySiteId]);
+      reloaded()
+  }, [propertySiteId, reloadPage]);
 
 
   const propertyDetailsMapping = (data) => {
@@ -116,6 +118,8 @@ function PropertyDetails({
                 ownerList={item.ownerList}
                 propertyAddress={propertyAddress}
                 role={role}
+                siteId={propertySiteId}
+                reloadPage={reloadPage}
               />
             ))
           }
@@ -139,3 +143,11 @@ function PropertyDetails({
 }
 
 export default PropertyDetails;
+
+PropertyDetails.protoTypes = {
+  propertySiteId: PropTypes.string,
+  propertyAddress: PropTypes.string,
+  role: PropTypes.object,
+  reloadPage: PropTypes.func,
+  reloaded: PropTypes.func,
+}

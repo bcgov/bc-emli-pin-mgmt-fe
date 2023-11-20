@@ -19,11 +19,11 @@ export default function PropertyLayout(
     const [propertySiteId, setPropertySiteId] = useState('')
     const [propertyAddress, setPropertyAddress] = useState('')
     const [searchResultLength, setSearchResultLength] = useState(0)
+    const [reload, setReload] = useState(false)
 
     useEffect(() => {
         let storedSearchString = sessionStorage.getItem("searchString")
         let storedAutocompleteSearchString = sessionStorage.getItem("autocompleteSearchString")
-
 
         if (storedAutocompleteSearchString) {
             setShowPropertySearchHeader(false)
@@ -81,6 +81,9 @@ export default function PropertyLayout(
         sessionStorage.setItem("autocompleteSearchString", '')
 		Router.push('/home')
     }
+
+    const reloadPage = () => setReload(true)
+    const reloaded = () => setReload(false)
     
     return (
         <>
@@ -120,6 +123,8 @@ export default function PropertyLayout(
                                 propertySiteId={propertySiteId} 
                                 propertyAddress={propertyAddress}
                                 role={role}
+                                reloadPage={reloadPage}
+                                reloaded={() => reloaded()}
                             />
                         }
                     </div>
