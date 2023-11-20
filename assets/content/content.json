@@ -14,7 +14,7 @@
     "navigation": {
         "home": "Home",
         "usermanagement": "User Management",
-        "accessrequest": "Access Request",
+        "accessrequest": "Access Requests",
         "requestaccessform":"Request Access to Admin Portal"
     },
     "footer": {
@@ -108,7 +108,7 @@
 
     },
     "accessRequest": {
-        "pageTitle": "Access Request",
+        "pageTitle": "Access Requests",
         "searchInfoText": "Select columns to search",
         "searchPlaceholder": "Search",
         "noResultText": "No record found",
@@ -120,7 +120,7 @@
     },
     "accessRequestDetails": {
       "pendingRequest": "Pending Requests",
-      "completedRequest": "Completed Request"
+      "completedRequest": "Completed Requests"
     },
     "accessRequestForm": {
       "grantRequest": "Grant Request",
