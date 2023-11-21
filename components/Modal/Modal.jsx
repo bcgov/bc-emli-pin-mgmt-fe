@@ -34,7 +34,6 @@ export default function Modal({
                                     onClick={() => setIsOpen(false)}
                                     className={styles.close}
                                     tabIndex="0"
-                                    role="button"
                                 >
                                     <CloseIcon />
                                 </button>
