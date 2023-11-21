@@ -1,5 +1,4 @@
-
-import  PropertyOwner  from './PropertyOwner'
+import PropertyOwner from './PropertyOwner'
 
 export default {
 	title: 'PropertyOwner',
@@ -11,7 +10,6 @@ export default {
     },
 }
 
-
-const Template = (args) => <PropertyOwner {...args}/>
+const Template = (args) => <PropertyOwner {...args} />
 
 export const PrimaryTemplate = Template.bind({})

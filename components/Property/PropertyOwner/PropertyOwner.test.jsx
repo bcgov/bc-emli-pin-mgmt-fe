@@ -8,7 +8,6 @@ const { PrimaryTemplate } = composeStories(stories)
 describe('<PropertyOwner />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)
-
         expect(container.firstChild).toBeTruthy()
     })
 

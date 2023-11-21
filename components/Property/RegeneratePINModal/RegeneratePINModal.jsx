@@ -9,7 +9,10 @@ export default function RegeneratePINModal({
     isOpen,
     setIsOpen,
     livePinId,
-    propertyAddress
+    propertyAddress,
+    siteId,
+    reloadPage,
+    keepOpen
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
@@ -67,6 +70,7 @@ export default function RegeneratePINModal({
                 setOpenRegenerateSuccessModal(true)
                 setPhoneValue('')
                 setEmailValue('')
+                setTimeout(reloadPage, 2000)
             })
             .catch((error) => {
                 setIsOpen(false)
