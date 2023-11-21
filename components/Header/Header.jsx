@@ -37,12 +37,12 @@ function Header  ({
 								</div>
 							</div>
 						}
-						<div className={helpSectionClass} onClick={onClickHandle}>
+						<button className={helpSectionClass} onClick={onClickHandle}>
 							<div className={`${Styles.iconWrap}`}>
 								<QuestionIcon />
 							</div>
 							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
-						</div>
+						</button>
 						{
 							userName &&
 							<div className={`${Styles.helpSection}`}>

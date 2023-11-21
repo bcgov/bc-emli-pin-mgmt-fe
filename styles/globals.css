@@ -15,6 +15,10 @@
     @apply focus-visible:ring-black;
   }
 
+  *:focus-visible {
+    box-shadow: none;
+  }
+
   html{
     font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
   }
@@ -137,4 +141,9 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-offset: 5px;
 }

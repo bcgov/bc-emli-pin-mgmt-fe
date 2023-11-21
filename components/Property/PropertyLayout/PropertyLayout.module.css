@@ -107,8 +107,9 @@ div:has(div#singleProperty) {
 }
 
 .backButton span {
-    padding-left: 82px;
+    margin-left: 52px;
     margin-top: -2px;
+    padding-left: 30px;
 }
 
 .backButton svg {
