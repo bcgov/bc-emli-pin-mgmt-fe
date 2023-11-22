@@ -24,36 +24,29 @@ export default function RadioButton({
 
 	return (
 		<section className={rootClass}>
-			<div className={styles.container}>
+			<div className={`${styles.container}`}>
+				<input 
+					{...testAttr(radioButtonId)}
+					type="radio"
+					id={radioButtonId} 
+					name={radioButtonName}
+					value={value}
+					className={`${
+						hasError ? styles.alert : ''
+					}`} 
+					checked={value===selectedValue}
+					onChange={(e) => applySelectedRadio(e.target.value)} 
+					disabled={isDisabled}
+					{...props} >
+				</input>
 				<label
 					htmlFor={radioButtonId}
-					className={`${styles.label}`}
+					className={`${styles.label} ${styles.text} ${
+						hasError ? `error-label` : isDisabled ? styles.textDisabled : ''
+					}`}
 					disabled={isDisabled}
 				>
-					<input
-						{...testAttr(radioButtonId)}
-						type="radio"
-						id={radioButtonId}
-						name={radioButtonName}
-						value={value}
-						className={`${styles.radiobutton} ${
-							hasError ? styles.alert : ''
-						}`}
-            			checked={value===selectedValue}
-						onChange={(e) => applySelectedRadio(e.target.value)}
-						disabled={isDisabled}
-						{...props}
-					/>
-          <div className={`${styles.customRadio} ${
-							hasError ? styles.alert : ''
-						}`}></div>
-					<p
-						className={`${styles.text} ${
-							hasError ? `error-label` : isDisabled ? styles.textDisabled : ''
-						}`}
-					>
-						{radioButtonLabel}
-					</p>
+					{radioButtonLabel}
 				</label>
 			</div>
 		</section>
