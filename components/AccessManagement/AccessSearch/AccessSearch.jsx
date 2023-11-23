@@ -94,6 +94,7 @@ const doSearch = (e) => {
                 <button
                     className={styles.searchButton}
                     onClick={(e) => doSearch(e)}
+                    aria-label={Content.propertySearch.searchIcon}
                 >
                   <SearchIcon />
                 </button>

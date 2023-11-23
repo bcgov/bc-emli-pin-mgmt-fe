@@ -6,7 +6,11 @@ const { PrimaryTemplate } = composeStories(stories)
 
 describe('<PropertyDetails />', () => {
     it('should render properly', () => {
-        const { container } = render(<PrimaryTemplate />)
+        function testFunction() {
+            return true
+        }
+
+        const { container } = render(<PrimaryTemplate reloaded={testFunction}/>)
 
         expect(container.firstChild).toBeTruthy()
     })
