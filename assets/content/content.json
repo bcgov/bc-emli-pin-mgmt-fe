@@ -217,10 +217,12 @@
         }
     },
     "propertyLayout": {
-        "backButton": "Back"
+        "backButton": "Back",
+        "closeButton": "Close"
     },
     "propertySearch": {
-        "searchBoxError": "Begin typing address to get started. Partial addresses accepted"
+        "searchBoxError": "Begin typing address to get started. Partial addresses accepted",
+        "searchIcon": "Search Icon"
     },
     "expirePINConfirmationModal": {
         "title": "Expire PIN",

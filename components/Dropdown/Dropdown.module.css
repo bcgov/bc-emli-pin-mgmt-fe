@@ -128,3 +128,7 @@
 .expandedChevron svg{
     margin: 0;
 }
+
+.actionDropdownButton span {
+    text-align: left;
+}

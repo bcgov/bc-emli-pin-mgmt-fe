@@ -19,7 +19,7 @@ export default function PageBanner(props) {
                 <h1 className={`${styles.title}`}>{title}</h1>
               </div>
               <div className={`${styles.descriptionSection}`}>
-                <h6 className={`${styles.description}`}>{description}</h6>
+                <h2 className={`${styles.description}`}>{description}</h2>
               </div>
             </div>
           </div>
