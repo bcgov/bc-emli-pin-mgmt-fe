@@ -100,7 +100,11 @@ function PropertyDetails({
               <span className={`${Styles.alertText}`}>
                 {Content.propertyDetails.multipleTitlesAlertText}
               </span>
-              <button className={`${Styles.closeIcon}`} onClick={() => setMultiplePropertiesAlert(false)}>
+              <button 
+                className={`${Styles.closeIcon}`} 
+                onClick={() => setMultiplePropertiesAlert(false)} 
+                name={Content.propertyLayout.closeButton}
+              >
                 <CloseIcon />
               </button>
             </div>

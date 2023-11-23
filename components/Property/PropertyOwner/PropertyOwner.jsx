@@ -82,6 +82,7 @@ function PropertyOwner({
                         livePIN={livePIN}
                         handleSelection={handleMangePINSelection}
                         role={role}
+                        ariaLabel={Content.managePINDropdown.label}
                     />
                 </div>
                 <div className={`${Styles.buttonItem}`}>
