@@ -1,6 +1,5 @@
 import axios from 'axios'
 import Endpoints from '../endpoints/index'
-import { data } from 'autoprefixer'
 
 let config = {
     withCredentials: true,

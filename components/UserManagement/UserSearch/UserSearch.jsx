@@ -83,6 +83,7 @@ const doSearch = (e) => {
             placeholder={Content.userManagement.searchPlaceholder}
             onChange={(e) => handleSearchString(e.target.value)}
             onKeyDown={doSearch}
+            autoComplete="off"
             />
 
           {searchString.length < 1 && (

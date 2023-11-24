@@ -39,7 +39,7 @@
   opacity: 1;
 }
 
-.tabContainer button:focus {
+.tabContainer button:focus-visible {
   outline: -webkit-focus-ring-color auto 1px;
   outline-offset: 5px;
 }
