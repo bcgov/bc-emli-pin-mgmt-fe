@@ -226,3 +226,12 @@ menu, ol, ul {
 .justify-between {
   justify-content: space-between;
 }
+
+table {
+  border-spacing: 0px;
+}
+
+input:focus {
+  border: 2px #234075 solid;
+  outline: none;
+}
