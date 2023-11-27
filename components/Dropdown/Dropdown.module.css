@@ -32,6 +32,8 @@
     display: flex;
     justify-content: center;
     border-radius: 0.3125rem;
+    justify-content: space-evenly;
+    padding: 0 10px;
 }
 /* .actionDropdownButton.primary.medium:hover {
     background: #ecf6ff;
@@ -118,13 +120,19 @@
 .collapsedChevron {
     transform: rotate(180deg);
     margin-left: 6px;
+    height: 50%;
 }
 
 .expandedChevron {
     margin-left: 6px;
+    height: 50%;
 }
 
 .collapsedChevron svg,
 .expandedChevron svg{
     margin: 0;
+}
+
+.actionDropdownButton span {
+    text-align: left;
 }

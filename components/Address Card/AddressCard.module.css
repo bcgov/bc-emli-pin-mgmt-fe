@@ -15,8 +15,19 @@
     text-align: left;
 }
 
+@media (max-width: 1260px) {
+    .addressCard  {
+        width: 263px;
+    }
+}
+
+@media (min-width: 1260px) {
+    .addressCard  {
+        width: 19.75rem;
+    }
+}
+
 .addressCard {
-    width: 19.75rem;
     padding-top: 1.6rem;
     padding-bottom: 1.5rem;
     border-bottom: #c7c7c7 1.5px solid;

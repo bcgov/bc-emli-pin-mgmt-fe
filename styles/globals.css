@@ -2,17 +2,24 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:wght@400;700&display=swap&family=Patua+One:wght@100;400;700&display=swap"); */
 @import '@bcgov/bc-sans/css/BCSans.css';
 
-/* tailwind default */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   /* consistent focus styles on all components */
-  * {
-    @apply focus:outline-none;
-    @apply focus-visible:ring-1;
-    @apply focus-visible:ring-black;
+  *:focus, *:focus-visible {
+    outline: none;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  *:focus-visible {
+    box-shadow: none;
   }
 
   html{
@@ -36,11 +43,6 @@
     font-weight: 400;
     line-height: 22px;
     border-radius: 4px;
-  }
-
-  input:focus{
-    border-color: #234075;
-    outline: none;
   }
 }
 
@@ -137,4 +139,99 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  line-height: 1.5;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+  display: block;
+}
+
+input {
+  border: 1px solid #c7c7c7;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  border-radius: 4px;
+}
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+  margin: 0;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+menu, ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-offset: 5px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+input:focus {
+  border: 2px #234075 solid;
+  outline: none;
 }

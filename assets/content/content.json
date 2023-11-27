@@ -51,12 +51,12 @@
       "description": "Edit or deactivate users here"
     },
     "userManagementTabs": {
-      "activeUsers": "Active users",
-      "deactivatedUsers": "Deactivated users"
+      "activeUsers": "Active Users",
+      "deactivatedUsers": "Deactivated Users"
     },
     "userUpdateForm": {
-      "editUser": "Edit user",
-      "deactivateUser": "Deactivate user"
+      "editUser": "Edit User",
+      "deactivateUser": "Deactivate User"
     },
     "usersSearchOptions": {
       "role":"Role type",
@@ -94,8 +94,8 @@
     "userDeactivateModal": {
       "title":"Deactivate user?",
       "titleMultiple": "Deactivate multiple users?",
-      "bodyText":"Please provide the reason for deactivate this user",
-      "bodyMultipleText": "Please provide the reason for deactivate of multiple users",
+      "bodyText":"Please provide the reason for deactivating this user",
+      "bodyMultipleText": "Provide a reason for deactivating multiple users. The reason must apply to all selected accounts",
       "deactivateTextAreaTitle": "Reason for deactivation",
       "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
       "btnText": "Deactivate user",
@@ -217,10 +217,12 @@
         }
     },
     "propertyLayout": {
-        "backButton": "Back"
+        "backButton": "Back",
+        "closeButton": "Close"
     },
     "propertySearch": {
-        "searchBoxError": "Begin typing address to get started. Partial addresses accepted"
+        "searchBoxError": "Begin typing address to get started. Partial addresses accepted",
+        "searchIcon": "Search Icon"
     },
     "expirePINConfirmationModal": {
         "title": "Expire PIN",
