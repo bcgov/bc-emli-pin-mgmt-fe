@@ -74,6 +74,9 @@
 }
 
 @media (max-width: 1260px) {
+    .propertyResultWrap {
+        max-width: 1077px;
+    }
     .searchResultWrap{
         margin-right: 23px;
     }
