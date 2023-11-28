@@ -29,13 +29,14 @@ export default function Modal({
                             <div className={styles.header}>
                                 {modalHeader}
 
-                                <span
-                                    aria-label="close-icon"
+                                <button
+                                    aria-label="close-button"
                                     onClick={() => setIsOpen(false)}
                                     className={styles.close}
+                                    tabIndex="0"
                                 >
                                     <CloseIcon />
-                                </span>
+                                </button>
                             </div>
                         )}
 

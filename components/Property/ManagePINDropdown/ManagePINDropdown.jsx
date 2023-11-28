@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 export default function ManagePINDropdown({
     handleSelection,
-    role
+    role,
+    ariaLabel
 }) {
     function getSelection(value) {
         handleSelection(value)
@@ -38,6 +39,7 @@ export default function ManagePINDropdown({
                 label={Content.managePINDropdown.label}
                 options={options}
                 handleSelection={getSelection}
+                ariaLabel={ariaLabel}
             ></Dropdown>
         </div>
     )

@@ -87,6 +87,7 @@ const doSearch = (e) => {
             placeholder={Content.accessRequest.searchPlaceholder}
             onChange={(e) => handleSearchString(e.target.value)}
             onKeyDown={(e) => doSearch(e)}
+            autoComplete="off"
             />
 
           {searchString.length === 0 && (
@@ -94,6 +95,7 @@ const doSearch = (e) => {
                 <button
                     className={styles.searchButton}
                     onClick={(e) => doSearch(e)}
+                    aria-label={Content.propertySearch.searchIcon}
                 >
                   <SearchIcon />
                 </button>

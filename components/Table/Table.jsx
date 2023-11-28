@@ -29,7 +29,7 @@ export default function Table(props) {
 
       return (
         <>
-          <input type="checkbox" ref={resolvedRef} {...rest} />
+          <input type="checkbox" ref={resolvedRef} {...rest} tabIndex={0} />
         </>
       )
     }
