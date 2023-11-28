@@ -130,7 +130,7 @@
 
 .collapsedChevron svg,
 .expandedChevron svg{
-    margin: 0;
+    margin-right: 0 !important;
 }
 
 .actionDropdownButton span {

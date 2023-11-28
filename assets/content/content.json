@@ -321,7 +321,7 @@
         "phone": "Phone",
         "phonePlaceHolder": "E.g. (604)332-8930",
         "email": "Email",
-        "emailPlaceHolder": "E.g. jcambie@govv.bc.ca",
+        "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
         "cancelButton": "Cancel",
         "successModalTitle": "PIN has been regenerated",
         "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.",
