@@ -21,13 +21,11 @@ export default function NavLink ({
 
 	if (showLink){
 		return (
-			<ul>
-				<li className={className} key={keyInfo}>
-					<Link href={props.href}>
-						{children}
-					</Link>
-				</li>
-			</ul>
+			<li className={className} key={keyInfo}>
+				<Link href={props.href}>
+					{children}
+				</Link>
+			</li>
 		);
 	}
 }

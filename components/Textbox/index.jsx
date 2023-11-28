@@ -47,14 +47,13 @@ function TextBox({
 					aria-required={isRequired}
 					onChange={(e) => onHandleChange(e.target.value)}
 					className={`${Styles.textInput} ${moreClasses}
-          				${hasError? Styles.error
+          ${hasError? Styles.error
 							: isDisabled
 								? `${rootClass}__disabled-div`
 								: ''
 						}`}
 					maxLength={textBoxLimit}
 					aria-label={textBoxAriaLabel}
-					autoComplete="off"
 					{...props}
 				/>
 				<div className={`${Styles.footerText}`}>{textBoxFooter}</div>

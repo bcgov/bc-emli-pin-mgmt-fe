@@ -74,9 +74,6 @@
 }
 
 @media (max-width: 1260px) {
-    .propertyResultWrap {
-        max-width: 1077px;
-    }
     .searchResultWrap{
         margin-right: 23px;
     }
@@ -110,9 +107,8 @@ div:has(div#singleProperty) {
 }
 
 .backButton span {
-    margin-left: 52px;
+    padding-left: 82px;
     margin-top: -2px;
-    padding-left: 30px;
 }
 
 .backButton svg {

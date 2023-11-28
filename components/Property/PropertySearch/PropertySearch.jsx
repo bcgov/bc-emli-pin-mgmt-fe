@@ -12,17 +12,9 @@ export default function PropertySearch({ getSearchString, getSiteId })
     const [searchString, setSearchString] = useState('')
     const [showSearchError, setShowSearchError] = useState(false)
 	const [showResults, setShowResults] = useState(true)
-
-	const updateAutocompleteDisplay = (display) => {
-		if (typeof document !== 'undefined') {
-			const autocompleteResults = document.getElementById('autocompleteResults');
-			if(autocompleteResults) autocompleteResults.style.display = display;
-		}
-	}
-
+	
     // Validate 3 chararater as minimum limit
     const handleSearchString = (searchText) => {
-		updateAutocompleteDisplay('block')
         searchText.length < 3
             ? setShowSearchError(true)
             : setShowSearchError(false)
@@ -31,7 +23,6 @@ export default function PropertySearch({ getSearchString, getSiteId })
 
     // Show the error msg as long as click on the input field
     const handleOnFocus = (searchText) => {
-		updateAutocompleteDisplay('block')
         searchText.length < 3
             ? setShowSearchError(true)
             : setShowSearchError(false)
@@ -68,7 +59,6 @@ export default function PropertySearch({ getSearchString, getSiteId })
 							placeholder={Content.home.searchPlaceHolder}
 							onChange={(e) => handleSearchString(e.target.value)}
 							onFocus={handleOnFocus} 
-							onBlur={() => updateAutocompleteDisplay('none')}
 							autoComplete="off"/>
 
 						{searchString.length < 3 && (

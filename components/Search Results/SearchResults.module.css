@@ -10,10 +10,6 @@
     display: none;
 }
 
-.searchResultList button {
-    outline-offset: -2px;
-}
-
 .searchResultTitle {
     color: #000;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -44,9 +40,6 @@
 @media (min-width: 1260px) {
     .searchResultTitle, 
     .searchResultList,
-    .searchResultList button,
-    .searchResultList button,
-    .addressCard,
     .scrollMsg { 
         width: 19.6875rem;
     }
@@ -55,8 +48,6 @@
 @media (max-width: 1260px) {
     .searchResultTitle,
     .searchResultList, 
-    .searchResultList button,
-    .searchResultList .addressCard,
     .scrollMsg {
         width: 263px;
     }

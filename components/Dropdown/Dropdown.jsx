@@ -53,7 +53,7 @@ export default function Dropdown({
                 ref={dropdownButtonRef}
                 onClick={handleShowHideDropdown}
                 aria-expanded={toggleDropdown}
-                aria-label={selectedValue ? selectedValue.label : label}
+                aria-label={ariaLabel}
                 data-testid="dropdown-btn"
             >
                 <span>{`${selectedValue ? selectedValue.label : label}`}</span>

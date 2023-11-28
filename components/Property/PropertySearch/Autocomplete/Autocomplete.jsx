@@ -36,16 +36,17 @@ export default function Autocomplete({
         getAddress(address)
         document.getElementById('searchInput').value = address
         sessionStorage.setItem("autocompleteSearchString", address)
+        getSearchResults(address)
     }
 
     return (
         <>
             {results && showResults && (
-                <div id="autocompleteResults" className={`${Styles.autocompleteResults}`}>
+                <div className={`${Styles.autocompleteResults}`}>
                     {results?.slice(0, 5).map((result, i) => (
                         <div className={`${Styles.autocompleteResult}`} key={i}>
                                 <Button
-                                    onMouseDownCapture={() =>
+                                    handleOnClick={() =>
                                         handleClick(
                                             result.siteID,
                                             result.fullAddress
