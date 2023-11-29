@@ -210,10 +210,12 @@
         "recreateOption": "Regenerate PIN",
         "expireOption": "Expire PIN",
         "viewOption": "View PIN", 
+        "viewHistoryOption": "View PIN History",
         "valueOptions": {
             "regenerate": "regenerate-pin", 
             "expire": "expire-pin", 
-            "view": "view-pin"
+            "view": "view-pin",
+            "view-history": "view-pin-history"
         }
     },
     "propertyLayout": {

@@ -1,8 +1,8 @@
-import Content from '../../../assets/content/content.json'
+import Content from '../../../../assets/content/content.json'
 import styles from './ViewPINHistory.module.css'
-import PhoneIcon from '../../../assets/svgs/PhoneIcon'
-import EmailIcon from '../../../assets/svgs/EmailIcon'
-import { getLocalTime } from '../../../utils/helper'
+import PhoneIcon from '../../../../assets/svgs/PhoneIcon'
+import EmailIcon from '../../../../assets/svgs/EmailIcon'
+import { getLocalTime } from '../../../../utils/helper'
 
 export default function ViewPINHistory({ pinHistory }) {
     function formatType(type) {
