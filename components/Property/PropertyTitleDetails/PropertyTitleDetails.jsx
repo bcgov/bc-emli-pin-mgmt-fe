@@ -4,6 +4,8 @@ import Content from '../../../assets/content/content.json'
 import PropertyIconSmall from '../../../assets/svgs/PropertyIconSmall'
 import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
+import { useState } from 'react'
+import ArrowDownPrimary from '../../../assets/svgs/ArrowDown'
 
 function PropertyTitleDetails({
     titleCount,
@@ -18,40 +20,50 @@ function PropertyTitleDetails({
     siteId,
     reloadPage
 }) {
+    const [toggleDropdown, setToggleDropdown] = useState(false)
+    const handleShowHideDropdown = () => setToggleDropdown((prev) => !prev)
+
     return (
         <div>
             <div className={`${Styles.titleNumberHeader}`}>{Content.propertyDetails.titleNumberHeader} {titleCount + 1}</div>
             <div className={`${Styles.ownershipWrap}` + " " + `${Styles.propertyInfoWrap}`}>
-                <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`}>
+                <button className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`} onClick={handleShowHideDropdown}>
                     <PropertyIconSmall />
                     <span>{Content.propertyDetails.propertyDetails}</span>
-                </div>
-                <div className={`${Styles.content}` + " flex text-left justify-between" + " " + `${Styles.leftBlueBar}`}>
-                    <div className={`${Styles.item}`}>
-                        <div className={`${Styles.title}`}>
-                            {Content.propertyDetails.titleNumber}
+                    <span className={`${Styles.propertyDetailsArrowIcon} ${
+                        toggleDropdown
+                            ? Styles.collapsedChevron
+                            : Styles.expandedChevron
+                    }`}><ArrowDownPrimary /></span>
+                </button>
+                {toggleDropdown && (
+                    <div className={`${Styles.content}` + " flex text-left justify-between" + " " + `${Styles.leftBlueBar}`}>
+                        <div className={`${Styles.item}`}>
+                            <div className={`${Styles.title}`}>
+                                {Content.propertyDetails.titleNumber}
+                            </div>
+                            <div className={`${Styles.content}`}>
+                                {titleNumber}
+                            </div>
                         </div>
-                        <div className={`${Styles.content}`}>
-                            {titleNumber}
+                        <div className={`${Styles.item}`}>
+                            <div className={`${Styles.title}`}>
+                                {Content.propertyDetails.landTitleDistrict}
+                            </div>
+                            <div className={`${Styles.content}`}>
+                                {landTitleDistrict}
+                            </div>
+                        </div>
+                        <div className={`${Styles.item}`}>
+                            <div className={`${Styles.title}`}>
+                                {Content.propertyDetails.parcelIdentifier}
+                            </div>
+                            <div className={`${Styles.content}`}>
+                                {parcelIdentifier}
+                            </div>
                         </div>
                     </div>
-                    <div className={`${Styles.item}`}>
-                        <div className={`${Styles.title}`}>
-                            {Content.propertyDetails.landTitleDistrict}
-                        </div>
-                        <div className={`${Styles.content}`}>
-                            {landTitleDistrict}
-                        </div>
-                    </div>
-                    <div className={`${Styles.item}`}>
-                        <div className={`${Styles.title}`}>
-                            {Content.propertyDetails.parcelIdentifier}
-                        </div>
-                        <div className={`${Styles.content}`}>
-                            {parcelIdentifier}
-                        </div>
-                    </div>
-                </div>
+                )}
 
                 <div className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}`}>
                     <GroupUserIcon />
