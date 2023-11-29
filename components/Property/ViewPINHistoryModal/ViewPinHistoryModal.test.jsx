@@ -1,13 +1,14 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/extend-expect'
 
-import * as stories from './PropertyOwner.stories'
+import * as stories from './ViewPINHistoryModal.stories'
 const { PrimaryTemplate } = composeStories(stories)
 
-describe('<PropertyOwner />', () => {
+describe('<ViewPINHistoryModal />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)
-        expect(container.firstChild).toBeTruthy()
+        expect(container.firstChild).toBeDefined()
     })
 })

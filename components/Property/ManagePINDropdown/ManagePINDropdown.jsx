@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 export default function ManagePINDropdown({
     handleSelection,
     role,
-    ariaLabel
+    ariaLabel,
 }) {
     function getSelection(value) {
         handleSelection(value)
@@ -25,13 +25,19 @@ export default function ManagePINDropdown({
         // },
     ]
 
-    if (role.role === "SuperAdmin") {
+    if (role.role === 'SuperAdmin') {
         options.push({
             label: Content.managePINDropdown.viewOption,
             value: Content.managePINDropdown.valueOptions.view,
             isDisabled: false,
         })
     }
+
+    options.push({
+        label: Content.managePINDropdown.viewHistoryOption,
+        value: Content.managePINDropdown.valueOptions['view-history'],
+        isDisabled: false,
+    })
 
     return (
         <div>
