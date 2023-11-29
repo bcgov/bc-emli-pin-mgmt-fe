@@ -15,6 +15,10 @@
     color: #656565;
 }
 
+.propertyInfoWrap .content.leftBlueBar {
+    padding-top: 29px;
+}
+
 .propertyInfoWrap .content .item .content{
     font-size: 16px;
     font-style: normal;
@@ -28,14 +32,6 @@
 .ownershipWrap svg{
     display: inline-block;
     margin-right: 6px;
-}
-
-.ownershipWrap .expandedChevron svg{
-    margin-right: 0px;
-}
-
-.ownershipWrap .collapsedChevron svg{
-    margin-top: 5px;
 }
 
 .ownershipWrap .ownerWrap{
@@ -55,10 +51,6 @@
 .sectionTitle{
     display: flex;
     align-items: center;
-}
-
-.title.sectionTitle.propertyDetailsTitle{
-    padding-bottom: 26px;
 }
 
 .sectionTitle:not(:first-child){
@@ -93,4 +85,27 @@
     border-bottom: 8px solid #75B343;
     width: fit-content;
     margin-bottom: 29px;
+}
+
+.propertyDetailsArrowIcon svg path {
+    fill: #234075;
+}
+
+.propertyDetailsArrowIcon svg {
+    height: 25px;
+    width: 25px;
+    margin-left: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.propertyDetailsArrowIcon.collapsedChevron {
+    transform: rotate(180deg);
+    margin-left: 12px;
+    margin-top: -7px;
+}
+
+.propertyDetailsArrowIcon.expandedChevron {
+    margin-left: 6px;
+    margin-bottom: -9px;
 }
