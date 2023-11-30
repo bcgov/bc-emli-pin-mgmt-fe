@@ -20,7 +20,7 @@ describe('<ViewPINHistory />', () => {
         expect(getByText('Modified on')).toBeVisible()
         expect(getByText('Action')).toBeVisible()
         expect(getByText('Type')).toBeVisible()
-        expect(getByText('Notification via')).toBeVisible()
+        expect(getByText('PIN sent to')).toBeVisible()
     })
 
     it('should render properly with have 3 rows and 3 usernames', () => {

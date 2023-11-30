@@ -45,13 +45,14 @@
 .infoDetailWrap .content{
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 24px; /* 150% */
     color: #2464A4;
+    padding-top: 5px;
 }
 
 .ownerInfoCardWrap .buttonWrap{
-    margin-top: 23px;
+    margin-top: 20px;
 
 }
 
