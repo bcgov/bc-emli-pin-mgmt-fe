@@ -7,6 +7,18 @@
     width: 541px;
 }
 
+@media(max-width: 680px) {
+    .searchWrap input{
+        width: 300px !important;
+    } 
+}
+
+@media(max-width: 915px) {
+    .searchWrap input{
+        width: 350px;
+    } 
+}
+
 .searchWrap .error{
     margin-top: 8px;
     font-size: 14px;
