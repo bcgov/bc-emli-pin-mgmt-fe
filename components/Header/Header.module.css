@@ -84,3 +84,15 @@
 .right .helpSection .iconWrap svg{
 	height: 22px;
 }
+
+.helpButton {
+	background-color: #005c97;
+	color: white;
+	padding: 10px 26px;
+    border-radius: 4px;
+	font-size: 14px;
+}
+
+.helpButton svg path {
+	fill: white;
+}

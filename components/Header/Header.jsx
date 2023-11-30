@@ -10,6 +10,12 @@ import Endpoints from '../../apiManager/endpoints'
 function Header  ({
 	userName,
 })  {
+
+	const onClickHandle = () => {
+		window.open(Text.header.helpLink, "_black", "noreferrer")
+	}
+
+	const helpSectionClass = userName === '' ? Styles.helpSection : Styles.helpSection + " " + Styles.marginRight
 	return (
 		<div className={`${Styles.headerSectionWrap}` + " headerFooterWrap flex justify-center"}>
 			<div className={`${Styles.headerSection}`}>
@@ -20,6 +26,12 @@ function Header  ({
 						</div>
 					</div>
 					<div className={`${Styles.right}`}>
+						<button className={`${Styles.helpButton}` + " " + helpSectionClass} onClick={onClickHandle}>
+							<div className={`${Styles.iconWrap}`}>
+								<QuestionIcon />
+							</div>
+							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
+						</button>
 						{
 							userName &&
 							<div className={`${Styles.userSection + ' ' + Styles.marginRight}`}>
@@ -33,9 +45,11 @@ function Header  ({
 						}
 						{
 							userName &&
+							<div className={`${Styles.helpSection}`}>
 							<button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
 								{Text.header.logout}
 							</button>
+							</div>
 						}
 						
 					</div>
