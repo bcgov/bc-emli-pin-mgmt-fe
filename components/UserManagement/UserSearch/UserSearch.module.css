@@ -30,8 +30,10 @@
 
 .searchIcon {
   position: absolute;
-  margin-left: -38px;
+  margin-left: -48px;
   margin-top: 12px;
+  background-color: white;
+  padding-left: 10px;
 }
 
 .closeButton svg {

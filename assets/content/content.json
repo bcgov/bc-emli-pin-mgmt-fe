@@ -8,8 +8,8 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Help", 
-        "helpLink": "https://apps.nrs.gov.bc.ca/int/confluence/display/VHERS/PIN+System+Help+Materials"
+        "help": "Submit a Support Ticket", 
+        "helpLink": ""
     },
     "navigation": {
         "home": "Home",

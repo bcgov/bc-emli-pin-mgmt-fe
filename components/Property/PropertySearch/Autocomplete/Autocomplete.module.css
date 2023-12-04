@@ -29,7 +29,7 @@
 
 @media(max-width: 915px) {
     .autocompleteResult Button {
-        width: 350px !important;
+        width: 320px;
     } 
 }
 
