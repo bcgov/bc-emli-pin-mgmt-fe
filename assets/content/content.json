@@ -8,8 +8,8 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Help", 
-        "helpLink": "https://apps.nrs.gov.bc.ca/int/confluence/display/VHERS/PIN+System+Help+Materials"
+        "help": "Submit a Support Ticket", 
+        "helpLink": ""
     },
     "navigation": {
         "home": "Home",
@@ -210,10 +210,12 @@
         "recreateOption": "Regenerate PIN",
         "expireOption": "Expire PIN",
         "viewOption": "View PIN", 
+        "viewHistoryOption": "View PIN History",
         "valueOptions": {
             "regenerate": "regenerate-pin", 
             "expire": "expire-pin", 
-            "view": "view-pin"
+            "view": "view-pin",
+            "view-history": "view-pin-history"
         }
     },
     "propertyLayout": {
@@ -283,7 +285,7 @@
             "ModifiedOnColumn": "Modified on",
             "ActionColumn": "Action",
             "TypeColumn": "Type",
-            "NotificationViaColumn": "Notification via"
+            "NotificationViaColumn": "PIN sent to"
         },
         "actions": {
             "deleted": "PIN deleted",
@@ -318,13 +320,13 @@
     "regeneratePINModal": {
         "title": "Regenerate PIN",
         "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
-        "phone": "Phone",
-        "phonePlaceHolder": "E.g. (604)332-8930",
+        "phone": "SMS",
+        "phonePlaceHolder": "E.g. 604 332 8930",
         "email": "Email",
         "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
         "cancelButton": "Cancel",
         "successModalTitle": "PIN has been regenerated",
-        "successModalMsg": "A new PIN had been created and will be sent to the property owner via SMS/Email soon.",
+        "successModalMsg": "A new PIN has been created and will be sent to the property owner via SMS or email soon.",
         "failureModalTitle": "Regenerating PIN failed", 
         "failureModalMag": "There was a problem. Try again later."
     },

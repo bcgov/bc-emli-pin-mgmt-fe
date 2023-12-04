@@ -235,3 +235,9 @@ input:focus {
   border: 2px #234075 solid;
   outline: none;
 }
+
+input[type="checkbox"]:focus {
+  border: 2px #234075 solid;
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-offset: 5px;
+}

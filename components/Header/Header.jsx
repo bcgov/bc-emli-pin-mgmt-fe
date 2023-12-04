@@ -26,6 +26,15 @@ function Header  ({
 						</div>
 					</div>
 					<div className={`${Styles.right}`}>
+						<div>
+						<button className={`${Styles.helpButton}` + " " + helpSectionClass} onClick={onClickHandle}>
+							<div className={`${Styles.iconWrap}`}>
+								<QuestionIcon />
+							</div>
+							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
+						</button>
+						</div>
+						<div className={`${Styles.flexWrap}` + ' ' + 'flex'}>
 						{
 							userName &&
 							<div className={`${Styles.userSection + ' ' + Styles.marginRight}`}>
@@ -37,12 +46,6 @@ function Header  ({
 								</div>
 							</div>
 						}
-						<button className={helpSectionClass} onClick={onClickHandle}>
-							<div className={`${Styles.iconWrap}`}>
-								<QuestionIcon />
-							</div>
-							<div className={`${Styles.contentWrap}`}>{Text.header.help}</div>
-						</button>
 						{
 							userName &&
 							<div className={`${Styles.helpSection}`}>
@@ -51,6 +54,7 @@ function Header  ({
 							</button>
 							</div>
 						}
+						</div>
 						
 					</div>
 				</div>

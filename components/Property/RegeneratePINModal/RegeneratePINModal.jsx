@@ -112,7 +112,7 @@ export default function RegeneratePINModal({
                             textBoxLabel={Content.regeneratePINModal.phone}
                             textBoxAriaLabel={Content.regeneratePINModal.phone}
                             textBoxPlaceholder={Content.regeneratePINModal.phonePlaceHolder}
-                            inputType="tel"
+                            type="number" 
                             onHandleChange={setPhoneValueOnChange}
                         />
                     </div>
