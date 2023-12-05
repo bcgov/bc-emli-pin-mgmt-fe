@@ -32,6 +32,30 @@
     }
 }
 
+@media (max-width: 750px) {
+    .infoDetailWrap {
+        width: 110px !important;
+    }
+    .infoDetailWrap .content {
+        width: 110px !important;
+    }
+    .infoDetailWrap .title {
+        width: 110px !important;
+    }
+}
+
+@media (max-width: 915px) {
+    .infoDetailWrap {
+        width: 130px;
+    }
+    .infoDetailWrap .content {
+        width: 140px;
+    }
+    .infoDetailWrap .title {
+        width: 140px;
+    }
+}
+
 .infoDetailWrap .title{
     font-size: 16px;
     font-style: normal;

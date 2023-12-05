@@ -21,6 +21,18 @@
     border-radius: 4px;
 }
 
+@media(max-width: 680px) {
+    .autocompleteResult Button {
+        width: 310px !important;
+    } 
+}
+
+@media(max-width: 915px) {
+    .autocompleteResult Button {
+        width: 320px;
+    } 
+}
+
 .autocompleteResult Button:hover {
     opacity: 1;
 }
