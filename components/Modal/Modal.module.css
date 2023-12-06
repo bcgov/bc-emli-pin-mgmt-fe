@@ -61,6 +61,13 @@
     padding-right: 39px
 }
 
+@media (max-width: 880px) {
+    .body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
 .body p {
     margin: 0px;
 }
