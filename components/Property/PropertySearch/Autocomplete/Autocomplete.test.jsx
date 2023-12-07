@@ -59,6 +59,10 @@ describe('<Autocomplete />', () => {
     }
 
     it('should render properly', async () => {
+        const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+        useRouter.mockImplementation(() => ({
+            pathname: '/',
+        }))
         jest.spyOn(axios, 'get').mockResolvedValueOnce(mockAPICallWith8Results)
         const { container } = await act(async () => render(<PrimaryTemplate />))
         expect(container.firstChild).toBeTruthy()
