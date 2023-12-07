@@ -8,8 +8,10 @@
 
 @media (max-width: 1260px){
     .contentWrap {
-        padding-top: 318px;
+        padding-top: 193px;
         margin-bottom: 104px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -19,6 +21,7 @@
     height: 92px;
     border-radius: 50%;
     margin-right: 30px;
+    min-width: 92px;
 }
 
 .title{

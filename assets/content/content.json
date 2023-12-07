@@ -8,8 +8,7 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Submit a Support Ticket", 
-        "helpLink": ""
+        "help": "Submit a Support Ticket"
     },
     "navigation": {
         "home": "Home",

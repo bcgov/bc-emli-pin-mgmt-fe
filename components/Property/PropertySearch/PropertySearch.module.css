@@ -8,14 +8,20 @@
 }
 
 @media(max-width: 680px) {
-    .searchWrap input{
+    .searchWrap.propertySearch input{
         width: 310px !important;
     } 
 }
 
 @media(max-width: 915px) {
-    .searchWrap input{
+    .searchWrap.propertySearch input{
         width: 320px;
+    } 
+}
+
+@media(max-width: 727px) {
+    .searchWrap.homeSearch input{
+        width: 430px !important;
     } 
 }
 
