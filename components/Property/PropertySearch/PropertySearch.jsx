@@ -5,7 +5,7 @@ import { useState } from 'react'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import Autocomplete from './Autocomplete/Autocomplete'
-import Router from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 export default function PropertySearch({ getSearchString, getSiteId }) 
 {
@@ -58,8 +58,12 @@ export default function PropertySearch({ getSearchString, getSiteId })
 		getSearchString(address)
 	}
 
+	const { pathname } = useRouter()
+
 	return (
-		<div className={`${Styles.searchWrap}` + " flex items-start justify-center"}>
+		<div className={`${Styles.searchWrap}` + " flex items-start justify-center " + `${
+			pathname == '/property-search' ? Styles.propertySearch : Styles.homeSearch 
+		}`}>
 			<div className={`${Styles.searchContentWrap}` + " flex items-start justify-center"}>
 				<div className='text-left'>
 					<div>
