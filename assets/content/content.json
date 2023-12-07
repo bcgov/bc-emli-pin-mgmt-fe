@@ -179,6 +179,7 @@
       "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access."
     },
     "requestForm": {
+      "alert": "Please only request access if you have been instructed to do so.",
       "formHeaderTitle": "Request details form",
       "formRequiredText": "Indicates a required field",
       "formInputs": {

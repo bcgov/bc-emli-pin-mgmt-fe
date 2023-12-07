@@ -92,7 +92,33 @@
   padding-bottom: 60px;
 }
 
+.requestAccessAlert {
+  display: flex;
+  margin-top: -16px;
+  margin-bottom: 40px;
+  background-color: #E4F2FF;
+  padding: 10px 16px;
+  width: 100%;
+  justify-content: space-between;
+}
 
+.requestAccessAlert svg{
+  min-width: 20px;
+}
 
+.requestAccessAlert .alertText {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  text-align: left;
+}
 
+.requestAccessAlert .closeIcon {
+  margin-left: auto;
+}
 
+.requestAccessAlert .closeIcon svg {
+  width: 12px;
+  height: 12px;
+  text-align: left;
+}
