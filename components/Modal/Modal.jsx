@@ -14,8 +14,18 @@ export default function Modal({
     modalMainBtn,
     modalSecondaryBtn,
     variant,
+    closeFunction,
     ...props
 }) {
+    
+    const handleClose = () => {
+        if (closeFunction) {
+            closeFunction()
+        } else {
+            setIsOpen(false)
+        }
+    }
+
     return (
         <>
             {isOpen && (
@@ -31,7 +41,7 @@ export default function Modal({
 
                                 <button
                                     aria-label="close-button"
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={() => handleClose()}
                                     className={styles.close}
                                     tabIndex="0"
                                 >
