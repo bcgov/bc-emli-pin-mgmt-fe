@@ -6,6 +6,11 @@ const { PrimaryTemplate } = composeStories(stories)
 
 describe('<PropertySearch />', () => {
     it('should render properly', () => {
+        const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+        useRouter.mockImplementation(() => ({
+            pathname: '/',
+        }))
+
         const { container } = render(<PrimaryTemplate />)
 
         expect(container.firstChild).toBeTruthy()

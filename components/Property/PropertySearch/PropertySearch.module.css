@@ -7,6 +7,24 @@
     width: 541px;
 }
 
+@media(max-width: 680px) {
+    .searchWrap.propertySearch input{
+        width: 310px !important;
+    } 
+}
+
+@media(max-width: 915px) {
+    .searchWrap.propertySearch input{
+        width: 320px;
+    } 
+}
+
+@media(max-width: 727px) {
+    .searchWrap.homeSearch input{
+        width: 430px !important;
+    } 
+}
+
 .searchWrap .error{
     margin-top: 8px;
     font-size: 14px;
@@ -27,8 +45,10 @@
 
 .searchIcon {
     position: absolute;
-    margin-left: -38px;
+    margin-left: -48px;
     margin-top: 12px;
+    background-color: white;
+    padding-left: 10px;
 }
 
 .closeButton svg {

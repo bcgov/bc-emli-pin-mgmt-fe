@@ -23,12 +23,45 @@
         margin-right: 24px;
         width: 262px;
     }
+
+    .incorporation .infoDetailWrap {
+        width: 100%;
+    }
 }
 
 @media (max-width: 1260px) {
     .infoDetailWrap:first-child {
         margin-right: 24px;
         width: 157px;
+    }
+
+    .incorporation .infoDetailWrap {
+        width: 50%;
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 750px) {
+    .infoDetailWrap {
+        width: 110px !important;
+    }
+    .infoDetailWrap .content {
+        width: 110px !important;
+    }
+    .infoDetailWrap .title {
+        width: 110px !important;
+    }
+}
+
+@media (max-width: 915px) {
+    .infoDetailWrap {
+        width: 130px;
+    }
+    .infoDetailWrap .content {
+        width: 140px;
+    }
+    .infoDetailWrap .title {
+        width: 140px;
     }
 }
 
@@ -39,7 +72,6 @@
     line-height: 22px; /* 137.5% */
     color: #656565;
     margin-bottom: 0px;
-    width: 247px;
 }
 
 .infoDetailWrap .content{
@@ -58,4 +90,26 @@
 
 .ownerInfoCardWrap .buttonWrap .buttonItem:first-child{
     margin-right: 19px;
+}
+
+.incorporation {
+    justify-content: space-between;
+}
+
+@media (max-width: 1260px) {
+    .incorporation {
+        flex-wrap: wrap;
+    }
+
+    .incorporation .infoDetailWrap:nth-child(3) {
+        padding-top: 30px;
+    }
+
+    .incorporation .infoDetailWrap .title {
+        width: 100%;
+    }
+}
+
+.incorporation .infoDetailWrap:first-child {
+    margin-right: 0px;
 }

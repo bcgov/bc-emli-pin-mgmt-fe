@@ -21,6 +21,24 @@
     border-radius: 4px;
 }
 
+@media(max-width: 680px) {
+    .autocompleteResults.propertySearch Button {
+        width: 310px !important;
+    } 
+}
+
+@media(max-width: 915px) {
+    .autocompleteResults.propertySearch Button {
+        width: 320px;
+    } 
+}
+
+@media(max-width: 727px) {
+    .autocompleteResults.homeSearch Button {
+        width: 430px;
+    } 
+}
+
 .autocompleteResult Button:hover {
     opacity: 1;
 }

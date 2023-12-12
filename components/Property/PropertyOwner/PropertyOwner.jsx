@@ -17,6 +17,7 @@ function PropertyOwner({
     livePIN,
     expiredByUsername,
     propertyAddress,
+    incorporationNumber,
     role,
     siteId,
     reloadPage,
@@ -62,13 +63,31 @@ function PropertyOwner({
             <div className={`${Styles.title}`}>
                 {Content.propertyDetails.owner}
             </div>
-            <div className="flex">
-                <div className={`${Styles.infoDetailWrap}`}>
-                    <div className={`${Styles.title}`}>
-                        {Content.propertyDetails.fullname}
+            <div className={`${incorporationNumber ? Styles.incorporation : ""}` + " flex"}>
+                {!incorporationNumber &&
+                    <div className={`${Styles.infoDetailWrap}`}>
+                        <div className={`${Styles.title}`}>
+                            {Content.propertyDetails.fullname}
+                        </div>
+                        <div className={`${Styles.content}`}>{fullName}</div>
                     </div>
-                    <div className={`${Styles.content}`}>{fullName}</div>
-                </div>
+                }
+                {incorporationNumber &&
+                    <>
+                        <div className={`${Styles.infoDetailWrap}`}>
+                            <div className={`${Styles.title}`}>
+                                {Content.propertyDetails.incorporationName}
+                            </div>
+                            <div className={`${Styles.content}`}>{fullName}</div>
+                        </div>
+                        <div className={`${Styles.infoDetailWrap}`}>
+                            <div className={`${Styles.title}`}>
+                                {Content.propertyDetails.incorporationNumber}
+                            </div>
+                            <div className={`${Styles.content}`}>{incorporationNumber}</div>
+                        </div>
+                    </>
+                }
                 <div className={`${Styles.infoDetailWrap}`}>
                     <div className={`${Styles.title}`}>
                         {Content.propertyDetails.mailingAddress}

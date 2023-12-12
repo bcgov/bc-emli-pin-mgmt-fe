@@ -26,6 +26,7 @@
 
 .searchInput {
   padding-left: 6px;
+  width: 100%;
 }
 
 .searchIcon {
@@ -39,6 +40,19 @@
   width: 16px;
   margin-top: 5px;
   margin-left: 5px;
+}
+
+@media (max-width: 888px) {
+  .container {
+    padding-top: 10px;
+  }
+
+  .dropdownSection,
+  .large,
+  .searchField,
+  .searchInput input {
+    width: 100% !important;
+  }
 }
 
 

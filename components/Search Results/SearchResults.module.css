@@ -61,3 +61,24 @@
         width: 263px;
     }
 }
+
+@media (max-width: 750px) {
+    .searchResultTitle,
+    .searchResultList, 
+    .searchResultList button,
+    .searchResultList .addressCard,
+    .scrollMsg {
+        width: 160px !important;
+    }
+}
+
+@media (max-width: 915px) {
+    .searchResultTitle,
+    .searchResultList, 
+    .searchResultList button,
+    .searchResultList .addressCard,
+    .scrollMsg {
+        width: 180px;
+    }
+}
+

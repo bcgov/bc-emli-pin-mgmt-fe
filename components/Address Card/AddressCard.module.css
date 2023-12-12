@@ -4,6 +4,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 1.375rem; /* 137.5% */
+    text-align: left;
 }
 
 .addressCard .city {
@@ -18,6 +19,18 @@
 @media (max-width: 1260px) {
     .addressCard  {
         width: 263px;
+    }
+}
+
+@media (max-width: 750px) {
+    .addressCard  {
+        width: 160px !important;
+    }
+}
+
+@media (max-width: 915px) {
+    .addressCard  {
+        width: 180px;
     }
 }
 
