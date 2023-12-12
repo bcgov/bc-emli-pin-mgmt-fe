@@ -82,6 +82,7 @@ function PropertyTitleDetails({
                             livePinId={owner.id}
                             livePIN={owner.livePIN}
                             propertyAddress={propertyAddress}
+                            incorporationNumber={owner.incorporationNumber}
                             role={role}
                             siteId={siteId}
                             reloadPage={reloadPage}
