@@ -256,7 +256,7 @@
         "testParcelIdentifier": "029-366-937",
         "shortLegalDescription": "Short Legal Description",
         "testShortLegalDescription": "S/EPS2032//20",
-        "ownership": "Ownership Details",
+        "ownership": "Caller verification: Ownership details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
         "noDataFoundMsg": "No data available for the selected property.",
