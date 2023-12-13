@@ -256,7 +256,7 @@
         "testParcelIdentifier": "029-366-937",
         "shortLegalDescription": "Short Legal Description",
         "testShortLegalDescription": "S/EPS2032//20",
-        "ownership": "Ownership Details",
+        "ownership": "Caller verification: Ownership details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
         "noDataFoundMsg": "No data available for the selected property.",
@@ -269,7 +269,10 @@
         "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
         "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
         "viewPINHistory": "View PIN History",
-        "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers."
+        "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
+        "incorporationName": "Incorporation Name",
+        "incorporationNumber": "Incorporation Number"
+
     },
     "searchResults": {
         "addressesFound": "Addresses found: ",
