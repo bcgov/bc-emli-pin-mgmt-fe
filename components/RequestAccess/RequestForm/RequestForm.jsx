@@ -28,6 +28,7 @@ const initialValidation = {
   organization: true,
   roleType: true,
   requestReason: true,
+  email: true,
 }
 
 export default function RequestForm(props) {
@@ -37,6 +38,7 @@ export default function RequestForm(props) {
   const [showForm, setShowForm] = useState(true)
   const [formData, setFormData] = useState(initialFormValue)
   const [organization, setOrganization] = useState('')
+  const [email, setEmail] = useState('')
   const [roleType, setRoleType] = useState('')
   const [requestReason, setRequestReason] = useState('')
   const [errorFlags, setErrorFlags] = useState(initialValidation);
@@ -59,6 +61,7 @@ export default function RequestForm(props) {
       setOrganization(userInfo.bceid_business_name);
     }
     setFormData({ ...inputValue });
+    setEmail(formData.email)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -92,6 +95,11 @@ export default function RequestForm(props) {
     resetError('organization')
   }
 
+  const onEmailInputChange = (value) => {
+    setEmail(value)
+    resetError('email')
+  }
+
   const onRoleInputChange = (value) => {
     setRoleType(value);
     resetError('roleType')
@@ -123,6 +131,29 @@ export default function RequestForm(props) {
         inputType="text"
         isDisabled={true}
       />
+  )
+
+  const emailInput = () => (
+    formData.email ?
+    <Textbox
+      textBoxId='email'
+      textBoxLabel={Content.requestForm.formInputs.emailAddress}
+      textBoxAriaLabel={Content.requestForm.formInputs.emailAddress}
+      textBoxPlaceholder={`${formData.email}`}
+      inputType="text"
+      isDisabled={true}
+    />
+    :
+    <Textbox
+      textBoxId='email'
+      textBoxLabel={Content.requestForm.formInputs.emailAddress}
+      textBoxAriaLabel={Content.requestForm.formInputs.emailAddress}
+      isRequired={true}
+      inputType="email"
+      value={email}
+      hasError={!errorFlags.email}
+      onHandleChange={onEmailInputChange}
+    />
   )
 
   const roleTypeInput = () => (
@@ -177,6 +208,10 @@ export default function RequestForm(props) {
       errorFlagsInfo.organization = false;
     }
 
+    if (email === '') {
+      errorFlagsInfo.email = false;
+    }
+
     if (roleType === '') {
       errorFlagsInfo.roleType = false;
     }
@@ -197,7 +232,7 @@ export default function RequestForm(props) {
     let inputValue = {}
     inputValue.givenName = userInfo.given_name
     inputValue.lastName = userInfo.family_name
-    inputValue.email = userInfo.email;
+    inputValue.email = email ? email : userInfo.email;
     inputValue.userName = userInfo.username
     inputValue.identityType = userInfo.identity_provider
     inputValue.userGuid = userInfo.user_guid
@@ -290,14 +325,7 @@ export default function RequestForm(props) {
             />
           </div>
           <div className={`${styles.formInput}`}>
-            <Textbox
-              textBoxId='email'
-              textBoxLabel={Content.requestForm.formInputs.emailAddress}
-              textBoxAriaLabel={Content.requestForm.formInputs.emailAddress}
-              textBoxPlaceholder={`${formData.email}`}
-              inputType="text"
-              isDisabled={true}
-            />
+            {emailInput()}
           </div>
         </div>
         <div className={`${styles.formInputSection}`}>
