@@ -19,7 +19,6 @@ export default function RegeneratePINModal({
     const [isRegeneratePINButtonDisabled, setIsRegeneratePINDisabled] = useState(true)
     const [phone, setPhoneValue] = useState()
     const [email, setEmailValue] = useState()
-    const [confimationMessage, setConfirmationMessage] = useState()
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
@@ -54,16 +53,6 @@ export default function RegeneratePINModal({
         return false;
     }
 
-    const chooseConfirmationMessage = () => {
-        if (phone && !email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhone}`)
-        } else if (!phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgEmail}`)
-        } else if (phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhoneAndEmail}`)
-        }
-    }
-
     const regeneratePIN = () => {
         let formattedPhone
         if (phone) {
@@ -78,10 +67,10 @@ export default function RegeneratePINModal({
         })
             .then((response) => {
                 setIsOpen(false)
-                chooseConfirmationMessage()
                 setOpenRegenerateSuccessModal(true)
                 setPhoneValue('')
                 setEmailValue('')
+                setTimeout(reloadPage, 2000)
             })
             .catch((error) => {
                 setIsOpen(false)
@@ -89,11 +78,6 @@ export default function RegeneratePINModal({
                 setPhoneValue('')
                 setEmailValue('')
             })
-    }
-
-    const closeRegenerateSuccessModal = () => {
-        setOpenRegenerateSuccessModal(false)
-        reloadPage()
     }
 
 
@@ -154,11 +138,10 @@ export default function RegeneratePINModal({
                     text: `${Content.expirePINSuccessModal.primaryButton}`,
                     size: 'medium',
                     variant: 'primary',
-                    onClickHandler: () => closeRegenerateSuccessModal(false),
+                    onClickHandler: () => setOpenRegenerateSuccessModal(false),
                 }}
-                closeFunction={closeRegenerateSuccessModal}
             >
-                {confimationMessage}
+                {Content.regeneratePINModal.successModalMsg}
             </Modal>
 
             <Modal

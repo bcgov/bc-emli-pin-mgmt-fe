@@ -9,8 +9,6 @@ import RadioButton from '../../RadioButton'
 import LoadingScreen from '../../LoadingScreen'
 import LoadingIcon from '../../../assets/svgs/LoadingIcon'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
-import InfoIcon from '../../../assets/svgs/InfoIcon';
-import CloseIcon from '../../../assets/svgs/CloseIcon';
 
 const initialFormValue = {
   userGuid: '',
@@ -45,7 +43,6 @@ export default function RequestForm(props) {
   const [isLoading, setLoading] = useState(false)
   const [requestSuccess, setRequestSuccess] = useState()
   const [alreadyExists, setAlreadyExists] =useState(false)
-  const [requestAccessAlert, setRequestAccessAlert] = useState(true)
   const identityType= userInfo.identity_provider
 
   useEffect(() => {
@@ -275,21 +272,6 @@ export default function RequestForm(props) {
           <span className={`${styles.requiredText}`}>{`\u00A0${Content.requestForm.formRequiredText}`}</span>
         </div>
       </div>
-      { requestAccessAlert &&
-        <div className={`${styles.requestAccessAlert}`}>
-          <InfoIcon />
-          <span className={`${styles.alertText}`}>
-            {Content.requestForm.alert}
-          </span>
-          <button 
-            className={`${styles.closeIcon}`} 
-            onClick={() => setRequestAccessAlert(false)} 
-            name={Content.propertyLayout.closeButton}
-          >
-            <CloseIcon />
-          </button>
-        </div>
-      }
       <div className={`${styles.formBody}`}>
         <div className={`${styles.formInputSection}`}>
           <div className={`${styles.formInput}`}>

@@ -67,18 +67,6 @@
 
 }
 
-@media (max-width: 750px) {
-    .propertyDetailsWrap{
-        width: 405px !important;
-    }
-}
-
-@media (max-width: 915px) {
-    .propertyDetailsWrap{
-        width: 450px;
-    }
-}
-
 @media (min-width: 1260px) {
     .searchResultWrap{
         margin-right: 76px;

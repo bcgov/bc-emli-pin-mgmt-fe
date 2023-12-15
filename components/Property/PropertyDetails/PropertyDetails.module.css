@@ -40,20 +40,6 @@
 
 }
 
-@media (max-width: 750px) {
-    .propertyDetailsWrap {
-        width: 405px !important;
-        min-width: 405px !important;
-    } 
-}
-
-@media (max-width: 915px) {
-    .propertyDetailsWrap {
-        width: 450px;
-        min-width: 450px;
-    } 
-}
-
 .noDataFoundMsgWrap {
     margin-top: 36px;
     font-size: 20px;
@@ -112,10 +98,6 @@
     padding: 10px 16px;
     width: 100%;
     justify-content: space-between;
-}
-
-.multipleTitlesAlert svg{
-    min-width: 20px;
 }
 
 .multipleTitlesAlert .alertText {

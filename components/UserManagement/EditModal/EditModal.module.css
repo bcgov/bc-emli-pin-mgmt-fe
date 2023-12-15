@@ -41,7 +41,6 @@
   align-items: center;
   justify-content: flex-end;
   padding-bottom: 20px;
-  margin-right: 10px;
 }
 
 .requiredIndicator {
@@ -54,34 +53,15 @@
   justify-content: space-between;
   width: 100%;
   padding-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 .formInput {
   width: 212px;
-  padding-right: 10px;
+
 }
 
 .roleTypeSection {
   width: 100%;
-}
-
-@media (max-width: 880px) {
-  .formInput {
-    width: 50%;
-  }
-
-  .roleTypeSection {
-    padding-top: 20px;
-  }
-  
-  .formInput:has(.roleTypeLabel) {
-    width: 100%;
-  }
-
-  .formInput:nth-child(3) {
-    padding-top: 20px;
-  }
 }
 
 .roleTypeLabel {
@@ -102,10 +82,6 @@
   padding-top: 12px;
 }
 
-.radioBtnSection input {
-  min-width: 24px;
-}
-
 .formInputTextArea {
   width: 100%;
 }
@@ -115,6 +91,12 @@
 .btnSection {
   padding-bottom: 60px;
 }
+
+
+
+
+
+
 
 .inputWrap {
   width: 100%;
@@ -148,8 +130,4 @@
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
-}
-
-.formBody {
-  margin-right: -10px;
 }

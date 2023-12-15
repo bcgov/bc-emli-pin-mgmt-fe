@@ -14,18 +14,3 @@
   padding-top: 8px;
   padding-bottom: 50px;
 }
-
-@media (max-width: 888px) {
-  .filterSection {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .filterSection .searchSection {
-    width: 100%;
-  }
-
-  .filterSection .container {
-    padding-top: 10px;
-  }
-}

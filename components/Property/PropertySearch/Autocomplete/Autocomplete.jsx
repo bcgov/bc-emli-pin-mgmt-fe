@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import HttpRequest from '../../../../apiManager/httpRequestHandler'
 import { Button } from '../../../Button'
 import PropTypes from 'prop-types'
-import { useRouter } from 'next/router'
 
 export default function Autocomplete({
     searchString,
@@ -39,14 +38,10 @@ export default function Autocomplete({
         sessionStorage.setItem("autocompleteSearchString", address)
     }
 
-    const { pathname } = useRouter()
-
     return (
         <>
             {results && showResults && (
-                <div id="autocompleteResults" className={`${Styles.autocompleteResults}` + " " + `${
-                    pathname == '/property-search' ? Styles.propertySearch : Styles.homeSearch
-                }`}>
+                <div id="autocompleteResults" className={`${Styles.autocompleteResults}`}>
                     {results?.slice(0, 5).map((result, i) => (
                         <div className={`${Styles.autocompleteResult}`} key={i}>
                                 <Button
