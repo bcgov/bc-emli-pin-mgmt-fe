@@ -5,8 +5,13 @@ import Content from '../assets/content/content.json'
 import { Button } from '../components/Button'
 import EmailIconWhite from '../assets/svgs/EmailIconWhite'
 import ExclamationIcon from '../assets/svgs/ExclamationIcon'
+import { useRouter } from "next/router";
 
 export default function Custom500() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/")
+  }
 
   return (
     <>
@@ -53,7 +58,8 @@ export default function Custom500() {
               <div className='buttonWrap'>
                 <Button
                   isDarkBackground={true}
-                  variant="secondary">
+                  variant="secondary"
+                  handleOnClick={handleClick}>
                   {Content.errorPage.button}
                 </Button>
               </div>
