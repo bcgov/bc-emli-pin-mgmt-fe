@@ -3,7 +3,7 @@ import Content from '../assets/content/content.json'
 import Header from '../components/Header/index'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
-import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
+import {getUserInfo, getTokenInfo, checkRegisteredUser} from '../services/authentication/userAuthService'
 import RequestLayout from '../components/RequestAccess/RequestLayout'
 import { getUserName } from '../utils/helper'
 
@@ -34,6 +34,16 @@ export default function RequestAccess(props) {
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
   const userInfo = getUserInfo(authInfo);
+  
+  if (checkRegisteredUser(userInfo)) {
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    }
+  }
+
   return {
     props: {
       userName: getUserName(userInfo),
