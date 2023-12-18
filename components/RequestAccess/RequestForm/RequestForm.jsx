@@ -79,7 +79,14 @@ export default function RequestForm(props) {
         }
         handleBack={() => setShowForm(true)}
       />
-  )
+    )
+  }
+
+  const validateEmailRegex = (email) => {
+      if (/^\w+([.-]\w+)*@\w+([.-]\w+)*(\.\w{2,3})+$/.test(email)) {
+          return true;
+      }
+      return false;
   }
 
   const resetError = (fieldName) => {
@@ -208,7 +215,7 @@ export default function RequestForm(props) {
       errorFlagsInfo.organization = false;
     }
 
-    if (email === '') {
+    if (email === '' || !validateEmailRegex(email)) {
       errorFlagsInfo.email = false;
     }
 
