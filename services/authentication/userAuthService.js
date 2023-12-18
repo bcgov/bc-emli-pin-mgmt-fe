@@ -12,7 +12,7 @@ const getTokenInfo = (ctx) => {
 }
 
 
-const checkAuthorization = (userInfo) =>{
+const checkRegisteredUser = (userInfo) =>{
   return userInfo.hasOwnProperty('role') && userInfo.hasOwnProperty('permissions')
 
 }
@@ -21,7 +21,7 @@ const checkAuthentication = (ctx) =>{
   const token = getTokenInfo(ctx)
   const hasToken = token !== undefined
   const userInfo = hasToken ? getUserInfo(token) : ''
-  const registration = checkAuthorization(userInfo)
+  const registration = checkRegisteredUser(userInfo)
   return {
     userAuthenticated: hasToken,
     userRegistered: registration,

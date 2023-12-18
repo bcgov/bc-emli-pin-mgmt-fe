@@ -4,6 +4,7 @@ import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthService'
+import checkAuthorization from '../services/authorization/accessService'
 import PropertyLayout from '../components/Property/PropertyLayout'
 import { getUserName } from '../utils/helper'
 
@@ -40,6 +41,7 @@ export default function Home(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  const currentPath = '/home'
   if (!authInfo) {
     return {
       redirect: {
@@ -49,6 +51,7 @@ export async function getServerSideProps(ctx) {
     }
   }
   const userInfo = getUserInfo(authInfo);
+  checkAuthorization(ctx, currentPath, userInfo)
   return {
     props: {
       userName: getUserName(userInfo),
