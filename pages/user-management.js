@@ -6,6 +6,7 @@ import Navigation from '../components/Navigation/index'
 import { UserManagementProvider } from '../context/userManagementContext/UserManagementState'
 import UserManagementLayout from '../components/UserManagement/UserManagementLayout'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
+import checkAuthorization from '../services/authorization/accessService'
 import { getUserName } from '../utils/helper'
 
 export default function UserManagement(props) {
@@ -38,6 +39,7 @@ export default function UserManagement(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  const currentPath = '/user-management'
   if (!authInfo) {
     return {
       redirect: {
@@ -47,6 +49,7 @@ export async function getServerSideProps(ctx) {
     }
   }
   const userInfo = getUserInfo(authInfo);
+  checkAuthorization(ctx, currentPath, userInfo)
   return {
     props: {
       userName: getUserName(userInfo),

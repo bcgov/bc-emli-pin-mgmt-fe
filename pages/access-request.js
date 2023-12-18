@@ -7,6 +7,7 @@ import { AccessProvider } from '../context/accessContext/AccessState'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
 import AccessLayout from '../components/AccessManagement/AccessLayout'
 import { getUserName } from '../utils/helper'
+import checkAuthorization from '../services/authorization/accessService'
 
 export default function UserManagement(props) {
   const {
@@ -38,6 +39,7 @@ export default function UserManagement(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  const currentPath = '/access-request'
   if (!authInfo) {
     return {
       redirect: {
@@ -47,6 +49,7 @@ export async function getServerSideProps(ctx) {
     }
   }
   const userInfo = getUserInfo(authInfo);
+  checkAuthorization(ctx,currentPath,userInfo);
   return {
     props: {
       userName: getUserName(userInfo),
