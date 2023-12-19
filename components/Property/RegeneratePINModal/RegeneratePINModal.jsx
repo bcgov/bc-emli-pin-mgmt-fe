@@ -20,6 +20,7 @@ export default function RegeneratePINModal({
     const [phone, setPhoneValue] = useState()
     const [email, setEmailValue] = useState()
     const [confimationMessage, setConfirmationMessage] = useState()
+    const [errorMessage, setErrorMessage] = useState()
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
@@ -84,6 +85,13 @@ export default function RegeneratePINModal({
                 setEmailValue('')
             })
             .catch((error) => {
+                if (error.response.data.faults[0].includes("phone_number Not a valid international number")) {
+                    setErrorMessage(Content.regeneratePINModal.phoneFailureModalMessage)
+                } else if (error.response.data.faults[0].includes("email_address Not a valid email address")) {
+                    setErrorMessage(Content.regeneratePINModal.emailFailureModalMessage)
+                } else {
+                    setErrorMessage(Content.regeneratePINModal.failureModalMag)
+                }
                 setIsOpen(false)
                 setOpenRegenerateFailureModal(true)
                 setPhoneValue('')
@@ -94,6 +102,11 @@ export default function RegeneratePINModal({
     const closeRegenerateSuccessModal = () => {
         setOpenRegenerateSuccessModal(false)
         reloadPage()
+    }
+
+    const backToMainModal = () => {
+        setOpenRegenerateFailureModal(false)
+        setIsOpen(true)
     }
 
 
@@ -171,7 +184,7 @@ export default function RegeneratePINModal({
                     text: `${Content.expirePINFailureModal.primaryButton}`,
                     size: 'medium',
                     variant: 'primary',
-                    onClickHandler: () => regeneratePIN(),
+                    onClickHandler: (errorMessage == Content.regeneratePINModal.failureModalMag) ? () => regeneratePIN() : () => backToMainModal(),
                 }}
                 modalSecondaryBtn={{
                     text: `${Content.regeneratePINModal.cancelButton}`,
@@ -180,7 +193,7 @@ export default function RegeneratePINModal({
                     onClickHandler: () => setOpenRegenerateFailureModal(false),
                 }}
             >
-                {Content.regeneratePINModal.failureModalMag}
+                {errorMessage}
             </Modal>
         </>
     )
