@@ -33,6 +33,14 @@ export default function RequestAccess(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  if (!authInfo) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
   const userInfo = getUserInfo(authInfo);
   
   if (checkRegisteredUser(userInfo)) {
