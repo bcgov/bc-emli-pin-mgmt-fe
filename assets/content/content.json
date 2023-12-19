@@ -65,7 +65,8 @@
       "lastName":"Last name",
       "email":"Email",
       "organization":"Organization",
-      "deactivationReason":"Reason for deactivation"
+      "deactivationReason":"Reason for deactivation",
+      "updatedAt": "Last Updated At"
     },
     "userEditModal" : {
       "title":"Edit user information",

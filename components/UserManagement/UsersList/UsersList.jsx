@@ -7,6 +7,7 @@ import Table from '../../Table'
 import { getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import styles from './UsersList.module.css'
+import { getLocalTime } from '../../../utils/helper';
 
 export default function UsersList() {
   const { setRowSelected, usersList, tabSelected } = useContext(UserManagementContext)
@@ -64,6 +65,15 @@ export default function UsersList() {
       Header: 'Reason for deactivation',
       accessor: 'deactivationReason',
       width: 20,
+    })
+
+    columnsList.push ({
+      Header: 'Last updated at',
+      accessor: 'updatedAt',
+      width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
     })
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
