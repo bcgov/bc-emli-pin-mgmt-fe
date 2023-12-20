@@ -7,7 +7,6 @@ let config = {
 }
 
 const getDashboardUrl = () => {
-  console.log('in api call')
   return axios.get(
     `${Endpoints.dashboard.GET_URL}`,
     config
