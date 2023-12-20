@@ -14,7 +14,8 @@
         "home": "Home",
         "usermanagement": "User Management",
         "accessrequest": "Access Requests",
-        "requestaccessform":"Request Access to Admin Portal"
+        "requestaccessform":"Request Access to Admin Portal",
+        "dashboard": "Dashboard"
     },
     "footer": {
         "home": "Home",
@@ -36,6 +37,9 @@
         "searchContent": "Enter a residential street address to retrieve property details",
         "searchPlaceHolder": "Enter a residential street address",
         "search": "Search"
+    },
+    "dashboard": {
+      "pageTitle": "Dashboard"
     },
     "userManagement": {
         "pageTitle": "User Management",
