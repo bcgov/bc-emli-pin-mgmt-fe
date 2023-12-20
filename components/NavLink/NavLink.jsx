@@ -5,6 +5,7 @@ import React from "react";
 
 export default function NavLink ({
 	showToClientSupport,
+	showToSuperAdminOnly,
 	children,
 	keyInfo,
 	role,
@@ -13,7 +14,7 @@ export default function NavLink ({
 }) {
 
 	const asPath = usePathname();
-	const showLink = (role === "Admin" || role === "SuperAdmin") ? true : role === "Standard" && showToClientSupport ? true : false
+	const showLink = (role === "SuperAdmin") ? true : (role === "Admin" && !showToSuperAdminOnly) ? true : role === "Standard" && showToClientSupport ? true : false
 
 	// check the current url and give the correct class name
 	const className = asPath === props.href || asPath === props.as || asPath === alt_route
