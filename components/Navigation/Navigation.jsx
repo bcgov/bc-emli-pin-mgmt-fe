@@ -72,6 +72,13 @@ Navigation.defaultProps = {
 			active: false,
 			showToClientSupport: false,
 		},
+    {
+			index: 4,
+			name: Text.navigation.dashboard,
+			href: '/dashboard',
+			active: false,
+			showToClientSupport: false,
+		},
 
 	],
 	role: 'cms',
