@@ -3,6 +3,7 @@ const pageMap = {
   '/property-search': 'PROPERTY_SEARCH',
   '/access-request': 'ACCESS_REQUEST',
   '/user-management': 'USER_ACCESS',
+  '/dashboard': 'DASHBOARD',
 };
 
 const hasPageAccess = (path, modules) => {
