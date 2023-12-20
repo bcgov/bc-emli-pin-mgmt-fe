@@ -14,7 +14,8 @@
         "home": "Home",
         "usermanagement": "User Management",
         "accessrequest": "Access Requests",
-        "requestaccessform":"Request Access to Admin Portal"
+        "requestaccessform":"Request Access to Admin Portal",
+        "dashboard": "Dashboard"
     },
     "footer": {
         "home": "Home",
@@ -36,6 +37,9 @@
         "searchContent": "Enter a residential street address to retrieve property details",
         "searchPlaceHolder": "Enter a residential street address",
         "search": "Search"
+    },
+    "dashboard": {
+      "pageTitle": "Dashboard"
     },
     "userManagement": {
         "pageTitle": "User Management",
@@ -65,7 +69,8 @@
       "lastName":"Last name",
       "email":"Email",
       "organization":"Organization",
-      "deactivationReason":"Reason for deactivation"
+      "deactivationReason":"Reason for deactivation",
+      "updatedAt": "Last Updated At"
     },
     "userEditModal" : {
       "title":"Edit user information",
@@ -333,7 +338,9 @@
         "successModalMsgPhone": "A new PIN has been created and will be sent to the property owner via SMS soon.",
         "successModalMsgEmail": "A new PIN has been created and will be sent to the property owner via email soon.",
         "failureModalTitle": "Regenerating PIN failed", 
-        "failureModalMag": "There was a problem. Try again later."
+        "failureModalMag": "There was a problem. Try again later.",
+        "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
+        "emailFailureModalMessage": "This is not a valid email address. Please try again."
     },
     "back": "Back",
     "portalUserRole" : {

@@ -31,5 +31,6 @@ const checkAuthentication = (ctx) =>{
 export {
   getUserInfo,
   checkAuthentication,
-  getTokenInfo
+  getTokenInfo,
+  checkRegisteredUser
 }

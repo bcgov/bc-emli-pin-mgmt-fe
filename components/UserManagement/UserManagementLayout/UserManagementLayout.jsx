@@ -4,7 +4,7 @@ import UserManagement from '../../../assets/svgs/UserManagement'
 import PageBanner from '../../PageBanner'
 import ActiveUsers from '../ActiveUsers'
 import DeactivatedUsers from '../DeactivatedUsers';
-import AccessNavigation from '../UserManagementNavigation';
+import UserManagementNavigation from '../UserManagementNavigation';
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import { useContext } from 'react'
 import { ToastContainer } from 'react-toastify'
@@ -22,7 +22,7 @@ export default function UserManagementLayout() {
             </PageBanner>
         </div>
         <div className={`${styles.mainSection}`}>
-            <AccessNavigation />
+            <UserManagementNavigation />
             {tabSelected === 'active' && <ActiveUsers/>}
             {tabSelected === 'deactivated' && <DeactivatedUsers/>}
         </div>

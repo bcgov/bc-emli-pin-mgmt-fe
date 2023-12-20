@@ -6,6 +6,13 @@ let config = {
     credentials: 'include',
 }
 
+const getDashboardUrl = () => {
+  return axios.get(
+    `${Endpoints.dashboard.GET_URL}`,
+    config
+)
+}
+
 const getSearchResults = (address) => {
     return axios.get(
         `${Endpoints.propertySearch.GET_SEARCH_RESULTS}${address}`,
@@ -76,6 +83,7 @@ const HttpRequest = {
     getUserList,
     deactivateUsers,
     updateUser,
+    getDashboardUrl
 }
 
 export default HttpRequest

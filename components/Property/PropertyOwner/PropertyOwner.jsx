@@ -58,6 +58,8 @@ function PropertyOwner({
         return formattedMailingAddress;
     }
 
+    fullName = fullName?.toLowerCase()
+
     return (
         <div className={`${Styles.ownerInfoCardWrap}` + ' text-left'}>
             <div className={`${Styles.title}`}>
@@ -69,7 +71,7 @@ function PropertyOwner({
                         <div className={`${Styles.title}`}>
                             {Content.propertyDetails.fullname}
                         </div>
-                        <div className={`${Styles.content}`}>{fullName}</div>
+                        <div className={`${Styles.content}` + ` ${Styles.titleCase}`}>{fullName}</div>
                     </div>
                 }
                 {incorporationNumber &&
@@ -78,7 +80,7 @@ function PropertyOwner({
                             <div className={`${Styles.title}`}>
                                 {Content.propertyDetails.incorporationName}
                             </div>
-                            <div className={`${Styles.content}`}>{fullName}</div>
+                            <div className={`${Styles.content}` + ` ${Styles.titleCase}`}>{fullName}</div>
                         </div>
                         <div className={`${Styles.infoDetailWrap}`}>
                             <div className={`${Styles.title}`}>
@@ -92,7 +94,7 @@ function PropertyOwner({
                     <div className={`${Styles.title}`}>
                         {Content.propertyDetails.mailingAddress}
                     </div>
-                    <div className={`${Styles.content}`}>{formatMailingAddress(mailingAddress)}</div>
+                    <div className={`${Styles.content}` + ` ${Styles.titleCase}`}>{formatMailingAddress(mailingAddress)}</div>
                 </div>
             </div>
             <div className={`${Styles.buttonWrap}` + ' flex justify-start'}>

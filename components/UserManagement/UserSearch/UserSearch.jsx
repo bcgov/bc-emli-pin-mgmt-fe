@@ -29,7 +29,7 @@ export default function UserSearch() {
   useEffect(() => {
     setSearchField(options[0].value)
     if(tabSelected === 'active') {
-      const filteredOptions = options.filter(item => item.value !== 'deactivationReason')
+      const filteredOptions = options.filter(item => item.value !== 'deactivationReason' && item.value !== 'updatedAt')
       setFieldOptions(filteredOptions)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -113,3 +113,7 @@
 .incorporation .infoDetailWrap:first-child {
     margin-right: 0px;
 }
+
+.content.titleCase {
+    text-transform: capitalize;
+}

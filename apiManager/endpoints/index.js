@@ -26,6 +26,9 @@ const Endpoints = {
       DEACTIVATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/deactivate`,
       UPDATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users`
     },
+    dashboard: {
+      GET_URL: `${process.env.NEXT_PUBLIC_BE_APP_URL}/dashboard`
+    }
 }
 
 export default Endpoints

@@ -24,7 +24,7 @@ export default function Navigation ( props) {
 			<div className={`${Styles.navigationSection}`}>
 				{
 					isUserRegistered && links.map((item) => (
-						<NavLink href={item.href} showToClientSupport={item.showToClientSupport}
+						<NavLink href={item.href} showToClientSupport={item.showToClientSupport} showToSuperAdminOnly={item.showToSuperAdminOnly}
 							key={item.index} role={role} alt_route={item.alt_route}>
 							{item.name}
 						</NavLink>
@@ -71,6 +71,14 @@ Navigation.defaultProps = {
 			href: '/access-request',
 			active: false,
 			showToClientSupport: false,
+		},
+    {
+			index: 4,
+			name: Text.navigation.dashboard,
+			href: '/dashboard',
+			active: false,
+			showToClientSupport: false,
+			showToSuperAdminOnly: true,
 		},
 
 	],
