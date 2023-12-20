@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navigation from '../components/Navigation/index'
 import DashboardLayout from '../components/DashboardLayout'
 import {getUserInfo, getTokenInfo} from '../services/authentication/userAuthService'
+import checkAuthorization from '../services/authorization/accessService'
 import { getUserName } from '../utils/helper'
 
 export default function Dashboard(props) {
@@ -34,6 +35,8 @@ export default function Dashboard(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  const currentPath = '/dashboard'
+
   if (!authInfo) {
     return {
       redirect: {
@@ -43,6 +46,8 @@ export async function getServerSideProps(ctx) {
     }
   }
   const userInfo = getUserInfo(authInfo);
+  checkAuthorization(ctx, currentPath, userInfo)
+
   return {
     props: {
       userName: getUserName(userInfo),
