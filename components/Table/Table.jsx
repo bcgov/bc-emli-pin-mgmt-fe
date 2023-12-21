@@ -16,6 +16,7 @@ export default function Table(props) {
     initialState,
     setSelectedRows,
     showSelectBox,
+    role
   } = props
 
   const IndeterminateCheckbox = forwardRef(
@@ -102,20 +103,26 @@ export default function Table(props) {
             {rows.map((row) => {
               prepareRow(row);
                 return (
-                  <tr
-                    className='dataRow'
-                    {...row.getRowProps()}
-                    onClick={() => row.toggleRowSelected(!row.isSelected)}
-                    >
-                    {row.cells.map((cell) => {
-                        return (
-                            <td {...cell.getCellProps()}>
-                                {cell.render('Cell')}
-                            </td>
-                        );
-                    })}
-                </tr>
-                  );
+                  <>
+                  { 
+                    (row.cells.some(el => el.value === 'SuperAdmin') && role === 'SuperAdmin') || (!row.cells.some(el => el.value === 'SuperAdmin')) ?
+                    <tr
+                      className='dataRow'
+                      {...row.getRowProps()}
+                      onClick={() => row.toggleRowSelected(!row.isSelected)}
+                      >
+                      {row.cells.map((cell) => {
+                          return (
+                              <td {...cell.getCellProps()}>
+                                  {cell.render('Cell')}
+                              </td>
+                          );
+                      })}
+                    </tr>
+                    : ''
+                  }
+                  </>
+                );
               })}
           </tbody>
         </table>

@@ -10,7 +10,7 @@ import { getAccessStatusLabel, getRoleLabel } from '../../../utils/helper'
 import contents from '../../../assets/content/content.json'
 import { getLocalTime } from '../../../utils/helper';
 
-export default function AccessList() {
+export default function AccessList(role) {
   const { setRowSelected, requestList, tabSelected } = useContext(AccessContext)
   const showSelectBox = tabSelected === 'pending'
   const columnsList = [
@@ -112,6 +112,7 @@ export default function AccessList() {
               initialState={initialState}
               setSelectedRows={setRowSelected}
               showSelectBox={showSelectBox}
+              role={role?.role}
             />
         }
         {

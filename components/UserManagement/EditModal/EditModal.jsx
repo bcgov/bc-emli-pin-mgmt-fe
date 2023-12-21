@@ -32,6 +32,7 @@ export default function EditModal(props) {
     const {
       isOpen,
       setIsOpen,
+      role
     } = props
     const {
       rowSelected,
@@ -201,16 +202,19 @@ export default function EditModal(props) {
             selectedValue={formData.role}
             size='large'
           />
-          <RadioButton
-            radioButtonId='permissionType3'
-            radioButtonName='permissionType'
-            radioButtonLabel={content.portalUserRole.SuperAdmin}
-            value={'SuperAdmin'}
-            setSelectedValue={onRoleInputChange}
-            hasError={!errorFlags.role}
-            selectedValue={formData.role}
-            size='large'
-          />
+          { role === "SuperAdmin" ? 
+            <RadioButton
+              radioButtonId='permissionType3'
+              radioButtonName='permissionType'
+              radioButtonLabel={content.portalUserRole.SuperAdmin}
+              value={'SuperAdmin'}
+              setSelectedValue={onRoleInputChange}
+              hasError={!errorFlags.role}
+              selectedValue={formData.role}
+              size='large'
+            />
+            : ''
+          }
         </div>
       </div>
     )

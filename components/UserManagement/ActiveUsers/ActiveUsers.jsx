@@ -11,7 +11,7 @@ import CloseIcon from '../../../assets/svgs/CloseIcon'
 import content from '../../../assets/content/content.json'
 import HttpRequest from '../../../apiManager/httpRequestHandler'
 
-export default function ActiveUsers() {
+export default function ActiveUsers(role) {
     const { setUsersList, setOriginalResult, rowSelected } = useContext(UserManagementContext)
     const [isLoading, setIsLoading] = useState(false);
     const [showWarnMsg, setShowWarnMsg] = useState(true);
@@ -75,7 +75,7 @@ export default function ActiveUsers() {
       <div className={styles.mainSection}>
         <div className={styles.filterSection}>
           <div className={styles.btnSection}>
-            <UserUpdate />
+            <UserUpdate role={role?.role}/>
           </div>
           <div className={styles.searchSection}>
             <UserSearch />

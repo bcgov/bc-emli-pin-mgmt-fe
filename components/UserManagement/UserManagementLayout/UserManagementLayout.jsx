@@ -10,7 +10,7 @@ import { useContext } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function UserManagementLayout() {
+export default function UserManagementLayout(role) {
   const { tabSelected } = useContext(UserManagementContext)
     return (
       <div className={`${styles.container}`}>
@@ -23,7 +23,7 @@ export default function UserManagementLayout() {
         </div>
         <div className={`${styles.mainSection}`}>
             <UserManagementNavigation />
-            {tabSelected === 'active' && <ActiveUsers/>}
+            {tabSelected === 'active' && <ActiveUsers role={role?.role} />}
             {tabSelected === 'deactivated' && <DeactivatedUsers/>}
         </div>
         <ToastContainer
