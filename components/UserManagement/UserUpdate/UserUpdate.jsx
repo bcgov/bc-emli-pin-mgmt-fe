@@ -6,7 +6,7 @@ import { UserManagementContext } from '../../../context/userManagementContext/Us
 import EditModal from '../EditModal/EditModal';
 import DeactivateModal from '../DeactivateModal/DeactivateModal'
 
-export default function UserUpdate() {
+export default function UserUpdate(role) {
   const { rowSelected, usersList } = useContext(UserManagementContext)
   const [showEditModal, setShowEditModal] = useState(false)
   const [showDeactivateModal, setShowDeactivateModal] = useState(false)
@@ -50,6 +50,7 @@ export default function UserUpdate() {
           <EditModal
           isOpen={showEditModal}
           setIsOpen={setShowEditModal}
+          role={role?.role}
         />
         }
         

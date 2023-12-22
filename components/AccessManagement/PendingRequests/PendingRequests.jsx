@@ -8,7 +8,7 @@ import HttpRequest from '../../../apiManager/httpRequestHandler'
 import LoadingIcon from '../../../assets/svgs/LoadingIcon'
 import LoadingScreen from '../../LoadingScreen'
 
-export default function PendingRequests() {
+export default function PendingRequests(role) {
     const { setRequestList, setOriginalResult } = useContext(AccessContext)
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -49,7 +49,7 @@ export default function PendingRequests() {
         {isLoading && loadingSection}
         {!isLoading &&
           <div className={styles.tblSection}>
-            <AccessList />
+            <AccessList role={role?.role}/>
           </div>
         }
       </div>
