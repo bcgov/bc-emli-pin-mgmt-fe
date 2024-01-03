@@ -27,7 +27,7 @@ export default function UserSearch() {
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
-    setSearchField(options[0].value)
+    setSearchField ? setSearchField(options[0].value) : ''
     if(tabSelected === 'active') {
       const filteredOptions = options.filter(item => item.value !== 'deactivationReason' && item.value !== 'updatedAt')
       setFieldOptions(filteredOptions)
@@ -47,13 +47,14 @@ export default function UserSearch() {
   }
 
   const handleSearchString = (searchText) => {
+    setSearchString ? setSearchString(searchText) : ''
     setSearchString(searchText)
 }
 
 const clearSearch = () => {
   document.getElementById('searchInput').value = ''
-  setSearchString('')
-  resetData()
+  setSearchString ? setSearchString('') : ''
+  resetData ? resetData() : ''
 }
 
 const doSearch = (e) => {

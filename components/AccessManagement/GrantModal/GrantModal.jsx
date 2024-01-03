@@ -5,7 +5,7 @@ import {AccessContext} from '../../../context/accessContext/AccessState'
 import { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import styles from './GrantModal.module.css'
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function GrantModal(props) {
     const {
@@ -95,7 +95,7 @@ export default function GrantModal(props) {
     }
 
     return (
-        <div>
+        <div id="access-grant-modal">
             <Modal
                 modalHeader={modalTitle}
                 modalId="access-grant-modal"
