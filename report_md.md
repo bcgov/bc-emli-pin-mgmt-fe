@@ -6,8 +6,8 @@
 | Risk Level | Number of Alerts |
 | --- | --- |
 | High | 0 |
-| Medium | 6 |
-| Low | 5 |
+| Medium | 5 |
+| Low | 6 |
 | Informational | 11 |
 
 
@@ -18,27 +18,27 @@
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
 | CSP: Wildcard Directive | Medium | 2 |
-| CSP: script-src unsafe-eval | Medium | 2 |
 | CSP: script-src unsafe-inline | Medium | 2 |
 | CSP: style-src unsafe-inline | Medium | 2 |
 | Content Security Policy (CSP) Header Not Set | Medium | 1 |
 | Missing Anti-clickjacking Header | Medium | 1 |
+| CSP: Notices | Low | 2 |
 | Cookie with SameSite Attribute None | Low | 1 |
 | Permissions Policy Header Not Set | Low | 11 |
-| Strict-Transport-Security Header Not Set | Low | 12 |
+| Strict-Transport-Security Header Not Set | Low | 11 |
 | Timestamp Disclosure - Unix | Low | 1 |
 | X-Content-Type-Options Header Missing | Low | 11 |
 | Base64 Disclosure | Informational | 6 |
 | Content-Type Header Missing | Informational | 1 |
 | Information Disclosure - Suspicious Comments | Informational | 9 |
 | Modern Web Application | Informational | 3 |
-| Non-Storable Content | Informational | 3 |
+| Non-Storable Content | Informational | 4 |
 | Sec-Fetch-Dest Header is Missing | Informational | 2 |
 | Sec-Fetch-Mode Header is Missing | Informational | 2 |
 | Sec-Fetch-Site Header is Missing | Informational | 2 |
 | Sec-Fetch-User Header is Missing | Informational | 2 |
 | Session Management Response Identified | Informational | 2 |
-| Storable and Cacheable Content | Informational | 8 |
+| Storable and Cacheable Content | Informational | 7 |
 
 
 
@@ -61,67 +61,20 @@ Content Security Policy (CSP) is an added layer of security that helps to detect
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
-style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, form-action
+script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action
 
 The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
-style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, form-action
+script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action
 
 The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.`
-
-Instances: 2
-
-### Solution
-
-Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.
-
-### Reference
-
-
-* [ http://www.w3.org/TR/CSP2/ ](http://www.w3.org/TR/CSP2/)
-* [ http://www.w3.org/TR/CSP/ ](http://www.w3.org/TR/CSP/)
-* [ http://caniuse.com/#search=content+security+policy ](http://caniuse.com/#search=content+security+policy)
-* [ http://content-security-policy.com/ ](http://content-security-policy.com/)
-* [ https://github.com/shapesecurity/salvation ](https://github.com/shapesecurity/salvation)
-* [ https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources ](https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources)
-
-
-#### CWE Id: [ 693 ](https://cwe.mitre.org/data/definitions/693.html)
-
-
-#### WASC Id: 15
-
-#### Source ID: 3
-
-### [ CSP: script-src unsafe-eval ](https://www.zaproxy.org/docs/alerts/10055/)
-
-
-
-##### Medium (High)
-
-### Description
-
-Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
-
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
-  * Method: `GET`
-  * Parameter: `content-security-policy`
-  * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
-  * Other Info: `script-src includes unsafe-eval.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
-  * Method: `GET`
-  * Parameter: `content-security-policy`
-  * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
-  * Other Info: `script-src includes unsafe-eval.`
 
 Instances: 2
 
@@ -161,13 +114,13 @@ Content Security Policy (CSP) is an added layer of security that helps to detect
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `script-src includes unsafe-inline.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `script-src includes unsafe-inline.`
 
 Instances: 2
@@ -208,13 +161,13 @@ Content Security Policy (CSP) is an added layer of security that helps to detect
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `style-src includes unsafe-inline.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
   * Method: `GET`
   * Parameter: `content-security-policy`
   * Attack: ``
-  * Evidence: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
   * Other Info: `style-src includes unsafe-inline.`
 
 Instances: 2
@@ -314,6 +267,57 @@ If you expect the page to be framed only by pages on your server (e.g. it's part
 
 
 #### CWE Id: [ 1021 ](https://cwe.mitre.org/data/definitions/1021.html)
+
+
+#### WASC Id: 15
+
+#### Source ID: 3
+
+### [ CSP: Notices ](https://www.zaproxy.org/docs/alerts/10055/)
+
+
+
+##### Low (High)
+
+### Description
+
+Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
+
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
+  * Method: `GET`
+  * Parameter: `content-security-policy`
+  * Attack: ``
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
+  * Other Info: `Warnings:
+Unrecognized directive defaultsrc
+`
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
+  * Method: `GET`
+  * Parameter: `content-security-policy`
+  * Attack: ``
+  * Evidence: `defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca`
+  * Other Info: `Warnings:
+Unrecognized directive defaultsrc
+`
+
+Instances: 2
+
+### Solution
+
+Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.
+
+### Reference
+
+
+* [ http://www.w3.org/TR/CSP2/ ](http://www.w3.org/TR/CSP2/)
+* [ http://www.w3.org/TR/CSP/ ](http://www.w3.org/TR/CSP/)
+* [ http://caniuse.com/#search=content+security+policy ](http://caniuse.com/#search=content+security+policy)
+* [ http://content-security-policy.com/ ](http://content-security-policy.com/)
+* [ https://github.com/shapesecurity/salvation ](https://github.com/shapesecurity/salvation)
+* [ https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources ](https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources)
+
+
+#### CWE Id: [ 693 ](https://cwe.mitre.org/data/definitions/693.html)
 
 
 #### WASC Id: 15
@@ -420,13 +424,13 @@ Permissions Policy Header is an added layer of security that helps to restrict f
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -472,19 +476,13 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-3d23ec8ae3cc3090.js
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/684-f945c075b2c9d54e.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-06822257bfa2bc4c.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -526,20 +524,20 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
 
-Instances: 12
+Instances: 11
 
 ### Solution
 
@@ -615,13 +613,6 @@ The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. T
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-3d23ec8ae3cc3090.js
-  * Method: `GET`
-  * Parameter: `x-content-type-options`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At "High" threshold this scan rule will not alert on client or server error responses.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/684-f945c075b2c9d54e.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
@@ -630,6 +621,13 @@ At "High" threshold this scan rule will not alert on client or server error resp
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js
+  * Method: `GET`
+  * Parameter: `x-content-type-options`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At "High" threshold this scan rule will not alert on client or server error responses.`
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-06822257bfa2bc4c.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -671,14 +669,14 @@ At "High" threshold this scan rule will not alert on client or server error resp
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_ssgManifest.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -721,8 +719,8 @@ Base64 encoded data was disclosed by the application/web server. Note: in the in
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest`
-  * Other Info: `�����쵫bs�j������땑��������'޲`
+  * Evidence: `/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest`
+  * Other Info: `�����쵫bs��$��`0��5�p�?H������'޲`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-3d23ec8ae3cc3090.js
   * Method: `GET`
   * Parameter: ``
@@ -745,14 +743,14 @@ Base64 encoded data was disclosed by the application/web server. Note: in the in
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest`
-  * Other Info: `�����쵫bs�j������땑��������'޲`
+  * Evidence: `/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest`
+  * Other Info: `�����쵫bs��$��`0��5�p�?H������'޲`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest`
-  * Other Info: `�����쵫bs�j������땑��������'޲`
+  * Evidence: `/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest`
+  * Other Info: `�����쵫bs��$��`0��5�p�?H������'޲`
 
 Instances: 6
 
@@ -855,7 +853,7 @@ The response appears to contain suspicious comments which may help an attacker. 
   * Attack: ``
   * Evidence: `query`
   * Other Info: `The following pattern was used: \bQUERY\b and was detected in the element starting with: "!function(){var t="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:", see evidence field for the suspicious comment/snippet.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -949,6 +947,12 @@ The response contents are not storable by caching components such as proxy serve
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/home
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `no-store`
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
   * Method: `GET`
   * Parameter: ``
@@ -962,7 +966,7 @@ The response contents are not storable by caching components such as proxy serve
   * Evidence: `no-store`
   * Other Info: ``
 
-Instances: 3
+Instances: 4
 
 ### Solution
 
@@ -1166,7 +1170,7 @@ Ensure that Sec-Fetch-User header is included in user initiated requests.
 
 
 
-##### Informational (High)
+##### Informational (Medium)
 
 ### Description
 
@@ -1176,14 +1180,14 @@ The given response has been identified as containing a session management token.
   * Method: `GET`
   * Parameter: `066d51379f0e80753a0fff3b87556849`
   * Attack: ``
-  * Evidence: `05f797f79c84d5a2f7c429e645812a0d`
+  * Evidence: `e4ace5a99fb1fd76741f92dd7e797848`
   * Other Info: `
 cookie:066d51379f0e80753a0fff3b87556849`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/
   * Method: `GET`
   * Parameter: `066d51379f0e80753a0fff3b87556849`
   * Attack: ``
-  * Evidence: `05f797f79c84d5a2f7c429e645812a0d`
+  * Evidence: `e4ace5a99fb1fd76741f92dd7e797848`
   * Other Info: `
 cookie:066d51379f0e80753a0fff3b87556849`
 
@@ -1212,12 +1216,6 @@ This is an informational alert rather than a vulnerability and so there is nothi
 
 The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where "shared" caching servers such as "proxy" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.
 
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/684-f945c075b2c9d54e.js
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `max-age=31536000`
-  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js
   * Method: `GET`
   * Parameter: ``
@@ -1248,20 +1246,20 @@ The response contents are storable by caching components such as proxy servers, 
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/OeagYH7M3V65fX_uuVkdD/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/j6JJeMYDCu2jX9cIs_SBd/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
 
-Instances: 8
+Instances: 7
 
 ### Solution
 
