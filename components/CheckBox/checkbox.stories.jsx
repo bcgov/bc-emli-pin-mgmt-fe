@@ -1,4 +1,4 @@
-import CheckBox from './CheckBox'
+import CheckBox from './index'
 
 export default {
 	title: 'CheckBox',
