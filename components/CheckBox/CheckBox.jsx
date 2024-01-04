@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { testAttr } from 'utils/test.utils'
+import { testAttr } from '../../utils/test.utils'
 
 import './style.css'
 

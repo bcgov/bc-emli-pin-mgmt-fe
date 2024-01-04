@@ -7,10 +7,14 @@
   margin: 0px auto;
   width: 100%;
   max-width: 2000px;
-  padding: 0 50px 0 50px;
+  padding: 40px 50px;
   flex-direction: column;
 }
 
 .loadingIcon {
   padding-top: 250px;
+}
+
+.mainSection iframe .EmbedFrame {
+  margin-top: 40px;
 }
