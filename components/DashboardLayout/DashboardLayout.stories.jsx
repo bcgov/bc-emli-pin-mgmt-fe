@@ -1,7 +1,7 @@
 import DashboardLayout from "."
 
 export default {
-    title: 'Link',
+    title: 'Dashboard',
     component: DashboardLayout,
     args: {},
 }
