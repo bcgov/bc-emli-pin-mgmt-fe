@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 
-import * as stories from './TextArea.stories'
+import * as stories from './textArea.stories'
 
 const { Template } = composeStories(stories)
 
