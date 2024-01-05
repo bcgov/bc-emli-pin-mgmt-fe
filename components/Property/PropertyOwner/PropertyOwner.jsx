@@ -10,7 +10,7 @@ import ExpirePINModal from '../ExpirePINModal'
 import RegeneratePINModal from '../RegeneratePINModal/RegeneratePINModal'
 import ViewPINHistoryModal from '../ViewPINHistoryModal/ViewPINHisoryModal'
 
-function PropertyOwner({
+export default function PropertyOwner({
     fullName,
     mailingAddress,
     livePinId,
@@ -135,8 +135,6 @@ function PropertyOwner({
         </div>
     )
 }
-
-export default PropertyOwner
 
 PropertyOwner.protoTypes = {
     fullName: PropTypes.string,

@@ -3,7 +3,10 @@ import RegeneratePINModal from '.'
 export default {
     title: 'RegeneratePINModal',
     component: RegeneratePINModal,
-    args: {},
+    args: {
+        isOpen: true,
+        setIsOpen: () => {}
+    },
 }
 
 const Template = (args) => <RegeneratePINModal {...args} />

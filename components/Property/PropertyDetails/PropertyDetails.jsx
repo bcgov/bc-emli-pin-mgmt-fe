@@ -36,7 +36,7 @@ function PropertyDetails({
           setLoading(false)
         })
     }
-      reloaded()
+      reloaded ? reloaded() : ''
   }, [propertySiteId, reloadPage]);
 
 
@@ -78,8 +78,6 @@ function PropertyDetails({
 	const layoutClass = displayDetails ?
 		Styles.propertyDetailsWrap + " " + Styles.paddingLarge :
 		Styles.propertyDetailsWrap + " " + Styles.paddingSmall
-
-
 
   return (
     <div className={layoutClass}>
