@@ -143,6 +143,7 @@ export default function RegeneratePINModal({
                             textBoxPlaceholder={Content.regeneratePINModal.phonePlaceHolder}
                             type="number" 
                             onHandleChange={setPhoneValueOnChange}
+                            data-testid='phone'
                         />
                     </div>
                     <div className={`${Styles.inputWrap}`}>
@@ -153,6 +154,7 @@ export default function RegeneratePINModal({
                             textBoxPlaceholder={Content.regeneratePINModal.emailPlaceHolder}
                             inputType="email"
                             onHandleChange={setEmailValueOnChange}
+                            data-testid='email'
                         />
                     </div>
                 </div>

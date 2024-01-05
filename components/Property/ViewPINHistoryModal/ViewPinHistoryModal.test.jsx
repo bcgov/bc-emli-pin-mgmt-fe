@@ -11,4 +11,9 @@ describe('<ViewPINHistoryModal />', () => {
         const { container } = render(<PrimaryTemplate />)
         expect(container.firstChild).toBeDefined()
     })
+
+    it('should render properly with error', () => {
+        const { container } = render(<PrimaryTemplate pinHistory={'error'}/>)
+        expect(container.firstChild).toBeDefined()
+    })
 })

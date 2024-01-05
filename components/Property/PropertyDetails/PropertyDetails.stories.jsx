@@ -1,5 +1,5 @@
 
-import  PropertyDetails  from './PropertyDetails'
+import  PropertyDetails  from '.'
 
 export default {
 	title: 'PropertyDetails',
