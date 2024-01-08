@@ -8,34 +8,34 @@ on:
 
 jobs:
   codeql-scan:
-      name: codeql-scan
-      runs-on: ubuntu-latest
-      permissions:
-        actions: read
-        contents: read
-        security-events: write
+    name: codeql-scan
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
-      strategy:
-        fail-fast: false
-        matrix:
-          language: [ 'javascript' ]
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ]
 
-      steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
 
-      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
 
   zap-owasp:
     uses: bcgov/pipeline-templates/.github/workflows/owasp-scan.yaml@main
@@ -47,6 +47,8 @@ jobs:
       ZAP_GCP_PUBLISH: false
 
   build:
+    name: Build check
+    needs: [zap-owasp]
     runs-on: ubuntu-latest
 
     strategy:
@@ -75,19 +77,57 @@ jobs:
       - name: Build
         run: npm run build
 
-      ####### Need to set up prod namespace on openshift
+  ####### Openshift build and deploy
 
-      # - name: Login Openshift
-      #   shell: bash
-      #   run: |
-      #     oc login --server=${{ secrets.OPENSHIFT_LOGIN_REGISTRY }} --token=${{ secrets.OPENSHIFT_SA_TOKEN_PROD }}
+  # https://github.com/bcgov-nr/action-builder-ghcr
+  builds:
+    name: Builds
+    runs-on: ubuntu-22.04
+    needs: [build]
+    permissions:
+      packages: write
+    strategy:
+      matrix:
+        package: [bc-emli-pin-mgmt-fe]
+        include:
+          - package: bc-emli-pin-mgmt-fe
+            build_context: ./
+            triggers: ('bc-emli-pin-mgmt-fe/')
+            build_file: Dockerfile
+    timeout-minutes: 10
+    steps:
+      - uses: bcgov-nr/action-builder-ghcr@v2.0.0
+        with:
+          keep_versions: 50
+          package: ${{ matrix.package }}
+          build_context: ${{ matrix.build_context }}
+          tag: latest
+          triggers: ${{ matrix.triggers }}
 
-      # - name: Switch to correct project environment in Openshift
-      #   shell: bash
-      #   run: |
-      #     oc project ${{ secrets.OPENSHIFT_NAMESPACE_PROD }}
 
-      # - name: Build image on OpenShift
-      #   shell: bash
-      #   run: |
-      #     oc start-build ${{ secrets.OPENSHIFT_BUILDCONFIG }}
+  deploys:
+    name: Deploys Frontend
+    needs: [builds]
+    environment: tools
+    permissions:
+      issues: write
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        name: [bc-emli-pin-mgmt-fe]
+        include:
+          - name: bc-emli-pin-mgmt-fe
+            file: ./.deployment/prod.deploy.yml
+            overwrite: true
+
+    steps:
+      - uses: bcgov-nr/action-deployer-openshift@v2.0.0
+        with:
+          file: ${{ matrix.file }}
+          oc_namespace: ${{ vars.OC_NAMESPACE_PROD }}
+          oc_server: ${{ vars.OC_SERVER }}
+          oc_token: ${{ secrets.OC_TOKEN_PROD }}
+          overwrite: ${{ matrix.overwrite }}
+          parameters: -p ZONE=prod
+          repository: ${{ matrix.repository }}
+          verification_path: ${{ matrix.verification_path }}

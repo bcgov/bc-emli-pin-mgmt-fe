@@ -1,6 +1,6 @@
 import LoadingScreen from '.'
 
-import LoadingIcon from 'assets/svgs/LoadingIcon'
+import LoadingIcon from '../../assets/svgs/LoadingIcon'
 
 export default {
     title: 'LoadingScreen',

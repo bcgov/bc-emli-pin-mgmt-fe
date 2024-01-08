@@ -1,5 +1,5 @@
 
-import  PropertySearchHeader  from './PropertySearchHeader'
+import  PropertySearchHeader  from '.'
 
 export default {
 	title: 'PropertySearchHeader',

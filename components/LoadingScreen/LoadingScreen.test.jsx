@@ -1,19 +1,12 @@
 import { render } from '@testing-library/react'
+import { composeStories } from '@storybook/testing-react'
+import * as stories from './LoadingScreen.stories'
 
-import LoadingScreen from './index'
-
-import LoadingIcon from '../../assets/svgs/LoadingIcon'
-
-const validProps = {
-	loadingText: 'text',
-}
+const { Template } = composeStories(stories)
 
 describe('Loading screen', () => {
 	it('renders', () => {
-		const { container } = render(
-			<LoadingScreen loaderIcon={<LoadingIcon />} {...validProps} />
-		)
-
+		const { container } = render(<Template />)
 		expect(container.firstChild).toBeTruthy()
 	})
 })

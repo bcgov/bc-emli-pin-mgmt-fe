@@ -6,7 +6,7 @@ import {UserManagementContext} from '../../../context/userManagementContext/User
 import { useContext, useState } from 'react'
 import TextArea from '../../TextArea'
 import { toast } from 'react-toastify'
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function DeactivateModal(props) {
     const {

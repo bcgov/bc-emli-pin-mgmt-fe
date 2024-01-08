@@ -8,7 +8,7 @@ import AccessNavigation from '../AccessNavigation';
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import { useContext } from 'react'
 import { ToastContainer } from 'react-toastify'
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function AccessLayout(role) {
