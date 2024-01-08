@@ -1,0 +1,138 @@
+.actionDropdown {
+    position: relative;
+    /* width: 16.125rem; */
+}
+
+.large{
+    width: 186px;
+}
+
+.small{
+    width: 142px;
+}
+
+.actionDropdownButton {
+    display: flex;
+    flex-direction: row;
+    width: 100% !important;
+}
+
+.actionDropdownButton.primary.medium {
+    width: 136px;
+    /* padding: 0.375rem 0.94rem; */
+    line-height: 1.3rem;
+    height: 32px;
+    background-color: #234075;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.3125rem;
+    justify-content: space-evenly;
+    padding: 0 10px;
+}
+/* .actionDropdownButton.primary.medium:hover {
+    background: #ecf6ff;
+    cursor: pointer;
+} */
+
+.actionDropdownButton.xlarge.medium{
+    border: 1px solid #C7C7C7;
+    border-radius: 4px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 142.857% */
+    padding: 12px 15px;
+    display: flex;
+    justify-content: center;
+    width: 186px;
+    justify-content: space-between;
+    color: #1A1A1A;
+}
+
+.actionDropdownButton.primary.medium.disabled {
+    user-select: none;
+    pointer-events: none;
+    background: #c5c5c5;
+    color: #a1a1a1;
+    border-color: #c5c5c5;
+}
+
+.actionDropdownButton:disabled svg path {
+    fill: #c5c5c5;
+}
+.actionDropdownList {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 0.313rem;
+    list-style: none;
+    z-index: 5;
+    border: 0.063rem solid #c7c7c7;
+    font-size: 14px;
+    font-weight: 400;
+}
+.actionDropdownList button {
+    border: none;
+    text-align: start;
+    padding: 0.562rem 0.94rem;
+    margin-top: 0.062rem;
+    width: 100%;
+    border-bottom: solid 1px #c7c7c7;
+}
+
+.actionDropdownList li:last-of-type button {
+    border-bottom: none;
+}
+
+.actionDropdownList button span {
+    float: right;
+    color: #656565;
+}
+
+.actionDropdownList button:disabled {
+    color: #a1a1a1;
+}
+
+.actionDropdownList button:disabled span {
+    color: #a1a1a1;
+}
+
+.actionDropdownList button:not(:disabled) {
+    color: #2f2f2f;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.notBold {
+    font-weight: 400 !important;
+}
+
+.collapsedChevron {
+    transform: rotate(180deg);
+    margin-left: 6px;
+    height: 50%;
+}
+
+.expandedChevron {
+    margin-left: 6px;
+    height: 50%;
+}
+
+.collapsedChevron svg,
+.expandedChevron svg{
+    margin-right: 0 !important;
+}
+
+.actionDropdownButton span {
+    text-align: left;
+}

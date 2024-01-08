@@ -1,0 +1,85 @@
+.container {
+  display: inline;
+  width: 100%;
+  max-width: 1440px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding-left: 110px;
+}
+
+.msgHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.msgIcon {
+  padding-right: 8px;
+}
+
+.headerText {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.headerTextSuccess {
+  color: #008556;
+}
+
+.headerTextFailure {
+  color:  #D8292F;
+}
+
+.messageSection {
+  padding-top: 50px;
+  width: 538px;
+}
+
+.message {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.contactSection {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactHeader {
+  color:  #234075;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+}
+.contactEmail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.emailText {
+  color: #002A4E;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0.4px;
+}
+
+.navSection {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}

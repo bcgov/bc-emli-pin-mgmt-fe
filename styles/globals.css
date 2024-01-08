@@ -2,20 +2,242 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:wght@400;700&display=swap&family=Patua+One:wght@100;400;700&display=swap"); */
 @import '@bcgov/bc-sans/css/BCSans.css';
 
-/* tailwind default */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   /* consistent focus styles on all components */
-  * {
-    @apply focus:outline-none;
-    @apply focus-visible:ring-1;
-    @apply focus-visible:ring-black;
+  *:focus, *:focus-visible {
+    outline: none;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  *:focus-visible {
+    box-shadow: none;
   }
 
   html{
     font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
   }
+
+  h1{
+    /* font-family: BC Sans; */
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.05px;
+    color: #005C97;
+  }
+
+  input{
+    border: 1px solid #C7C7C7;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    border-radius: 4px;
+  }
+}
+
+#main{
+  min-height: calc(100vh - 220px);
+}
+
+.headerFooterWrap{
+	background-color: #003366;
+}
+
+#errorWrap{
+  background: linear-gradient(92deg, #0B5D95 2.02%, #158FB1 98.4%);
+  padding: 147px 50px;
+  min-height: calc(100vh - 164px);
+
+}
+
+#errorWrap .errorBox{
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+#errorWrap .errorMsg{
+  font-size: 130px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 108px; /* 83.077% */
+  letter-spacing: -2px;
+  padding: 0 42px;
+  border-right: 1px solid #EFEFEF;
+}
+
+#errorWrap .errorContent{
+  width: 538px;
+  text-align: left;
+  padding: 0 42px;
+
+}
+
+#errorWrap .errorContent .title{
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#errorWrap .errorContent .title .iconWrap{
+  margin-right: 9px;
+}
+
+#errorWrap .errorContent .content{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 29px;
+}
+
+#errorWrap .errorContent .contact{
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 9px;
+}
+
+#errorWrap .errorContent .contactEmail{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  letter-spacing: 0.4px;
+  margin-bottom: 26px;
+  display: flex;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+#errorWrap .errorContent .contactEmail .iconWrap{
+  margin-right: 7px;
+  opacity: 0.72;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  line-height: 1.5;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+audio, canvas, embed, iframe, img, object, svg, video {
+  display: block;
+}
+
+input {
+  border: 1px solid #c7c7c7;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  border-radius: 4px;
+}
+
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+  margin: 0;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+menu, ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-offset: 5px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+input:focus {
+  border: 2px #234075 solid;
+  outline: none;
+}
+
+input[type="checkbox"]:focus {
+  border: 2px #234075 solid;
+  outline: -webkit-focus-ring-color auto 1px;
+  outline-offset: 5px;
 }

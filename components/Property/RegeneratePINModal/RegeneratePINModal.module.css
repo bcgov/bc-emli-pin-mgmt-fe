@@ -1,0 +1,12 @@
+.inputWrap{
+    max-width: 355px;
+    width: 100%;
+}
+
+.inputWrap:first-child {
+    margin-right: 10px;
+}
+
+.contentWrap{
+    margin-bottom: 31px;
+}

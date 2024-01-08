@@ -1,0 +1,35 @@
+.pinWrap{
+    color: #005C97;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.pinSpan{
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 50% */
+    letter-spacing: -1.2px;
+    padding: 2px;
+    border-bottom: 3px solid #C7C7C7;
+}
+
+.pinSpan:not(:last-child){
+    margin-right: 22px;
+}
+
+.dash{
+    margin-right: 22px;
+    font-weight: 100;
+    font-size: 130px;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 50% */
+    color: #656565;
+}
+
+@media (max-width: 793px) {
+    .pinSpan, .dash {
+        font-size: 30px;
+    } 
+}

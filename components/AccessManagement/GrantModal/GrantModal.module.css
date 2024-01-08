@@ -1,0 +1,19 @@
+.toastMsgSuccess{
+  background: #008556;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.toastMsgFailure{
+  background: #D8292F;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+

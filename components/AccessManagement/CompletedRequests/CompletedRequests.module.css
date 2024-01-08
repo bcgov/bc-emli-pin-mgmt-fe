@@ -1,0 +1,31 @@
+.mainSection {
+  display: inline;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 37px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.tblSection {
+  padding-top: 8px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 888px) {
+  .filterSection {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filterSection div {
+    width: 100%;
+  }
+
+  .filterSection .container {
+    padding-top: 10px;
+  }
+}

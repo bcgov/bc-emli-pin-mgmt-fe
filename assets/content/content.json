@@ -1,0 +1,368 @@
+{
+    "app": {
+        "title": "CleanBC VHERS PIN system"
+    },
+    "header": {
+        "title": "CleanBC",
+        "logo": "CleanBC Logo",
+        "avatar": "Avatar",
+        "testusername": "Rob Johnson",
+        "logout": "Logout",
+        "help": "Submit a Support Ticket"
+    },
+    "navigation": {
+        "home": "Home",
+        "usermanagement": "User Management",
+        "accessrequest": "Access Requests",
+        "requestaccessform":"Request Access to Admin Portal",
+        "dashboard": "Dashboard"
+    },
+    "footer": {
+        "home": "Home",
+        "about": "About gov.bc.ca",
+        "aboutLink": "https://www2.gov.bc.ca/gov/content/about-gov-bc-ca",
+        "disclaimer": "Disclaimer",
+        "disclaimerLink": "https://www2.gov.bc.ca/gov/content/home/disclaimer",
+        "privacy": "Privacy",
+        "privacyLink": "https://www2.gov.bc.ca/gov/content/home/privacy", 
+        "accessibility": "Accessibility",
+        "accessibilityLink": "https://www2.gov.bc.ca/gov/content/home/accessible-government",
+        "copyright": "Copyright",
+        "copyrightLink": "https://www2.gov.bc.ca/gov/content/home/copyright",
+        "contact": "Contact Us",
+        "contactLink": "https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services"
+    },
+    "home": {
+        "searchHeader": "Search for a property",
+        "searchContent": "Enter a residential street address to retrieve property details",
+        "searchPlaceHolder": "Enter a residential street address",
+        "search": "Search"
+    },
+    "dashboard": {
+      "pageTitle": "Dashboard"
+    },
+    "userManagement": {
+        "pageTitle": "User Management",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found",
+        "editWarningMessage": "Editing multiple users is not allowed.",
+        "closeText": "Always dismiss"
+    },
+    "userManagementBanner" : {
+      "title": "User Management",
+      "description": "Edit or deactivate users here"
+    },
+    "userManagementTabs": {
+      "activeUsers": "Active Users",
+      "deactivatedUsers": "Deactivated Users"
+    },
+    "userUpdateForm": {
+      "editUser": "Edit User",
+      "deactivateUser": "Deactivate User"
+    },
+    "usersSearchOptions": {
+      "role":"Role type",
+      "userName": "Username",
+      "identityType":"Identity type",
+      "givenName":"First name",
+      "lastName":"Last name",
+      "email":"Email",
+      "organization":"Organization",
+      "deactivationReason":"Reason for deactivation",
+      "updatedAt": "Last Updated At"
+    },
+    "userEditModal" : {
+      "title":"Edit user information",
+      "btnText": "Save changes",
+      "cancelButton": "Cancel and Close",
+      "successMessage": "  user has been updated.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select user(s) to deactivate"
+    },
+    "userEditForm": {
+      "formHeaderTitle": "Request details form",
+      "formRequiredText": "Indicates a required field",
+      "formInputs": {
+        "firstName": "First name",
+        "lastName" : "Last name",
+        "identityType": "Identity Type",
+        "userName": "Username",
+        "emailAddress": "Email address",
+        "organization": "Organization",
+        "permissionType": "Permission type",
+        "requiredLabel": "Indicates a required field",
+        "submitBtnText" : "Submit"
+      }
+    },
+    "userDeactivateModal": {
+      "title":"Deactivate user?",
+      "titleMultiple": "Deactivate multiple users?",
+      "bodyText":"Please provide the reason for deactivating this user",
+      "bodyMultipleText": "Provide a reason for deactivating multiple users. The reason must apply to all selected accounts",
+      "deactivateTextAreaTitle": "Reason for deactivation",
+      "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
+      "btnText": "Deactivate user",
+      "multipleBtnText": "Deactivate users",
+      "cancelButton": "Cancel",
+      "successMessage": "  user has been deactivated.",
+      "successMessageMultiple": "  users have been deactivated.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select user(s) to deactivate"
+
+    },
+    "accessRequest": {
+        "pageTitle": "Access Requests",
+        "searchInfoText": "Select columns to search",
+        "searchPlaceholder": "Search",
+        "noResultText": "No record found",
+        "selectPlaceholder": "Select an option"
+    },
+    "accessRequestBanner" : {
+      "title": "Access Requests",
+      "description": "Grant or reject access requests"
+    },
+    "accessRequestDetails": {
+      "pendingRequest": "Pending Requests",
+      "completedRequest": "Completed Requests"
+    },
+    "accessRequestForm": {
+      "grantRequest": "Grant Request",
+      "rejectRequest": "Reject Request"
+    },
+    "accessStatus": {
+      "notgranted": "Not granted",
+      "granted": "Granted",
+      "rejected": "Rejected"
+    },
+    "accessGrantModal": {
+      "title":"Grant request?",
+      "titleMultiple": "Grant requests for multiple users",
+      "bodyText":"Are you sure that you want to grant this user’s request?",
+      "bodyMultipleText": "Are you sure that you want to grant requests for",
+      "btnText": "Grant request",
+      "multipleBtnText": "Grant requests",
+      "cancelButton": "Cancel",
+      "selectErrorMessage": "Please select request(s) to grant",
+      "successMessage": " request(s) submitted.",
+      "failureMessage": "Something went wrong. Try again!!"
+    },
+    "accessRejectModal": {
+      "title":"Reject request?",
+      "titleMultiple": "Reject requests for multiple users",
+      "bodyText":"Please provide the reason for rejecting the access request of this user",
+      "bodyMultipleText": "Please provide the reason for rejecting the access requests of multiple users",
+      "rejectTextAreaTitle": "Reason for access rejection",
+      "rejectTextAreaMessage": "The reason above will be applied to all users selected.",
+      "btnText": "Reject request",
+      "multipleBtnText": "Reject requests",
+      "cancelButton": "Cancel",
+      "successMessage": "  request has been rejected.",
+      "successMessageMultiple": "  requests have been rejected.",
+      "failureMessage": "",
+      "selectErrorMessage": "Please select request(s) to reject"
+
+    },
+    "accessRequestSearchOptions": {
+      "userName": "Username",
+      "identityType":"Identity type",
+      "requestedRole":"Role type",
+      "organization":"Organization",
+      "email":"Email",
+      "givenName":"First name",
+      "lastName":"Last name",
+      "requestStatus":"Access status",
+      "createdAt":"Created at",
+      "requestReason":"Reason for requesting access",
+      "rejectionReason":"Reason for access rejection"
+    },
+    "requestAccess": {
+      "pageTitle": "Request Access"
+    },
+    "requestAccessBanner": {
+      "title": "Request Access to VHERS PIN Admin Portal",
+      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access."
+    },
+    "requestForm": {
+      "alert": "Please only request access if you have been instructed to do so.",
+      "formHeaderTitle": "Request details form",
+      "formRequiredText": "Indicates a required field",
+      "formInputs": {
+        "requesterName": "Your name",
+        "identityType": "Identity Type",
+        "userName": "Username",
+        "emailAddress": "Email address",
+        "organization": "Organization",
+        "businessName": "Business Name",
+        "organizationPlaceholder": "Enter your organization name",
+        "permissionType": "Permission type",
+        "reason": "Reason for access request",
+        "reasonPlaceHolder": "Describe the reason for wanting access to this application",
+        "submitBtnText" : "Submit"
+      }
+    },
+    "requestSubmitMessage": {
+      "successHeader": "Request submitted",
+      "successMessage": "Your request to access VHERS PIN Admin Portal has been submitted. A notification will be sent to you via email once the request is processed.",
+      "failureHeader": "Request could not be submitted",
+      "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
+      "requestExist": "A request already exists. Please contact the system administrator below",
+      "systemAdministrator": "System Administrator",
+      "systemAdminEmail": "hers_admin@gov.bc.ca"
+    },
+    "managePINDropdown": {
+        "label": "Manage PIN",
+        "recreateOption": "Regenerate PIN",
+        "expireOption": "Expire PIN",
+        "viewOption": "View PIN", 
+        "viewHistoryOption": "View PIN History",
+        "valueOptions": {
+            "regenerate": "regenerate-pin", 
+            "expire": "expire-pin", 
+            "view": "view-pin",
+            "view-history": "view-pin-history"
+        }
+    },
+    "propertyLayout": {
+        "backButton": "Back",
+        "closeButton": "Close"
+    },
+    "propertySearch": {
+        "searchBoxError": "Begin typing address to get started. Partial addresses accepted",
+        "searchIcon": "Search Icon"
+    },
+    "expirePINConfirmationModal": {
+        "title": "Expire PIN",
+        "body": "The current PIN will be void and the property owner will need to request a new PIN to manage the VHERS portal.",
+        "primaryButton": "Expire PIN",
+        "secondaryButton": "Cancel"
+    },
+    "expirePINSuccessModal": {
+        "title": "PIN has been expired",
+        "body": "The property owner will not be able to access VHERS system until a new PIN is requested.",
+        "primaryButton": "Close"
+    },
+    "expirePINFailureModal": {
+        "title": "Expiring PIN failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    },
+    "propertyDetails": {
+        "residentialAddress": "Residential Street Address",
+        "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
+        "propertyDetails": "Property Details",
+        "titleNumber": "Title Number",
+        "titleNumberHeader": "Title",
+        "testTitleNumber": "CA5006683",
+        "landTitleDistrict": "Land Title District",
+        "testLandTitleDistrict": "Burnby",
+        "parcelIdentifier": "Parcel Identifier",
+        "testParcelIdentifier": "029-366-937",
+        "shortLegalDescription": "Short Legal Description",
+        "testShortLegalDescription": "S/EPS2032//20",
+        "ownership": "Caller verification: Ownership details",
+        "numberOfOwner": "Number of Owner(s): ", 
+        "noSearchResultMsg": "No result available. Try a different address and search again.",
+        "noDataFoundMsg": "No data available for the selected property.",
+        "searchResultMsg": "Select an address to view property details", 
+        "owner": "Owner",
+        "fullname": "Full Name", 
+        "mailingAddress": "Mailing Address", 
+        "testFullName1": "Joshua Contreras", 
+        "testFullName2": "Leila Contreras", 
+        "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
+        "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
+        "viewPINHistory": "View PIN History",
+        "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
+        "incorporationName": "Incorporation Name",
+        "incorporationNumber": "Incorporation Number"
+
+    },
+    "searchResults": {
+        "addressesFound": "Addresses found: ",
+        "scrollMessage": "Scroll down to view more results", 
+        "noAddressFound": "Addresses found: 0"
+    },
+    "pinHistoryModal": {
+        "title": "View PIN History",
+        "table": {
+            "numberColumn": "#",
+            "UpdatedByColumn": "Updated by",
+            "UsernameColumn": "Username",
+            "ModifiedOnColumn": "Modified on",
+            "ActionColumn": "Action",
+            "TypeColumn": "Type",
+            "NotificationViaColumn": "PIN sent to"
+        },
+        "actions": {
+            "deleted": "PIN deleted",
+            "created": "PIN created",
+            "recreated": "PIN regenerated"
+        },
+        "types": {
+            "optOut": "Opt-out",
+            "callCenter": "Call center PIN reset",
+            "onlineReset": "Online PIN reset",
+            "changeOfOwnership": "Change of ownership"
+        },
+        "typeCode": {
+            "optOut": "OP",
+            "callCenter": "CC",
+            "onlineReset": "OR",
+            "changeOfOwnership": "CO"
+        },
+        "primaryButton": "Close"
+    },
+    "pinHistoryFailureModal": {
+        "title": "Viewing PIN history failed",
+        "body": "There was a problem. Try again later.",
+        "primaryButton": "Retry",
+        "secondaryButton": "Cancel"
+    }, 
+    "viewPINModal": {
+        "title": "View PIN", 
+        "noLivePINMag": "There is no valid PIN.",
+        "close": "Close"
+    }, 
+    "regeneratePINModal": {
+        "title": "Regenerate PIN",
+        "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
+        "phone": "SMS",
+        "phonePlaceHolder": "E.g. 604 332 8930",
+        "email": "Email",
+        "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
+        "cancelButton": "Cancel",
+        "successModalTitle": "PIN has been regenerated",
+        "successModalMsgPhoneAndEmail": "A new PIN has been created and will be sent to the property owner via SMS and email soon.",
+        "successModalMsgPhone": "A new PIN has been created and will be sent to the property owner via SMS soon.",
+        "successModalMsgEmail": "A new PIN has been created and will be sent to the property owner via email soon.",
+        "failureModalTitle": "Regenerating PIN failed", 
+        "failureModalMag": "There was a problem. Try again later.",
+        "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
+        "emailFailureModalMessage": "This is not a valid email address. Please try again."
+    },
+    "back": "Back",
+    "portalUserRole" : {
+      "SuperAdmin": "System administrator",
+      "Admin" : "Administrator",
+      "Standard": "Client support"
+    },
+    "errorPage":{
+        "button": "Back to homepage",
+        "notFound": {
+            "code": "404",
+            "title": "Page Not Found",
+            "content": "The page you are looking for does not exist or has been moved. Please try again later or contact the system administrator below."
+        }, 
+        "serverError": {
+            "code": "500", 
+            "title": "Internal Server Error", 
+            "content": "We encountered an error and cannot fulfill this request. Please try again later or contact the system administrator below."
+        }
+    },
+    "identity":{
+      "idir": "IDIR",
+      "bceid": "BCeID"
+    }
+}

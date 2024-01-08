@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (max-width: 888px) {
+  .container {
+    padding-top: 10px;
+  }
+
+  .dropdownSection,
+  .large,
+  .searchField,
+  .searchInput input {
+    width: 100% !important;
+  }
+}
+
+.dropdownSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInfo {
+  color: #656565;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  padding-top: 8px;
+}
+.searchField {
+  width: 186px;
+}
+
+.searchField ul {
+  width: 186;
+}
+
+.searchInput {
+  padding-left: 6px;
+  width: 100%;
+}
+
+.searchIcon {
+  position: absolute;
+  margin-left: -48px;
+  margin-top: 12px;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.closeButton svg {
+  height: 16px;
+  width: 16px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+
+
+

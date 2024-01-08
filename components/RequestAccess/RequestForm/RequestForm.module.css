@@ -1,0 +1,124 @@
+.container {
+  display: inline;
+  width: 100%;
+  max-width: 1440px;
+  padding: 50px 50px 0 50px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  max-width: 820px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 35px;
+}
+
+.headerTxt {
+  color:  #002A4E;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.requiredInfo {
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+}
+
+.requiredIndicator {
+  color: #ED3F45;
+}
+
+.formInputSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.formInput {
+  width: 370px;
+  padding-right: 20px;
+}
+
+.roleTypeSection {
+  width: 100%;
+}
+
+.roleTypeLabel {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+	color: #1A1A1A;
+}
+
+.roleTypeLabel .required {
+	color: #ED3F45;
+}
+
+.radioBtnSection {
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px;
+}
+
+@media (max-width: 780px) {
+  .radioBtnSection {
+    flex-wrap: wrap;
+  }
+}
+
+.radioBtnSection input {
+  min-width: 24px;
+}
+
+.formInputTextArea {
+  width: 100%;
+}
+.reasonSection {
+  width: 100%;
+}
+.btnSection {
+  padding-bottom: 60px;
+}
+
+.requestAccessAlert {
+  display: flex;
+  margin-top: -16px;
+  margin-bottom: 40px;
+  background-color: #E4F2FF;
+  padding: 10px 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.requestAccessAlert svg{
+  min-width: 20px;
+}
+
+.requestAccessAlert .alertText {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.requestAccessAlert .closeIcon {
+  margin-left: auto;
+}
+
+.requestAccessAlert .closeIcon svg {
+  width: 12px;
+  height: 12px;
+  text-align: left;
+}
