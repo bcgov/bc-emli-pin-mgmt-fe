@@ -18,7 +18,7 @@ const nextConfig = {
                 headers: [
                     {
                         key: 'Content-Security-Policy',
-                        value: `script-src 'self' 'unsafe-eval' 'unsafe-inline'`,
+                        value: `defaultSrc ${process.env.NEXT_PUBLIC_BE_APP_URL}`,
                     },
                     {
                         key: 'X-Frame-Options',
@@ -26,7 +26,7 @@ const nextConfig = {
                     },
                     {
                         key: 'Permissions-Policy',
-                        value: '',
+                        value: 'camera=(), microphone=(), geolocation=()',
                     },
                     {
                         key: 'Strict-Transport-Security',

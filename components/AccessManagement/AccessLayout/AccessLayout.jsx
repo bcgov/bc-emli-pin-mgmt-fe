@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export default function AccessLayout() {
+export default function AccessLayout(role) {
   const { tabSelected } = useContext(AccessContext)
     return (
       <div className={`${styles.container}`}>
@@ -24,7 +24,7 @@ export default function AccessLayout() {
         </div>
         <div className={`${styles.mainSection}`}>
             <AccessNavigation />
-            {tabSelected === 'pending' && <PendingRequest/>}
+            {tabSelected === 'pending' && <PendingRequest role={role?.role}/>}
             {tabSelected === 'completed' && <CompletedRequests/>}
         </div>
         <ToastContainer

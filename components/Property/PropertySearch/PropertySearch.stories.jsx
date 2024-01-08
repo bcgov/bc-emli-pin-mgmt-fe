@@ -1,5 +1,4 @@
-
-import  PropertySearch  from './PropertySearch'
+import PropertySearch from '.'
 
 export default {
 	title: 'PropertySearch',

@@ -67,6 +67,7 @@ export default function Modal({
                                     }
                                     isDarkBackground={true}
                                     disabled={modalMainBtn.disabled}
+                                    data-testid="modalMainBtn"
                                 >
                                     {modalMainBtn.text}
                                 </Button>

@@ -27,7 +27,7 @@ function PropertyTitleDetails({
         <div>
             <div className={`${Styles.titleNumberHeader}`}>{Content.propertyDetails.titleNumberHeader} {titleCount + 1}</div>
             <div className={`${Styles.ownershipWrap}` + " " + `${Styles.propertyInfoWrap}`}>
-                <button className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`} onClick={handleShowHideDropdown}>
+                <button className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`} onClick={handleShowHideDropdown} data-testid='property-details-button'>
                     <PropertyIconSmall />
                     <span>{Content.propertyDetails.propertyDetails}</span>
                     <span className={`${Styles.propertyDetailsArrowIcon} ${

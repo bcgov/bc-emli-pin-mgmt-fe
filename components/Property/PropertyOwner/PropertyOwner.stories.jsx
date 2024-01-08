@@ -1,4 +1,4 @@
-import PropertyOwner from './PropertyOwner'
+import PropertyOwner from '.'
 
 export default {
 	title: 'PropertyOwner',
