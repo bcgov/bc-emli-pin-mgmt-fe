@@ -8,34 +8,34 @@ on:
 
 jobs:
   codeql-scan:
-      name: codeql-scan
-      runs-on: ubuntu-latest
-      permissions:
-        actions: read
-        contents: read
-        security-events: write
+    name: codeql-scan
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
-      strategy:
-        fail-fast: false
-        matrix:
-          language: [ 'javascript' ]
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ]
 
-      steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Initializes the CodeQL tools for scanning.
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: ${{ matrix.language }}
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
 
-      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
 
   zap-owasp:
     uses: bcgov/pipeline-templates/.github/workflows/owasp-scan.yaml@main
@@ -47,6 +47,8 @@ jobs:
       ZAP_GCP_PUBLISH: false
 
   build:
+    name: Build check
+    needs: [zap-owasp]
     runs-on: ubuntu-latest
 
     strategy:
@@ -81,6 +83,7 @@ jobs:
   builds:
     name: Builds
     runs-on: ubuntu-22.04
+    needs: [build]
     permissions:
       packages: write
     strategy:
@@ -103,7 +106,7 @@ jobs:
 
 
   deploys:
-    name: Deploys Anitvirus
+    name: Deploys Frontend
     needs: [builds]
     environment: tools
     permissions:
