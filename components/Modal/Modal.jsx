@@ -79,7 +79,7 @@ export default function Modal({
                                             modalSecondaryBtn.onClickHandler()
                                         }
                                         isDarkBackground={false}
-                                        id="modalSecondaryBtn"
+                                        data-testid="modalSecondaryBtn"
                                     >
                                         {modalSecondaryBtn.text}
                                     </Button>

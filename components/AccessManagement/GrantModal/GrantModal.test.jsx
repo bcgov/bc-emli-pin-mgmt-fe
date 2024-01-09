@@ -13,8 +13,6 @@ describe('<GrantModal />', () => {
     })
     it('should render properly', async () => {
         const { container } = await render(<PrimaryTemplate />)
-        // console.log('grantmodal', container.firstChild)
-        // console.log('hiya', document.getElementById('access-grant-modal'))
 
         expect(container.firstChild).toBeTruthy()
         expect(screen.getByText('Grant request?')).toBeTruthy()
