@@ -8,7 +8,7 @@ export default {
 }
 
 const Template = (args) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
 
     return (
         <GrantModal 

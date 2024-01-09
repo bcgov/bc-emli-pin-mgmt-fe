@@ -1,4 +1,5 @@
-import RejectModal from "./index"
+import RejectModal from './index'
+import { useState } from 'react'
 
 export default {
     title: 'Reject Modal',
@@ -6,6 +7,10 @@ export default {
     args: {},
 }
 
-const Template = (args) => <RejectModal></RejectModal>
+const Template = (args) => {
+    const [isOpen, setIsOpen] = useState(true)
+
+    return <RejectModal isOpen={isOpen} setIsOpen={setIsOpen} />
+}
 
 export const PrimaryTemplate = Template.bind({})
