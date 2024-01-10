@@ -25,6 +25,9 @@ export default function Index(props) {
 
 export async function getServerSideProps(ctx) {
   const { userAuthenticated, userRegistered } = checkAuthentication(ctx);
+  console.log(userAuthenticated,'-', userRegistered);
+  console.log('Endpoint server side',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
+
   return {
     props: {
       isAuthenticated: userAuthenticated,
