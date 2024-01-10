@@ -11,14 +11,15 @@ export default function Index(props) {
   const router = useRouter();
   console.log('Endpoint',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
   useEffect(() => {
+    console.log('calling from useEffect');
     if (!isAuthenticated) {
-      console.log('calling from useEffect');
-      window.location.replace(Endpoints.auth.LOGIN)
+      console.log('calling from useEffect in if !isAuthenticated');
+      window.location.replace("https://bc-emli-pin-mgmt-prod-be.apps.silver.devops.gov.bc.ca/login")
     } else if (isAuthenticated) {
       const path = isRegistered ? '/home' : '/request-access'
       void router.push(path);
     }
-  }, [isAuthenticated, isRegistered]);
+  }, [isAuthenticated, isRegistered, router]);
 
   return <div></div>;
 }
