@@ -9,6 +9,7 @@ export default function Index(props) {
     isRegistered,
   } = props;
   const router = useRouter();
+  console.log('Endpoint',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
   useEffect(() => {
     if (!isAuthenticated) {
       window.location = Endpoints.auth.LOGIN;
