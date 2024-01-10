@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Wed, 10 Jan 2024 18:01:34",
+	"@generated": "Wed, 10 Jan 2024 18:16:32",
 	"site":[ 
 		{
 			"@name": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca",
@@ -42,7 +42,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "20"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10055",
@@ -77,7 +77,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "20"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10055",
@@ -112,7 +112,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "20"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10038",
@@ -139,7 +139,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10020",
@@ -166,7 +166,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -201,7 +201,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "20"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10054",
@@ -220,23 +220,15 @@
 							"attack": "",
 							"evidence": "set-cookie: d82581e8f8484dde484aef8008ad2eb8",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/robots.txt",
-							"method": "GET",
-							"param": "d82581e8f8484dde484aef8008ad2eb8",
-							"attack": "",
-							"evidence": "set-cookie: d82581e8f8484dde484aef8008ad2eb8",
-							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10063",
@@ -297,7 +289,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8580850ba5140c6b.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8853080f97982dee.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -321,7 +313,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -329,7 +321,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_ssgManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_ssgManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -343,7 +335,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10035",
@@ -364,7 +356,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -372,7 +364,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-b4f86db31981d58a.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -388,7 +380,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8580850ba5140c6b.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8853080f97982dee.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -428,7 +420,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -436,7 +428,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_ssgManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_ssgManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -477,7 +469,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "40"
+					"sourceid": "34"
 				},
 				{
 					"pluginid": "10021",
@@ -498,7 +490,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -506,7 +498,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-b4f86db31981d58a.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -522,7 +514,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8580850ba5140c6b.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8853080f97982dee.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -562,7 +554,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -570,7 +562,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_ssgManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_ssgManifest.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -601,8 +593,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\uFFFD\u05C9\uFFFD8\uFFFD@\uFFFD\u07E2I\uFFFD\uFFFD\\x0003?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD*\uFFFD\\x001c\uFFFD\uFFFD\\x0005\u05B91\u0731h@3\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-7d87baa905c4c08d.js",
@@ -633,25 +625,25 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\uFFFD\u05C9\uFFFD8\uFFFD@\uFFFD\u07E2I\uFFFD\uFFFD\\x0003?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD*\uFFFD\\x001c\uFFFD\uFFFD\\x0005\u05B91\u0731h@3\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						},
 						{
 							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\uFFFD\u05C9\uFFFD8\uFFFD@\uFFFD\u07E2I\uFFFD\uFFFD\\x0003?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
+							"evidence": "/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD*\uFFFD\\x001c\uFFFD\uFFFD\\x0005\u05B91\u0731h@3\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2"
 						}
 					],
 					"count": "6",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD\uFFFD\uFFFD\u05C9\uFFFD8\uFFFD@\uFFFD\u07E2I\uFFFD\uFFFD\\x0003?\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2</p>",
+					"otherinfo": "<p>\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uCD6Bbs\uFFFD*\uFFFD\\x001c\uFFFD\uFFFD\\x0005\u05B91\u0731h@3\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\uFFFD'\u07B2</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -723,7 +715,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[179],{37:function(){\"trimStart\"in String.prototype||(String.prototype.t\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8580850ba5140c6b.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8853080f97982dee.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -739,7 +731,7 @@
 							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected in the element starting with: \"!function(){var t=\"undefined\"!=typeof globalThis?globalThis:\"undefined\"!=typeof window?window:\"undefined\"!=typeof global?global:\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -769,7 +761,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10109",
@@ -855,7 +847,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -890,7 +882,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -925,7 +917,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -995,7 +987,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10112",
@@ -1012,27 +1004,19 @@
 							"method": "GET",
 							"param": "d82581e8f8484dde484aef8008ad2eb8",
 							"attack": "",
-							"evidence": "ff12114b510ee0e0d812a8298fbe31ad",
+							"evidence": "21ba900b8ec19e95889c1228c20d8ddd",
 							"otherinfo": "\ncookie:d82581e8f8484dde484aef8008ad2eb8"
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/robots.txt",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/",
 							"method": "GET",
 							"param": "d82581e8f8484dde484aef8008ad2eb8",
 							"attack": "",
-							"evidence": "ff12114b510ee0e0d812a8298fbe31ad",
-							"otherinfo": "\ncookie:d82581e8f8484dde484aef8008ad2eb8"
-						},
-						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/robots.txt",
-							"method": "GET",
-							"param": "d82581e8f8484dde484aef8008ad2eb8",
-							"attack": "",
-							"evidence": "ff12114b510ee0e0d812a8298fbe31ad",
+							"evidence": "21ba900b8ec19e95889c1228c20d8ddd",
 							"otherinfo": "\ncookie:d82581e8f8484dde484aef8008ad2eb8"
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:d82581e8f8484dde484aef8008ad2eb8</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
@@ -1051,6 +1035,14 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-b4f86db31981d58a.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=31536000",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js",
 							"method": "GET",
 							"param": "",
@@ -1059,7 +1051,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8580850ba5140c6b.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-8853080f97982dee.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1091,7 +1083,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_buildManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_buildManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1099,7 +1091,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/iGsNeJgDiWQJLfokn2ywM/_ssgManifest.js",
+							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/_next/static/sq6osclpsF1rkx3LFoQDP/_ssgManifest.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1107,40 +1099,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "36"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable but Non-Cacheable Content",
-					"name": "Storable but Non-Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
-					"instances":[ 
-						{
-							"uri": "https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "",
-					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "38"
+					"sourceid": "40"
 				}
 			]
 		}
