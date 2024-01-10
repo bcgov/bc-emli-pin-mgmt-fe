@@ -3,13 +3,12 @@ import { useRouter } from "next/router";
 import Endpoints from '../apiManager/endpoints'
 import { checkAuthentication } from "../services/authentication/userAuthService";
 
-export const login = Endpoints.auth.LOGIN
-export const logout = Endpoints.auth.LOGOUT
-
 export default function Index(props) {
   const {
     isAuthenticated,
     isRegistered,
+    login,
+    logout
   } = props;
   const router = useRouter();
   console.log('Endpoint', login, logout );
@@ -22,13 +21,16 @@ export default function Index(props) {
       const path = isRegistered ? '/home' : '/request-access'
       void router.push(path);
     }
-  }, [isAuthenticated, isRegistered, router]);
+  }, [isAuthenticated, isRegistered, login, logout]);
 
   return <div></div>;
 }
 
 export async function getServerSideProps(ctx) {
   const { userAuthenticated, userRegistered } = checkAuthentication(ctx);
+  const login = Endpoints.auth.LOGIN
+  const logout = Endpoints.auth.LOGOUT
+
   console.log(userAuthenticated,'-', userRegistered);
   console.log('Endpoint server side',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
 
@@ -36,6 +38,8 @@ export async function getServerSideProps(ctx) {
     props: {
       isAuthenticated: userAuthenticated,
       isRegistered: userRegistered,
+      login: login,
+      logout: logout
     },
   };
 }
