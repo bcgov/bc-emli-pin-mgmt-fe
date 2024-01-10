@@ -52,7 +52,7 @@ function Header  ({
 						{
 							userName &&
 							<div className={`${Styles.helpSection}`}>
-							<button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
+							<button onClick={() => (window.location = "https://bc-emli-pin-mgmt-prod-be.apps.silver.devops.gov.bc.ca/logout")} >
 								{Text.header.logout}
 							</button>
 							</div>
