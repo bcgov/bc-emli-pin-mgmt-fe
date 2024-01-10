@@ -12,7 +12,8 @@ export default function Index(props) {
   console.log('Endpoint',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
   useEffect(() => {
     if (!isAuthenticated) {
-      window.location = Endpoints.auth.LOGIN;
+      console.log('calling from useEffect');
+      window.location.replace(Endpoints.auth.LOGIN)
     } else if (isAuthenticated) {
       const path = isRegistered ? '/home' : '/request-access'
       void router.push(path);
