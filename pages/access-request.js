@@ -12,7 +12,9 @@ import checkAuthorization from '../services/authorization/accessService'
 export default function UserManagement(props) {
   const {
     userName,
-    userInfo
+    userInfo,
+    logout,
+    supportTicketUrl
   } = props;
   return (
     <>
@@ -22,7 +24,7 @@ export default function UserManagement(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header userName={userName}/>
+      <Header userName={userName} logout={logout} supportTicketUrl={supportTicketUrl} />
       {/* pass role for different active tabs */}
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
       <main id="main">
@@ -50,10 +52,16 @@ export async function getServerSideProps(ctx) {
   }
   const userInfo = getUserInfo(authInfo);
   checkAuthorization(ctx,currentPath,userInfo);
+
+  const logout = Endpoints.auth.LOGOUT
+	const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
+
   return {
     props: {
       userName: getUserName(userInfo),
-      userInfo
+      userInfo,
+      logout: logout,
+		  supportTicketUrl: supportTicketUrl
     },
   };
 }

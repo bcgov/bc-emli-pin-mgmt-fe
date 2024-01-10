@@ -4,15 +4,15 @@ import CleanBCLogo from '../../assets/svgs/CleanBCLogo'
 import Text from '../../assets/content/content.json'
 import UserIcon from '../../assets/svgs/UserIcon'
 import QuestionIcon from '../../assets/svgs/QuestionIcon'
-import Endpoints from '../../apiManager/endpoints'
-
 
 function Header  ({
 	userName,
+	logout,
+	supportTicketUrl
 })  {
 
 	const onClickHandle = () => {
-		window.open(`${process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL}`, "_black", "noreferrer")
+		window.open(supportTicketUrl, "_black", "noreferrer")
 	}
 
 	const helpSectionClass = userName === '' ? Styles.helpSection : Styles.helpSection + " " + Styles.marginRight
@@ -52,7 +52,7 @@ function Header  ({
 						{
 							userName &&
 							<div className={`${Styles.helpSection}`}>
-							<button onClick={() => (window.location = "https://bc-emli-pin-mgmt-prod-be.apps.silver.devops.gov.bc.ca/logout")} >
+							<button onClick={() => (window.location = logout)} >
 								{Text.header.logout}
 							</button>
 							</div>

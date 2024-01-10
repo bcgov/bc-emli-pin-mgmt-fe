@@ -12,7 +12,9 @@ import { getUserName } from '../utils/helper'
 export default function UserManagement(props) {
   const {
     userName,
-    userInfo
+    userInfo,
+    logout,
+    supportTicketUrl
   } = props;
   return (
     <>
@@ -22,7 +24,7 @@ export default function UserManagement(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header userName={userName}/>
+      <Header userName={userName} logout={logout} supportTicketUrl={supportTicketUrl} />
       {/* pass role for different active tabs */}
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
       <main id="main">
@@ -40,6 +42,9 @@ export default function UserManagement(props) {
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
   const currentPath = '/user-management'
+  const logout = Endpoints.auth.LOGOUT
+	const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
+
   if (!authInfo) {
     return {
       redirect: {
@@ -53,7 +58,9 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       userName: getUserName(userInfo),
-      userInfo
+      userInfo,
+      logout: logout,
+      supportTicketUrl: supportTicketUrl
     },
   };
 }

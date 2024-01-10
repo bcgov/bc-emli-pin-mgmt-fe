@@ -11,6 +11,8 @@ export default function RequestAccess(props) {
   const {
     userName,
     userInfo,
+    logout,
+    supportTicketUrl
   } = props;
   return (
     <>
@@ -20,7 +22,7 @@ export default function RequestAccess(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header userName={userName}/>
+      <Header userName={userName} logout={logout} supportTicketUrl={supportTicketUrl} />
       {/* pass role for different active tabs */}
       <Navigation role="admin" isUserRegistered={false}/>
       <main id="main">
@@ -33,6 +35,8 @@ export default function RequestAccess(props) {
 
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
+  const logout = Endpoints.auth.LOGOUT
+	const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
   if (!authInfo) {
     return {
       redirect: {
@@ -56,6 +60,8 @@ export async function getServerSideProps(ctx) {
     props: {
       userName: getUserName(userInfo),
       userInfo,
+      logout: logout,
+		  supportTicketUrl: supportTicketUrl,
     },
   };
 }

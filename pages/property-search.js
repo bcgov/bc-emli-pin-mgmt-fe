@@ -10,7 +10,7 @@ import { getUserName } from '../utils/helper'
 
 
 export default function Home(props) {
-    const { userName, userInfo } = props
+    const { userName, userInfo, logout, supportTicketUrl } = props
     return (
         <>
             <Head>
@@ -25,7 +25,7 @@ export default function Home(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header userName={userName} />
+            <Header userName={userName} logout={logout} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
@@ -39,6 +39,9 @@ export default function Home(props) {
 export async function getServerSideProps(ctx) {
   const authInfo = getTokenInfo(ctx)
   const currentPath = '/property-search'
+  const logout = Endpoints.auth.LOGOUT
+	const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
+
   if (!authInfo) {
     return {
       redirect: {
@@ -52,7 +55,9 @@ export async function getServerSideProps(ctx) {
   return {
     props: {
       userName: getUserName(userInfo),
-      userInfo: userInfo
+      userInfo: userInfo,
+      logout: logout,
+		  supportTicketUrl: supportTicketUrl
     },
   };
 }
