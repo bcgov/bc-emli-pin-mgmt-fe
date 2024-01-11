@@ -10,7 +10,7 @@ import Endpoints from '../../apiManager/endpoints'
 function Header  ({
 	userName,
 })  {
-
+	console.log(Endpoints.auth.LOGOUT)
 	const onClickHandle = () => {
 		window.open(`${Endpoints.support.SUPPORT_URL}`, "_black", "noreferrer")
 	}
@@ -52,7 +52,7 @@ function Header  ({
 						{
 							userName &&
 							<div className={`${Styles.helpSection}`}>
-							<button onClick={() => (window.location = "https://bc-emli-pin-mgmt-prod-be.apps.silver.devops.gov.bc.ca/logout")} >
+							<button onClick={() => (window.location = Endpoints.auth.LOGOUT)} >
 								{Text.header.logout}
 							</button>
 							</div>
