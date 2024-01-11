@@ -103,8 +103,6 @@ jobs:
           build_context: ${{ matrix.build_context }}
           tag: latest
           triggers: ${{ matrix.triggers }}
-          build_args: |
-            ENV_ARG=prod
 
 
   deploys:
