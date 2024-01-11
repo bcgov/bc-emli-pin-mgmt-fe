@@ -103,7 +103,7 @@ jobs:
           build_context: ${{ matrix.build_context }}
           tag: latest
           triggers: ${{ matrix.triggers }}
-          build-args: |
+          build_args: |
             ENV_ARG=prod
 
 
