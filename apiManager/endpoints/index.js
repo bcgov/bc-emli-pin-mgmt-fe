@@ -1,14 +1,22 @@
-// import { AppConfig } from '../../config'
-import getConfig from "next/config"
-const { publicRuntimeConfig } = getConfig();
-const {
-  beAppUrl,
-  supportUrl,
-} = publicRuntimeConfig;
+import beUrlConfig from "../../api-url.config";
 
-const isServer = typeof window === 'undefined';
-const backendApiUrl = isServer ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
-const supportTicketUrl = isServer ? process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL : supportUrl;
+let beAppUrl;
+
+console.log ('build_arg ENV', process.env.ENV)
+
+let supportUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
+
+if (process.env.ENV === "prod") {
+  beAppUrl = beUrlConfig.prodUrl
+} else if (process.env.ENV === "dev") {
+  beAppUrl = beUrlConfig.devUrl
+} else if (process.env.ENV === "test") {
+  beAppUrl = beUrlConfig.testUrl
+}
+
+// const isServer = typeof window === 'undefined';
+const backendApiUrl = process.env.NEXT_PUBLIC_BE_APP_URL ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
+const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL ? process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL : supportUrl;
 console.log('endpoints file', beAppUrl, supportUrl);
 const Endpoints = {
     // TODO: rename the variable
