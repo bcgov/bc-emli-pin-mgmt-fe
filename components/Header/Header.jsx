@@ -9,10 +9,11 @@ import Endpoints from '../../apiManager/endpoints'
 
 function Header  ({
 	userName,
+	supportTicketUrl
 })  {
-
+	console.log(Endpoints.auth.LOGOUT)
 	const onClickHandle = () => {
-		window.open(`${Endpoints.support.SUPPORT_URL}`, "_black", "noreferrer")
+		window.open(supportTicketUrl, "_black", "noreferrer")
 	}
 
 	const helpSectionClass = userName === '' ? Styles.helpSection : Styles.helpSection + " " + Styles.marginRight
