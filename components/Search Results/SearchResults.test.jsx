@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom'
 
 import * as stories from './searchResults.stories'
-
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { Template } = composeStories(stories)
 
 describe('<SearchResults />', () => {

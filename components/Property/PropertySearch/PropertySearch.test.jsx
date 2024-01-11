@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 
 import * as stories from './PropertySearch.stories'
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
 describe('<PropertySearch />', () => {

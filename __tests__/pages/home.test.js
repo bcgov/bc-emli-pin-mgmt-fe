@@ -5,7 +5,7 @@ import Text from '../../assets/content/content.json'
 import mockRouter from 'next-router-mock';
 
 jest.mock('next/router', () => jest.requireActual('next-router-mock'))
-
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 describe('Home', () => {
   it('renders a heading', () => {
     render(<Home />)

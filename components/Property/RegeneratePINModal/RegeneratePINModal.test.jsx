@@ -4,6 +4,7 @@ import '@testing-library/jest-dom'
 import '@testing-library/jest-dom/extend-expect'
 
 import * as stories from './RegeneratePINModal.stories'
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
 describe('<RegeneratePINModal />', () => {

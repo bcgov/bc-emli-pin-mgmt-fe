@@ -5,7 +5,7 @@ import * as stories from './PropertyDetails.stories'
 const { PrimaryTemplate } = composeStories(stories)
 const axios = require('axios')
 jest.mock('axios')
-
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 describe('<PropertyDetails />', () => {
     it('should render properly', async () => {
         function testFunction() {
