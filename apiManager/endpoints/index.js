@@ -3,6 +3,7 @@ import beUrlConfig from "../../api-url.config";
 let beAppUrl;
 
 console.log ('build_arg ENV', process.env.ENV)
+console.log ('NODE_ENV', process.env.ENV)
 
 let supportUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
 

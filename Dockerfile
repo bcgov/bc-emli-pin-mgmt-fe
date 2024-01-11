@@ -31,6 +31,10 @@ FROM registry.access.redhat.com/ubi8/nodejs-16-minimal AS runner
 USER 0
 WORKDIR /app
 
+ARG ENV
+
+ENV ENV ${ENV}
+
 ENV NODE_ENV production
 # Uncomment the following line in case you want to enable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED 1
