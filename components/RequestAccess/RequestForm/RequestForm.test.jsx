@@ -4,7 +4,7 @@ import { composeStories } from '@storybook/testing-react'
 import * as stories from './RequestForm.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
-
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 describe('<RequestForm />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)
