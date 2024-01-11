@@ -9,7 +9,7 @@ const {
 const isServer = typeof window === 'undefined';
 const backendApiUrl = isServer ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
 const supportTicketUrl = isServer ? process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL : supportUrl;
-
+console.log('endpoints file', beAppUrl, supportUrl);
 const Endpoints = {
     // TODO: rename the variable
     propertySearch: {
