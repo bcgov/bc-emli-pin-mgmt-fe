@@ -10,7 +10,7 @@ import Endpoints from '../../apiManager/endpoints'
 function Header  ({
 	userName,
 })  {
-
+	console.log(Endpoints.auth.LOGOUT)
 	const onClickHandle = () => {
 		window.open(`${Endpoints.support.SUPPORT_URL}`, "_black", "noreferrer")
 	}
