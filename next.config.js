@@ -8,6 +8,10 @@ const nextConfig = {
         BE_APP_URL: process.env.BE_APP_URL,
         NEXT_PUBLIC_BE_APP_URL: process.env.NEXT_PUBLIC_BE_APP_URL,
     },
+    publicRuntimeConfig: {
+      beAppUrl: process.env.NEXT_PUBLIC_BE_APP_URL,
+      supportUrl: process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
+    },
     i18n: {
         locales: ['en'],
         defaultLocale: 'en',
