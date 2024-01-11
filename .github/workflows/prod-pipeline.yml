@@ -108,7 +108,7 @@ jobs:
   deploys:
     name: Deploys Frontend
     needs: [builds]
-    environment: tools
+    environment: prod
     permissions:
       issues: write
     runs-on: ubuntu-22.04

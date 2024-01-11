@@ -5,10 +5,11 @@ const nextConfig = {
     reactStrictMode: true,
     output: 'standalone',
     env: {
-        BE_APP_URL: process.env.BE_APP_URL,
+        ENV: process.env.ENV,
         NEXT_PUBLIC_BE_APP_URL: process.env.NEXT_PUBLIC_BE_APP_URL,
     },
     publicRuntimeConfig: {
+      appEnv: process.env.ENV,
       beAppUrl: process.env.NEXT_PUBLIC_BE_APP_URL,
       supportUrl: process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
     },
@@ -16,6 +17,7 @@ const nextConfig = {
         locales: ['en'],
         defaultLocale: 'en',
     },
+    // TODO update header with BE url.
     async headers() {
         return [
             {
