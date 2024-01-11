@@ -9,14 +9,13 @@ const {
 
 let beAppUrl;
 
-
-let supportUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
-
 if (process.env.ENV === "prod") {
   beAppUrl = beUrlConfig[process.env.ENV]
 } else if (process.env.ENV === "dev") {
   beAppUrl = beUrlConfig[process.env.ENV]
 } else if (process.env.ENV === "test") {
+  beAppUrl = beUrlConfig[process.env.ENV]
+} else if (process.env.ENV === "local") {
   beAppUrl = beUrlConfig[process.env.ENV]
 }
 
@@ -27,8 +26,7 @@ console.log ('NODE_ENV', process.env.ENV)
 
 // const isServer = typeof window === 'undefined';
 const backendApiUrl = process.env.NEXT_PUBLIC_BE_APP_URL ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
-const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL ? process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL : supportUrl;
-console.log('endpoints file', beAppUrl, supportUrl);
+console.log('endpoints file', beAppUrl);
 const Endpoints = {
     // TODO: rename the variable
     propertySearch: {
@@ -57,9 +55,6 @@ const Endpoints = {
     },
     dashboard: {
       GET_URL: `${backendApiUrl}/dashboard`
-    },
-    support: {
-      SUPPORT_URL: supportTicketUrl
     }
 }
 
