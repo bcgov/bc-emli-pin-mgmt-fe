@@ -9,24 +9,12 @@ const {
 
 let beAppUrl;
 
-if (process.env.ENV === "prod") {
-  beAppUrl = beUrlConfig[process.env.ENV]
-} else if (process.env.ENV === "dev") {
-  beAppUrl = beUrlConfig[process.env.ENV]
-} else if (process.env.ENV === "test") {
-  beAppUrl = beUrlConfig[process.env.ENV]
-} else if (process.env.ENV === "local") {
+if (process.env.ENV) {
   beAppUrl = beUrlConfig[process.env.ENV]
 }
 
-console.log('test', beAppUrl);
-console.log('appEnv', appEnv)
-console.log ('build_arg ENV', process.env.ENV)
-console.log ('NODE_ENV', process.env.ENV)
-
 // const isServer = typeof window === 'undefined';
 const backendApiUrl = process.env.NEXT_PUBLIC_BE_APP_URL ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
-console.log('endpoints file', beAppUrl);
 const Endpoints = {
     // TODO: rename the variable
     propertySearch: {
