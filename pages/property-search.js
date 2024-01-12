@@ -10,7 +10,7 @@ import { getUserName } from '../utils/helper'
 
 
 export default function Home(props) {
-    const { userName, userInfo } = props
+    const { userName, userInfo, supportTicketUrl } = props
     return (
         <>
             <Head>
@@ -25,7 +25,7 @@ export default function Home(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header userName={userName} />
+            <Header userName={userName} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
@@ -47,12 +47,14 @@ export async function getServerSideProps(ctx) {
       },
     }
   }
+  const supportTicketUrl = process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL
   const userInfo = getUserInfo(authInfo);
   checkAuthorization(ctx, currentPath, userInfo)
   return {
     props: {
       userName: getUserName(userInfo),
-      userInfo: userInfo
+      userInfo: userInfo,
+      supportTicketUrl
     },
   };
 }
