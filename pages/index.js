@@ -10,10 +10,7 @@ export default function Index(props) {
   } = props;
   const router = useRouter();
   useEffect(() => {
-    console.log('calling from useEffect');
     if (!isAuthenticated) {
-      console.log('calling from useEffect in if !isAuthenticated');
-      console.log('Endpoint client side ',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
       window.location.replace(Endpoints.auth.LOGIN)
     } else if (isAuthenticated) {
       const path = isRegistered ? '/home' : '/request-access'
@@ -26,9 +23,6 @@ export default function Index(props) {
 
 export async function getServerSideProps(ctx) {
   const { userAuthenticated, userRegistered } = checkAuthentication(ctx);
-
-  console.log(userAuthenticated,'-', userRegistered);
-  console.log('Endpoint server side ',Endpoints.auth.LOGIN, Endpoints.auth.LOGOUT );
 
   return {
     props: {
