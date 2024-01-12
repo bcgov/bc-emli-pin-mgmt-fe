@@ -11,7 +11,6 @@ function Header  ({
 	userName,
 	supportTicketUrl
 })  {
-	console.log(Endpoints.auth.LOGOUT)
 	const onClickHandle = () => {
 		window.open(supportTicketUrl, "_black", "noreferrer")
 	}
