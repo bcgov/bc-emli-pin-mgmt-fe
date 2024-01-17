@@ -22,7 +22,6 @@ function PropertyDetails({
   const [multiplePropertiesAlert, setMultiplePropertiesAlert] = useState(true)
       
   useEffect(() => {
-    
     setLoading(true)
     if (propertySiteId !== '') {
       HttpRequest.getPropertyDetail(propertySiteId)
@@ -38,7 +37,6 @@ function PropertyDetails({
           setLoading(false)
         })
     }
-    console.log(currentPropertyDetail)
       reloaded ? reloaded() : ''
   }, [propertySiteId, reloadPage]);
 
