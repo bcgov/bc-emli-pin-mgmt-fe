@@ -118,7 +118,7 @@ export default function RegeneratePINModal({
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
                 modalMainBtn={{
-                    text: `${Content.regeneratePINModal.title}`,
+                    text: `${Content.regeneratePINModal.primaryButton}`,
                     size: 'medium',
                     variant: 'primary',
                     disabled: isRegeneratePINButtonDisabled,

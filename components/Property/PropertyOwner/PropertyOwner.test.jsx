@@ -3,6 +3,7 @@ import { composeStories } from '@storybook/testing-react'
 import '@testing-library/jest-dom'
 
 import * as stories from './PropertyOwner.stories'
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
 describe('<PropertyOwner />', () => {

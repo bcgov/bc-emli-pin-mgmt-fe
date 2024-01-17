@@ -7,6 +7,8 @@ import * as stories from './GrantModal.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<GrantModal />', () => {
     afterEach(() => {
         jest.restoreAllMocks()

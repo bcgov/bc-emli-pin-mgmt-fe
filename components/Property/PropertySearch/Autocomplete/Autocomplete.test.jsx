@@ -5,6 +5,7 @@ import { act } from 'react-dom/test-utils'
 import '@testing-library/jest-dom'
 
 import * as stories from './Autocomplete.stories'
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
 describe('<Autocomplete />', () => {

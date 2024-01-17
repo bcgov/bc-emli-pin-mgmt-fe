@@ -5,6 +5,8 @@ import * as stories from './EditModal.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<EditModal />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)

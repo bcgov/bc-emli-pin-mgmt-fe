@@ -1,33 +1,48 @@
 // import { AppConfig } from '../../config'
+import beUrlConfig from '../../api-url.config'
 
+import getConfig from "next/config"
+const { publicRuntimeConfig } = getConfig();
+const {
+  appEnv
+} = publicRuntimeConfig;
+
+let beAppUrl;
+
+if (process.env.ENV) {
+  beAppUrl = beUrlConfig[process.env.ENV]
+}
+
+// const isServer = typeof window === 'undefined';
+const backendApiUrl = process.env.NEXT_PUBLIC_BE_APP_URL ? process.env.NEXT_PUBLIC_BE_APP_URL : beAppUrl;
 const Endpoints = {
     // TODO: rename the variable
     propertySearch: {
-        GET_SEARCH_RESULTS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/properties/address/`,
-        GET_PROPERTY_DETATIL: `${process.env.NEXT_PUBLIC_BE_APP_URL}/properties/details`
+        GET_SEARCH_RESULTS: `${backendApiUrl}/properties/address/`,
+        GET_PROPERTY_DETATIL: `${backendApiUrl}/properties/details`
     },
     managePIN: {
-        EXPIRE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/expire/`,
-        VIEW_PIN_HISTORY: `${process.env.NEXT_PUBLIC_BE_APP_URL}/audit-trails?livePinIds=`,
-        REGENERATE_PIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/pins/regenerate/`,
+        EXPIRE_PIN: `${backendApiUrl}/pins/expire/`,
+        VIEW_PIN_HISTORY: `${backendApiUrl}/audit-trails?livePinIds=`,
+        REGENERATE_PIN: `${backendApiUrl}/pins/regenerate/`,
     },
     auth: {
-        LOGIN: `${process.env.NEXT_PUBLIC_BE_APP_URL}/login`,
-        LOGOUT: `${process.env.NEXT_PUBLIC_BE_APP_URL}/logout`,
+        LOGIN: `${backendApiUrl}/login`,
+        LOGOUT: `${backendApiUrl}/logout`,
     },
     requestAccess: {
-      REQUEST_ACCESS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests`,
+      REQUEST_ACCESS: `${backendApiUrl}/user-requests`,
     },
     accessManagement: {
-      GET_REQUESTS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/user-requests/?status=`,
+      GET_REQUESTS: `${backendApiUrl}/user-requests/?status=`,
     },
     userManagement: {
-      GET_USERS: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/?active=`,
-      DEACTIVATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users/deactivate`,
-      UPDATE_USER: `${process.env.NEXT_PUBLIC_BE_APP_URL}/users`
+      GET_USERS: `${backendApiUrl}/users/?active=`,
+      DEACTIVATE_USER: `${backendApiUrl}/users/deactivate`,
+      UPDATE_USER: `${backendApiUrl}/users`
     },
     dashboard: {
-      GET_URL: `${process.env.NEXT_PUBLIC_BE_APP_URL}/dashboard`
+      GET_URL: `${backendApiUrl}/dashboard`
     }
 }
 

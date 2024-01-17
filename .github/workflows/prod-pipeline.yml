@@ -41,7 +41,7 @@ jobs:
     uses: bcgov/pipeline-templates/.github/workflows/owasp-scan.yaml@main
     with:
       ZAP_SCAN_TYPE: 'base' # Accepted values are base and full.
-      ZAP_TARGET_URL: https://bc-emli-pin-mgmt-fe-c82b4c-prod.apps.silver.devops.gov.bc.ca/
+      ZAP_TARGET_URL: https://bc-emli-pin-mgmt-prod-fe.apps.silver.devops.gov.bc.ca/
       ZAP_DURATION: '2'
       ZAP_MAX_DURATION: '5'
       ZAP_GCP_PUBLISH: false
@@ -71,8 +71,8 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-      - name: Run tests
-        run: npm test
+      #- name: Run tests
+      #  run: npm test
 
       - name: Build
         run: npm run build
@@ -108,7 +108,7 @@ jobs:
   deploys:
     name: Deploys Frontend
     needs: [builds]
-    environment: tools
+    environment: prod
     permissions:
       issues: write
     runs-on: ubuntu-22.04

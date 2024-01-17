@@ -7,6 +7,8 @@ import * as stories from './DeactivateModal.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<DeactivateModal />', () => {
     afterEach(() => {
         jest.restoreAllMocks()

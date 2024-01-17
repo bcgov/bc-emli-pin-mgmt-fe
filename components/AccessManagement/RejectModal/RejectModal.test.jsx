@@ -7,6 +7,8 @@ import * as stories from './RejectModal.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<RejectModal />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)

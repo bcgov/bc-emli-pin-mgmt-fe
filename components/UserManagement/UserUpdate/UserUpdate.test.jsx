@@ -6,6 +6,8 @@ import * as stories from './UserUpdate.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<UserUpdate />', () => {
     it('should render properly', async () => {
         const { container } = await render(

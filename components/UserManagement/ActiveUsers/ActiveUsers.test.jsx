@@ -5,6 +5,8 @@ import * as stories from './ActiveUsers.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<ActiveUsers />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)

@@ -16,7 +16,7 @@ parameters:
     value: ghcr.io
   - name: PROMOTE
     description: Image to promote
-    value: ghcr.io/bcgov/bc-emli-pin-mgmt-fe:latest
+    value: ghcr.io/bcgov/bc-emli-pin-mgmt-fe/bc-emli-pin-mgmt-fe:latest
   - name: IMAGE_TAG
     description: Image tag to use
     value: latest

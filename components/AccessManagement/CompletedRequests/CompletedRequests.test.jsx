@@ -5,6 +5,8 @@ import * as stories from './CompletedRequests.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+
 describe('<CompletedRequests />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)

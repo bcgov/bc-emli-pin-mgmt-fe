@@ -9,10 +9,10 @@ import Endpoints from '../../apiManager/endpoints'
 
 function Header  ({
 	userName,
+	supportTicketUrl
 })  {
-
 	const onClickHandle = () => {
-		window.open(`${process.env.NEXT_PUBLIC_SUBMIT_SUPPORT_TICKET_URL}`, "_black", "noreferrer")
+		window.open(supportTicketUrl, "_black", "noreferrer")
 	}
 
 	const helpSectionClass = userName === '' ? Styles.helpSection : Styles.helpSection + " " + Styles.marginRight
