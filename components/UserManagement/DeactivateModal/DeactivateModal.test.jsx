@@ -1,21 +1,23 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
-import axios from 'axios'
 
 import * as stories from './DeactivateModal.stories'
 
 const { PrimaryTemplate } = composeStories(stories)
 
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+const axios = require('axios')
+jest.mock('axios')
 
 describe('<DeactivateModal />', () => {
     afterEach(() => {
         jest.restoreAllMocks()
     })
     it('should render properly', async () => {
-        jest.spyOn(axios, 'put')
-        jest.spyOn(axios, 'get')
+        axios.put.mockResolvedValue({
+            data: "",
+        })
 
         const { container } = await render(
             <UserManagementContext.Provider value={
@@ -46,6 +48,10 @@ describe('<DeactivateModal />', () => {
     })
 
     it('should render properly with multiple rows', async () => {
+        axios.put.mockResolvedValue({
+            data: "",
+        })
+        
         const { container } = await render(
             <UserManagementContext.Provider value={
                 {
