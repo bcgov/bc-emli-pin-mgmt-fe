@@ -16,7 +16,7 @@ describe('<ManagePINDropdown />', () => {
     it('should render properly with View PIN option', async () => {
         const { getByTestId, findByText } = render(<SuperAdminTemplate />)
         userEvent.click(getByTestId('dropdown-btn'))
-        expect(await findByText('View PIN')).toBeVisible()
+        expect(await findByText('View Access Code')).toBeVisible()
     })
 
     it('should render properly without View PIN option', async () => {
@@ -24,7 +24,7 @@ describe('<ManagePINDropdown />', () => {
             <PrimaryTemplate />
         )
         userEvent.click(getByTestId('dropdown-btn'))
-        const viewPINOption = screen.queryByText('View PIN')
+        const viewPINOption = screen.queryByText('View Access Code')
         expect(viewPINOption).not.toBeInTheDocument()
     })
 })
