@@ -40,6 +40,7 @@ function TextBox({
 				<input
 					type={inputType}
 					id={textBoxId}
+					data-testid={textBoxId}
 					name={textBoxId}
 					placeholder={textBoxPlaceholder}
 					disabled={isDisabled}
