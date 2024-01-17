@@ -32,6 +32,7 @@ function PropertyDetails({
           setLoading(false)
         })
         .catch((error) => {
+          setCurrentPropertyDetail([])
           console.error(error)
           setLoading(false)
         })
