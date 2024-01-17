@@ -20,7 +20,7 @@ describe('<ViewPINHistory />', () => {
         expect(getByText('Modified on')).toBeVisible()
         expect(getByText('Action')).toBeVisible()
         expect(getByText('Type')).toBeVisible()
-        expect(getByText('PIN sent to')).toBeVisible()
+        expect(getByText('Access code sent to')).toBeVisible()
     })
 
     it('should render properly with have 3 rows and 3 usernames', () => {
@@ -34,16 +34,16 @@ describe('<ViewPINHistory />', () => {
 
     it('should properly format actions', () => {
         const { getAllByText, getByText } = render(<MultipleRowsTemplate />)
-        expect(getAllByText('PIN deleted')[0]).toBeVisible()
-        expect(getByText('PIN created')).toBeVisible()
-        expect(getByText('PIN regenerated')).toBeVisible()
+        expect(getAllByText('Access code deleted')[0]).toBeVisible()
+        expect(getByText('Access code created')).toBeVisible()
+        expect(getByText('Access code regenerated')).toBeVisible()
     })
 
     it('should properly format actions', () => {
         const { getByText } = render(<MultipleRowsTemplate />)
         expect(getByText('Opt-out')).toBeVisible()
-        expect(getByText('Call center PIN reset')).toBeVisible()
-        expect(getByText('Online PIN reset')).toBeVisible()
+        expect(getByText('Call center access code reset')).toBeVisible()
+        expect(getByText('Online access code reset')).toBeVisible()
         expect(getByText('Change of ownership')).toBeVisible()
     })
 })
