@@ -211,11 +211,11 @@
       "systemAdminEmail": "hers_admin@gov.bc.ca"
     },
     "managePINDropdown": {
-        "label": "Manage Access Code",
-        "recreateOption": "Regenerate Access Code",
-        "expireOption": "Expire Access Code",
-        "viewOption": "View Access Code", 
-        "viewHistoryOption": "View Access Code History",
+        "label": "Manage access code",
+        "recreateOption": "Regenerate access code",
+        "expireOption": "Expire access code",
+        "viewOption": "View access code", 
+        "viewHistoryOption": "View access code history",
         "valueOptions": {
             "regenerate": "regenerate-pin", 
             "expire": "expire-pin", 
@@ -234,7 +234,7 @@
     "expirePINConfirmationModal": {
         "title": "Expire access code",
         "body": "The current access code will be void and the property owner will need to request a new access code to manage the VHERS portal.",
-        "primaryButton": "Expire Access Code",
+        "primaryButton": "Expire access code",
         "secondaryButton": "Cancel"
     },
     "expirePINSuccessModal": {
@@ -273,7 +273,7 @@
         "testFullName2": "Leila Contreras", 
         "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
         "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
-        "viewPINHistory": "View Access Code History",
+        "viewPINHistory": "View access code history",
         "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
         "incorporationName": "Incorporation Name",
         "incorporationNumber": "Incorporation Number"
