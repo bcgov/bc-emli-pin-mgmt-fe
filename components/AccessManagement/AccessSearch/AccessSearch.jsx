@@ -27,7 +27,7 @@ export default function AccessSearch() {
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
-    setSearchField(options[0].value)
+    setSearchField ? setSearchField(options[0].value) : ''
     if(tabSelected === 'pending') {
       const filteredOptions = options.filter(item => item.value !== 'rejectionReason')
       setFieldOptions(filteredOptions)
@@ -48,13 +48,13 @@ export default function AccessSearch() {
   }
 
   const handleSearchString = (searchText) => {
-    setSearchString(searchText)
+    setSearchString ? setSearchString(searchText) : ''
 }
 
 const clearSearch = () => {
   document.getElementById('searchInput').value = ''
-  setSearchString('')
-  resetData()
+  setSearchString ? setSearchString('') : ''
+  resetData ? resetData() : ''
 }
 
 const doSearch = (e) => {
@@ -63,7 +63,7 @@ const doSearch = (e) => {
     setRequestList(searchResult)
   }
   if((e.type === 'click' || e.keyCode === 13 ) && searchString.length === 0){
-    resetData()
+    resetData ? resetData() : ''
   }
 }
 
@@ -93,6 +93,7 @@ const doSearch = (e) => {
           {searchString.length === 0 && (
               <span className={styles.searchIcon}>
                 <button
+                    id="searchButton"
                     className={styles.searchButton}
                     onClick={(e) => doSearch(e)}
                     aria-label={Content.propertySearch.searchIcon}

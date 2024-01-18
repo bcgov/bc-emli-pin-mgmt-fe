@@ -29,14 +29,14 @@ export default function Modal({
     return (
         <>
             {isOpen && (
-                <div {...testAttr(modalId)} className={styles.overlay}>
+                <div {...testAttr(modalId)} className={styles.overlay} id={modalId}>
                     <div
                         className={`${styles.container} ${
                             variant ? styles[variant] : ''
                         }`}
                     >
                         {modalHeader && (
-                            <div className={styles.header}>
+                            <div className={styles.header} id='modalHeader'>
                                 {modalHeader}
 
                                 <button
@@ -79,6 +79,7 @@ export default function Modal({
                                             modalSecondaryBtn.onClickHandler()
                                         }
                                         isDarkBackground={false}
+                                        data-testid="modalSecondaryBtn"
                                     >
                                         {modalSecondaryBtn.text}
                                     </Button>
