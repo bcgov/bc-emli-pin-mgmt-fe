@@ -48,8 +48,8 @@ export default function UserSearch() {
 
   const handleSearchString = (searchText) => {
     setSearchString ? setSearchString(searchText) : ''
-    setSearchString(searchText)
-}
+    searchText.length === 0 ? clearSearch() : ""
+  }
 
 const clearSearch = () => {
   document.getElementById('searchInput').value = ''
@@ -61,7 +61,7 @@ const doSearch = (e) => {
   if(e.keyCode == 13){
     const searchResult = getSearchData(searchString, searchField, usersList)
     setUsersList(searchResult)
- }
+  }
 }
 
   return (
