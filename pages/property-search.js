@@ -24,6 +24,7 @@ export default function Home(props) {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <script src="../snowplow/snowplow.js" async />
             </Head>
             <Header userName={userName} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}

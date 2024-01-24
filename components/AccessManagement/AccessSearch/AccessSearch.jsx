@@ -49,6 +49,7 @@ export default function AccessSearch() {
 
   const handleSearchString = (searchText) => {
     setSearchString ? setSearchString(searchText) : ''
+    searchText.length === 0 ? clearSearch() : ""
 }
 
 const clearSearch = () => {
