@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react'
-import Home, { getServerSideProps } from '../../pages/home'
+import Dashboard, { getServerSideProps } from '../../pages/dashboard';
 import '@testing-library/jest-dom'
 import Text from '../../assets/content/content.json'
 import mockRouter from 'next-router-mock';
 
 jest.mock('next/router', () => jest.requireActual('next-router-mock'))
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
-describe('Home', () => {
+describe('dashboard', () => {
   it('renders a heading', () => {
-    render(<Home />)
+    render(<Dashboard />)
 
-    const heading = screen.getByTestId('homepage', {
+    const heading = screen.getByTestId('dashboard', {
       name: Text.app.title,
     })
 
@@ -24,22 +24,14 @@ describe('Home', () => {
 describe('next-router-mock', () => {
   it('mocks the useRouter hook', () => {
     // Set the initial url:
-    mockRouter.push("/home");
+    mockRouter.push("/dashboard");
 
     // Render the component:
-    render(<Home href="/home" />);
-    // expect(screen.getByRole('button')).toHaveText(
-    //   'The current route is: "/initial-path"'
-    // );
+    render(<Dashboard href="/dashboard" />);
 
-    // Click the button:
-    // fireEvent.click(screen.getByRole('button'));
-
-    // Ensure the router was updated:
     expect(mockRouter).toMatchObject({
-      asPath: "/home",
-      pathname: "/home",
-      // query: { bar: "baz" },
+      asPath: "/dashboard",
+      pathname: "/dashboard",
     });
   });
 });

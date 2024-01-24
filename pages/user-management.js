@@ -26,7 +26,7 @@ export default function UserManagement(props) {
       <Header userName={userName} supportTicketUrl={supportTicketUrl} />
       {/* pass role for different active tabs */}
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
-      <main id="main">
+      <main id="main" data-testid="user-management">
         <div role="heading" aria-level="2">
           <UserManagementProvider>
             <UserManagementLayout role={userInfo?.role}/>

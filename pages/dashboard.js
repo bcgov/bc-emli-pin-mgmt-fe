@@ -24,7 +24,7 @@ export default function Dashboard(props) {
       <Header userName={userName} supportTicketUrl={supportTicketUrl}/>
       {/* pass role for different active tabs */}
       <Navigation role={userInfo?.role} isUserRegistered={true}/>
-      <main id="main">
+      <main id="main" data-testid="dashboard">
         <div role="heading" aria-level="2">
           <DashboardLayout />
         </div>

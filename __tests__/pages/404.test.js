@@ -1,20 +1,18 @@
 import { render, screen } from '@testing-library/react'
-import Home, { getServerSideProps } from '../../pages/home'
+import Custom404 from '../../pages/404';
 import '@testing-library/jest-dom'
 import Text from '../../assets/content/content.json'
 import mockRouter from 'next-router-mock';
 
 jest.mock('next/router', () => jest.requireActual('next-router-mock'))
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
-describe('Home', () => {
+describe('404', () => {
   it('renders a heading', () => {
-    render(<Home />)
+    render(<Custom404 />)
 
-    const heading = screen.getByTestId('homepage', {
+    const heading = screen.getByTestId('404', {
       name: Text.app.title,
     })
-
-    getServerSideProps()
 
     expect(heading).toBeInTheDocument()
   })
@@ -24,22 +22,14 @@ describe('Home', () => {
 describe('next-router-mock', () => {
   it('mocks the useRouter hook', () => {
     // Set the initial url:
-    mockRouter.push("/home");
+    mockRouter.push("/404");
 
     // Render the component:
-    render(<Home href="/home" />);
-    // expect(screen.getByRole('button')).toHaveText(
-    //   'The current route is: "/initial-path"'
-    // );
+    render(<Custom404 href="/404" />);
 
-    // Click the button:
-    // fireEvent.click(screen.getByRole('button'));
-
-    // Ensure the router was updated:
     expect(mockRouter).toMatchObject({
-      asPath: "/home",
-      pathname: "/home",
-      // query: { bar: "baz" },
+      asPath: "/404",
+      pathname: "/404",
     });
   });
 });

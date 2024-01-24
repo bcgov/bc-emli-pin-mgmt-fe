@@ -29,7 +29,7 @@ export default function Home(props) {
             <Header userName={userName} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
-            <main id='main' className='w-full h-full text-center' data-testid="homepage">
+            <main id='main' className='w-full h-full text-center' data-testid="property-search">
                 <PropertyLayout role={userInfo?.role}/>
             </main>
             <Footer />

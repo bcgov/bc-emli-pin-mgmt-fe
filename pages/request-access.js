@@ -24,7 +24,7 @@ export default function RequestAccess(props) {
       <Header userName={userName} supportTicketUrl={supportTicketUrl} />
       {/* pass role for different active tabs */}
       <Navigation role="admin" isUserRegistered={false}/>
-      <main id="main">
+      <main id="main" data-testid="request-access">
         <RequestLayout userInfo={userInfo} />
       </main>
       <Footer />

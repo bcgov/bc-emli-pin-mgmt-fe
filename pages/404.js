@@ -28,7 +28,7 @@ export default function Custom404() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main id='main' className='w-full h-full text-center'>
+      <main id='main' className='w-full h-full text-center' data-testid="404">
         <div id="errorWrap">
           <div className="errorBox">
             <div className='errorMsg'>
