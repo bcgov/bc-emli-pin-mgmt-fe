@@ -6,6 +6,7 @@ import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import { getSearchData } from '../../../services/search/dataSearchService'
+import { getRoleLabel, getRoleValue } from '../../../utils/helper'
 
 
 const options = Object.entries(Content.usersSearchOptions).map(([k,v]) => {
@@ -59,7 +60,17 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode == 13){
+    if (searchField === 'role') {
+      for (const user of usersList) {
+        // Change user role to label value for search
+        user.role = getRoleLabel(user.role)
+      }
+    }
     const searchResult = getSearchData(searchString, searchField, usersList)
+    for (const result of usersList) {
+      // Once filtering is complete change user role value back
+      result.role = getRoleValue(result.role)
+    }
     setUsersList(searchResult)
   }
 }

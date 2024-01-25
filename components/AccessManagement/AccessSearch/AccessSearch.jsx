@@ -6,6 +6,7 @@ import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import { AccessContext } from '../../../context/accessContext/AccessState'
 import { getSearchData } from '../../../services/search/dataSearchService'
+import { getRoleLabel, getRoleValue } from '../../../utils/helper'
 
 
 const options = Object.entries(Content.accessRequestSearchOptions).map(([k,v]) => {
@@ -60,7 +61,17 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode === 13){
+    if (searchField === 'requestedRole') {
+      for (const request of requestList) {
+        // Change request role value to label value for search
+        request.requestedRole = getRoleLabel(request.requestedRole)
+      }
+    }
     const searchResult = getSearchData(searchString, searchField, requestList)
+    for (const result of requestList) {
+      // Once filtering is complete change request role value back
+      result.requestedRole = getRoleValue(result.requestedRole)
+    }
     setRequestList(searchResult)
   }
   if((e.type === 'click' || e.keyCode === 13 ) && searchString.length === 0){
