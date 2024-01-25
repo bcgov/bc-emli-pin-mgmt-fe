@@ -68,7 +68,7 @@
 
 .radioBtnSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-top: 12px;
 }
 
