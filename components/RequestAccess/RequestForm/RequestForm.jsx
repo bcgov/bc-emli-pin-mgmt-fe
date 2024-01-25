@@ -33,9 +33,10 @@ const initialValidation = {
 
 export default function RequestForm(props) {
   const {
-    userInfo
+    userInfo,
+    setShowForm,
+    showForm
   } = props;
-  const [showForm, setShowForm] = useState(true)
   const [formData, setFormData] = useState(initialFormValue)
   const [organization, setOrganization] = useState('')
   const [email, setEmail] = useState('')

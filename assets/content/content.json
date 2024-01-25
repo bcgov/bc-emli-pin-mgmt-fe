@@ -180,8 +180,8 @@
       "pageTitle": "Request Access"
     },
     "requestAccessBanner": {
-      "title": "Request Access to VHERS PIN Admin Portal",
-      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access."
+      "title": "Request access to VHERS customer support tool",
+      "description": "This form is for people whose job involves VHERS customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the VHERS customer support tool."
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
@@ -195,7 +195,7 @@
         "organization": "Organization",
         "businessName": "Business Name",
         "organizationPlaceholder": "Enter your organization name",
-        "permissionType": "Permission type",
+        "permissionType": "Job role",
         "reason": "Reason for access request",
         "reasonPlaceHolder": "Describe the reason for wanting access to this application",
         "submitBtnText" : "Submit"
@@ -203,7 +203,7 @@
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request to access VHERS PIN Admin Portal has been submitted. A notification will be sent to you via email once the request is processed.",
+      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
       "requestExist": "A request already exists. Please contact the system administrator below",
@@ -346,8 +346,8 @@
     "back": "Back",
     "portalUserRole" : {
       "SuperAdmin": "System administrator",
-      "Admin" : "Administrator",
-      "Standard": "Client support"
+      "Admin" : "Supervisor",
+      "Standard": "Customer support agent"
     },
     "errorPage":{
         "button": "Back to homepage",

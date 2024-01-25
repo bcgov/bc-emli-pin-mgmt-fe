@@ -7,7 +7,7 @@ import { getUserInfo, getTokenInfo } from '../services/authentication/userAuthSe
 import checkAuthorization from '../services/authorization/accessService'
 import PropertyLayout from '../components/Property/PropertyLayout'
 import { getUserName } from '../utils/helper'
-
+import Script from 'next/script'
 
 export default function Home(props) {
     const { userName, userInfo, supportTicketUrl } = props
@@ -24,13 +24,14 @@ export default function Home(props) {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
-                <script src="../snowplow/snowplow.js" async />
             </Head>
-            <Header userName={userName} supportTicketUrl={supportTicketUrl} />
+            <Header userName={userName} supportTicketUrl={supportTicketUrl}>
+              <Script src="../snowplow/snowplow.js" strategy="beforeInteractive" />
+            </Header>
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
-                <PropertyLayout role={userInfo?.role}/>
+              <PropertyLayout role={userInfo?.role}/>
             </main>
             <Footer />
         </>
