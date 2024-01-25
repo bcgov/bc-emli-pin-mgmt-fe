@@ -37,7 +37,7 @@ export default function UserSearch() {
   },[tabSelected])
 
   useEffect(() => {
-    clearSearch()
+    resetData ? resetData() : ''
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[searchField])
 
@@ -60,11 +60,9 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode == 13){
-    if (searchField === 'role') {
-      for (const user of usersList) {
-        // Change user role to label value for search
-        user.role = getRoleLabel(user.role)
-      }
+    for (const user of usersList) {
+      // Change user role to label value for search
+      user.role = getRoleLabel(user.role)
     }
     const searchResult = getSearchData(searchString, searchField, usersList)
     for (const result of usersList) {
