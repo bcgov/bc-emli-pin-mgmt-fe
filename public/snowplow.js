@@ -1,5 +1,7 @@
 // <!-- Snowplow starts plowing - Standalone vE.2.14.0 -->
 
+console.log("calling snowplow")
+
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 
     p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
@@ -37,6 +39,16 @@
     window.snowplow('enableLinkClickTracking');
    
     window.snowplow('trackPageView');
+
+    window.snowplow('trackSelfDescribingEvent', {
+        schema: 'iglu:ca.bc.gov.demo/select_option/jsonschema/1-0-0',
+        data: {
+          fieldname : 'some field name', 
+          selected : 'example text'
+        }
+      }
+      );
+ 
    
    // <!-- Snowplow stops plowing -->
    
