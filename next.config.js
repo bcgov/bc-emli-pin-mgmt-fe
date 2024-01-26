@@ -23,10 +23,11 @@ const nextConfig = {
             {
                 source: '/(.*)',
                 headers: [
-                    {
-                        key: 'Content-Security-Policy',
-                        value: `defaultSrc ${process.env.NEXT_PUBLIC_BE_APP_URL}`,
-                    },
+                    // {
+                    //     key: 'Content-Security-Policy',
+                    //     value: `default-src ${process.env.NEXT_PUBLIC_BE_APP_URL}`,
+                    //     // value: `default-src 'self'`
+                    // },
                     {
                         key: 'X-Frame-Options',
                         value: 'SAMEORIGIN',
