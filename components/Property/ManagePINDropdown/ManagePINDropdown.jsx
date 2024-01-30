@@ -28,13 +28,13 @@ export default function ManagePINDropdown({
         const viewPINHistoryButton = document.getElementById(`view-pin-history-${livePinId}`)
         viewPINHistoryButton?.addEventListener("click", function() {
             customSnowplowCall(
-                "pin_history",
+                'pin_history',
                 userName,
-                "",
-                "",
-                "",
-                "",
-                "",
+                '',
+                '',
+                '',
+                '',
+                '',
                 livePinId
             )
         })

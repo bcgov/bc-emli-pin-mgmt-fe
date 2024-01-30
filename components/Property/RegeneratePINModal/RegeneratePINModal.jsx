@@ -28,13 +28,13 @@ export default function RegeneratePINModal({
 		const regeneratePINButton = document.getElementById("modalMainBtn")
         regeneratePINButton?.addEventListener("click", function() {
             customSnowplowCall(
-                "pin_generate",
+                'pin_generate',
                 userName,
-                "",
-                "",
-                "",
-                "",
-                "",
+                '',
+                '',
+                '',
+                '',
+                '',
                 livePinId
             )
         })

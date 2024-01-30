@@ -74,10 +74,10 @@ export default function Dropdown({
                 </span>
             </button>
             <ul
-                className={`${styles.actionDropdownList} + " " + ${
+                className={`${styles.actionDropdownList} + ' ' + ${
                     !toggleDropdown
                         ? styles.hideOptions
-                        : ""
+                        : ''
                 }`}
                 ref={dropdownContainerRef}
             >

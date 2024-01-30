@@ -40,10 +40,10 @@ export default function Modal({
                                 {modalHeader}
 
                                 <button
-                                    aria-label="close-button"
+                                    aria-label='close-button'
                                     onClick={() => handleClose()}
                                     className={styles.close}
-                                    tabIndex="0"
+                                    tabIndex='0'
                                 >
                                     <CloseIcon />
                                 </button>
@@ -67,8 +67,8 @@ export default function Modal({
                                     }
                                     isDarkBackground={true}
                                     disabled={modalMainBtn.disabled}
-                                    data-testid="modalMainBtn"
-                                    id="modalMainBtn"
+                                    data-testid='modalMainBtn'
+                                    id='modalMainBtn'
                                 >
                                     {modalMainBtn.text}
                                 </Button>
@@ -80,7 +80,7 @@ export default function Modal({
                                             modalSecondaryBtn.onClickHandler()
                                         }
                                         isDarkBackground={false}
-                                        data-testid="modalSecondaryBtn"
+                                        data-testid='modalSecondaryBtn'
                                     >
                                         {modalSecondaryBtn.text}
                                     </Button>

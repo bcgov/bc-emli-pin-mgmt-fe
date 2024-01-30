@@ -29,14 +29,14 @@ function PropertyTitleDetails({
 		const propertyDetailsSection = document.getElementById(titleNumber+landTitleDistrict)
         propertyDetailsSection.addEventListener("click", function() {
             customSnowplowCall(
-                "property_expand",
+                'property_expand',
                 userName,
-                "",
-                "",
+                '',
+                '',
                 titleNumber,
                 landTitleDistrict,
                 parcelIdentifier,
-                ""
+                ''
             )
         })
     }, [])

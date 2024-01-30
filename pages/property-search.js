@@ -25,8 +25,8 @@ export default function Home(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Script src="snowplow.js" strategy="beforeInteractive" />
-            <Header userName={userName} supportTicketUrl={supportTicketUrl} type="module" />
+            <Script src="snowplow.js" strategy="beforeInteractive" type="module" />
+            <Header userName={userName} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">

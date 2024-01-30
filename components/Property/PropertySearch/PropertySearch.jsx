@@ -45,7 +45,7 @@ export default function PropertySearch({ getSearchString, getSiteId, userName })
     const handleSearch = () => {
 		setShowResults(false)
         getSearchString(address)
-		sessionStorage.setItem("searchString", searchString)
+		sessionStorage.setItem('searchString', searchString)
 		customSnowplowCall(
 			'search',
 			userName,
@@ -62,7 +62,7 @@ export default function PropertySearch({ getSearchString, getSiteId, userName })
 	const handleAutocompleteSearch = () => {
 		setShowResults(false)
         getSearchString(address)
-		sessionStorage.setItem("searchString", searchString)
+		sessionStorage.setItem('searchString', searchString)
 		Router.push('/property-search')
 	}
 

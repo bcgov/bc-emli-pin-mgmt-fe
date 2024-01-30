@@ -1,6 +1,6 @@
 // <!-- Snowplow starts plowing - Standalone vE.2.14.0 -->
 
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 
     p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
