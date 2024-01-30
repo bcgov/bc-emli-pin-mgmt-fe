@@ -7,6 +7,10 @@ import * as stories from './RegeneratePINModal.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<RegeneratePINModal />', () => {
     it('should render properly with valid email and phone', () => {
         const { container } = render(<PrimaryTemplate />)

@@ -8,6 +8,10 @@ import * as stories from './searchResults.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { Template } = composeStories(stories)
 
+jest.mock('../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<SearchResults />', () => {
     afterEach(() => {
         jest.restoreAllMocks()

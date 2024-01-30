@@ -1,7 +1,5 @@
 // <!-- Snowplow starts plowing - Standalone vE.2.14.0 -->
 
-console.log("calling snowplow")
-
 if (typeof window !== "undefined") {
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 
