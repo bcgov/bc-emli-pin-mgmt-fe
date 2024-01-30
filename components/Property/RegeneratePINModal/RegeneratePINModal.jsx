@@ -26,7 +26,7 @@ export default function RegeneratePINModal({
 
     useEffect(() => {
 		const regeneratePINButton = document.getElementById("modalMainBtn")
-        regeneratePINButton?.addEventListener("click", function() {
+        regeneratePINButton?.addEventListener('click', function() {
             customSnowplowCall(
                 'pin_generate',
                 userName,

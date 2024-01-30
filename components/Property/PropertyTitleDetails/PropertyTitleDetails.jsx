@@ -27,7 +27,7 @@ function PropertyTitleDetails({
 
     useEffect(() => {
 		const propertyDetailsSection = document.getElementById(titleNumber+landTitleDistrict)
-        propertyDetailsSection.addEventListener("click", function() {
+        propertyDetailsSection.addEventListener('click', function() {
             customSnowplowCall(
                 'property_expand',
                 userName,

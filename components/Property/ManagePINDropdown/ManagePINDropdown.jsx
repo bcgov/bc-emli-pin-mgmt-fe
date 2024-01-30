@@ -26,7 +26,7 @@ export default function ManagePINDropdown({
             )
         })
         const viewPINHistoryButton = document.getElementById(`view-pin-history-${livePinId}`)
-        viewPINHistoryButton?.addEventListener("click", function() {
+        viewPINHistoryButton?.addEventListener('click', function() {
             customSnowplowCall(
                 'pin_history',
                 userName,

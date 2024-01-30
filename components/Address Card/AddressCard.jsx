@@ -8,7 +8,7 @@ export default function AddressCard({ address, city, siteId, selected, userName 
 
     useEffect(() => {
 		const searchResult = document.getElementById(siteId)
-        searchResult.addEventListener("click", function() {
+        searchResult.addEventListener('click', function() {
             customSnowplowCall(
                 'property_click',
                 userName,
