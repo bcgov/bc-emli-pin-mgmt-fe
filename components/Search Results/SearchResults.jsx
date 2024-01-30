@@ -7,7 +7,7 @@ import Content from '../../assets/content/content.json'
 import HttpRequest from '../../apiManager/httpRequestHandler'
 
 export default function SearchResults(props) {
-    const { searchAddress, handleClick, handleCallback } = props
+    const { searchAddress, handleClick, handleCallback, userName } = props
     const [isLoading, setLoading] = useState(true)
     const [results, setResults] = useState(null)
     const [selected, setSelected] = useState(null)
@@ -78,6 +78,7 @@ export default function SearchResults(props) {
                                 city={result.fullAddress.split(', ')[1]}
                                 siteId={result.siteID}
                                 selected={selected}
+                                userName={userName}
                             />
                         </div>
                     ))}

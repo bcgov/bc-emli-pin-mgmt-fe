@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Content from '../../../assets/content/content.json'
 import Modal from '../../Modal'
 import Styles from './RegeneratePINModal.module.css'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 import Textbox from '../../Textbox/index'
+import { customSnowplowCall } from '../../../public/snowplow'
 
 export default function RegeneratePINModal({
     isOpen,
@@ -12,7 +13,8 @@ export default function RegeneratePINModal({
     propertyAddress,
     siteId,
     reloadPage,
-    keepOpen
+    keepOpen,
+    userName
 }) {
     const [openRegenerateSuccessModal, setOpenRegenerateSuccessModal] = useState()
     const [openRegenerateFailureModal, setOpenRegenerateFailureModal] = useState()
@@ -21,6 +23,22 @@ export default function RegeneratePINModal({
     const [email, setEmailValue] = useState()
     const [confimationMessage, setConfirmationMessage] = useState()
     const [errorMessage, setErrorMessage] = useState()
+
+    useEffect(() => {
+		const regeneratePINButton = document.getElementById("modalMainBtn")
+        regeneratePINButton?.addEventListener("click", function() {
+            customSnowplowCall(
+                "pin_generate",
+                userName,
+                "",
+                "",
+                "",
+                "",
+                "",
+                livePinId
+            )
+        })
+    }, [isOpen])
 
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)

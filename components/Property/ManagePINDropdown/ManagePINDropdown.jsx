@@ -1,12 +1,45 @@
 import Content from '../../../assets/content/content.json'
 import Dropdown from '../../Dropdown/index'
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
+import { customSnowplowCall } from '../../../public/snowplow'
 
 export default function ManagePINDropdown({
     handleSelection,
     role,
     ariaLabel,
+    livePinId,
+    userName
 }) {
+    useEffect(() => {
+        const viewPINButton = document.getElementById(`view-pin-${livePinId}`)
+        viewPINButton?.addEventListener('click', function() {
+            customSnowplowCall(
+                'pin_view',
+                userName,
+                '',
+                '',
+                '',
+                '',
+                '',
+                livePinId
+            )
+        })
+        const viewPINHistoryButton = document.getElementById(`view-pin-history-${livePinId}`)
+        viewPINHistoryButton?.addEventListener("click", function() {
+            customSnowplowCall(
+                "pin_history",
+                userName,
+                "",
+                "",
+                "",
+                "",
+                "",
+                livePinId
+            )
+        })
+    }, [])
+
     function getSelection(value) {
         handleSelection(value)
     }
@@ -46,6 +79,7 @@ export default function ManagePINDropdown({
                 options={options}
                 handleSelection={getSelection}
                 ariaLabel={ariaLabel}
+                dropdownId={livePinId}
             ></Dropdown>
         </div>
     )

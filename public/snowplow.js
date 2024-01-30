@@ -2,6 +2,7 @@
 
 console.log("calling snowplow")
 
+if (typeof window !== "undefined") {
 ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
 
     p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
@@ -39,17 +40,26 @@ console.log("calling snowplow")
     window.snowplow('enableLinkClickTracking');
    
     window.snowplow('trackPageView');
-
-    window.snowplow('trackSelfDescribingEvent', {
-        schema: 'iglu:ca.bc.gov.demo/select_option/jsonschema/1-0-0',
-        data: {
-          fieldname : 'some field name', 
-          selected : 'example text'
-        }
-      }
-      );
- 
+} 
    
-   // <!-- Snowplow stops plowing -->
+function customSnowplowCall(action, username, search, address, title_number, land_title_district, pid, live_pin_id) {
+  window.snowplow('trackSelfDescribingEvent', {
+    schema: 'iglu:ca.bc.gov.vhers/pin_action/jsonschema/1-0-0',
+    data: {
+      action: action,
+      username: username,
+      search: search,
+      address: address,
+      title_number: title_number,
+      land_title_district: land_title_district,
+      pid: pid,
+      live_pin_id: live_pin_id
+    }
+  });
+}
+
+export { customSnowplowCall }
+
+// <!-- Snowplow stops plowing -->
    
    

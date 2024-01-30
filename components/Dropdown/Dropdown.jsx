@@ -17,18 +17,19 @@ export default function Dropdown({
     label,
     disabled,
     selectedValue,
-    isDarkBackground
+    isDarkBackground,
+    dropdownId
 }) {
     const [toggleDropdown, setToggleDropdown] = useState(false)
     const handleShowHideDropdown = () => setToggleDropdown((prev) => !prev)
     const dropdownContainerRef = useRef(null)
     const dropdownButtonRef = useRef(null)
     // this hook handles dropdown menu on outside click or tab
-    useClickOutSide(
-        dropdownButtonRef,
-        dropdownContainerRef,
-        handleShowHideDropdown
-    )
+    // useClickOutSide(
+    //     dropdownButtonRef,
+    //     dropdownContainerRef,
+    //     handleShowHideDropdown
+    // )
     const onClickAction = (value) => {
         handleSelection(value)
         handleShowHideDropdown()
@@ -72,32 +73,35 @@ export default function Dropdown({
                     }
                 </span>
             </button>
-            {toggleDropdown && (
-                <ul
-                    className={`${styles.actionDropdownList}`}
-                    ref={dropdownContainerRef}
-                >
-                    {options.map((option, i) => (
-                        <li key={i}>
-                            <button
-                                className={`${
-                                    selectedValue &&
-                                    selectedValue.label === option.label
-                                        ? styles.bold
-                                        : ''
-                                }`}
-                                onClick={() => onClickAction(option.value)}
-                                disabled={option.isDisabled}
-                            >
-                                {option.label}
-                                <span className={`${styles.notBold}`}>
-                                    {option.caption}
-                                </span>
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            )}
+            <ul
+                className={`${styles.actionDropdownList} + " " + ${
+                    !toggleDropdown
+                        ? styles.hideOptions
+                        : ""
+                }`}
+                ref={dropdownContainerRef}
+            >
+                {options.map((option, i) => (
+                    <li key={i}>
+                        <button
+                            className={`${
+                                selectedValue &&
+                                selectedValue.label === option.label
+                                    ? styles.bold
+                                    : ''
+                            }`}
+                            onClick={() => onClickAction(option.value)}
+                            disabled={option.isDisabled}
+                            id={option.value+'-'+dropdownId}
+                        >
+                            {option.label}
+                            <span className={`${styles.notBold}`}>
+                                {option.caption}
+                            </span>
+                        </button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
