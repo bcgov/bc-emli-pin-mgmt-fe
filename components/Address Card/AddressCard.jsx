@@ -1,8 +1,27 @@
 import PropTypes from 'prop-types'
 import styles from './AddressCard.module.css'
 import LocationDot from '../../assets/svgs/LocationDot'
+import { useEffect } from 'react'
+import { customSnowplowCall } from '../../public/snowplow'
 
-export default function AddressCard({ address, city, siteId, selected }) {
+export default function AddressCard({ address, city, siteId, selected, userName }) {
+
+    useEffect(() => {
+		const searchResult = document.getElementById(siteId)
+        searchResult.addEventListener('click', function() {
+            customSnowplowCall(
+                'property_click',
+                userName,
+                '',
+                `${address}, ${city}`,
+                '',
+                '',
+                '',
+                ''
+            )
+        })
+    }, [])
+
     return (
         // On click call api to use siteId to get property details
         <button type="button" id={`${siteId}`}>

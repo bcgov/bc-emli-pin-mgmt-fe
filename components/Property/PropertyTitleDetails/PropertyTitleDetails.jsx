@@ -4,8 +4,9 @@ import Content from '../../../assets/content/content.json'
 import PropertyIconSmall from '../../../assets/svgs/PropertyIconSmall'
 import GroupUserIcon from '../../../assets/svgs/GroupUserIcon'
 import PropertyOwner from '../PropertyOwner/PropertyOwner'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ArrowDownPrimary from '../../../assets/svgs/ArrowDown'
+import { customSnowplowCall } from '../../../public/snowplow'
 
 function PropertyTitleDetails({
     titleCount,
@@ -18,16 +19,33 @@ function PropertyTitleDetails({
     propertyAddress,
     role,
     siteId,
-    reloadPage
+    reloadPage,
+    userName
 }) {
     const [toggleDropdown, setToggleDropdown] = useState(false)
     const handleShowHideDropdown = () => setToggleDropdown((prev) => !prev)
+
+    useEffect(() => {
+		const propertyDetailsSection = document.getElementById(titleNumber+landTitleDistrict)
+        propertyDetailsSection.addEventListener('click', function() {
+            customSnowplowCall(
+                'property_expand',
+                userName,
+                '',
+                '',
+                titleNumber,
+                landTitleDistrict,
+                parcelIdentifier,
+                ''
+            )
+        })
+    }, [])
 
     return (
         <div>
             <div className={`${Styles.titleNumberHeader}`}>{Content.propertyDetails.titleNumberHeader} {titleCount + 1}</div>
             <div className={`${Styles.ownershipWrap}` + " " + `${Styles.propertyInfoWrap}`}>
-                <button className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`} onClick={handleShowHideDropdown} data-testid='property-details-button'>
+                <button className={`${Styles.title}` + " " + `${Styles.sectionTitle}` + " " + `${Styles.leftBlueBar}` + " " + `${Styles.propertyDetailsTitle}`} onClick={handleShowHideDropdown} data-testid='property-details-button' id={titleNumber+landTitleDistrict}>
                     <PropertyIconSmall />
                     <span>{Content.propertyDetails.propertyDetails}</span>
                     <span className={`${Styles.propertyDetailsArrowIcon} ${
@@ -86,6 +104,7 @@ function PropertyTitleDetails({
                             role={role}
                             siteId={siteId}
                             reloadPage={reloadPage}
+                            userName={userName}
                         />
                     ))}
                 </div>

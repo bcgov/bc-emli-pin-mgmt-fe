@@ -6,6 +6,10 @@ import * as stories from './PropertyTitleDetails.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertyTitleDetails />', () => {
     it('should render properly with property details collapsed', () => {
         const { container } = render(<PrimaryTemplate />)

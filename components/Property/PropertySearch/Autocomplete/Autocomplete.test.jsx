@@ -8,6 +8,10 @@ import * as stories from './Autocomplete.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<Autocomplete />', () => {
     afterEach(() => {
         jest.restoreAllMocks()

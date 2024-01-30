@@ -6,6 +6,11 @@ const { PrimaryTemplate } = composeStories(stories)
 const axios = require('axios')
 jest.mock('axios')
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }))
+
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertyDetails />', () => {
     it('should render properly', async () => {
         function testFunction() {

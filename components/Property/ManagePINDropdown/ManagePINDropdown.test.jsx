@@ -7,6 +7,10 @@ import * as stories from './ManagePINDropdown.stories'
 const { PrimaryTemplate } = composeStories(stories)
 const { SuperAdminTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<ManagePINDropdown />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)

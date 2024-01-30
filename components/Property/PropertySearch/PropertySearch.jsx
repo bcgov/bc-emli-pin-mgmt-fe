@@ -6,8 +6,9 @@ import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import Autocomplete from './Autocomplete/Autocomplete'
 import Router, { useRouter } from 'next/router'
+import { customSnowplowCall } from '../../../public/snowplow'
 
-export default function PropertySearch({ getSearchString, getSiteId }) 
+export default function PropertySearch({ getSearchString, getSiteId, userName }) 
 {
     const [searchString, setSearchString] = useState('')
     const [showSearchError, setShowSearchError] = useState(false)
@@ -44,9 +45,26 @@ export default function PropertySearch({ getSearchString, getSiteId })
     const handleSearch = () => {
 		setShowResults(false)
         getSearchString(address)
-		sessionStorage.setItem("searchString", searchString)
+		sessionStorage.setItem('searchString', searchString)
+		customSnowplowCall(
+			'search',
+			userName,
+			searchString,
+			'',
+			'',
+			'',
+			'',
+			''
+		)
 		Router.push('/property-search')
     }
+
+	const handleAutocompleteSearch = () => {
+		setShowResults(false)
+        getSearchString(address)
+		sessionStorage.setItem('searchString', searchString)
+		Router.push('/property-search')
+	}
 
     const clearSearch = () => {
         document.getElementById('searchInput').value = ''
@@ -105,9 +123,10 @@ export default function PropertySearch({ getSearchString, getSiteId })
 							<Autocomplete 
 								searchString={searchString} 
 								getSiteId={getSiteId}
-								getSearchString={handleSearch}
+								getSearchString={handleAutocompleteSearch}
 								showResults={showResults}
 								getAddress={getAddress}
+								userName={userName}
 							/>
 						</>
 					}
@@ -119,7 +138,9 @@ export default function PropertySearch({ getSearchString, getSiteId })
 						isDarkBackground={true}
 						disabled={searchString.length < 3}
 						aria-disabled={searchString.length < 3}
-						handleOnClick={handleSearch} >
+						handleOnClick={handleSearch} 
+						buttonId="search-button"
+					>
 						{Content.home.search}
 					</Button>
 				</div>
