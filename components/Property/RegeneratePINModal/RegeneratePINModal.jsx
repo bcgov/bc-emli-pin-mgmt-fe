@@ -24,22 +24,6 @@ export default function RegeneratePINModal({
     const [confimationMessage, setConfirmationMessage] = useState()
     const [errorMessage, setErrorMessage] = useState()
 
-    useEffect(() => {
-		const regeneratePINButton = document.getElementById("modalMainBtn")
-        regeneratePINButton?.addEventListener('click', function() {
-            customSnowplowCall(
-                'pin_generate',
-                userName,
-                '',
-                '',
-                '',
-                '',
-                '',
-                livePinId
-            )
-        })
-    }, [isOpen])
-
     const setPhoneValueOnChange = (phoneValue) => {
         setPhoneValue(phoneValue)
         if (validatePhoneRegex(phoneValue) || validateEmailRegex(email)){
@@ -84,6 +68,17 @@ export default function RegeneratePINModal({
     }
 
     const regeneratePIN = () => {
+        customSnowplowCall(
+            'pin_generate',
+            userName,
+            '',
+            '',
+            '',
+            '',
+            '',
+            livePinId
+        )
+        
         let formattedPhone
         if (phone) {
             (phone?.length == 11) ? formattedPhone = phone : formattedPhone = '1' + phone;

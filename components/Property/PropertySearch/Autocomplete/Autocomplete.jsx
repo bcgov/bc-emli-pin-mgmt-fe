@@ -42,8 +42,8 @@ export default function Autocomplete({
         customSnowplowCall(
 			'autocomplete_click',
 			userName,
-			address,
 			'',
+			address,
 			'',
 			'',
 			'',
