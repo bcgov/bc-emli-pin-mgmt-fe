@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const cspHeader = `
-    default-src 'self' ${process.env.NEXT_PUBLIC_BE_APP_URL} https://spm.apps.gov.bc.ca/com.snowplowanalytics.snowplow/tp2 https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
+    default-src 'self' ${process.env.NEXT_PUBLIC_BE_APP_URL} https://spt.apps.gov.bc.ca/com.snowplowanalytics.snowplow/tp2 https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
     script-src 'self' https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
     style-src 
         'self' 
