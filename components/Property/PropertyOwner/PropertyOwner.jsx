@@ -21,6 +21,7 @@ export default function PropertyOwner({
     role,
     siteId,
     reloadPage,
+    userName
 }) {
     const [getMangePINSelection, setGetMangePINSelection] = useState()
     const [openViewPINModal, setOpenViewPINModal] = useState()
@@ -101,9 +102,11 @@ export default function PropertyOwner({
                 <div className={`${Styles.buttonItem}`}>
                     <ManagePINDropdown 
                         livePIN={livePIN}
+                        livePinId={livePinId}
                         handleSelection={handleMangePINSelection}
                         role={role}
                         ariaLabel={Content.managePINDropdown.label}
+                        userName={userName}
                     />
                 </div>
                 <ViewPINModal 
@@ -124,6 +127,7 @@ export default function PropertyOwner({
                     propertyAddress={propertyAddress}
                     siteId={siteId}
                     reloadPage={reloadPage}
+                    userName={userName}
                 />
                 <ViewPINHistoryModal
                     isOpen={openViewPINHistoryModal}

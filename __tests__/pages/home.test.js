@@ -4,6 +4,10 @@ import '@testing-library/jest-dom'
 import Text from '../../assets/content/content.json'
 import mockRouter from 'next-router-mock';
 
+jest.mock('../../public/snowplow', () => ({
+  customSnowplowCall: jest.fn(() => {}),
+}));
+
 jest.mock('next/router', () => jest.requireActual('next-router-mock'))
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 describe('Home', () => {

@@ -5,6 +5,10 @@ import * as stories from './PropertySearch.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertySearch />', () => {
     it('should render properly without search string', () => {
         const useRouter = jest.spyOn(require('next/router'), 'useRouter')

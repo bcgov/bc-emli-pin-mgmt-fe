@@ -29,13 +29,12 @@ export default function Home(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header userName={userName} supportTicketUrl={supportTicketUrl}>
-              <Script src="../snowplow/snowplow.js" strategy="beforeInteractive" />
-            </Header>
+            <Script src="snowplow.js" strategy="beforeInteractive" type="module" />
+            <Header userName={userName} supportTicketUrl={supportTicketUrl} />
             {/* pass role for different active tabs */}
             <Navigation role={userInfo?.role} isUserRegistered={true}/>
             <main id='main' className='w-full h-full text-center' data-testid="homepage">
-                <PropertyLayout />
+                <PropertyLayout role={userInfo?.role} userName={userInfo?.username} />
             </main>
             <Footer />
         </>
