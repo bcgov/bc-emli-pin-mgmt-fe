@@ -81,7 +81,7 @@ export default function Table(props) {
       selectedRows.push(row.original)
     })
 
-    setSelectedRows(selectedRows)
+    setSelectedRows ? setSelectedRows(selectedRows) : ''
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFlatRows]);
 

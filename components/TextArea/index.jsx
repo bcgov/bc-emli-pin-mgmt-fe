@@ -33,6 +33,7 @@ function TextArea(props) {
         name={textAreaId}
         aria-multiline="true"
         id={textAreaId}
+		data-testid="text-area"
         placeholder={textAreaPlaceholder}
         className={`${styles.box}
         ${!isValid ? styles.error : ''}`}

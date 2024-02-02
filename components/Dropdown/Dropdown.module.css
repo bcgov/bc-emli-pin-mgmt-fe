@@ -8,7 +8,7 @@
 }
 
 .small{
-    width: 142px;
+    width: 176px;
 }
 
 .actionDropdownButton {
@@ -79,6 +79,11 @@
     font-size: 14px;
     font-weight: 400;
 }
+
+.actionDropdownList.hideOptions {
+    display: none;
+}
+
 .actionDropdownList button {
     border: none;
     text-align: start;

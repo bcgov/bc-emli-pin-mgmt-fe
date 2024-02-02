@@ -21,6 +21,16 @@ const getRoleLabel = (keyText) => {
   return ''
 }
 
+const getRoleValue = (labelText) => {
+  const statusList = content.portalUserRole
+  for ( const key in statusList) {
+    if(labelText === statusList[key]) {
+      return key
+    }
+  }
+  return ''
+}
+
 const getUserName = (userInfo) => {
   const identity = userInfo?.identity_provider === 'idir'
     ? content.identity.idir
@@ -49,6 +59,7 @@ const getLocalTime = (dateString) => {
 export {
   getAccessStatusLabel,
   getRoleLabel,
+  getRoleValue,
   getUserName,
   getLocalTime,
 }

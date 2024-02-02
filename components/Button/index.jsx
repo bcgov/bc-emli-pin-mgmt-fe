@@ -9,6 +9,7 @@ export const Button = ({
 	disabled,
 	children,
 	handleOnClick,
+	buttonId,
 	...props
 }) => {
 	const backgroundStyle = isDarkBackground ? Styles.dark : Styles.light 
@@ -23,6 +24,7 @@ export const Button = ({
 			type="button" name="button"
 			aria-disabled={disabled}
 			disabled={disabled}
+			id={buttonId}
 			{...props}
 		>
 			{children}

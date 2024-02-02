@@ -87,7 +87,7 @@ export default function ActiveUsers(role) {
         {isLoading && loadingSection}
         {!isLoading &&
           <div className={styles.tblSection}>
-            <UsersList />
+            <UsersList role={role?.role}/>
           </div>
         }
       </div>

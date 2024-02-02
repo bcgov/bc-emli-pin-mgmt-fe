@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import BackArrow from '../../../assets/svgs/BackArrow'
 
 export default function PropertyLayout(
-    role
+    role,
 ) {
     const [searchString, setSearchString] = useState()
     const [showPropertySearchHeader, setShowPropertySearchHeader] = useState(true)
@@ -98,6 +98,7 @@ export default function PropertyLayout(
                 <PropertySearch 
                     getSearchString={getSearchString} 
                     getSiteId={getSiteId} 
+                    userName={role.userName}
                 />
             </div>
             {searchString && (
@@ -111,6 +112,7 @@ export default function PropertyLayout(
                             searchAddress={searchString}
                             handleClick={getSelectedValues}
                             handleCallback={getSearchResultsLength}
+                            userName={role.userName}
                         />
                     </div>
 
@@ -123,6 +125,7 @@ export default function PropertyLayout(
                                 propertySiteId={propertySiteId} 
                                 propertyAddress={propertyAddress}
                                 role={role}
+                                userName={role.userName}
                                 reloadPage={reloadPage}
                                 reloaded={() => reloaded()}
                             />

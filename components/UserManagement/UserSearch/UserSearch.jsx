@@ -6,6 +6,7 @@ import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import { getSearchData } from '../../../services/search/dataSearchService'
+import { getRoleLabel, getRoleValue } from '../../../utils/helper'
 
 
 const options = Object.entries(Content.usersSearchOptions).map(([k,v]) => {
@@ -27,7 +28,7 @@ export default function UserSearch() {
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
-    setSearchField(options[0].value)
+    setSearchField ? setSearchField(options[0].value) : ''
     if(tabSelected === 'active') {
       const filteredOptions = options.filter(item => item.value !== 'deactivationReason' && item.value !== 'updatedAt')
       setFieldOptions(filteredOptions)
@@ -36,7 +37,7 @@ export default function UserSearch() {
   },[tabSelected])
 
   useEffect(() => {
-    clearSearch()
+    resetData ? resetData() : ''
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[searchField])
 
@@ -47,20 +48,29 @@ export default function UserSearch() {
   }
 
   const handleSearchString = (searchText) => {
-    setSearchString(searchText)
-}
+    setSearchString ? setSearchString(searchText) : ''
+    searchText.length === 0 ? clearSearch() : ""
+  }
 
 const clearSearch = () => {
   document.getElementById('searchInput').value = ''
-  setSearchString('')
-  resetData()
+  setSearchString ? setSearchString('') : ''
+  resetData ? resetData() : ''
 }
 
 const doSearch = (e) => {
   if(e.keyCode == 13){
+    for (const user of usersList) {
+      // Change user role to label value for search
+      user.role = getRoleLabel(user.role)
+    }
     const searchResult = getSearchData(searchString, searchField, usersList)
+    for (const result of usersList) {
+      // Once filtering is complete change user role value back
+      result.role = getRoleValue(result.role)
+    }
     setUsersList(searchResult)
- }
+  }
 }
 
   return (

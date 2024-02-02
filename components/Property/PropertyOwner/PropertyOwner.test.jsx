@@ -6,6 +6,10 @@ import * as stories from './PropertyOwner.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertyOwner />', () => {
     it('should render properly without incorporation number', () => {
         const { container } = render(<PrimaryTemplate />)

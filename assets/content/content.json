@@ -33,8 +33,8 @@
         "contactLink": "https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services"
     },
     "home": {
-        "searchHeader": "Search for a property",
-        "searchContent": "Enter a residential street address to retrieve property details",
+        "searchHeader": "Citizen verification: search for a property",
+        "searchContent": "Begin citizen verification by entering the address of the property that they own",
         "searchPlaceHolder": "Enter a residential street address",
         "search": "Search"
     },
@@ -180,8 +180,8 @@
       "pageTitle": "Request Access"
     },
     "requestAccessBanner": {
-      "title": "Request Access to VHERS PIN Admin Portal",
-      "description": "You will need to provide some additional details before accessing this application. Complete the request details form below to request access."
+      "title": "Request access to VHERS customer support tool",
+      "description": "This form is for people whose job involves VHERS customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the VHERS customer support tool."
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
@@ -195,7 +195,7 @@
         "organization": "Organization",
         "businessName": "Business Name",
         "organizationPlaceholder": "Enter your organization name",
-        "permissionType": "Permission type",
+        "permissionType": "Job role",
         "reason": "Reason for access request",
         "reasonPlaceHolder": "Describe the reason for wanting access to this application",
         "submitBtnText" : "Submit"
@@ -203,7 +203,7 @@
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request to access VHERS PIN Admin Portal has been submitted. A notification will be sent to you via email once the request is processed.",
+      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
       "requestExist": "A request already exists. Please contact the system administrator below",
@@ -211,11 +211,11 @@
       "systemAdminEmail": "hers_admin@gov.bc.ca"
     },
     "managePINDropdown": {
-        "label": "Manage PIN",
-        "recreateOption": "Regenerate PIN",
-        "expireOption": "Expire PIN",
-        "viewOption": "View PIN", 
-        "viewHistoryOption": "View PIN History",
+        "label": "Manage access code",
+        "recreateOption": "Regenerate access code",
+        "expireOption": "Expire access code",
+        "viewOption": "View access code", 
+        "viewHistoryOption": "View access code history",
         "valueOptions": {
             "regenerate": "regenerate-pin", 
             "expire": "expire-pin", 
@@ -232,24 +232,24 @@
         "searchIcon": "Search Icon"
     },
     "expirePINConfirmationModal": {
-        "title": "Expire PIN",
-        "body": "The current PIN will be void and the property owner will need to request a new PIN to manage the VHERS portal.",
-        "primaryButton": "Expire PIN",
+        "title": "Expire access code",
+        "body": "The current access code will be void and the property owner will need to request a new access code to manage the VHERS portal.",
+        "primaryButton": "Expire access code",
         "secondaryButton": "Cancel"
     },
     "expirePINSuccessModal": {
-        "title": "PIN has been expired",
-        "body": "The property owner will not be able to access VHERS system until a new PIN is requested.",
+        "title": "Access code has been expired",
+        "body": "The property owner will not be able to access VHERS system until a new access code is requested.",
         "primaryButton": "Close"
     },
     "expirePINFailureModal": {
-        "title": "Expiring PIN failed",
+        "title": "Expiring access code failed",
         "body": "There was a problem. Try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     },
     "propertyDetails": {
-        "residentialAddress": "Residential Street Address",
+        "residentialAddress": "House address",
         "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
         "propertyDetails": "Property Details",
         "titleNumber": "Title Number",
@@ -273,7 +273,7 @@
         "testFullName2": "Leila Contreras", 
         "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
         "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
-        "viewPINHistory": "View PIN History",
+        "viewPINHistory": "View access code history",
         "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
         "incorporationName": "Incorporation Name",
         "incorporationNumber": "Incorporation Number"
@@ -285,7 +285,7 @@
         "noAddressFound": "Addresses found: 0"
     },
     "pinHistoryModal": {
-        "title": "View PIN History",
+        "title": "View Access Code History",
         "table": {
             "numberColumn": "#",
             "UpdatedByColumn": "Updated by",
@@ -293,17 +293,17 @@
             "ModifiedOnColumn": "Modified on",
             "ActionColumn": "Action",
             "TypeColumn": "Type",
-            "NotificationViaColumn": "PIN sent to"
+            "NotificationViaColumn": "Access code sent to"
         },
         "actions": {
-            "deleted": "PIN deleted",
-            "created": "PIN created",
-            "recreated": "PIN regenerated"
+            "deleted": "Access code deleted",
+            "created": "Access code created",
+            "recreated": "Access code regenerated"
         },
         "types": {
             "optOut": "Opt-out",
-            "callCenter": "Call center PIN reset",
-            "onlineReset": "Online PIN reset",
+            "callCenter": "Call center access code reset",
+            "onlineReset": "Online access code reset",
             "changeOfOwnership": "Change of ownership"
         },
         "typeCode": {
@@ -315,29 +315,30 @@
         "primaryButton": "Close"
     },
     "pinHistoryFailureModal": {
-        "title": "Viewing PIN history failed",
+        "title": "Viewing access code history failed",
         "body": "There was a problem. Try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     }, 
     "viewPINModal": {
-        "title": "View PIN", 
-        "noLivePINMag": "There is no valid PIN.",
+        "title": "View Access Code", 
+        "noLivePINMag": "There is no valid access code.",
         "close": "Close"
     }, 
     "regeneratePINModal": {
-        "title": "Regenerate PIN",
-        "contentMsg": "A new PIN will be generated and the previous PIN will be void. At least one of the following two fields must be filled to proceed.",
+        "title": "Regenerate Access Code",
+        "primaryButton": "Regenerate access code",
+        "contentMsg": "A new access code will be generated and the previous access code will be void. At least one of the following two fields must be filled to proceed.",
         "phone": "SMS",
         "phonePlaceHolder": "E.g. 604 332 8930",
         "email": "Email",
         "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
         "cancelButton": "Cancel",
-        "successModalTitle": "PIN has been regenerated",
-        "successModalMsgPhoneAndEmail": "A new PIN has been created and will be sent to the property owner via SMS and email soon.",
-        "successModalMsgPhone": "A new PIN has been created and will be sent to the property owner via SMS soon.",
-        "successModalMsgEmail": "A new PIN has been created and will be sent to the property owner via email soon.",
-        "failureModalTitle": "Regenerating PIN failed", 
+        "successModalTitle": "Access code has been regenerated",
+        "successModalMsgPhoneAndEmail": "A new access code has been created and will be sent to the property owner via SMS and email soon.",
+        "successModalMsgPhone": "A new access code has been created and will be sent to the property owner via SMS soon.",
+        "successModalMsgEmail": "A new access code has been created and will be sent to the property owner via email soon.",
+        "failureModalTitle": "Regenerating access code failed", 
         "failureModalMag": "There was a problem. Try again later.",
         "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
         "emailFailureModalMessage": "This is not a valid email address. Please try again."
@@ -345,8 +346,8 @@
     "back": "Back",
     "portalUserRole" : {
       "SuperAdmin": "System administrator",
-      "Admin" : "Administrator",
-      "Standard": "Client support"
+      "Admin" : "Supervisor",
+      "Standard": "Customer support agent"
     },
     "errorPage":{
         "button": "Back to homepage",

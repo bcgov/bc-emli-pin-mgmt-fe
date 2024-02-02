@@ -1,11 +1,16 @@
-import { render, waitFor } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
 
 import * as stories from './PropertyDetails.stories'
 const { PrimaryTemplate } = composeStories(stories)
 const axios = require('axios')
 jest.mock('axios')
-jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
+jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }))
+
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertyDetails />', () => {
     it('should render properly', async () => {
         function testFunction() {
@@ -13,15 +18,15 @@ describe('<PropertyDetails />', () => {
         }
 
         axios.get.mockResolvedValue({
-            data: [
-                [
+            data: {
+                "123|AB": [
                     {
                         addressLine_1: '123 Test Street',
                         addressLine_2: '',
                         city: 'test city',
                         country: 'Canada',
                         givenName: 'test',
-                        landTitleDistrict: '12',
+                        landTitleDistrict: 'AB',
                         lastName_1: 'test',
                         lastName_2: '',
                         livePinId: '123412341234',
@@ -33,12 +38,12 @@ describe('<PropertyDetails />', () => {
                         titleNumber: '123',
                     },
                 ],
-            ],
+            },
         })
 
-        const { container } = await render(
-            <PrimaryTemplate reloaded={testFunction} />
-        )
+        const { container } = await act ( async () => render(
+            <PrimaryTemplate reloaded={testFunction} propertySiteId={'123ABC'} role={{role: 'SuperAdmin'}} />
+        ))
         await expect(container.firstChild).toBeTruthy()
     })
 })

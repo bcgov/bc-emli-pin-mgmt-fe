@@ -14,7 +14,8 @@ function PropertyDetails({
   propertyAddress,
   role,
   reloadPage,
-  reloaded
+  reloaded,
+  userName
 }) {
 	const [currentPropertyDetail, setCurrentPropertyDetail] = useState(null)
   const [isLoading, setLoading] = useState(false)
@@ -32,6 +33,7 @@ function PropertyDetails({
           setLoading(false)
         })
         .catch((error) => {
+          setCurrentPropertyDetail([])
           console.error(error)
           setLoading(false)
         })
@@ -123,6 +125,7 @@ function PropertyDetails({
                 role={role}
                 siteId={propertySiteId}
                 reloadPage={reloadPage}
+                userName={userName}
               />
             ))
           }

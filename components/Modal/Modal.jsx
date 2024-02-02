@@ -29,21 +29,21 @@ export default function Modal({
     return (
         <>
             {isOpen && (
-                <div {...testAttr(modalId)} className={styles.overlay}>
+                <div {...testAttr(modalId)} className={styles.overlay} id={modalId}>
                     <div
                         className={`${styles.container} ${
                             variant ? styles[variant] : ''
                         }`}
                     >
                         {modalHeader && (
-                            <div className={styles.header}>
+                            <div className={styles.header} id='modalHeader'>
                                 {modalHeader}
 
                                 <button
-                                    aria-label="close-button"
+                                    aria-label='close-button'
                                     onClick={() => handleClose()}
                                     className={styles.close}
-                                    tabIndex="0"
+                                    tabIndex='0'
                                 >
                                     <CloseIcon />
                                 </button>
@@ -67,7 +67,8 @@ export default function Modal({
                                     }
                                     isDarkBackground={true}
                                     disabled={modalMainBtn.disabled}
-                                    data-testid="modalMainBtn"
+                                    data-testid='modalMainBtn'
+                                    id='modalMainBtn'
                                 >
                                     {modalMainBtn.text}
                                 </Button>
@@ -79,6 +80,7 @@ export default function Modal({
                                             modalSecondaryBtn.onClickHandler()
                                         }
                                         isDarkBackground={false}
+                                        data-testid='modalSecondaryBtn'
                                     >
                                         {modalSecondaryBtn.text}
                                     </Button>

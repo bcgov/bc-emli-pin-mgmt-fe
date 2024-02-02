@@ -11,7 +11,7 @@ export default function AccessNavigation() {
       {label: Content.accessRequestDetails.completedRequest, value: 'completed'},
     ];
     useEffect(() => {
-      selectTab(options[0].value)
+      selectTab ? selectTab(options[0].value) : ''
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

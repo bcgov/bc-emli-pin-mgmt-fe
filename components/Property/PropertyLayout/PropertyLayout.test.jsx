@@ -5,6 +5,10 @@ import * as stories from './PropertyLayout.stories'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: '{ ... }' }));
 const { PrimaryTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<PropertyLayout />', () => {
     beforeEach(() => {
         window.sessionStorage.clear();

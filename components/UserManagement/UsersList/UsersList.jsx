@@ -9,7 +9,7 @@ import contents from '../../../assets/content/content.json'
 import styles from './UsersList.module.css'
 import { getLocalTime } from '../../../utils/helper';
 
-export default function UsersList() {
+export default function UsersList(role) {
   const { setRowSelected, usersList, tabSelected } = useContext(UserManagementContext)
   const showSelectBox = tabSelected === 'active'
   const columnsList = [
@@ -90,6 +90,7 @@ export default function UsersList() {
             initialState={initialState}
             setSelectedRows={setRowSelected}
             showSelectBox={showSelectBox}
+            role={role?.role}
           />
         }
         {

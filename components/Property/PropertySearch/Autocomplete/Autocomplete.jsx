@@ -4,6 +4,7 @@ import HttpRequest from '../../../../apiManager/httpRequestHandler'
 import { Button } from '../../../Button'
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
+import { customSnowplowCall } from '../../../../public/snowplow'
 
 export default function Autocomplete({
     searchString,
@@ -11,6 +12,7 @@ export default function Autocomplete({
     getSearchString,
     getAddress,
     showResults,
+    userName
 }) {
     const [results, setResults] = useState(null)
 
@@ -37,6 +39,16 @@ export default function Autocomplete({
         getAddress(address)
         document.getElementById('searchInput').value = address
         sessionStorage.setItem("autocompleteSearchString", address)
+        customSnowplowCall(
+			'autocomplete_click',
+			userName,
+			'',
+			address,
+			'',
+			'',
+			'',
+			''
+		)
     }
 
     const { pathname } = useRouter()
@@ -56,6 +68,7 @@ export default function Autocomplete({
                                             result.fullAddress
                                         )
                                     }
+                                    buttonId="autocomplete-result"
                                 >
                                     {result.fullAddress}
                                 </Button>

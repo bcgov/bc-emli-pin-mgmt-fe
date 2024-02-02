@@ -7,6 +7,10 @@ import * as stories from './ManagePINDropdown.stories'
 const { PrimaryTemplate } = composeStories(stories)
 const { SuperAdminTemplate } = composeStories(stories)
 
+jest.mock('../../../public/snowplow', () => ({
+    customSnowplowCall: jest.fn(() => {}),
+}));
+
 describe('<ManagePINDropdown />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)
@@ -16,7 +20,7 @@ describe('<ManagePINDropdown />', () => {
     it('should render properly with View PIN option', async () => {
         const { getByTestId, findByText } = render(<SuperAdminTemplate />)
         userEvent.click(getByTestId('dropdown-btn'))
-        expect(await findByText('View PIN')).toBeVisible()
+        expect(await findByText('View access code')).toBeVisible()
     })
 
     it('should render properly without View PIN option', async () => {
@@ -24,7 +28,7 @@ describe('<ManagePINDropdown />', () => {
             <PrimaryTemplate />
         )
         userEvent.click(getByTestId('dropdown-btn'))
-        const viewPINOption = screen.queryByText('View PIN')
+        const viewPINOption = screen.queryByText('View access code')
         expect(viewPINOption).not.toBeInTheDocument()
     })
 })

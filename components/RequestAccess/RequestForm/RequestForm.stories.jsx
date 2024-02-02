@@ -1,4 +1,5 @@
 import RequestForm from "."
+import { useState } from "react"
 
 export default {
     title: 'RequestForm',
@@ -11,10 +12,16 @@ export default {
             email: "test@test.ca",
             username: "test123",
             user_guid: "123",
-        }
+        },
     },
 }
 
-const Template = (args) => <RequestForm {...args}></RequestForm>
+const Template = (args) => {
+    const [showForm, setShowForm] = useState(true)
+
+    return (
+        <RequestForm {...args} setShowForm={setShowForm} showForm={showForm}></RequestForm>
+    )
+}
 
 export const PrimaryTemplate = Template.bind({})
