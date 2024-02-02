@@ -122,12 +122,12 @@ td {
 
 	<h2>
 		
-		Site: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca
+		Site: https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca
 		
 	</h2>
 
 	<h3>
-		Generated on Thu, 1 Feb 2024 21:09:33
+		Generated on Fri, 2 Feb 2024 14:59:36
 	</h3>
 
 	<h3>
@@ -156,7 +156,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>2</div>
+					<div>5</div>
 				</td>
 			</tr>
 			<tr>
@@ -164,7 +164,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>6</div>
+					<div>7</div>
 				</td>
 			</tr>
 			<tr>
@@ -198,6 +198,21 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
+				<td><a href="#10055">CSP: Wildcard Directive</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
+				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">2</td>
+			</tr>
+			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">1</td>
@@ -206,6 +221,11 @@ td {
 				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10055">CSP: Notices</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#10054">Cookie with SameSite Attribute None</a></td>
@@ -265,22 +285,22 @@ td {
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Dest Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Mode Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-Site Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#90005">Sec-Fetch-User Header is Missing</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">3</td>
+				<td align="center">2</td>
 			</tr>
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
@@ -298,6 +318,393 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10055"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">CSP: Wildcard Directive</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
+script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action
+
+The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a>
+							<br />
+						
+							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
+							<br />
+						
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10055/">10055</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10055"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">CSP: script-src unsafe-inline</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">script-src includes unsafe-inline.</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a>
+							<br />
+						
+							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
+							<br />
+						
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10055/">10055</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10055"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">CSP: style-src unsafe-inline</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">style-src includes unsafe-inline.</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a>
+							<br />
+						
+							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
+							<br />
+						
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10055/">10055</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -320,7 +727,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -422,7 +829,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -491,6 +898,137 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-1"><a
+						id="10055"></a>
+						<div>Low</div></th>
+					<th class="risk-1">CSP: Notices</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Warnings:
+Unrecognized directive defaultsrc
+</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">content-security-policy</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">defaultSrc https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Warnings:
+Unrecognized directive defaultsrc
+</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">2</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a>
+							<br />
+						
+							<a href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a>
+							<br />
+						
+							<a href="https://content-security-policy.com/">https://content-security-policy.com/</a>
+							<br />
+						
+							<a href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a>
+							<br />
+						
+							<a href="https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources">https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10055/">10055</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
 						id="10054"></a>
 						<div>Low</div></th>
 					<th class="risk-1">Cookie with SameSite Attribute None</th>
@@ -509,7 +1047,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -519,7 +1057,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">066d51379f0e80753a0fff3b87556849</td>
+						<td width="80%">0568f9649408aae406d08742aa676e86</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -529,7 +1067,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">set-cookie: 066d51379f0e80753a0fff3b87556849</td>
+						<td width="80%">set-cookie: 0568f9649408aae406d08742aa676e86</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -593,7 +1131,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -624,7 +1162,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -708,7 +1246,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -739,7 +1277,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -770,7 +1308,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -801,7 +1339,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -832,7 +1370,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-5ad6ec73b911bd3a.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-5ad6ec73b911bd3a.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -863,7 +1401,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -894,7 +1432,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -925,7 +1463,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -956,7 +1494,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -987,7 +1525,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1018,7 +1556,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1114,7 +1652,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1145,7 +1683,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1176,7 +1714,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1207,7 +1745,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1238,7 +1776,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1269,7 +1807,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1300,7 +1838,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1331,7 +1869,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1362,7 +1900,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1393,7 +1931,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1424,7 +1962,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1520,7 +2058,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1604,7 +2142,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1636,7 +2174,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1668,7 +2206,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1700,7 +2238,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1732,7 +2270,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1764,7 +2302,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1796,7 +2334,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1828,7 +2366,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1860,7 +2398,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1892,7 +2430,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1924,7 +2462,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2015,7 +2553,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2035,18 +2573,18 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest</td>
+						<td width="80%">/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����쵫bs��%Q}�;�j��zM��������&#39;޲</td>
+						<td width="80%">�����쵫bs���i����-k_��N?������&#39;޲</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2077,7 +2615,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-0a37d925c1f40982.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-5ad6ec73b911bd3a.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/404-5ad6ec73b911bd3a.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2108,7 +2646,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2139,7 +2677,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2159,18 +2697,18 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest</td>
+						<td width="80%">/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����쵫bs��%Q}�;�j��zM��������&#39;޲</td>
+						<td width="80%">�����쵫bs���i����-k_��N?������&#39;޲</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2190,12 +2728,12 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest</td>
+						<td width="80%">/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">�����쵫bs��%Q}�;�j��zM��������&#39;޲</td>
+						<td width="80%">�����쵫bs���i����-k_��N?������&#39;޲</td>
 					</tr>
 				
 				<tr>
@@ -2254,7 +2792,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/home">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/home</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/home">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/home</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2338,7 +2876,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2369,7 +2907,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-5f892cb1f9a029ea.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-a372d2ea4bb36670.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2400,7 +2938,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/framework-0c7baedefba6b077.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2431,7 +2969,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2462,7 +3000,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2493,7 +3031,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2524,7 +3062,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2549,13 +3087,13 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;self.__BUILD_MANIFEST=function(s,c,e,a,t,r,i,b,u){return{__rewrites:{afterFiles:[],beforeFiles:[],fallback:[]},&quot;/&quot;:[&quot;static/chun&quot;, see evidence field for the suspicious comment/snippet.</td>
+						<td width="80%">The following pattern was used: \bUSER\b and was detected in the element starting with: &quot;self.__BUILD_MANIFEST=function(s,c,a,e,t,r,i,f,u){return{__rewrites:{afterFiles:[],beforeFiles:[],fallback:[]},&quot;/&quot;:[&quot;static/chun&quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2586,7 +3124,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2667,7 +3205,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2698,7 +3236,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2729,7 +3267,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2809,7 +3347,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2840,7 +3378,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2871,7 +3409,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2994,7 +3532,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3025,38 +3563,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Dest</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3086,7 +3593,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">2</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3140,7 +3647,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3171,38 +3678,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Mode</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3232,7 +3708,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">2</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3286,7 +3762,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3317,38 +3793,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-Site</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3378,7 +3823,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">2</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3432,7 +3877,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3463,38 +3908,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Sec-Fetch-User</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3524,7 +3938,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">2</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3578,7 +3992,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3588,7 +4002,7 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">066d51379f0e80753a0fff3b87556849</td>
+						<td width="80%">0568f9649408aae406d08742aa676e86</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3598,19 +4012,19 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">fc6f77acc48feecbadae17a0ee8ecb83</td>
+						<td width="80%">d205cec56057c2ced33230e378ec762e</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-cookie:066d51379f0e80753a0fff3b87556849</td>
+cookie:0568f9649408aae406d08742aa676e86</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3620,7 +4034,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">066d51379f0e80753a0fff3b87556849</td>
+						<td width="80%">0568f9649408aae406d08742aa676e86</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3630,13 +4044,13 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">fc6f77acc48feecbadae17a0ee8ecb83</td>
+						<td width="80%">d205cec56057c2ced33230e378ec762e</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-cookie:066d51379f0e80753a0fff3b87556849</td>
+cookie:0568f9649408aae406d08742aa676e86</td>
 					</tr>
 				
 				<tr>
@@ -3694,7 +4108,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3725,7 +4139,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/_app-83735b03f48df9ad.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3756,7 +4170,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-5b49fad83bedd9df.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3787,7 +4201,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3818,7 +4232,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3849,7 +4263,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/css/7064ed36183cc9bf.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3880,7 +4294,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_buildManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_buildManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3911,7 +4325,7 @@ cookie:066d51379f0e80753a0fff3b87556849</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/iCJVF9szsHtwFqnNZ6TfL/_ssgManifest.js</a></td>
+						<td width="80%"><a href="https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js">https://bc-emli-pin-mgmt-fe-c82b4c-test.apps.silver.devops.gov.bc.ca/_next/static/P0iuG8aYzBnYEta1-NzU4/_ssgManifest.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
