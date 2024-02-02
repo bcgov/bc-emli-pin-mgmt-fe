@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 
+const beUrlConfig = {
+    "dev": "https://bc-emli-pin-mgmt-be-c82b4c-dev.apps.silver.devops.gov.bc.ca",
+    "test": "https://bc-emli-pin-mgmt-be-c82b4c-test.apps.silver.devops.gov.bc.ca",
+    "prod": "https://bc-emli-pin-mgmt-prod-be.apps.silver.devops.gov.bc.ca",
+    "local": `http://localhost:3000`
+}
+
+const beAppUrl = process.env.NEXT_PUBLIC_BE_APP_URL ? process.env.NEXT_PUBLIC_BE_APP_URL : beUrlConfig[process.env.ENV]
+
 const cspHeader = `
-    default-src 'self' ${process.env.NEXT_PUBLIC_BE_APP_URL} https://spt.apps.gov.bc.ca/com.snowplowanalytics.snowplow/tp2 https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
+    default-src 'self' ${beAppUrl} https://spt.apps.gov.bc.ca/com.snowplowanalytics.snowplow/tp2 https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
     script-src 'self' https://www2.gov.bc.ca/StaticWebResources/static/sp/sp-2-14-0.js;
     style-src 
         'self' 
