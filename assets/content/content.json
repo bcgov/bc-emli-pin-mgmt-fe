@@ -8,12 +8,12 @@
         "avatar": "Avatar",
         "testusername": "Rob Johnson",
         "logout": "Logout",
-        "help": "Submit a Support Ticket"
+        "help": "Submit a support ticket"
     },
     "navigation": {
         "home": "Home",
-        "usermanagement": "User Management",
-        "accessrequest": "Access Requests",
+        "usermanagement": "User management",
+        "accessrequest": "Access requests",
         "requestaccessform":"Request Access to Admin Portal",
         "dashboard": "Dashboard"
     },
@@ -42,7 +42,7 @@
       "pageTitle": "Dashboard"
     },
     "userManagement": {
-        "pageTitle": "User Management",
+        "pageTitle": "User management",
         "searchInfoText": "Select columns to search",
         "searchPlaceholder": "Search",
         "noResultText": "No record found",
@@ -50,16 +50,16 @@
         "closeText": "Always dismiss"
     },
     "userManagementBanner" : {
-      "title": "User Management",
+      "title": "User management",
       "description": "Edit or deactivate users here"
     },
     "userManagementTabs": {
-      "activeUsers": "Active Users",
-      "deactivatedUsers": "Deactivated Users"
+      "activeUsers": "Active users",
+      "deactivatedUsers": "Deactivated users"
     },
     "userUpdateForm": {
-      "editUser": "Edit User",
-      "deactivateUser": "Deactivate User"
+      "editUser": "Edit user",
+      "deactivateUser": "Deactivate user"
     },
     "usersSearchOptions": {
       "role":"Role type",
@@ -70,7 +70,7 @@
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation",
-      "updatedAt": "Last Updated At"
+      "updatedAt": "Deactivation date"
     },
     "userEditModal" : {
       "title":"Edit user information",
@@ -112,23 +112,23 @@
 
     },
     "accessRequest": {
-        "pageTitle": "Access Requests",
+        "pageTitle": "Access requests",
         "searchInfoText": "Select columns to search",
         "searchPlaceholder": "Search",
         "noResultText": "No record found",
         "selectPlaceholder": "Select an option"
     },
     "accessRequestBanner" : {
-      "title": "Access Requests",
+      "title": "Access requests",
       "description": "Grant or reject access requests"
     },
     "accessRequestDetails": {
-      "pendingRequest": "Pending Requests",
-      "completedRequest": "Completed Requests"
+      "pendingRequest": "Pending requests",
+      "completedRequest": "Completed requests"
     },
     "accessRequestForm": {
-      "grantRequest": "Grant Request",
-      "rejectRequest": "Reject Request"
+      "grantRequest": "Grant request",
+      "rejectRequest": "Reject request"
     },
     "accessStatus": {
       "notgranted": "Not granted",
@@ -138,7 +138,7 @@
     "accessGrantModal": {
       "title":"Grant request?",
       "titleMultiple": "Grant requests for multiple users",
-      "bodyText":"Are you sure that you want to grant this user’s request?",
+      "bodyText":"Are you sure that you want to grant this user's request?",
       "bodyMultipleText": "Are you sure that you want to grant requests for",
       "btnText": "Grant request",
       "multipleBtnText": "Grant requests",
@@ -172,7 +172,7 @@
       "givenName":"First name",
       "lastName":"Last name",
       "requestStatus":"Access status",
-      "createdAt":"Created at",
+      "createdAt":"Request date",
       "requestReason":"Reason for requesting access",
       "rejectionReason":"Reason for access rejection"
     },
@@ -194,16 +194,16 @@
         "emailAddress": "Email address",
         "organization": "Organization",
         "businessName": "Business Name",
-        "organizationPlaceholder": "Enter your organization name",
+        "organizationPlaceholder": "Your organization, e.g. Maximus Canada, Service BC, EMLI",
         "permissionType": "Job role",
         "reason": "Reason for access request",
-        "reasonPlaceHolder": "Describe the reason for wanting access to this application",
+        "reasonPlaceHolder": "Why you need access, e.g. 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
         "submitBtnText" : "Submit"
       }
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed.",
+      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
       "requestExist": "A request already exists. Please contact the system administrator below",
