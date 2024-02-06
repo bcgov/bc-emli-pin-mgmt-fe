@@ -20,17 +20,6 @@ export default function AccessList(role) {
       show: false,
     },
     {
-      Header: 'Username',
-      accessor: 'userName',
-      width: 150,
-    },
-    {
-      Header: 'Identity type',
-      accessor: 'identityType',
-      width: 20,
-
-    },
-    {
       Header: 'First name',
       accessor: 'givenName',
       width: 20,
@@ -42,18 +31,9 @@ export default function AccessList(role) {
       width: 20,
     },
     {
-      Header: 'Organization',
-      accessor: 'organization',
-      width: 20,
-    },
-    {
-      Header: 'Email',
-      accessor: 'email',
-      width: 20,
-      Cell: props => {
-        const email = wrap(props.value, { width: 20,cut:true })
-        return email
-      }
+      Header: 'Username',
+      accessor: 'userName',
+      width: 150,
     },
     {
       Header: 'Access status',
@@ -67,6 +47,34 @@ export default function AccessList(role) {
 
     },
     {
+      Header: 'Reason for requesting access',
+      accessor: 'requestReason',
+      width: 20,
+
+    },
+    {
+      Header: 'Request date',
+      accessor: 'createdAt',
+      width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
+    },
+    {
+      Header: 'Identity type',
+      accessor: 'identityType',
+      width: 20,
+    },
+    {
+      Header: 'Email',
+      accessor: 'email',
+      width: 20,
+      Cell: props => {
+        const email = wrap(props.value, { width: 20,cut:true })
+        return email
+      }
+    },
+    {
       Header: 'Role type',
       accessor: 'requestedRole',
       width: 20,
@@ -75,19 +83,9 @@ export default function AccessList(role) {
       }
     },
     {
-      Header: 'Created at',
-      accessor: 'createdAt',
+      Header: 'Organization',
+      accessor: 'organization',
       width: 20,
-      Cell: props => {
-        return getLocalTime(props.value)
-      }
-
-    },
-    {
-      Header: 'Reason for requesting access',
-      accessor: 'requestReason',
-      width: 20,
-
     }
   ]
 
