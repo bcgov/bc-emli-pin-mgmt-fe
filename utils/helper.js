@@ -39,21 +39,11 @@ const getUserName = (userInfo) => {
 }
 
 const getLocalTime = (dateString) => {
-  const formattedDate = new Date(dateString)
-  .toISOString()
-  .split('T')[0] +
-  ' ' +
-  new Date(dateString)
-      .toISOString()
-      .split('T')[1]
-      .split(':')[0] +
-  ':' +
-  new Date(dateString)
-      .toISOString()
-      .split('T')[1]
-      .split(':')[1]
-
-      return formattedDate
+  const dateArray = new Date(dateString).toString().split(' ')
+  const monthArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const formattedDate = 
+    dateArray[3] + '-' + String(monthArray.indexOf(dateArray[1]) + 1).padStart(2, '0') + '-' + dateArray[2] + ' ' + dateArray[4].split(':')[0] + ':' + dateArray[4].split(':')[1]
+  return formattedDate
 }
 
 export {
