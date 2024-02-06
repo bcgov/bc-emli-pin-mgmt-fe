@@ -19,25 +19,6 @@ export default function UsersList(role) {
       show: false,
     },
     {
-      Header: 'Role type',
-      accessor: 'role',
-      width: 10,
-      Cell: props => {
-        return <span>{getRoleLabel(props.value)}</span>
-      }
-    },
-    {
-      Header: 'Username',
-      accessor: 'userName',
-      width: 60,
-    },
-    {
-      Header: 'Identity type',
-      accessor: 'identityType',
-      width: 70,
-
-    },
-    {
       Header: 'First name',
       accessor: 'givenName',
       width: 150,
@@ -49,14 +30,33 @@ export default function UsersList(role) {
       width: 80,
     },
     {
+      Header: 'Username',
+      accessor: 'userName',
+      width: 60,
+    },
+    {
       Header: 'Email',
       accessor: 'email',
       width: 90,
     },
     {
+      Header: 'Role type',
+      accessor: 'role',
+      width: 10,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    },
+    {
       Header: 'Organization',
       accessor: 'organization',
       width: 90,
+    },
+    {
+      Header: 'Identity type',
+      accessor: 'identityType',
+      width: 70,
+
     },
   ]
 
@@ -68,7 +68,7 @@ export default function UsersList(role) {
     })
 
     columnsList.push ({
-      Header: 'Last updated at',
+      Header: 'Deactivation date',
       accessor: 'updatedAt',
       width: 20,
       Cell: props => {
