@@ -384,7 +384,7 @@ export default function EditModal(props) {
                 {editForm}
             </Modal>
             <Modal
-                modalHeader={'Confirmation Modal'}
+                modalHeader={content.userEditConfirmationModal.modalTitle}
                 modalId="edit-user-confirmation-modal"
                 isOpen={isOpenConfirmation}
                 setIsOpen={setIsOpenConfirmation}

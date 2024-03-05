@@ -98,7 +98,8 @@
     "userEditConfirmationModal": {
       "noChangesMessage": "No changes have been made",
       "oneChangeMessage": "Are you sure you want to change ",
-      "multipleChangesMessage": "Are you sure you want to make the following changes: "
+      "multipleChangesMessage": "Are you sure you want to make the following changes: ",
+      "modalTitle": "Confirm edit user"
     },
     "userDeactivateModal": {
       "title":"Deactivate user?",
