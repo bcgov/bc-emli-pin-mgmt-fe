@@ -130,18 +130,22 @@ export default function GrantModal(props) {
                 <div>
                   {rowSelected.length > 1 ?
                     <div className={styles.users}>
-                      <div className={styles.adminList}>
-                        {content.accessGrantModal.supervisorAccess}
-                        <ul className={styles.userList}>
-                          {adminUserList}
-                        </ul>
-                      </div> 
-                      <div className={styles.standardList}>
-                        {content.accessGrantModal.agentAccess}
-                        <ul className={styles.userList}>
-                          {standardUserList}
-                        </ul>
-                      </div> 
+                      {adminUserList?.length > 0 ?
+                        <div className={styles.adminList}>
+                          {content.accessGrantModal.supervisorAccess}
+                          <ul className={styles.userList}>
+                            {adminUserList}
+                          </ul>
+                        </div> 
+                      : ''}
+                      {standardUserList?.length > 0 ?
+                        <div className={styles.standardList}>
+                          {content.accessGrantModal.agentAccess}
+                          <ul className={styles.userList}>
+                            {standardUserList}
+                          </ul>
+                        </div> 
+                      : ''}
                     </div>
                   : ''}
                 </div>

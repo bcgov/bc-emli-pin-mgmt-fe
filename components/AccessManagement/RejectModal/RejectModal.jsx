@@ -122,6 +122,7 @@ export default function RejectModal(props) {
     }
 
     function openConfirmationModal() {
+      console.log(standardUserList)
       setIsOpen(false)
       setIsOpenConfirmation(true)
     }
@@ -197,18 +198,22 @@ export default function RejectModal(props) {
                   {rowSelected.length > 1 ?
                     <div>
                       <div className={styles.users}>
-                        <div className={styles.adminList}>
-                          {content.accessRejectConfirmationModal.supervisorAccess}
-                          <ul className={styles.userList}>
-                            {adminUserList}
-                          </ul>
-                        </div> 
-                        <div className={styles.standardList}>
-                          {content.accessRejectConfirmationModal.agentAccess}
-                          <ul className={styles.userList}>
-                            {standardUserList}
-                          </ul>
-                        </div> 
+                        {adminUserList?.length > 0 ?
+                          <div className={styles.adminList}>
+                            {content.accessRejectConfirmationModal.supervisorAccess}
+                            <ul className={styles.userList}>
+                              {adminUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                        {standardUserList?.length > 0 ?
+                          <div className={styles.standardList}>
+                            {content.accessRejectConfirmationModal.agentAccess}
+                            <ul className={styles.userList}>
+                              {standardUserList}
+                            </ul>
+                          </div> 
+                        : ''}
                       </div>
                       <div className={styles.confirmationModalMessage}>
                         {content.accessRejectConfirmationModal.notificationMessage}
