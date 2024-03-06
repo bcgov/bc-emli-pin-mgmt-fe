@@ -7,11 +7,14 @@ import { useContext, useState } from 'react'
 import TextArea from '../../TextArea'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { getRoleLabel } from '../../../utils/helper'
 
 export default function RejectModal(props) {
     const {
       isOpen,
       setIsOpen,
+      adminUserList,
+      standardUserList
     } = props
     const {
       rowSelected,
@@ -20,6 +23,7 @@ export default function RejectModal(props) {
       setRowSelected,
     } = useContext(AccessContext)
     const [rejectReason, setRejectReason] =useState('')
+    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false)
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.accessRejectModal.titleMultiple
@@ -41,6 +45,7 @@ export default function RejectModal(props) {
     const onClose = () => {
       setRejectReason('')
       setIsOpen(false)
+      setIsOpenConfirmation(false)
     }
 
     const onSuccessAction = (result) => {
@@ -48,6 +53,7 @@ export default function RejectModal(props) {
       setOriginalResult(result)
       setRowSelected([])
       setIsOpen(false)
+      setIsOpenConfirmation(false)
       setRejectReason('')
     }
     // TODO:Move refetch function to context
@@ -88,6 +94,7 @@ export default function RejectModal(props) {
                   toastId: 'reject-access-failure'
                 });
                 setIsOpen(false)
+                setIsOpenConfirmation(false)
               })
           })
           .catch((error) => {
@@ -97,9 +104,26 @@ export default function RejectModal(props) {
                 toastId: 'reject-access-failure'
               });
               setIsOpen(false)
+              setIsOpenConfirmation(false)
           })
 
       }
+    }
+
+    function formatConfirmationMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = `${content.accessRejectConfirmationModal.oneChangeMessage} ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} ${content.accessRejectConfirmationModal.accessForReason} "${rejectReason}"? ${content.accessRejectConfirmationModal.notificationMessage}`
+      }
+      else if (rowSelected.length > 1) {
+        message = `${content.accessRejectConfirmationModal.multipleChangesMessage} ${rowSelected.length} ${content.accessRejectConfirmationModal.usersForReason} "${rejectReason}"?`
+      }
+      return message
+    }
+
+    function openConfirmationModal() {
+      setIsOpen(false)
+      setIsOpenConfirmation(true)
     }
 
     return (
@@ -114,7 +138,7 @@ export default function RejectModal(props) {
                     size: 'medium',
                     variant: 'primary',
                     disabled: rowSelected.length < 1 || rejectReason === '',
-                    onClickHandler: () => submitRejectRequests(),
+                    onClickHandler: () => openConfirmationModal(),
                 }}
                 modalSecondaryBtn={{
                     text: `${content.accessRejectModal.cancelButton}`,
@@ -145,6 +169,54 @@ export default function RejectModal(props) {
                     {content.accessRejectModal.rejectTextAreaMessage}
                   </span>
                 }
+            </Modal>
+            <Modal
+                modalHeader={modalTitle}
+                modalId="access-reject-modal"
+                isOpen={isOpenConfirmation}
+                setIsOpen={setIsOpenConfirmation}
+                modalMainBtn={{
+                    text: `${modalBtnText}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    disabled: rowSelected.length < 1 || rejectReason === '',
+                    onClickHandler: () => submitRejectRequests(),
+                }}
+                modalSecondaryBtn={{
+                    text: `${content.accessRejectModal.cancelButton}`,
+                    size: 'medium',
+                    variant: 'secondary',
+                    onClickHandler: () => onClose(),
+                }}
+            >
+              <div>
+                <div>
+                  {formatConfirmationMessage()}
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <div>
+                      <div className={styles.users}>
+                        <div className={styles.adminList}>
+                          {content.accessRejectConfirmationModal.supervisorAccess}
+                          <ul className={styles.userList}>
+                            {adminUserList}
+                          </ul>
+                        </div> 
+                        <div className={styles.standardList}>
+                          {content.accessRejectConfirmationModal.agentAccess}
+                          <ul className={styles.userList}>
+                            {standardUserList}
+                          </ul>
+                        </div> 
+                      </div>
+                      <div className={styles.confirmationModalMessage}>
+                        {content.accessRejectConfirmationModal.notificationMessage}
+                      </div>
+                    </div>
+                  : ''}
+                </div>
+              </div>
             </Modal>
         </div>
     )

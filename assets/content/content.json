@@ -115,7 +115,12 @@
       "successMessageMultiple": "  users have been deactivated.",
       "failureMessage": "",
       "selectErrorMessage": "Please select user(s) to deactivate"
-
+    },
+    "userDeactivateConfirmationModal": {
+      "deactivateMessage": "Are you sure you want to deactivate",
+      "forReason": "for reason",
+      "users": "users",
+      "notificationMessage": "The reason will be included in their notification of deactivation."
     },
     "accessRequest": {
         "pageTitle": "Access requests",
@@ -144,14 +149,18 @@
     "accessGrantModal": {
       "title":"Grant request?",
       "titleMultiple": "Grant requests for multiple users",
-      "bodyText":"Are you sure that you want to grant this user's request?",
-      "bodyMultipleText": "Are you sure that you want to grant requests for",
+      "bodyText":"Are you sure that you want to grant",
+      "bodyMultipleText": "Are you sure that you want to grant access to",
       "btnText": "Grant request",
       "multipleBtnText": "Grant requests",
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again!!"
+      "failureMessage": "Something went wrong. Try again!",
+      "requestFor": "'s request for",
+      "users": "users",
+      "supervisorAccess": "Supervisor access:",
+      "agentAccess": "Agent access:"
     },
     "accessRejectModal": {
       "title":"Reject request?",
@@ -167,7 +176,16 @@
       "successMessageMultiple": "  requests have been rejected.",
       "failureMessage": "",
       "selectErrorMessage": "Please select request(s) to reject"
-
+    },
+    "accessRejectConfirmationModal": {
+      "oneChangeMessage": "Are you sure that you want to reject",
+      "multipleChangesMessage": "Are you sure that you want to reject access to",
+      "requestFor": "'s request for",
+      "usersForReason": "users for reason",
+      "accessForReason": "access for reason",
+      "notificationMessage": "The reason will be included in their notification.",
+      "supervisorAccess": "Supervisor access:",
+      "agentAccess": "Agent access:"
     },
     "accessRequestSearchOptions": {
       "userName": "Username",

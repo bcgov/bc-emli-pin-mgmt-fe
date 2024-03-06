@@ -6,11 +6,14 @@ import { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import styles from './GrantModal.module.css'
 import 'react-toastify/dist/ReactToastify.css';
+import { getRoleLabel } from '../../../utils/helper'
 
 export default function GrantModal(props) {
     const {
       isOpen,
       setIsOpen,
+      adminUserList,
+      standardUserList
     } = props
     const {
       rowSelected,
@@ -23,18 +26,12 @@ export default function GrantModal(props) {
     const modalTitle = isMultipleSelected ?
     content.accessGrantModal.titleMultiple
     : content.accessGrantModal.title
-    const modalBodyText = rowSelected.length < 1 ?
-    content.accessGrantModal.selectErrorMessage
-    : (isMultipleSelected ?
-      `${content.accessGrantModal.bodyMultipleText} ${rowSelected.length} users?`
-      : content.accessGrantModal.bodyText)
     const modalBtnText = isMultipleSelected ?
       content.accessGrantModal.multipleBtnText
       : content.accessGrantModal.btnText
     const successMessage = content.accessGrantModal.successMessage
     const failureMessage = content.accessGrantModal.failureMessage
       // TODO:Move refetch function to context
-
 
     const onSuccessAction = (result) => {
       setRequestList(result)
@@ -94,6 +91,17 @@ export default function GrantModal(props) {
       }
     }
 
+    function formatConfirmationMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = `${content.accessGrantModal.bodyText} ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessGrantModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)}?`
+      }
+      else if (rowSelected.length > 1) {
+        message = `${content.accessGrantModal.bodyMultipleText} ${rowSelected.length} ${content.accessGrantModal.users}?`
+      }
+      return message
+    }
+
     return (
         <div>
             <Modal
@@ -115,7 +123,29 @@ export default function GrantModal(props) {
                     onClickHandler: () => setIsOpen(false),
                 }}
             >
-                {modalBodyText}
+              <div>
+                <div>
+                  {formatConfirmationMessage()}
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <div className={styles.users}>
+                      <div className={styles.adminList}>
+                        {content.accessGrantModal.supervisorAccess}
+                        <ul className={styles.userList}>
+                          {adminUserList}
+                        </ul>
+                      </div> 
+                      <div className={styles.standardList}>
+                        {content.accessGrantModal.agentAccess}
+                        <ul className={styles.userList}>
+                          {standardUserList}
+                        </ul>
+                      </div> 
+                    </div>
+                  : ''}
+                </div>
+              </div>
             </Modal>
         </div>
     )

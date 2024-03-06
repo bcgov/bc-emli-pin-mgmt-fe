@@ -118,6 +118,7 @@ export default function EditModal(props) {
       setUsersList(result)
       setOriginalResult(result)
       setIsOpen(false)
+      setIsOpenConfirmation(false)
     }
     const validateForm = () => {
       const errorFlagsInfo = errorFlags
@@ -169,6 +170,7 @@ export default function EditModal(props) {
                   toastId: 'edit-user-failure'
                 })
                 setIsOpen(false)
+                setIsOpenConfirmation(false)
               })
           })
           .catch((error) => {
@@ -178,6 +180,7 @@ export default function EditModal(props) {
                 toastId: 'edit-user-failure'
               })
               setIsOpen(false)
+              setIsOpenConfirmation(false)
           })
         }
       }

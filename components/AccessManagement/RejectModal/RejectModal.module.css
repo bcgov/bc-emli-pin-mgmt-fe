@@ -31,3 +31,25 @@
   font-weight: 700;
   line-height: 20px;
 }
+
+.confirmationModalMessage {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.users {
+  font-size: 22px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.users div:nth-child(2) {
+  margin-left: 70px;
+}
+
+.userList li {
+  list-style: disc !important;
+  margin-left: 40px;
+  font-size: 20px;
+}
