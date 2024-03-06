@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "CleanBC VHERS PIN system"
+        "title": "BC Home Energy Planner Support System"
     },
     "header": {
         "title": "CleanBC",
@@ -95,6 +95,12 @@
         "submitBtnText" : "Submit"
       }
     },
+    "userEditConfirmationModal": {
+      "noChangesMessage": "No changes have been made",
+      "oneChangeMessage": "Are you sure you want to change ",
+      "multipleChangesMessage": "Are you sure you want to make the following changes: ",
+      "modalTitle": "Confirm edit user"
+    },
     "userDeactivateModal": {
       "title":"Deactivate user?",
       "titleMultiple": "Deactivate multiple users?",
@@ -180,8 +186,8 @@
       "pageTitle": "Request Access"
     },
     "requestAccessBanner": {
-      "title": "Request access to VHERS customer support tool",
-      "description": "This form is for people whose job involves VHERS customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the VHERS customer support tool."
+      "title": "Request access to BC Home Energy Planner Support System customer support tool",
+      "description": "This form is for people whose job involves BC Home Energy Planner Support System customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the BC Home Energy Planner Support System customer support tool."
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
@@ -203,7 +209,7 @@
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
+      "successMessage": "Your request for access to the BC Home Energy Planner Support System customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
       "requestExist": "A request already exists. Please contact the system administrator below",
@@ -233,13 +239,13 @@
     },
     "expirePINConfirmationModal": {
         "title": "Expire access code",
-        "body": "The current access code will be void and the property owner will need to request a new access code to manage the VHERS portal.",
+        "body": "The current access code will be void and the property owner will need to request a new access code to manage the BC Home Energy Planner Support System portal.",
         "primaryButton": "Expire access code",
         "secondaryButton": "Cancel"
     },
     "expirePINSuccessModal": {
         "title": "Access code has been expired",
-        "body": "The property owner will not be able to access VHERS system until a new access code is requested.",
+        "body": "The property owner will not be able to access BC Home Energy Planner Support System until a new access code is requested.",
         "primaryButton": "Close"
     },
     "expirePINFailureModal": {

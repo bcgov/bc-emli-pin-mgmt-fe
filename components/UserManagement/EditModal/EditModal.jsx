@@ -47,6 +47,7 @@ export default function EditModal(props) {
     const [formData, setFormData] = useState(initialState)
     const [errorFlags, setErrorFlags] = useState(initialValidation)
     const [hasErrorFlag, setHasErrorFlag] = useState(false);
+    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false)
     const isBceid = rowSelected[0]?.identityType !== 'idir'
 
     useEffect(() => {
@@ -64,6 +65,7 @@ export default function EditModal(props) {
     const onClose = () => {
       setFormData({...rowSelected[0]})
       setIsOpen(false)
+      setIsOpenConfirmation(false)
     }
 
     const onInputChange = (value, fieldName) => {
@@ -141,6 +143,11 @@ export default function EditModal(props) {
     function submitRequests() {
       if(rowSelected.length > 0){
         const isFormValid = validateForm();
+        delete formData.deactivationReason
+        delete formData.identityType
+        delete formData.isActive
+        delete formData.updatedAt
+        delete formData.userGuid
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
@@ -175,6 +182,47 @@ export default function EditModal(props) {
         }
       }
     }
+
+    function openConfirmationModal() {
+      setIsOpen(false)
+      setIsOpenConfirmation(true)
+    }
+
+    function compareObjects() {
+      let updatedValues = {}
+      rowSelected[0].givenName == formData.givenName ? '' : updatedValues[content.userEditForm.formInputs.firstName] = [rowSelected[0].givenName, formData.givenName]
+      rowSelected[0].lastName == formData.lastName ? '' : updatedValues[content.userEditForm.formInputs.lastName] = [rowSelected[0].lastName, formData.lastName]
+      rowSelected[0].userName == formData.userName ? '' : updatedValues[content.userEditForm.formInputs.userName] = [rowSelected[0].userName, formData.userName]
+      rowSelected[0].organization == formData.organization ? '' : updatedValues[content.userEditForm.formInputs.organization] = [rowSelected[0].organization, formData.organization]
+      rowSelected[0].email == formData.email ? '' : updatedValues[content.userEditForm.formInputs.emailAddress] = [rowSelected[0].email, formData.email]
+      rowSelected[0].role == formData.role ? '' : updatedValues[content.userEditForm.formInputs.role] = [rowSelected[0].role, formData.role]
+      if (Object.keys(updatedValues).length === 0) {
+        return false
+      } else {
+        return updatedValues
+      }
+    }
+
+    function formatConfirmationMessage(updatedValues) {
+      let message
+      if (Object.keys(updatedValues).length === 1) {
+        message = `${content.userEditConfirmationModal.oneChangeMessage}`
+        for (const key in updatedValues) {
+          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"?`
+        }
+      }
+      else if (Object.keys(updatedValues).length > 1) {
+        message = `${content.userEditConfirmationModal.oneChangeMessage}`
+        let count = 1
+        for (const key in updatedValues) {
+          count != 1 ? message = message + ' and ' : ''
+          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
+          ++count
+        }
+      }
+      return message
+    }
+
     const roleTypeInput = () => (
       <div className={`${styles.roleTypeSection}`}>
         <div className={`${styles.roleTypeLabel}`}>
@@ -324,7 +372,7 @@ export default function EditModal(props) {
                     size: 'medium',
                     variant: 'primary',
                     disabled: rowSelected.length < 1 || hasErrorFlag,
-                    onClickHandler: () => submitRequests(),
+                    onClickHandler: () => openConfirmationModal(),
                 }}
                 modalSecondaryBtn={{
                     text: `${content.userDeactivateModal.cancelButton}`,
@@ -334,6 +382,33 @@ export default function EditModal(props) {
                 }}
             >
                 {editForm}
+            </Modal>
+            <Modal
+                modalHeader={content.userEditConfirmationModal.modalTitle}
+                modalId="edit-user-confirmation-modal"
+                isOpen={isOpenConfirmation}
+                setIsOpen={setIsOpenConfirmation}
+                modalMainBtn={{
+                    text: `Confirm`,
+                    size: 'medium',
+                    variant: 'primary',
+                    disabled: !compareObjects(),
+                    onClickHandler: () => submitRequests(),
+                }}
+                modalSecondaryBtn={{
+                    text: `${content.userDeactivateModal.cancelButton}`,
+                    size: 'medium',
+                    variant: 'secondary',
+                    onClickHandler: () => onClose(),
+                }}
+            >
+              <div>
+              {
+                compareObjects() ? 
+                  formatConfirmationMessage(compareObjects())
+                : `${content.userEditConfirmationModal.noChangesMessage}`
+              }
+              </div>
             </Modal>
         </div>
     )
