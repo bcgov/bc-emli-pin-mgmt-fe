@@ -2,7 +2,7 @@
 
 ![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)
 
-BC Virtual Home Energy Rating PIN Management System Frontend.
+BC Home Energy Planner Support System Frontend.
 
 ---
 

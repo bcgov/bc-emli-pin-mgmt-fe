@@ -20,6 +20,8 @@ export default function DeactivateModal(props) {
       setRowSelected,
     } = useContext(UserManagementContext)
     const [reason, setReason] =useState('')
+    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false)
+    const [userList, setUserList] = useState([])
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.userDeactivateModal.titleMultiple
@@ -42,6 +44,31 @@ export default function DeactivateModal(props) {
     const onClose = () => {
       setReason('')
       setIsOpen(false)
+      setIsOpenConfirmation(false)
+    }
+
+    function openConfirmationModal() {
+      setUserList(getUserList())
+      setIsOpen(false)
+      setIsOpenConfirmation(true)
+    }
+
+    function formatConfirmationMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = `${content.userDeactivateConfirmationModal.deactivateMessage} ${rowSelected[0].givenName} ${rowSelected[0].lastName} ${content.userDeactivateConfirmationModal.forReason} "${reason}"? ${content.userDeactivateConfirmationModal.notificationMessage}`
+      }
+      else if (rowSelected.length > 1) {
+        message = `${content.userDeactivateConfirmationModal.deactivateMessage} ${rowSelected.length} ${content.userDeactivateConfirmationModal.users} ${content.userDeactivateConfirmationModal.forReason} "${reason}"? ${content.userDeactivateConfirmationModal.notificationMessage}`
+      }
+      
+      return message
+    }
+
+    function getUserList() {
+      console.log(rowSelected)
+      const userList = rowSelected.map((row) => <li key={row.userId}>{row.givenName} {row.lastName}</li>)
+      return userList
     }
 
     const onSuccessAction = (result) => {
@@ -50,6 +77,7 @@ export default function DeactivateModal(props) {
       setRowSelected([])
       setIsOpen(false)
       setReason('')
+      setIsOpenConfirmation(false)
     }
     // TODO:Move refetch function to context
     function submitRequests() {
@@ -87,6 +115,7 @@ export default function DeactivateModal(props) {
                   toastId: 'deactivate-user-failure'
                 });
                 setIsOpen(false)
+                setIsOpenConfirmation(false)
               })
           })
           .catch((error) => {
@@ -96,6 +125,7 @@ export default function DeactivateModal(props) {
                 toastId: 'deactivate-user-failure'
               });
               setIsOpen(false)
+              setIsOpenConfirmation(false)
           })
 
       }
@@ -113,7 +143,7 @@ export default function DeactivateModal(props) {
                     size: 'medium',
                     variant: 'primary',
                     disabled: rowSelected.length < 1 || reason === '',
-                    onClickHandler: () => submitRequests(),
+                    onClickHandler: () => openConfirmationModal(),
                 }}
                 modalSecondaryBtn={{
                     text: `${content.userDeactivateModal.cancelButton}`,
@@ -138,12 +168,38 @@ export default function DeactivateModal(props) {
                       />
                   </div>
                 }
-
-                { /* isMultipleSelected &&
-                  <span className={styles.footerText}>
-                    {content.userDeactivateModal.deactivateTextAreaMessage}
-                  </span> */
-                }
+            </Modal>
+            <Modal
+                modalHeader={modalTitle}
+                modalId="user-deactivation-modal"
+                isOpen={isOpenConfirmation}
+                setIsOpen={setIsOpenConfirmation}
+                modalMainBtn={{
+                    text: `${modalBtnText}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    disabled: rowSelected.length < 1 || reason === '',
+                    onClickHandler: () => submitRequests(),
+                }}
+                modalSecondaryBtn={{
+                    text: `${content.userDeactivateModal.cancelButton}`,
+                    size: 'medium',
+                    variant: 'secondary',
+                    onClickHandler: () => onClose(),
+                }}
+            >
+              <div>
+                <div>
+                  {formatConfirmationMessage()}
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <ul className={styles.userList}>
+                      {userList}
+                    </ul> 
+                  : ''}
+                </div>
+              </div>
             </Modal>
         </div>
     )

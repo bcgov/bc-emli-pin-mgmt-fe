@@ -7,14 +7,28 @@ import RejectModal from '../RejectModal';
 import { AccessContext } from '../../../context/accessContext/AccessState';
 
 export default function AccessForm() {
-  const { requestList } = useContext(AccessContext)
+  const { requestList, rowSelected } = useContext(AccessContext)
   const [showGrantModal, setShowGrantModal] = useState(false)
   const [showRejectModal, setRejectGrantModal] = useState(false)
+  const [standardUserList, setStandardUserList] = useState([])
+  const [adminUserList, setAdminUserList] = useState([])
   const handleGrant = () => {
     if(showRejectModal){
       setRejectGrantModal(false)
     }
     setShowGrantModal(true)
+    setAdminUserList(getAdminUserList())
+    setStandardUserList(getStandardUserList())
+  }
+
+  function getAdminUserList() {
+    const adminUserList = rowSelected.filter((row) => row.requestedRole == 'Admin').map((row) => <li key={row.userId}>{row.givenName} {row.lastName}</li>) 
+    return adminUserList
+  }
+
+  function getStandardUserList() {
+    const standardUserList = rowSelected.filter((row) => row.requestedRole == 'Standard').map((row) => <li key={row.userId}>{row.givenName} {row.lastName}</li>) 
+    return standardUserList
   }
 
   const handleReject = () => {
@@ -22,6 +36,8 @@ export default function AccessForm() {
       setShowGrantModal(false)
     }
     setRejectGrantModal(true)
+    setAdminUserList(getAdminUserList())
+    setStandardUserList(getStandardUserList())
   }
     return (
       <div className={styles.container}>
@@ -49,10 +65,14 @@ export default function AccessForm() {
         <GrantModal
           isOpen={showGrantModal}
           setIsOpen={setShowGrantModal}
+          adminUserList={adminUserList}
+          standardUserList={standardUserList}
         />
         <RejectModal
           isOpen={showRejectModal}
           setIsOpen={setRejectGrantModal}
+          adminUserList={adminUserList}
+          standardUserList={standardUserList}
         />
       </div>
     )

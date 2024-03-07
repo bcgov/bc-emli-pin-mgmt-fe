@@ -31,3 +31,13 @@
   font-weight: 700;
   line-height: 20px;
 }
+
+ul.userList {
+  margin-top: 12px;
+}
+
+.userList li {
+  list-style: disc !important;
+  margin-left: 40px;
+  font-size: 20px;
+}
