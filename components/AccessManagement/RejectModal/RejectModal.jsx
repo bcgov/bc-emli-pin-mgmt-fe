@@ -56,6 +56,18 @@ export default function RejectModal(props) {
       setIsOpenConfirmation(false)
       setRejectReason('')
     }
+
+    function parseUserList(userList) {
+      let parsedUserList = ""
+      let count = 1
+      userList.forEach(user => {
+        let userName = user?.props?.children[0] + user?.props?.children[1] + user?.props?.children[2]
+        count !== 1 ? parsedUserList = parsedUserList + ", " + userName : parsedUserList = parsedUserList + userName
+        ++count
+      });
+      return parsedUserList
+    }
+
     // TODO:Move refetch function to context
     function submitRejectRequests() {
       if(rowSelected.length > 0){
@@ -76,7 +88,20 @@ export default function RejectModal(props) {
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
-            toast.success(`${rowSelected.length} ${successMessage}`, {
+            let successMessage
+            rowSelected.length == 1
+              ? (successMessage = `${content.accessRejectConfirmationModal.rejected} ${formatConfirmationMessage()}. `) 
+              : (successMessage = `${content.accessRejectConfirmationModal.rejected} ${formatConfirmationMessage()}.
+                ${
+                  adminUserList.length > 0 
+                    ? content.accessRejectConfirmationModal.supervisorAccess + " " + parseUserList(adminUserList)+'. ' : ''
+                }
+                ${
+                  standardUserList.length > 0 
+                    ? content.accessRejectConfirmationModal.agentAccess + " " + parseUserList(standardUserList)+'. ' : ''
+                }
+              `)
+            toast.success(`${successMessage} ${content.accessRejectConfirmationModal.notifiedMsg}`, {
               position: toast.POSITION.TOP_RIGHT,
               className: `${styles.toastMsgSuccess}`,
               toastId: 'reject-access-success'
@@ -113,10 +138,10 @@ export default function RejectModal(props) {
     function formatConfirmationMessage() {
       let message
       if (rowSelected.length === 1) {
-        message = `${content.accessRejectConfirmationModal.oneChangeMessage} ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} ${content.accessRejectConfirmationModal.accessForReason} "${rejectReason}"? ${content.accessRejectConfirmationModal.notificationMessage}`
+        message = ` ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} ${content.accessRejectConfirmationModal.accessForReason} "${rejectReason}"`
       }
       else if (rowSelected.length > 1) {
-        message = `${content.accessRejectConfirmationModal.multipleChangesMessage} ${rowSelected.length} ${content.accessRejectConfirmationModal.usersForReason} "${rejectReason}"?`
+        message = ` ${rowSelected.length} ${content.accessRejectConfirmationModal.usersForReason} "${rejectReason}"`
       }
       return message
     }
@@ -192,7 +217,10 @@ export default function RejectModal(props) {
             >
               <div>
                 <div>
-                  {formatConfirmationMessage()}
+                {rowSelected.length == 1
+                      ? content.accessRejectConfirmationModal.oneChangeMessage
+                      : content.accessRejectConfirmationModal.multipleChangesMessage}
+                {formatConfirmationMessage()}?
                 </div>
                 <div>
                   {rowSelected.length > 1 ?
