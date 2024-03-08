@@ -6,7 +6,7 @@ import {UserManagementContext} from '../../../context/userManagementContext/User
 import { useContext, useState, useEffect } from 'react'
 import Textbox from '../../Textbox';
 import RadioButton from '../../RadioButton'
-import { toast } from 'react-toastify'
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
@@ -41,7 +41,6 @@ export default function EditModal(props) {
     } = useContext(UserManagementContext)
     const modalTitle =  content.userEditModal.title
     const modalBtnText =  content.userEditModal.btnText
-    const successMessage = content.userEditModal.successMessage
     const failureMessage = content.userEditModal.failureMessage
 
     const [formData, setFormData] = useState(initialState)
@@ -152,7 +151,8 @@ export default function EditModal(props) {
         if(isFormValid) {
           HttpRequest.updateUser(formData)
           .then((response) => {
-              toast.success(`${rowSelected.length} ${successMessage}`, {
+              let successMessage = content.userEditConfirmationModal.Updated + formatConfirmationMessage(compareObjects())
+              toast.success(`${successMessage}`, {
                 position: toast.POSITION.TOP_RIGHT,
                 className: `${styles.toastMsgSuccess}`,
                 toastId: 'edit-user-success'
@@ -207,15 +207,13 @@ export default function EditModal(props) {
     }
 
     function formatConfirmationMessage(updatedValues) {
-      let message
+      let message = ""
       if (Object.keys(updatedValues).length === 1) {
-        message = `${content.userEditConfirmationModal.oneChangeMessage}`
         for (const key in updatedValues) {
-          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"?`
+          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
         }
       }
       else if (Object.keys(updatedValues).length > 1) {
-        message = `${content.userEditConfirmationModal.oneChangeMessage}`
         let count = 1
         for (const key in updatedValues) {
           count != 1 ? message = message + ' and ' : ''
@@ -408,7 +406,8 @@ export default function EditModal(props) {
               <div>
               {
                 compareObjects() ? 
-                  formatConfirmationMessage(compareObjects())
+                  content.userEditConfirmationModal.oneChangeMessage +
+                  formatConfirmationMessage(compareObjects()) + "?"
                 : `${content.userEditConfirmationModal.noChangesMessage}`
               }
               </div>

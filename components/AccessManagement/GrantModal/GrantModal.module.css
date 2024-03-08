@@ -1,6 +1,6 @@
 .toastMsgSuccess{
-  background: #008556;
-  color: #fff;
+  background: #008556 !important;
+  color: #fff !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -8,8 +8,8 @@
 }
 
 .toastMsgFailure{
-  background: #D8292F;
-  color: #fff;
+  background: #D8292F !important;
+  color: #fff !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;

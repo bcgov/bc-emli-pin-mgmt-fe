@@ -99,7 +99,8 @@
       "noChangesMessage": "No changes have been made",
       "oneChangeMessage": "Are you sure you want to change ",
       "multipleChangesMessage": "Are you sure you want to make the following changes: ",
-      "modalTitle": "Confirm edit user"
+      "modalTitle": "Confirm edit user",
+      "Updated": "Updated"
     },
     "userDeactivateModal": {
       "title":"Deactivate user?",
@@ -120,7 +121,9 @@
       "deactivateMessage": "Are you sure you want to deactivate",
       "forReason": "for reason",
       "users": "users",
-      "notificationMessage": "The reason will be included in their notification of deactivation."
+      "notificationMessage": "The reason will be included in their notification of deactivation.",
+      "deactivated": "Deactivated",
+      "notifiedMsg": "They have been notified by email."
     },
     "accessRequest": {
         "pageTitle": "Access requests",
@@ -160,7 +163,10 @@
       "requestFor": "'s request for",
       "users": "users",
       "supervisorAccess": "Supervisor access:",
-      "agentAccess": "Agent access:"
+      "agentAccess": "Agent access:",
+      "hasBeenGranted": "has been granted.",
+      "haveBeenGrantedAccess": "have been granted access.",
+      "notifiedMsg": "They have been notified via email."
     },
     "accessRejectModal": {
       "title":"Reject request?",
@@ -174,7 +180,7 @@
       "cancelButton": "Cancel",
       "successMessage": "  request has been rejected.",
       "successMessageMultiple": "  requests have been rejected.",
-      "failureMessage": "",
+      "failureMessage": "Rejecting request(s) failed.",
       "selectErrorMessage": "Please select request(s) to reject"
     },
     "accessRejectConfirmationModal": {
@@ -185,7 +191,9 @@
       "accessForReason": "access for reason",
       "notificationMessage": "The reason will be included in their notification.",
       "supervisorAccess": "Supervisor access:",
-      "agentAccess": "Agent access:"
+      "agentAccess": "Agent access:",
+      "rejected": "Rejected",
+      "notifiedMsg": "They have been notified via email."
     },
     "accessRequestSearchOptions": {
       "userName": "Username",
@@ -350,7 +358,7 @@
         "close": "Close"
     }, 
     "regeneratePINModal": {
-        "title": "Regenerate Access Code",
+        "title": "Regenerate access code",
         "primaryButton": "Regenerate access code",
         "contentMsg": "A new access code will be generated and the previous access code will be void. At least one of the following two fields must be filled to proceed.",
         "phone": "SMS",

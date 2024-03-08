@@ -34,7 +34,6 @@ export default function DeactivateModal(props) {
     const modalBtnText = isMultipleSelected ?
       content.userDeactivateModal.multipleBtnText
       : content.userDeactivateModal.btnText
-    const successMessage = content.userDeactivateModal.successMessage
     const failureMessage = content.userDeactivateModal.failureMessage
 
     const onReasonInputChange = (value) => {
@@ -56,17 +55,15 @@ export default function DeactivateModal(props) {
     function formatConfirmationMessage() {
       let message
       if (rowSelected.length === 1) {
-        message = `${content.userDeactivateConfirmationModal.deactivateMessage} ${rowSelected[0].givenName} ${rowSelected[0].lastName} ${content.userDeactivateConfirmationModal.forReason} "${reason}"? ${content.userDeactivateConfirmationModal.notificationMessage}`
+        message = ` ${rowSelected[0].givenName} ${rowSelected[0].lastName} ${content.userDeactivateConfirmationModal.forReason} "${reason}"`
       }
       else if (rowSelected.length > 1) {
-        message = `${content.userDeactivateConfirmationModal.deactivateMessage} ${rowSelected.length} ${content.userDeactivateConfirmationModal.users} ${content.userDeactivateConfirmationModal.forReason} "${reason}"? ${content.userDeactivateConfirmationModal.notificationMessage}`
+        message = ` ${rowSelected.length} ${content.userDeactivateConfirmationModal.users} ${content.userDeactivateConfirmationModal.forReason} "${reason}"`
       }
-      
       return message
     }
 
     function getUserList() {
-      console.log(rowSelected)
       const userList = rowSelected.map((row) => <li key={row.userId}>{row.givenName} {row.lastName}</li>)
       return userList
     }
@@ -97,7 +94,8 @@ export default function DeactivateModal(props) {
 
         HttpRequest.deactivateUsers(body)
           .then((response) => {
-            toast.success(`${rowSelected.length} ${successMessage}`, {
+            let successMessage = formatConfirmationMessage()
+            toast.success(`${content.userDeactivateConfirmationModal.deactivated} ${successMessage}. ${content.userDeactivateConfirmationModal.notifiedMsg}`, {
               position: toast.POSITION.TOP_RIGHT,
               className: `${styles.toastMsgSuccess}`,
               toastId: 'deactivate-user-success'
@@ -190,7 +188,9 @@ export default function DeactivateModal(props) {
             >
               <div>
                 <div>
-                  {formatConfirmationMessage()}
+                  {content.userDeactivateConfirmationModal.deactivateMessage}
+                  {formatConfirmationMessage()}{"? "} 
+                  {content.userDeactivateConfirmationModal.notificationMessage}
                 </div>
                 <div>
                   {rowSelected.length > 1 ?
