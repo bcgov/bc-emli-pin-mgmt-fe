@@ -210,14 +210,17 @@ export default function EditModal(props) {
       let message = ""
       if (Object.keys(updatedValues).length === 1) {
         for (const key in updatedValues) {
-          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
+          key != 'undefined' ? message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"` 
+            : message = `${message} role from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"` 
+
         }
       }
       else if (Object.keys(updatedValues).length > 1) {
         let count = 1
         for (const key in updatedValues) {
           count != 1 ? message = message + ' and ' : ''
-          message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
+          key != 'undefined' ? message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
+            : message = `${message} role from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
           ++count
         }
       }
