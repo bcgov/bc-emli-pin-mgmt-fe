@@ -53,7 +53,7 @@ export default function UsersList(role) {
       width: 90,
     },
     {
-      Header: 'Identity type',
+      Header: 'Login type',
       accessor: 'identityType',
       width: 70,
 

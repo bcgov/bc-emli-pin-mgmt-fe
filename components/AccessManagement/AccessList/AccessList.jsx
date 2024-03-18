@@ -61,7 +61,7 @@ export default function AccessList(role) {
       }
     },
     {
-      Header: 'Identity type',
+      Header: 'Login type',
       accessor: 'identityType',
       width: 20,
     },

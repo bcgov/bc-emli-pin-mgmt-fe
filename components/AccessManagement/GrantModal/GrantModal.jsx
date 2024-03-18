@@ -148,9 +148,9 @@ export default function GrantModal(props) {
               <div>
                 <div>
                   {rowSelected.length == 1
-                      ? content.accessGrantModal.bodyText
-                      : content.accessGrantModal.bodyMultipleText}
-                  {formatConfirmationMessage()}?
+                      ? content.accessGrantModal.bodyText + formatConfirmationMessage() + " access?"
+                      : content.accessGrantModal.bodyMultipleText + formatConfirmationMessage() + "?"
+                  } 
                 </div>
                 <div>
                   {rowSelected.length > 1 ? (
