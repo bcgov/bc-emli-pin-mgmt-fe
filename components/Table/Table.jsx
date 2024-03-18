@@ -4,9 +4,11 @@ import {
   useEffect,
   forwardRef,
   useRef,
+  useState
 } from 'react'
 import { useTable, useSortBy, useRowSelect, useRowState } from 'react-table'
 import styles from './Table.module.css';
+import ArrowDownSolid from '../../assets/svgs/ArrowDownSolid'
 
 
 export default function Table(props) {
@@ -92,8 +94,21 @@ export default function Table(props) {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                    {column.render('Header')}
+                  <th 
+                    {...column.getHeaderProps(column.getSortByToggleProps({ title: undefined }))}
+                  >
+                    <span
+                    className={`${
+                        column.isSorted && column.isSortedDesc
+                            ? styles.collapsedChevron
+                            : styles.expandedChevron
+                    }`}
+                    >
+                      {column.render('Header')}
+                      {column.render('Header') &&                
+                        <ArrowDownSolid />
+                      }
+                    </span>
                   </th>
                 ))}
               </tr>
