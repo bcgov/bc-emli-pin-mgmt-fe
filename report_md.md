@@ -32,11 +32,11 @@ ZAP is supported by the [Crash Override Open Source Fellowship](https://crashove
 | Information Disclosure - Suspicious Comments | Informational | 9 |
 | Modern Web Application | Informational | 3 |
 | Non-Storable Content | Informational | 3 |
-| Sec-Fetch-Dest Header is Missing | Informational | 2 |
-| Sec-Fetch-Mode Header is Missing | Informational | 2 |
-| Sec-Fetch-Site Header is Missing | Informational | 2 |
-| Sec-Fetch-User Header is Missing | Informational | 2 |
-| Session Management Response Identified | Informational | 3 |
+| Sec-Fetch-Dest Header is Missing | Informational | 3 |
+| Sec-Fetch-Mode Header is Missing | Informational | 3 |
+| Sec-Fetch-Site Header is Missing | Informational | 3 |
+| Sec-Fetch-User Header is Missing | Informational | 3 |
+| Session Management Response Identified | Informational | 2 |
 | Storable and Cacheable Content | Informational | 8 |
 
 
@@ -219,7 +219,7 @@ Permissions Policy Header is an added layer of security that helps to restrict f
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-d92cf855de2c5962.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-6b696956f2e7635f.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -261,19 +261,19 @@ Permissions Policy Header is an added layer of security that helps to restrict f
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-db26c68f31f555cc.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -319,6 +319,12 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-6b696956f2e7635f.js
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/675-6c3a04284194b12e.js
   * Method: `GET`
   * Parameter: ``
@@ -343,13 +349,7 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-db26c68f31f555cc.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -367,13 +367,13 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -456,7 +456,7 @@ The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. T
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-d92cf855de2c5962.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-6b696956f2e7635f.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -491,7 +491,7 @@ At "High" threshold this scan rule will not alert on client or server error resp
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-db26c68f31f555cc.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -512,14 +512,14 @@ At "High" threshold this scan rule will not alert on client or server error resp
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_ssgManifest.js
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -562,9 +562,9 @@ Base64 encoded data was disclosed by the application/web server. Note: in the in
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest`
-  * Other Info: `�����쵫bs�Z>,=y�5�su�\�������'޲`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-d92cf855de2c5962.js
+  * Evidence: `/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest`
+  * Other Info: `�����쵫bs�0�N]��(���!��������'޲`
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-6b696956f2e7635f.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -586,14 +586,14 @@ Base64 encoded data was disclosed by the application/web server. Note: in the in
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest`
-  * Other Info: `�����쵫bs�Z>,=y�5�su�\�������'޲`
+  * Evidence: `/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest`
+  * Other Info: `�����쵫bs�0�N]��(���!��������'޲`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest`
-  * Other Info: `�����쵫bs�Z>,=y�5�su�\�������'޲`
+  * Evidence: `/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest`
+  * Other Info: `�����쵫bs�0�N]��(���!��������'޲`
 
 Instances: 6
 
@@ -666,7 +666,7 @@ The response appears to contain suspicious comments which may help an attacker. 
   * Attack: ``
   * Evidence: `query`
   * Other Info: `The following pattern was used: \bQUERY\b and was detected in the element starting with: "<script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"isAuthenticated":false,"isRegistered":false},"__N_SSP", see evidence field for the suspicious comment/snippet.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-d92cf855de2c5962.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-6b696956f2e7635f.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -696,12 +696,12 @@ The response appears to contain suspicious comments which may help an attacker. 
   * Attack: ``
   * Evidence: `query`
   * Other Info: `The following pattern was used: \bQUERY\b and was detected in the element starting with: "!function(){var t="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:", see evidence field for the suspicious comment/snippet.`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `user`
-  * Other Info: `The following pattern was used: \bUSER\b and was detected in the element starting with: "self.__BUILD_MANIFEST=function(s,c,a,e,t,r,f,i,d){return{__rewrites:{afterFiles:[],beforeFiles:[],fallback:[]},"/":["static/chun", see evidence field for the suspicious comment/snippet.`
+  * Other Info: `The following pattern was used: \bUSER\b and was detected in the element starting with: "self.__BUILD_MANIFEST=function(s,c,a,e,t,r,d,i,f){return{__rewrites:{afterFiles:[],beforeFiles:[],fallback:[]},"/":["static/chun", see evidence field for the suspicious comment/snippet.`
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
   * Method: `GET`
   * Parameter: ``
@@ -790,13 +790,13 @@ The response contents are not storable by caching components such as proxy serve
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/home
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/sitemap.xml
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/robots.txt
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -851,6 +851,12 @@ Specifies how and where the data would be used. For instance, if the value is au
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js
+  * Method: `GET`
+  * Parameter: `Sec-Fetch-Dest`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css
   * Method: `GET`
   * Parameter: `Sec-Fetch-Dest`
@@ -858,7 +864,7 @@ Specifies how and where the data would be used. For instance, if the value is au
   * Evidence: ``
   * Other Info: ``
 
-Instances: 2
+Instances: 3
 
 ### Solution
 
@@ -893,6 +899,12 @@ Allows to differentiate between requests for navigating between HTML pages and r
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js
+  * Method: `GET`
+  * Parameter: `Sec-Fetch-Mode`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css
   * Method: `GET`
   * Parameter: `Sec-Fetch-Mode`
@@ -900,7 +912,7 @@ Allows to differentiate between requests for navigating between HTML pages and r
   * Evidence: ``
   * Other Info: ``
 
-Instances: 2
+Instances: 3
 
 ### Solution
 
@@ -935,6 +947,12 @@ Specifies the relationship between request initiator's origin and target's origi
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js
+  * Method: `GET`
+  * Parameter: `Sec-Fetch-Site`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css
   * Method: `GET`
   * Parameter: `Sec-Fetch-Site`
@@ -942,7 +960,7 @@ Specifies the relationship between request initiator's origin and target's origi
   * Evidence: ``
   * Other Info: ``
 
-Instances: 2
+Instances: 3
 
 ### Solution
 
@@ -977,6 +995,12 @@ Specifies if a navigation request was initiated by a user.
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/pages/index-9090db80f19bacfe.js
+  * Method: `GET`
+  * Parameter: `Sec-Fetch-User`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: ``
 * URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/css/5ea3f00a67852f2d.css
   * Method: `GET`
   * Parameter: `Sec-Fetch-User`
@@ -984,7 +1008,7 @@ Specifies if a navigation request was initiated by a user.
   * Evidence: ``
   * Other Info: ``
 
-Instances: 2
+Instances: 3
 
 ### Solution
 
@@ -1017,25 +1041,18 @@ The given response has been identified as containing a session management token.
   * Method: `GET`
   * Parameter: `066d51379f0e80753a0fff3b87556849`
   * Attack: ``
-  * Evidence: `4315cad43991751727a1bb4b54ca28e2`
+  * Evidence: `2eed1e3bb84cc67c25d6c31188993e73`
   * Other Info: `
 cookie:066d51379f0e80753a0fff3b87556849`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/665-d92cf855de2c5962.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/main-1f67a3cf9931af88.js
   * Method: `GET`
   * Parameter: `066d51379f0e80753a0fff3b87556849`
   * Attack: ``
-  * Evidence: `4315cad43991751727a1bb4b54ca28e2`
-  * Other Info: `
-cookie:066d51379f0e80753a0fff3b87556849`
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_ssgManifest.js
-  * Method: `GET`
-  * Parameter: `066d51379f0e80753a0fff3b87556849`
-  * Attack: ``
-  * Evidence: `4315cad43991751727a1bb4b54ca28e2`
+  * Evidence: `2eed1e3bb84cc67c25d6c31188993e73`
   * Other Info: `
 cookie:066d51379f0e80753a0fff3b87556849`
 
-Instances: 3
+Instances: 2
 
 ### Solution
 
@@ -1078,7 +1095,7 @@ The response contents are storable by caching components such as proxy servers, 
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-69ea0539f28e5c17.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/chunks/webpack-db26c68f31f555cc.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1096,13 +1113,13 @@ The response contents are storable by caching components such as proxy servers, 
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_buildManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_buildManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `max-age=31536000`
   * Other Info: ``
-* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/SGWj4sPXmdHDXWc3UCxly/_ssgManifest.js
+* URL: https://bc-emli-pin-mgmt-fe-c82b4c-dev.apps.silver.devops.gov.bc.ca/_next/static/UwpgwfTl22zyiIgPO0Icr/_ssgManifest.js
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
