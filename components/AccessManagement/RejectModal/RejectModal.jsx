@@ -135,6 +135,17 @@ export default function RejectModal(props) {
       }
     }
 
+    function formatRejectReasonMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = `Please provide the reason for rejecting ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} access. The reason will be included in their notification.`
+      }
+      else if (rowSelected.length > 1) {
+        message = `Please provide the reason for rejecting requests from ${rowSelected.length} users: `
+      }
+      return message
+    }
+
     function formatConfirmationMessage() {
       let message
       if (rowSelected.length === 1) {
@@ -174,7 +185,34 @@ export default function RejectModal(props) {
                 }}
             >
                 <div className={styles.contentWrap}>
-                  {modalBodyText}
+                  {formatRejectReasonMessage()}
+                  <div>
+                  {rowSelected.length > 1 ?
+                    <div>
+                      <div className={styles.users}>
+                        {adminUserList?.length > 0 ?
+                          <div className={styles.adminList}>
+                            {content.accessRejectConfirmationModal.supervisorAccess}
+                            <ul className={styles.userList}>
+                              {adminUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                        {standardUserList?.length > 0 ?
+                          <div className={styles.standardList}>
+                            {content.accessRejectConfirmationModal.agentAccess}
+                            <ul className={styles.userList}>
+                              {standardUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                      </div>
+                      <div className={styles.confirmationModalMessage}>
+                        {content.accessRejectConfirmationModal.notificationMessage}
+                      </div>
+                    </div>
+                  : ''}
+                </div>
                 </div>
                 {
                   rowSelected.length > 0 &&
