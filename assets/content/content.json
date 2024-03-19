@@ -181,7 +181,11 @@
       "successMessage": "  request has been rejected.",
       "successMessageMultiple": "  requests have been rejected.",
       "failureMessage": "Rejecting request(s) failed.",
-      "selectErrorMessage": "Please select request(s) to reject"
+      "selectErrorMessage": "Please select request(s) to reject",
+      "ReasonForRejecting": "Please provide the reason for rejecting",
+      "requestsFrom": "requests from",
+      "users": "users"
+
     },
     "accessRejectConfirmationModal": {
       "oneChangeMessage": "Are you sure that you want to reject",

@@ -138,10 +138,10 @@ export default function RejectModal(props) {
     function formatRejectReasonMessage() {
       let message
       if (rowSelected.length === 1) {
-        message = `Please provide the reason for rejecting ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} access. The reason will be included in their notification.`
+        message = `${content.accessRejectModal.ReasonForRejecting} ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} access. ${content.accessRejectConfirmationModal.notificationMessage}`
       }
       else if (rowSelected.length > 1) {
-        message = `Please provide the reason for rejecting requests from ${rowSelected.length} users: `
+        message = `${content.accessRejectModal.ReasonForRejecting} ${content.accessRejectModal.requestsFrom} ${rowSelected.length} ${content.accessRejectModal.users}: `
       }
       return message
     }
