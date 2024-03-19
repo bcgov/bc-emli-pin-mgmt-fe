@@ -58,12 +58,16 @@ export default function RegeneratePINModal({
     }
 
     const chooseConfirmationMessage = () => {
+        let phoneWithDashes
+        if (phone) {
+            phoneWithDashes = phone.slice(0,3) + "-" + phone.slice(3,6) + "-" + phone.slice(6)
+        }
         if (phone && !email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhone}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaSMS} (${phoneWithDashes}) ${Content.regeneratePINModal.soon}.`)
         } else if (!phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgEmail}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaEmail} (${email}) ${Content.regeneratePINModal.soon}.`)
         } else if (phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhoneAndEmail}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaSMS} (${phoneWithDashes}) ${Content.regeneratePINModal.andEmail} (${email}) ${Content.regeneratePINModal.soon}.`)
         }
     }
 
