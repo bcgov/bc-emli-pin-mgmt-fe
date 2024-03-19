@@ -373,7 +373,13 @@
         "failureModalTitle": "Regenerating access code failed", 
         "failureModalMag": "There was a problem. Try again later.",
         "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
-        "emailFailureModalMessage": "This is not a valid email address. Please try again."
+        "emailFailureModalMessage": "This is not a valid email address. Please try again.",
+        "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the owner via email",
+        "newAccessCodeCreatedViaSMS": "A new access code has been created and will be sent to the owner via SMS",
+        "soon": "soon",
+        "andEmail": "and email"
+
+        
     },
     "back": "Back",
     "portalUserRole" : {
