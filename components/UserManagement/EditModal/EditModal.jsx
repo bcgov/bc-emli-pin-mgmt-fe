@@ -32,7 +32,8 @@ export default function EditModal(props) {
     const {
       isOpen,
       setIsOpen,
-      role
+      role,
+      userName
     } = props
     const {
       rowSelected,
@@ -149,6 +150,7 @@ export default function EditModal(props) {
         delete formData.updatedAt
         delete formData.userGuid
         if(isFormValid) {
+          formData["updatedBy"] = userName
           HttpRequest.updateUser(formData)
           .then((response) => {
               let successMessage = content.userEditConfirmationModal.Updated + formatConfirmationMessage(compareObjects())

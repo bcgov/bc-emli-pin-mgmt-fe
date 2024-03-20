@@ -51,6 +51,7 @@ export default function UserUpdate(role) {
           isOpen={showEditModal}
           setIsOpen={setShowEditModal}
           role={role?.role}
+          userName={role?.userName}
         />
         }
         
