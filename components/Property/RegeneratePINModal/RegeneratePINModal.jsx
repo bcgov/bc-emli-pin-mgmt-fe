@@ -102,10 +102,10 @@ export default function RegeneratePINModal({
                 setEmailValue('')
             })
             .catch((error) => {
-                if (error.response.data.faults[0].includes("phone_number Not a valid international number")) {
-                    setErrorMessage(Content.regeneratePINModal.phoneFailureModalMessage)
+                if (error.response.data.faults[0].includes("Phone number must be a valid, 10 digit North American phone number prefixed with 1 or +1")) {
+                    setErrorMessage(formattedPhone + Content.regeneratePINModal.phoneFailureModalMessage)
                 } else if (error.response.data.faults[0].includes("email_address Not a valid email address")) {
-                    setErrorMessage(Content.regeneratePINModal.emailFailureModalMessage)
+                    setErrorMessage(email + Content.regeneratePINModal.emailFailureModalMessage)
                 } else {
                     setErrorMessage(Content.regeneratePINModal.failureModalMag)
                 }
