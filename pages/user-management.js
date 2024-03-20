@@ -29,7 +29,7 @@ export default function UserManagement(props) {
       <main id="main">
         <div role="heading" aria-level="2">
           <UserManagementProvider>
-            <UserManagementLayout role={userInfo?.role}/>
+            <UserManagementLayout role={userInfo?.role} userName={userInfo?.username}/>
           </UserManagementProvider>
         </div>
       </main>
