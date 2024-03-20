@@ -82,11 +82,6 @@ export default function AccessList(role) {
       accessor: 'organization',
       width: 20,
     },
-    {
-      Header: 'Login type',
-      accessor: 'identityType',
-      width: 20,
-    },
   ]
 
   if(tabSelected === 'completed' ) {
@@ -106,6 +101,17 @@ export default function AccessList(role) {
     columnsList.push ({
       Header: 'Approved or rejected by',
       accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 20,
+    })
+  } else {
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
       width: 20,
     })
   }
