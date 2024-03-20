@@ -78,7 +78,7 @@
       "cancelButton": "Cancel and Close",
       "successMessage": "  user has been updated.",
       "failureMessage": "",
-      "selectErrorMessage": "Please select user(s) to deactivate"
+      "selectErrorMessage": "Please select user(s) to edit"
     },
     "userEditForm": {
       "formHeaderTitle": "Request details form",
@@ -105,7 +105,7 @@
     "userDeactivateModal": {
       "title":"Deactivate user?",
       "titleMultiple": "Deactivate multiple users?",
-      "bodyText":"Please provide the reason for deactivating this user",
+      "bodyText":"Please provide the reason for deactivating",
       "bodyMultipleText": "Provide a reason for deactivating multiple users. The reason must apply to all selected accounts",
       "deactivateTextAreaTitle": "Reason for deactivation",
       "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
@@ -159,7 +159,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again!",
+      "failureMessage": "Something went wrong. Try again.",
       "requestFor": "'s request for",
       "users": "users",
       "supervisorAccess": "Supervisor access:",
@@ -300,7 +300,7 @@
         "ownership": "Caller verification: Ownership details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
-        "noDataFoundMsg": "No data available for the selected property.",
+        "noDataFoundMsg": " No data available for the selected property. Refine the address and try again.",
         "searchResultMsg": "Select an address to view property details", 
         "owner": "Owner",
         "fullname": "Full Name", 
@@ -378,8 +378,8 @@
         "failureModalMag": "There was a problem. Try again later.",
         "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
         "emailFailureModalMessage": "This is not a valid email address. Please try again.",
-        "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the owner via email",
-        "newAccessCodeCreatedViaSMS": "A new access code has been created and will be sent to the owner via SMS",
+        "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the property owner via email",
+        "newAccessCodeCreatedViaSMS": "A new access code has been created and will be sent to the property owner via SMS",
         "soon": "soon",
         "andEmail": "and email"
 
