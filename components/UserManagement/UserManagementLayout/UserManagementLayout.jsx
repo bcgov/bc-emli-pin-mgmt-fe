@@ -23,7 +23,7 @@ export default function UserManagementLayout(role) {
         </div>
         <div className={`${styles.mainSection}`}>
             <UserManagementNavigation />
-            {tabSelected === 'active' && <ActiveUsers role={role?.role} />}
+            {tabSelected === 'active' && <ActiveUsers role={role?.role} userName={role?.userName} />}
             {tabSelected === 'deactivated' && <DeactivatedUsers/>}
         </div>
         <ToastContainer

@@ -47,6 +47,11 @@
   width: 2.5%;
 }
 
+.tblSection th:nth-child(1) svg {
+  display: none;
+}
+
+
 .tblSection th:nth-child(2) {
   width: 7.5%;
 }
@@ -80,4 +85,24 @@
   width: 10%;
   min-width: 175px
 }
+
+.collapsedChevron svg {
+  transform: rotate(180deg);
+  margin-left: 6px;
+  height: 50%;
+  min-width: 20px;
+  margin-top: auto;
+}
+
+.expandedChevron svg {
+  margin-left: 6px;
+  height: 50%;
+  min-width: 20px;
+  margin-top: auto;
+}
+
+.expandedChevron, .collapsedChevron {
+  display: flex;
+}
+
 

@@ -22,6 +22,7 @@ export default function DeactivateModal(props) {
     const [reason, setReason] =useState('')
     const [isOpenConfirmation, setIsOpenConfirmation] = useState(false)
     const [userList, setUserList] = useState([])
+    const [userListText, setUserListText] = useState([])
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.userDeactivateModal.titleMultiple
@@ -48,6 +49,7 @@ export default function DeactivateModal(props) {
 
     function openConfirmationModal() {
       setUserList(getUserList())
+      setUserListText(getUserListText())
       setIsOpen(false)
       setIsOpenConfirmation(true)
     }
@@ -66,6 +68,11 @@ export default function DeactivateModal(props) {
     function getUserList() {
       const userList = rowSelected.map((row) => <li key={row.userId}>{row.givenName} {row.lastName}</li>)
       return userList
+    }
+
+    function getUserListText() {
+      const userListText = rowSelected.map((row) => ` ${row.givenName} ${row.lastName}`)
+      return userListText
     }
 
     const onSuccessAction = (result) => {
@@ -94,8 +101,10 @@ export default function DeactivateModal(props) {
 
         HttpRequest.deactivateUsers(body)
           .then((response) => {
-            let successMessage = formatConfirmationMessage()
-            toast.success(`${content.userDeactivateConfirmationModal.deactivated} ${successMessage}. ${content.userDeactivateConfirmationModal.notifiedMsg}`, {
+            let successMessage = rowSelected.length > 1 
+              ? `${content.userDeactivateConfirmationModal.deactivated} ${formatConfirmationMessage()}. ${content.userDeactivateConfirmationModal.notifiedMsg} ${content.userDeactivateConfirmationModal.deactivated} ${content.userDeactivateConfirmationModal.users}:${userListText}`
+              : `${content.userDeactivateConfirmationModal.deactivated} ${formatConfirmationMessage()}. ${content.userDeactivateConfirmationModal.notifiedMsg}`
+            toast.success(`${successMessage}`, {
               position: toast.POSITION.TOP_RIGHT,
               className: `${styles.toastMsgSuccess}`,
               toastId: 'deactivate-user-success'
@@ -152,6 +161,16 @@ export default function DeactivateModal(props) {
             >
                 <div className={styles.contentWrap}>
                   {modalBodyText}
+                  {rowSelected.length === 1 ?
+                    getUserListText() : ''
+                  }
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <ul className={styles.userList}>
+                      {getUserList()}
+                    </ul> 
+                  : ''}
                 </div>
                 {
                   rowSelected.length > 0 &&

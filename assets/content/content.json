@@ -64,7 +64,7 @@
     "usersSearchOptions": {
       "role":"Role type",
       "userName": "Username",
-      "identityType":"Identity type",
+      "identityType":"Login type",
       "givenName":"First name",
       "lastName":"Last name",
       "email":"Email",
@@ -77,8 +77,8 @@
       "btnText": "Save changes",
       "cancelButton": "Cancel and Close",
       "successMessage": "  user has been updated.",
-      "failureMessage": "",
-      "selectErrorMessage": "Please select user(s) to deactivate"
+      "failureMessage": "Failed to update user(s). Please try again.",
+      "selectErrorMessage": "Please select user(s) to edit"
     },
     "userEditForm": {
       "formHeaderTitle": "Request details form",
@@ -86,7 +86,7 @@
       "formInputs": {
         "firstName": "First name",
         "lastName" : "Last name",
-        "identityType": "Identity Type",
+        "identityType": "Login Type",
         "userName": "Username",
         "emailAddress": "Email address",
         "organization": "Organization",
@@ -105,7 +105,7 @@
     "userDeactivateModal": {
       "title":"Deactivate user?",
       "titleMultiple": "Deactivate multiple users?",
-      "bodyText":"Please provide the reason for deactivating this user",
+      "bodyText":"Please provide the reason for deactivating",
       "bodyMultipleText": "Provide a reason for deactivating multiple users. The reason must apply to all selected accounts",
       "deactivateTextAreaTitle": "Reason for deactivation",
       "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
@@ -114,7 +114,7 @@
       "cancelButton": "Cancel",
       "successMessage": "  user has been deactivated.",
       "successMessageMultiple": "  users have been deactivated.",
-      "failureMessage": "",
+      "failureMessage": "Failed to deactivate user(s). Please try again.",
       "selectErrorMessage": "Please select user(s) to deactivate"
     },
     "userDeactivateConfirmationModal": {
@@ -159,7 +159,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again!",
+      "failureMessage": "Something went wrong. Try again.",
       "requestFor": "'s request for",
       "users": "users",
       "supervisorAccess": "Supervisor access:",
@@ -181,7 +181,11 @@
       "successMessage": "  request has been rejected.",
       "successMessageMultiple": "  requests have been rejected.",
       "failureMessage": "Rejecting request(s) failed.",
-      "selectErrorMessage": "Please select request(s) to reject"
+      "selectErrorMessage": "Please select request(s) to reject",
+      "ReasonForRejecting": "Please provide the reason for rejecting",
+      "requestsFrom": "requests from",
+      "users": "users"
+
     },
     "accessRejectConfirmationModal": {
       "oneChangeMessage": "Are you sure that you want to reject",
@@ -197,7 +201,7 @@
     },
     "accessRequestSearchOptions": {
       "userName": "Username",
-      "identityType":"Identity type",
+      "identityType":"Login type",
       "requestedRole":"Role type",
       "organization":"Organization",
       "email":"Email",
@@ -212,8 +216,8 @@
       "pageTitle": "Request Access"
     },
     "requestAccessBanner": {
-      "title": "Request access to BC Home Energy Planner Support System customer support tool",
-      "description": "This form is for people whose job involves BC Home Energy Planner Support System customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the BC Home Energy Planner Support System customer support tool."
+      "title": "Request access to BC Home Energy Planner Support System",
+      "description": "This form is for people whose job involves BC Home Energy Planner customer support, e.g., customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the BC Home Energy Planner Support System."
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
@@ -221,15 +225,15 @@
       "formRequiredText": "Indicates a required field",
       "formInputs": {
         "requesterName": "Your name",
-        "identityType": "Identity Type",
+        "identityType": "Login Type",
         "userName": "Username",
         "emailAddress": "Email address",
         "organization": "Organization",
         "businessName": "Business Name",
-        "organizationPlaceholder": "Your organization, e.g. Maximus Canada, Service BC, EMLI",
+        "organizationPlaceholder": "Maximus Canada, Service BC, EMLI",
         "permissionType": "Job role",
         "reason": "Reason for access request",
-        "reasonPlaceHolder": "Why you need access, e.g. 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
+        "reasonPlaceHolder": "Why you need access, e.g., 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
         "submitBtnText" : "Submit"
       }
     },
@@ -296,7 +300,7 @@
         "ownership": "Caller verification: Ownership details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
-        "noDataFoundMsg": "No data available for the selected property.",
+        "noDataFoundMsg": " No data available for the selected property. Refine the address and try again.",
         "searchResultMsg": "Select an address to view property details", 
         "owner": "Owner",
         "fullname": "Full Name", 
@@ -362,9 +366,9 @@
         "primaryButton": "Regenerate access code",
         "contentMsg": "A new access code will be generated and the previous access code will be void. At least one of the following two fields must be filled to proceed.",
         "phone": "SMS",
-        "phonePlaceHolder": "E.g. 604 332 8930",
+        "phonePlaceHolder": "E.g., 604 332 8930",
         "email": "Email",
-        "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
+        "emailPlaceHolder": "E.g., jcambie@gov.bc.ca",
         "cancelButton": "Cancel",
         "successModalTitle": "Access code has been regenerated",
         "successModalMsgPhoneAndEmail": "A new access code has been created and will be sent to the property owner via SMS and email soon.",
@@ -372,8 +376,14 @@
         "successModalMsgEmail": "A new access code has been created and will be sent to the property owner via email soon.",
         "failureModalTitle": "Regenerating access code failed", 
         "failureModalMag": "There was a problem. Try again later.",
-        "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
-        "emailFailureModalMessage": "This is not a valid email address. Please try again."
+        "phoneFailureModalMessage": " is not a valid phone number. Please try again.",
+        "emailFailureModalMessage": " is not a valid email address. Please try again.",
+        "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the property owner via email",
+        "newAccessCodeCreatedViaSMS": "A new access code has been created and will be sent to the property owner via SMS",
+        "soon": "soon",
+        "andEmail": "and email"
+
+        
     },
     "back": "Back",
     "portalUserRole" : {

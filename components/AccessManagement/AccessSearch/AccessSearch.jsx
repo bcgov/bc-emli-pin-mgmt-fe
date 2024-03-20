@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import styles from './AccessSearch.module.css';
 import Content from '../../../assets/content/content.json'
-import Dropdown from '../../Dropdown'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import { AccessContext } from '../../../context/accessContext/AccessState'
@@ -15,8 +14,6 @@ const options = Object.entries(Content.accessRequestSearchOptions).map(([k,v]) =
 
 export default function AccessSearch() {
   const {
-    setSearchField,
-    searchField,
     setSearchString,
     searchString,
     requestList,
@@ -28,7 +25,6 @@ export default function AccessSearch() {
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
-    setSearchField ? setSearchField(options[0].value) : ''
     if(tabSelected === 'pending') {
       const filteredOptions = options.filter(item => item.value !== 'rejectionReason')
       setFieldOptions(filteredOptions)
@@ -36,17 +32,6 @@ export default function AccessSearch() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[tabSelected])
-
-  useEffect(() => {
-    clearSearch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[searchField])
-
-  const getSelection  = (value) => {
-    const option = options.find((element) => element.value === value);
-    setValueSelected(option)
-    setSearchField(value)
-  }
 
   const handleSearchString = (searchText) => {
     setSearchString ? setSearchString(searchText) : ''
@@ -61,13 +46,12 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode === 13){
-    if (searchField === 'requestedRole') {
-      for (const request of requestList) {
-        // Change request role value to label value for search
-        request.requestedRole = getRoleLabel(request.requestedRole)
-      }
+    for (const request of requestList) {
+      // Change request role value to label value for search
+      request.requestedRole = getRoleLabel(request.requestedRole)
     }
-    const searchResult = getSearchData(searchString, searchField, requestList)
+    let searchFields = options.map((option) => option.value)
+    const searchResult = getSearchData(searchString, searchFields, requestList)
     for (const result of requestList) {
       // Once filtering is complete change request role value back
       result.requestedRole = getRoleValue(result.requestedRole)
@@ -81,17 +65,6 @@ const doSearch = (e) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.dropdownSection}>
-        <Dropdown
-            variant='xlarge'
-            label={Content.accessRequest.selectPlaceholder}
-            options={fieldOptions}
-            handleSelection={getSelection}
-            selectedValue={valueSelected}
-            className={styles.searchField}
-        />
-        <span className={styles.searchInfo}>{Content.accessRequest.searchInfoText}</span>
-      </div>
       <div className={styles.searchInput}>
         <div>
           <input

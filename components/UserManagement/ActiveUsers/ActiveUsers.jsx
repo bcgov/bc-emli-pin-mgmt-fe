@@ -75,7 +75,7 @@ export default function ActiveUsers(role) {
       <div className={styles.mainSection}>
         <div className={styles.filterSection}>
           <div className={styles.btnSection}>
-            <UserUpdate role={role?.role}/>
+            <UserUpdate role={role?.role} userName={role?.userName}/>
           </div>
           <div className={styles.searchSection}>
             <UserSearch />
