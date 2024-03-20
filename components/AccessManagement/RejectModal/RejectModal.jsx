@@ -158,7 +158,6 @@ export default function RejectModal(props) {
     }
 
     function openConfirmationModal() {
-      console.log(standardUserList)
       setIsOpen(false)
       setIsOpenConfirmation(true)
     }
@@ -258,7 +257,7 @@ export default function RejectModal(props) {
                 {rowSelected.length == 1
                       ? content.accessRejectConfirmationModal.oneChangeMessage
                       : content.accessRejectConfirmationModal.multipleChangesMessage}
-                {formatConfirmationMessage()}?
+                {formatConfirmationMessage()}? {rowSelected.length == 1 ? content.accessRejectConfirmationModal.notificationMessage : ''}
                 </div>
                 <div>
                   {rowSelected.length > 1 ?

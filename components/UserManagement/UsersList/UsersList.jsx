@@ -34,30 +34,6 @@ export default function UsersList(role) {
       accessor: 'userName',
       width: 60,
     },
-    {
-      Header: 'Email',
-      accessor: 'email',
-      width: 90,
-    },
-    {
-      Header: 'Role type',
-      accessor: 'role',
-      width: 10,
-      Cell: props => {
-        return <span>{getRoleLabel(props.value)}</span>
-      }
-    },
-    {
-      Header: 'Organization',
-      accessor: 'organization',
-      width: 90,
-    },
-    {
-      Header: 'Login type',
-      accessor: 'identityType',
-      width: 70,
-
-    },
   ]
 
   if(tabSelected === 'deactivated' ) {
@@ -66,7 +42,6 @@ export default function UsersList(role) {
       accessor: 'deactivationReason',
       width: 20,
     })
-
     columnsList.push ({
       Header: 'Deactivation date',
       accessor: 'updatedAt',
@@ -75,10 +50,78 @@ export default function UsersList(role) {
         return getLocalTime(props.value)
       }
     })
+    columnsList.push ({
+      Header: 'Deactivated by',
+      accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push ({
+      Header: 'Email',
+      accessor: 'email',
+      width: 90,
+    })
+    columnsList.push ({
+      Header: 'Role type',
+      accessor: 'role',
+      width: 10,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    })
+    columnsList.push ({
+      Header: 'Organization',
+      accessor: 'organization',
+      width: 90,
+    })
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 70,
+
+    })
+  }
+  if(tabSelected === 'active' ) {
+    columnsList.push ({
+      Header: 'Edited at',
+      accessor: 'updatedAt',
+      width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
+    })
+    columnsList.push ({
+      Header: 'Edited by',
+      accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push ({
+      Header: 'Email',
+      accessor: 'email',
+      width: 90,
+    })
+    columnsList.push ({
+      Header: 'Role type',
+      accessor: 'role',
+      width: 10,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    })
+    columnsList.push ({
+      Header: 'Organization',
+      accessor: 'organization',
+      width: 90,
+    })
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 70,
+
+    })
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsList, [])
-  const initialState = { hiddenColumns: ['userId'] };
+  const initialState = { hiddenColumns: ['userId'], sortBy: [{id: 'updatedAt', desc: true}] };
 
     return (
       <div className="list-table">

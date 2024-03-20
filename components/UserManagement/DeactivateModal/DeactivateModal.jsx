@@ -161,6 +161,16 @@ export default function DeactivateModal(props) {
             >
                 <div className={styles.contentWrap}>
                   {modalBodyText}
+                  {rowSelected.length === 1 ?
+                    getUserListText() : ''
+                  }
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <ul className={styles.userList}>
+                      {getUserList()}
+                    </ul> 
+                  : ''}
                 </div>
                 {
                   rowSelected.length > 0 &&

@@ -61,11 +61,6 @@ export default function AccessList(role) {
       }
     },
     {
-      Header: 'Login type',
-      accessor: 'identityType',
-      width: 20,
-    },
-    {
       Header: 'Email',
       accessor: 'email',
       width: 20,
@@ -86,7 +81,12 @@ export default function AccessList(role) {
       Header: 'Organization',
       accessor: 'organization',
       width: 20,
-    }
+    },
+    {
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 20,
+    },
   ]
 
   if(tabSelected === 'completed' ) {
@@ -95,10 +95,23 @@ export default function AccessList(role) {
       accessor: 'rejectionReason',
       width: 20,
     })
+    columnsList.push ({
+      Header: 'Time of approval or rejection',
+      accessor: 'updatedAt',
+      width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
+    })
+    columnsList.push ({
+      Header: 'Approved or rejected by',
+      accessor: 'updatedBy',
+      width: 20,
+    })
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsList, [])
-  const initialState = { hiddenColumns: ['requestId'] };
+  const initialState = { hiddenColumns: ['requestId'], sortBy: [{id: 'updatedAt', desc: true}] };
 
     return (
       <div className={styles.requestTable}>
