@@ -45,9 +45,9 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode == 13){
-    for (const request of requestList) {
+    for (const request of usersList) {
       // Change request role value to label value for search
-      request.requestedRole = getRoleLabel(request.requestedRole)
+      request.role = getRoleLabel(request.role)
     }
     let searchFields = options.map((option) => option.value)
     const searchResult = getSearchData(searchString, searchFields, usersList)
