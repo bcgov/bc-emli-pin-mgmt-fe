@@ -159,7 +159,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again.",
+      "failureMessage": "There was a problem on our end. Please try again later.",
       "requestFor": "'s request for",
       "users": "users",
       "supervisorAccess": "Supervisor access:",
@@ -242,9 +242,9 @@
       "successMessage": "Your request for access to the BC Home Energy Planner Support System customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
-      "requestExist": "A request already exists. Please contact the system administrator below",
+      "requestExist": "A request already exists for this user. Please contact the system administrator below.",
       "systemAdministrator": "System Administrator",
-      "systemAdminEmail": "hers_admin@gov.bc.ca"
+      "systemAdminEmail": "homeenergyplanner@gov.bc.ca"
     },
     "managePINDropdown": {
         "label": "Manage access code",
@@ -280,7 +280,7 @@
     },
     "expirePINFailureModal": {
         "title": "Expiring access code failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     },
@@ -352,7 +352,7 @@
     },
     "pinHistoryFailureModal": {
         "title": "Viewing access code history failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     }, 
@@ -375,7 +375,7 @@
         "successModalMsgPhone": "A new access code has been created and will be sent to the property owner via SMS soon.",
         "successModalMsgEmail": "A new access code has been created and will be sent to the property owner via email soon.",
         "failureModalTitle": "Regenerating access code failed", 
-        "failureModalMag": "There was a problem. Try again later.",
+        "failureModalMag": "There was a problem on our end. Please try again later.",
         "phoneFailureModalMessage": " is not a valid phone number. Please try again.",
         "emailFailureModalMessage": " is not a valid email address. Please try again.",
         "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the property owner via email",
