@@ -36,17 +36,6 @@ export default function AccessList(role) {
       width: 150,
     },
     {
-      Header: 'Access status',
-      accessor: 'requestStatus',
-      width: 20,
-      Cell: props => {
-        const statusStyle = props.value === 'Granted' ?
-          styles.granted : (props.value === 'Rejected' ? styles.rejected : '')
-        return <span className={statusStyle}>{getAccessStatusLabel(props.value)}</span>
-      }
-
-    },
-    {
       Header: 'Reason for requesting access',
       accessor: 'requestReason',
       width: 20,
@@ -60,38 +49,21 @@ export default function AccessList(role) {
         return getLocalTime(props.value)
       }
     },
-    {
-      Header: 'Email',
-      accessor: 'email',
-      width: 20,
-      Cell: props => {
-        const email = wrap(props.value, { width: 20,cut:true })
-        return email
-      }
-    },
-    {
-      Header: 'Role type',
-      accessor: 'requestedRole',
-      width: 20,
-      Cell: props => {
-        return <span>{getRoleLabel(props.value)}</span>
-      }
-    },
-    {
-      Header: 'Organization',
-      accessor: 'organization',
-      width: 20,
-    },
   ]
 
   if(tabSelected === 'completed' ) {
     columnsList.push ({
-      Header: 'Reason for  access rejection',
-      accessor: 'rejectionReason',
+      Header: 'Access status',
+      accessor: 'requestStatus',
       width: 20,
+      Cell: props => {
+        const statusStyle = props.value === 'Granted' ?
+          styles.granted : (props.value === 'Rejected' ? styles.rejected : '')
+        return <span className={statusStyle}>{getAccessStatusLabel(props.value)}</span>
+      }
     })
     columnsList.push ({
-      Header: 'Time of approval or rejection',
+      Header: 'Date of approval or rejection',
       accessor: 'updatedAt',
       width: 20,
       Cell: props => {
@@ -99,8 +71,38 @@ export default function AccessList(role) {
       }
     })
     columnsList.push ({
+      Header: 'Reason for access rejection',
+      accessor: 'rejectionReason',
+      width: 20,
+      Cell: props => {
+        return <span>{props.value ? props.value : "Not applicable"}</span>
+      }
+    })
+    columnsList.push ({
       Header: 'Approved or rejected by',
       accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push({
+      Header: 'Role',
+      accessor: 'requestedRole',
+      width: 20,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    })
+    columnsList.push({
+      Header: 'Email',
+      accessor: 'email',
+      width: 20,
+      Cell: props => {
+        const email = wrap(props.value, { width: 20,cut:true })
+        return email
+      }
+    })
+    columnsList.push({
+      Header: 'Organization',
+      accessor: 'organization',
       width: 20,
     })
     columnsList.push ({
@@ -108,7 +110,30 @@ export default function AccessList(role) {
       accessor: 'identityType',
       width: 20,
     })
+
   } else {
+    columnsList.push({
+      Header: 'Role',
+      accessor: 'requestedRole',
+      width: 20,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    })
+    columnsList.push({
+      Header: 'Email',
+      accessor: 'email',
+      width: 20,
+      Cell: props => {
+        const email = wrap(props.value, { width: 20,cut:true })
+        return email
+      }
+    })
+    columnsList.push({
+      Header: 'Organization',
+      accessor: 'organization',
+      width: 20,
+    })
     columnsList.push ({
       Header: 'Login type',
       accessor: 'identityType',
