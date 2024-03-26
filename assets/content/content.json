@@ -62,7 +62,7 @@
       "deactivateUser": "Deactivate user"
     },
     "usersSearchOptions": {
-      "role":"Role type",
+      "role":"Role",
       "userName": "Username",
       "identityType":"Login type",
       "givenName":"First name",
@@ -70,7 +70,7 @@
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation",
-      "updatedAt": "Deactivation date"
+      "updatedAt": "Deactivated at"
     },
     "userEditModal" : {
       "title":"Edit user information",
@@ -202,7 +202,7 @@
     "accessRequestSearchOptions": {
       "userName": "Username",
       "identityType":"Login type",
-      "requestedRole":"Role type",
+      "requestedRole":"Role",
       "organization":"Organization",
       "email":"Email",
       "givenName":"First name",
