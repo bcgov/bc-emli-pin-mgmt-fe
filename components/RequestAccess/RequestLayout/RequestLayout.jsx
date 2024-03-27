@@ -23,7 +23,8 @@ export default function RequestLayout(props) {
             showForm && 
             <PageBanner
               title={Content.requestAccessBanner.title}
-              description={Content.requestAccessBanner.description}>
+              description={""}
+            >
               <AccessRequest/>
             </PageBanner>
           }

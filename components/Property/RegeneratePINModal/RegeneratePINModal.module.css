@@ -10,3 +10,38 @@
 .contentWrap{
     margin-bottom: 31px;
 }
+
+.textBoxWrap{
+	width: 100%;
+}
+
+.textBoxWrap .textLabel{
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 22px;
+	color: #1A1A1A;
+}
+
+.textBoxWrap .textLabelDisabled{
+	color: #A1A1A1 !important;
+}
+
+.textBoxWrap .required {
+	color: #ED3F45;
+}
+
+.textBoxWrap input {
+	height: 48px;
+	border: 1px solid #C7C7C7;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	border-radius: 4px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	color: #1A1A1A;
+	width: 100%;
+  }
