@@ -31,6 +31,9 @@
   display: flex;
   flex-direction: row;
   padding-right: 20px;
+  padding-left: 20px;
+  min-width: 240px;
+
 }
 
 .requiredIndicator {
@@ -92,9 +95,21 @@
   padding-bottom: 60px;
 }
 
+.formSection p {
+  margin-top: -16px;
+  margin-bottom: 40px;
+}
+
+.formInputSection input::placeholder, .formInputSection textarea::placeholder {
+  color: rgb(174, 174, 174);
+}
+
+.formInputSection input, .formInputSection textarea {
+  color: black;
+}
+
 .requestAccessAlert {
   display: flex;
-  margin-top: -16px;
   margin-bottom: 40px;
   background-color: #E4F2FF;
   padding: 10px 16px;
