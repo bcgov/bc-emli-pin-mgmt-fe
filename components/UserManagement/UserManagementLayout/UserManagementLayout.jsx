@@ -7,7 +7,7 @@ import DeactivatedUsers from '../DeactivatedUsers';
 import UserManagementNavigation from '../UserManagementNavigation';
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
 import { useContext } from 'react'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function UserManagementLayout(role) {
@@ -23,16 +23,15 @@ export default function UserManagementLayout(role) {
         </div>
         <div className={`${styles.mainSection}`}>
             <UserManagementNavigation />
-            {tabSelected === 'active' && <ActiveUsers role={role?.role} />}
+            {tabSelected === 'active' && <ActiveUsers role={role?.role} userName={role?.userName} />}
             {tabSelected === 'deactivated' && <DeactivatedUsers/>}
         </div>
         <ToastContainer
-          enableMultiContainer
           containerId="user-management"
           hideProgressBar
           draggable={false}
           role="alert"
-          autoClose={50000}
+          autoClose={10000}
         />
       </div>
     )

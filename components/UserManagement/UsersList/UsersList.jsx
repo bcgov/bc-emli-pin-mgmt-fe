@@ -40,7 +40,7 @@ export default function UsersList(role) {
       width: 90,
     },
     {
-      Header: 'Role type',
+      Header: 'Role',
       accessor: 'role',
       width: 10,
       Cell: props => {
@@ -51,13 +51,7 @@ export default function UsersList(role) {
       Header: 'Organization',
       accessor: 'organization',
       width: 90,
-    },
-    {
-      Header: 'Identity type',
-      accessor: 'identityType',
-      width: 70,
-
-    },
+    }
   ]
 
   if(tabSelected === 'deactivated' ) {
@@ -66,19 +60,50 @@ export default function UsersList(role) {
       accessor: 'deactivationReason',
       width: 20,
     })
-
     columnsList.push ({
-      Header: 'Deactivation date',
+      Header: 'Deactivated at',
       accessor: 'updatedAt',
       width: 20,
       Cell: props => {
         return getLocalTime(props.value)
       }
     })
+    columnsList.push ({
+      Header: 'Deactivated by',
+      accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 70,
+
+    })
+  }
+  if(tabSelected === 'active' ) {
+    columnsList.push ({
+      Header: 'Edited at',
+      accessor: 'updatedAt',
+      width: 20,
+      Cell: props => {
+        return getLocalTime(props.value)
+      }
+    })
+    columnsList.push ({
+      Header: 'Edited by',
+      accessor: 'updatedBy',
+      width: 20,
+    })
+    columnsList.push ({
+      Header: 'Login type',
+      accessor: 'identityType',
+      width: 70,
+
+    })
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => columnsList, [])
-  const initialState = { hiddenColumns: ['userId'] };
+  const initialState = { hiddenColumns: ['userId'], sortBy: [{id: 'updatedAt', desc: true}] };
 
     return (
       <div className="list-table">

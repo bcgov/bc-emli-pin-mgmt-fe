@@ -7,11 +7,14 @@ import { useContext, useState } from 'react'
 import TextArea from '../../TextArea'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { getRoleLabel } from '../../../utils/helper'
 
 export default function RejectModal(props) {
     const {
       isOpen,
       setIsOpen,
+      adminUserList,
+      standardUserList
     } = props
     const {
       rowSelected,
@@ -20,6 +23,7 @@ export default function RejectModal(props) {
       setRowSelected,
     } = useContext(AccessContext)
     const [rejectReason, setRejectReason] =useState('')
+    const [isOpenConfirmation, setIsOpenConfirmation] = useState(false)
     const isMultipleSelected = rowSelected.length > 1
     const modalTitle = isMultipleSelected ?
     content.accessRejectModal.titleMultiple
@@ -41,6 +45,7 @@ export default function RejectModal(props) {
     const onClose = () => {
       setRejectReason('')
       setIsOpen(false)
+      setIsOpenConfirmation(false)
     }
 
     const onSuccessAction = (result) => {
@@ -48,8 +53,21 @@ export default function RejectModal(props) {
       setOriginalResult(result)
       setRowSelected([])
       setIsOpen(false)
+      setIsOpenConfirmation(false)
       setRejectReason('')
     }
+
+    function parseUserList(userList) {
+      let parsedUserList = ""
+      let count = 1
+      userList.forEach(user => {
+        let userName = user?.props?.children[0] + user?.props?.children[1] + user?.props?.children[2]
+        count !== 1 ? parsedUserList = parsedUserList + ", " + userName : parsedUserList = parsedUserList + userName
+        ++count
+      });
+      return parsedUserList
+    }
+
     // TODO:Move refetch function to context
     function submitRejectRequests() {
       if(rowSelected.length > 0){
@@ -70,7 +88,20 @@ export default function RejectModal(props) {
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
-            toast.success(`${rowSelected.length} ${successMessage}`, {
+            let successMessage
+            rowSelected.length == 1
+              ? (successMessage = `${content.accessRejectConfirmationModal.rejected} ${formatConfirmationMessage()}. `) 
+              : (successMessage = `${content.accessRejectConfirmationModal.rejected} ${formatConfirmationMessage()}.
+                ${
+                  adminUserList.length > 0 
+                    ? content.accessRejectConfirmationModal.supervisorAccess + " " + parseUserList(adminUserList)+'. ' : ''
+                }
+                ${
+                  standardUserList.length > 0 
+                    ? content.accessRejectConfirmationModal.agentAccess + " " + parseUserList(standardUserList)+'. ' : ''
+                }
+              `)
+            toast.success(`${successMessage} ${content.accessRejectConfirmationModal.notifiedMsg}`, {
               position: toast.POSITION.TOP_RIGHT,
               className: `${styles.toastMsgSuccess}`,
               toastId: 'reject-access-success'
@@ -88,6 +119,7 @@ export default function RejectModal(props) {
                   toastId: 'reject-access-failure'
                 });
                 setIsOpen(false)
+                setIsOpenConfirmation(false)
               })
           })
           .catch((error) => {
@@ -97,9 +129,37 @@ export default function RejectModal(props) {
                 toastId: 'reject-access-failure'
               });
               setIsOpen(false)
+              setIsOpenConfirmation(false)
           })
 
       }
+    }
+
+    function formatRejectReasonMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = `${content.accessRejectModal.ReasonForRejecting} ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} access. ${content.accessRejectConfirmationModal.notificationMessage}`
+      }
+      else if (rowSelected.length > 1) {
+        message = `${content.accessRejectModal.ReasonForRejecting} ${content.accessRejectModal.requestsFrom} ${rowSelected.length} ${content.accessRejectModal.users}: `
+      }
+      return message
+    }
+
+    function formatConfirmationMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = ` ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessRejectConfirmationModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)} ${content.accessRejectConfirmationModal.accessForReason} "${rejectReason}"`
+      }
+      else if (rowSelected.length > 1) {
+        message = ` ${rowSelected.length} ${content.accessRejectConfirmationModal.usersForReason} "${rejectReason}"`
+      }
+      return message
+    }
+
+    function openConfirmationModal() {
+      setIsOpen(false)
+      setIsOpenConfirmation(true)
     }
 
     return (
@@ -114,7 +174,7 @@ export default function RejectModal(props) {
                     size: 'medium',
                     variant: 'primary',
                     disabled: rowSelected.length < 1 || rejectReason === '',
-                    onClickHandler: () => submitRejectRequests(),
+                    onClickHandler: () => openConfirmationModal(),
                 }}
                 modalSecondaryBtn={{
                     text: `${content.accessRejectModal.cancelButton}`,
@@ -124,7 +184,34 @@ export default function RejectModal(props) {
                 }}
             >
                 <div className={styles.contentWrap}>
-                  {modalBodyText}
+                  {formatRejectReasonMessage()}
+                  <div>
+                  {rowSelected.length > 1 ?
+                    <div>
+                      <div className={styles.users}>
+                        {adminUserList?.length > 0 ?
+                          <div className={styles.adminList}>
+                            {content.accessRejectConfirmationModal.supervisorAccess}
+                            <ul className={styles.userList}>
+                              {adminUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                        {standardUserList?.length > 0 ?
+                          <div className={styles.standardList}>
+                            {content.accessRejectConfirmationModal.agentAccess}
+                            <ul className={styles.userList}>
+                              {standardUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                      </div>
+                      <div className={styles.confirmationModalMessage}>
+                        {content.accessRejectConfirmationModal.notificationMessage}
+                      </div>
+                    </div>
+                  : ''}
+                </div>
                 </div>
                 {
                   rowSelected.length > 0 &&
@@ -145,6 +232,61 @@ export default function RejectModal(props) {
                     {content.accessRejectModal.rejectTextAreaMessage}
                   </span>
                 }
+            </Modal>
+            <Modal
+                modalHeader={modalTitle}
+                modalId="access-reject-modal"
+                isOpen={isOpenConfirmation}
+                setIsOpen={setIsOpenConfirmation}
+                modalMainBtn={{
+                    text: `${modalBtnText}`,
+                    size: 'medium',
+                    variant: 'primary',
+                    disabled: rowSelected.length < 1 || rejectReason === '',
+                    onClickHandler: () => submitRejectRequests(),
+                }}
+                modalSecondaryBtn={{
+                    text: `${content.accessRejectModal.cancelButton}`,
+                    size: 'medium',
+                    variant: 'secondary',
+                    onClickHandler: () => onClose(),
+                }}
+            >
+              <div>
+                <div>
+                {rowSelected.length == 1
+                      ? content.accessRejectConfirmationModal.oneChangeMessage
+                      : content.accessRejectConfirmationModal.multipleChangesMessage}
+                {formatConfirmationMessage()}? {rowSelected.length == 1 ? content.accessRejectConfirmationModal.notificationMessage : ''}
+                </div>
+                <div>
+                  {rowSelected.length > 1 ?
+                    <div>
+                      <div className={styles.users}>
+                        {adminUserList?.length > 0 ?
+                          <div className={styles.adminList}>
+                            {content.accessRejectConfirmationModal.supervisorAccess}
+                            <ul className={styles.userList}>
+                              {adminUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                        {standardUserList?.length > 0 ?
+                          <div className={styles.standardList}>
+                            {content.accessRejectConfirmationModal.agentAccess}
+                            <ul className={styles.userList}>
+                              {standardUserList}
+                            </ul>
+                          </div> 
+                        : ''}
+                      </div>
+                      <div className={styles.confirmationModalMessage}>
+                        {content.accessRejectConfirmationModal.notificationMessage}
+                      </div>
+                    </div>
+                  : ''}
+                </div>
+              </div>
             </Modal>
         </div>
     )

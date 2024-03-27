@@ -9,8 +9,8 @@ describe('<RequestForm />', () => {
     it('should render properly', () => {
         const { container } = render(<PrimaryTemplate />)
 
-        fireEvent.change(screen.getByPlaceholderText(`Why you need access, e.g. 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)`), {target: {value: 'test'}})
-        fireEvent.change(screen.getByPlaceholderText('Your organization, e.g. Maximus Canada, Service BC, EMLI'), {target: {value: 'test'}})
+        fireEvent.change(screen.getByPlaceholderText(`Why you need access, e.g., 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)`), {target: {value: 'test'}})
+        fireEvent.change(screen.getByPlaceholderText('E.g., Maximus Canada, Service BC, EMLI'), {target: {value: 'test'}})
         fireEvent.click(screen.getByText('Supervisor'))
         fireEvent.click(screen.getByText('Submit'))
 

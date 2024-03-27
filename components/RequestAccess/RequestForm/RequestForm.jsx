@@ -283,6 +283,7 @@ export default function RequestForm(props) {
           <span className={`${styles.requiredText}`}>{`\u00A0${Content.requestForm.formRequiredText}`}</span>
         </div>
       </div>
+      <p>{Content.requestAccessBanner.description}</p>
       { requestAccessAlert &&
         <div className={`${styles.requestAccessAlert}`}>
           <InfoIcon />

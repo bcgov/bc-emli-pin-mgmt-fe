@@ -6,11 +6,14 @@ import { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import styles from './GrantModal.module.css'
 import 'react-toastify/dist/ReactToastify.css';
+import { getRoleLabel } from '../../../utils/helper'
 
 export default function GrantModal(props) {
     const {
       isOpen,
       setIsOpen,
+      adminUserList,
+      standardUserList
     } = props
     const {
       rowSelected,
@@ -23,18 +26,11 @@ export default function GrantModal(props) {
     const modalTitle = isMultipleSelected ?
     content.accessGrantModal.titleMultiple
     : content.accessGrantModal.title
-    const modalBodyText = rowSelected.length < 1 ?
-    content.accessGrantModal.selectErrorMessage
-    : (isMultipleSelected ?
-      `${content.accessGrantModal.bodyMultipleText} ${rowSelected.length} users?`
-      : content.accessGrantModal.bodyText)
     const modalBtnText = isMultipleSelected ?
       content.accessGrantModal.multipleBtnText
       : content.accessGrantModal.btnText
-    const successMessage = content.accessGrantModal.successMessage
     const failureMessage = content.accessGrantModal.failureMessage
       // TODO:Move refetch function to context
-
 
     const onSuccessAction = (result) => {
       setRequestList(result)
@@ -43,6 +39,18 @@ export default function GrantModal(props) {
       setIsOpen(false)
       setRejectReason('')
     }
+
+    function parseUserList(userList) {
+      let parsedUserList = ""
+      let count = 1
+      userList.forEach(user => {
+        let userName = user?.props?.children[0] + user?.props?.children[1] + user?.props?.children[2]
+        count !== 1 ? parsedUserList = parsedUserList + ", " + userName : parsedUserList = parsedUserList + userName
+        ++count
+      });
+      return parsedUserList
+    }
+
     function submitRequests() {
       if(rowSelected.length > 0){
         const requestIds = rowSelected.map((item) => item.requestId);
@@ -62,7 +70,20 @@ export default function GrantModal(props) {
         }
         HttpRequest.updateAccessRequest(body)
           .then((response) => {
-              toast.success(`${rowSelected.length} ${successMessage}`, {
+            let successMessage
+            rowSelected.length == 1
+                ? (successMessage = `${formatConfirmationMessage()} ${content.accessGrantModal.hasBeenGranted}`)
+                : (successMessage = `${formatConfirmationMessage()} ${content.accessGrantModal.haveBeenGrantedAccess}
+                  ${
+                    adminUserList.length > 0 
+                      ? content.accessGrantModal.supervisorAccess + " " + parseUserList(adminUserList)+'.' : ''
+                  }
+                  ${
+                    standardUserList.length > 0 
+                      ? content.accessGrantModal.agentAccess + " " + parseUserList(standardUserList)+'.' : ''
+                  }
+          `)
+            toast.success(`${successMessage} ${content.accessGrantModal.notifiedMsg}`, {
                 position: toast.POSITION.TOP_RIGHT,
                 className: `${styles.toastMsgSuccess}`,
                 toastId: 'grant-access-success'
@@ -90,8 +111,17 @@ export default function GrantModal(props) {
               });
               setIsOpen(false)
           })
-
       }
+    }
+
+    function formatConfirmationMessage() {
+      let message
+      if (rowSelected.length === 1) {
+        message = ` ${rowSelected[0].givenName} ${rowSelected[0].lastName}${content.accessGrantModal.requestFor} ${getRoleLabel(rowSelected[0].requestedRole)}`
+      } else if (rowSelected.length > 1) {
+        message = ` ${rowSelected.length} ${content.accessGrantModal.users}`
+      }
+      return message
     }
 
     return (
@@ -115,7 +145,45 @@ export default function GrantModal(props) {
                     onClickHandler: () => setIsOpen(false),
                 }}
             >
-                {modalBodyText}
+              <div>
+                <div>
+                  {rowSelected.length == 1
+                      ? content.accessGrantModal.bodyText + formatConfirmationMessage() + " access?"
+                      : content.accessGrantModal.bodyMultipleText + formatConfirmationMessage() + "?"
+                  } 
+                </div>
+                <div>
+                  {rowSelected.length > 1 ? (
+                    <div className={styles.users}>
+                        {adminUserList?.length > 0 ? (
+                            <div className={styles.adminList}>
+                                {
+                                    content.accessGrantModal
+                                        .supervisorAccess
+                                }
+                                <ul className={styles.userList}>
+                                    {adminUserList}
+                                </ul>
+                            </div>
+                        ) : (
+                            ''
+                        )}
+                        {standardUserList?.length > 0 ? (
+                            <div className={styles.standardList}>
+                                {content.accessGrantModal.agentAccess}
+                                <ul className={styles.userList}>
+                                    {standardUserList}
+                                </ul>
+                            </div>
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                    ) : (
+                        ''
+                    )}
+                </div>
+              </div>
             </Modal>
         </div>
     )

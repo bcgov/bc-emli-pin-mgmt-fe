@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
 import styles from './UserSearch.module.css';
 import Content from '../../../assets/content/content.json'
-import Dropdown from '../../Dropdown'
 import SearchIcon from '../../../assets/svgs/SearchIcon'
 import CloseIcon from '../../../assets/svgs/CloseIcon'
 import { UserManagementContext } from '../../../context/userManagementContext/UserManagementState'
@@ -15,8 +14,6 @@ const options = Object.entries(Content.usersSearchOptions).map(([k,v]) => {
 
 export default function UserSearch() {
   const {
-    setSearchField,
-    searchField,
     setSearchString,
     searchString,
     usersList,
@@ -28,24 +25,12 @@ export default function UserSearch() {
   const [fieldOptions, setFieldOptions] = useState(options)
 
   useEffect(() => {
-    setSearchField ? setSearchField(options[0].value) : ''
     if(tabSelected === 'active') {
       const filteredOptions = options.filter(item => item.value !== 'deactivationReason' && item.value !== 'updatedAt')
       setFieldOptions(filteredOptions)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[tabSelected])
-
-  useEffect(() => {
-    resetData ? resetData() : ''
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[searchField])
-
-  const getSelection = (value) => {
-    const option = options.find((element) => element.value === value);
-    setValueSelected(option)
-    setSearchField(value)
-  }
 
   const handleSearchString = (searchText) => {
     setSearchString ? setSearchString(searchText) : ''
@@ -60,11 +45,12 @@ const clearSearch = () => {
 
 const doSearch = (e) => {
   if(e.keyCode == 13){
-    for (const user of usersList) {
-      // Change user role to label value for search
-      user.role = getRoleLabel(user.role)
+    for (const request of usersList) {
+      // Change request role value to label value for search
+      request.role = getRoleLabel(request.role)
     }
-    const searchResult = getSearchData(searchString, searchField, usersList)
+    let searchFields = options.map((option) => option.value)
+    const searchResult = getSearchData(searchString, searchFields, usersList)
     for (const result of usersList) {
       // Once filtering is complete change user role value back
       result.role = getRoleValue(result.role)
@@ -75,17 +61,6 @@ const doSearch = (e) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.dropdownSection}>
-        <Dropdown
-            variant='xlarge'
-            label={Content.accessRequest.selectPlaceholder}
-            options={fieldOptions}
-            handleSelection={getSelection}
-            selectedValue={valueSelected}
-            className={styles.searchField}
-        />
-        <span className={styles.searchInfo}>{Content.userManagement.searchInfoText}</span>
-      </div>
       <div className={styles.searchInput}>
         <div>
           <input

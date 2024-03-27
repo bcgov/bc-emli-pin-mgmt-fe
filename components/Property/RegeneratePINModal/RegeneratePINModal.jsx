@@ -5,6 +5,7 @@ import Styles from './RegeneratePINModal.module.css'
 import HttpRequest from '../../../apiManager/httpRequestHandler/index'
 import Textbox from '../../Textbox/index'
 import { customSnowplowCall } from '../../../public/snowplow'
+import { PatternFormat } from 'react-number-format';
 
 export default function RegeneratePINModal({
     isOpen,
@@ -58,12 +59,16 @@ export default function RegeneratePINModal({
     }
 
     const chooseConfirmationMessage = () => {
+        let phoneWithDashes
+        if (phone) {
+            phoneWithDashes = phone.slice(0,3) + " " + phone.slice(3,6) + " " + phone.slice(6)
+        }
         if (phone && !email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhone}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaSMS} (${phoneWithDashes}) ${Content.regeneratePINModal.soon}.`)
         } else if (!phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgEmail}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaEmail} (${email}) ${Content.regeneratePINModal.soon}.`)
         } else if (phone && email) {
-            setConfirmationMessage(`${Content.regeneratePINModal.successModalMsgPhoneAndEmail}`)
+            setConfirmationMessage(`${Content.regeneratePINModal.newAccessCodeCreatedViaSMS} (${phoneWithDashes}) ${Content.regeneratePINModal.andEmail} (${email}) ${Content.regeneratePINModal.soon}.`)
         }
     }
 
@@ -98,10 +103,10 @@ export default function RegeneratePINModal({
                 setEmailValue('')
             })
             .catch((error) => {
-                if (error.response.data.faults[0].includes("phone_number Not a valid international number")) {
-                    setErrorMessage(Content.regeneratePINModal.phoneFailureModalMessage)
+                if (error.response.data.faults[0].includes("Phone number must be a valid, 10 digit North American phone number prefixed with 1 or +1")) {
+                    setErrorMessage(formattedPhone + Content.regeneratePINModal.phoneFailureModalMessage)
                 } else if (error.response.data.faults[0].includes("email_address Not a valid email address")) {
-                    setErrorMessage(Content.regeneratePINModal.emailFailureModalMessage)
+                    setErrorMessage(email + Content.regeneratePINModal.emailFailureModalMessage)
                 } else {
                     setErrorMessage(Content.regeneratePINModal.failureModalMag)
                 }
@@ -149,7 +154,7 @@ export default function RegeneratePINModal({
                 </div>
                 <div className='flex justify-between'>
                     <div className={`${Styles.inputWrap}`}>
-                        <Textbox
+                        {/* <Textbox
                             textBoxId='phone'
                             textBoxLabel={Content.regeneratePINModal.phone}
                             textBoxAriaLabel={Content.regeneratePINModal.phone}
@@ -157,8 +162,24 @@ export default function RegeneratePINModal({
                             type="number" 
                             onHandleChange={setPhoneValueOnChange}
                             data-testid='phone'
-                        />
+                        /> */}
+                        <div className={`${Styles.textBoxWrap}`}>
+                            <div className={`${Styles.textLabel}`}>
+                                <label htmlFor='phone'>
+                                    {Content.regeneratePINModal.phone}
+                                </label>
+                            </div>
+                            <PatternFormat
+                                id='phone'
+                                type="tel"
+                                format="### ### ####" 
+                                mask="" 
+                                onValueChange={value => setPhoneValueOnChange(value.value)}
+                                data-testid='phone'
+                            />
+                            
                     </div>
+                </div>
                     <div className={`${Styles.inputWrap}`}>
                         <Textbox
                             textBoxId='email'

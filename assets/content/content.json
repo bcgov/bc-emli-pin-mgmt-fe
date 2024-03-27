@@ -1,6 +1,6 @@
 {
     "app": {
-        "title": "CleanBC VHERS PIN system"
+        "title": "BC Home Energy Planner Support System"
     },
     "header": {
         "title": "CleanBC",
@@ -62,23 +62,23 @@
       "deactivateUser": "Deactivate user"
     },
     "usersSearchOptions": {
-      "role":"Role type",
+      "role":"Role",
       "userName": "Username",
-      "identityType":"Identity type",
+      "identityType":"Login type",
       "givenName":"First name",
       "lastName":"Last name",
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation",
-      "updatedAt": "Deactivation date"
+      "updatedAt": "Deactivated at"
     },
     "userEditModal" : {
       "title":"Edit user information",
       "btnText": "Save changes",
       "cancelButton": "Cancel and Close",
       "successMessage": "  user has been updated.",
-      "failureMessage": "",
-      "selectErrorMessage": "Please select user(s) to deactivate"
+      "failureMessage": "Failed to update user(s). Please try again.",
+      "selectErrorMessage": "Please select user(s) to edit"
     },
     "userEditForm": {
       "formHeaderTitle": "Request details form",
@@ -86,7 +86,7 @@
       "formInputs": {
         "firstName": "First name",
         "lastName" : "Last name",
-        "identityType": "Identity Type",
+        "identityType": "Login Type",
         "userName": "Username",
         "emailAddress": "Email address",
         "organization": "Organization",
@@ -95,10 +95,17 @@
         "submitBtnText" : "Submit"
       }
     },
+    "userEditConfirmationModal": {
+      "noChangesMessage": "No changes have been made",
+      "oneChangeMessage": "Are you sure you want to change ",
+      "multipleChangesMessage": "Are you sure you want to make the following changes: ",
+      "modalTitle": "Confirm edit user",
+      "Updated": "Updated"
+    },
     "userDeactivateModal": {
       "title":"Deactivate user?",
       "titleMultiple": "Deactivate multiple users?",
-      "bodyText":"Please provide the reason for deactivating this user",
+      "bodyText":"Please provide the reason for deactivating",
       "bodyMultipleText": "Provide a reason for deactivating multiple users. The reason must apply to all selected accounts",
       "deactivateTextAreaTitle": "Reason for deactivation",
       "deactivateTextAreaMessage": "The reason above will be applied to all users selected.",
@@ -107,9 +114,16 @@
       "cancelButton": "Cancel",
       "successMessage": "  user has been deactivated.",
       "successMessageMultiple": "  users have been deactivated.",
-      "failureMessage": "",
+      "failureMessage": "Failed to deactivate user(s). Please try again.",
       "selectErrorMessage": "Please select user(s) to deactivate"
-
+    },
+    "userDeactivateConfirmationModal": {
+      "deactivateMessage": "Are you sure you want to deactivate",
+      "forReason": "for reason",
+      "users": "users",
+      "notificationMessage": "The reason will be included in their notification of deactivation.",
+      "deactivated": "Deactivated",
+      "notifiedMsg": "They have been notified by email."
     },
     "accessRequest": {
         "pageTitle": "Access requests",
@@ -138,14 +152,21 @@
     "accessGrantModal": {
       "title":"Grant request?",
       "titleMultiple": "Grant requests for multiple users",
-      "bodyText":"Are you sure that you want to grant this user's request?",
-      "bodyMultipleText": "Are you sure that you want to grant requests for",
+      "bodyText":"Are you sure that you want to grant",
+      "bodyMultipleText": "Are you sure that you want to grant access to",
       "btnText": "Grant request",
       "multipleBtnText": "Grant requests",
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again!!"
+      "failureMessage": "There was a problem on our end. Please try again later.",
+      "requestFor": "'s request for",
+      "users": "users",
+      "supervisorAccess": "Supervisor access:",
+      "agentAccess": "Agent access:",
+      "hasBeenGranted": "has been granted.",
+      "haveBeenGrantedAccess": "have been granted access.",
+      "notifiedMsg": "They have been notified via email."
     },
     "accessRejectModal": {
       "title":"Reject request?",
@@ -159,14 +180,29 @@
       "cancelButton": "Cancel",
       "successMessage": "  request has been rejected.",
       "successMessageMultiple": "  requests have been rejected.",
-      "failureMessage": "",
-      "selectErrorMessage": "Please select request(s) to reject"
+      "failureMessage": "Rejecting request(s) failed.",
+      "selectErrorMessage": "Please select request(s) to reject",
+      "ReasonForRejecting": "Please provide the reason for rejecting",
+      "requestsFrom": "requests from",
+      "users": "users"
 
+    },
+    "accessRejectConfirmationModal": {
+      "oneChangeMessage": "Are you sure that you want to reject",
+      "multipleChangesMessage": "Are you sure that you want to reject access to",
+      "requestFor": "'s request for",
+      "usersForReason": "users for reason",
+      "accessForReason": "access for reason",
+      "notificationMessage": "The reason will be included in their notification.",
+      "supervisorAccess": "Supervisor access:",
+      "agentAccess": "Agent access:",
+      "rejected": "Rejected",
+      "notifiedMsg": "They have been notified via email."
     },
     "accessRequestSearchOptions": {
       "userName": "Username",
-      "identityType":"Identity type",
-      "requestedRole":"Role type",
+      "identityType":"Login type",
+      "requestedRole":"Role",
       "organization":"Organization",
       "email":"Email",
       "givenName":"First name",
@@ -180,35 +216,37 @@
       "pageTitle": "Request Access"
     },
     "requestAccessBanner": {
-      "title": "Request access to VHERS customer support tool",
-      "description": "This form is for people whose job involves VHERS customer support, e.g. customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the VHERS customer support tool."
+      "title": "Request access to BC Home Energy Planner Support System",
+      "description": "This form is for people whose job involves BC Home Energy Planner customer support, e.g., customer support agents (helping citizens reset their access code) or supervisors (helping customer support agents). If this describes you, complete this form to request access to the BC Home Energy Planner Support System."
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
-      "formHeaderTitle": "Request details form",
+      "formHeaderTitle": "Request access to BC Home Energy Planner Support System",
       "formRequiredText": "Indicates a required field",
       "formInputs": {
         "requesterName": "Your name",
-        "identityType": "Identity Type",
+        "identityType": "Login Type",
         "userName": "Username",
         "emailAddress": "Email address",
         "organization": "Organization",
         "businessName": "Business Name",
-        "organizationPlaceholder": "Your organization, e.g. Maximus Canada, Service BC, EMLI",
+        "organizationPlaceholder": "E.g., Maximus Canada, Service BC, EMLI",
         "permissionType": "Job role",
         "reason": "Reason for access request",
-        "reasonPlaceHolder": "Why you need access, e.g. 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
+        "reasonPlaceHolder": "Why you need access, e.g., 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
         "submitBtnText" : "Submit"
       }
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request for access to the VHERS customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
+      "successMessage": "Your request for access to the BC Home Energy Planner Support System has been submitted. You will receive an email notification once your request is processed.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
-      "requestExist": "A request already exists. Please contact the system administrator below",
+      "requestExist": "A request already exists for this user. Please contact the system administrator below.",
       "systemAdministrator": "System Administrator",
-      "systemAdminEmail": "hers_admin@gov.bc.ca"
+      "systemAdminEmail": "homeenergyplanner@gov.bc.ca",
+      "logOut": "Please log out",
+      "accessTakeEffect": "so your access can take effect."
     },
     "managePINDropdown": {
         "label": "Manage access code",
@@ -233,18 +271,18 @@
     },
     "expirePINConfirmationModal": {
         "title": "Expire access code",
-        "body": "The current access code will be void and the property owner will need to request a new access code to manage the VHERS portal.",
+        "body": "The current access code will be void and the property owner will need to request a new access code to manage the BC Home Energy Planner Support System portal.",
         "primaryButton": "Expire access code",
         "secondaryButton": "Cancel"
     },
     "expirePINSuccessModal": {
         "title": "Access code has been expired",
-        "body": "The property owner will not be able to access VHERS system until a new access code is requested.",
+        "body": "The property owner will not be able to access BC Home Energy Planner Support System until a new access code is requested.",
         "primaryButton": "Close"
     },
     "expirePINFailureModal": {
         "title": "Expiring access code failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     },
@@ -253,7 +291,7 @@
         "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
         "propertyDetails": "Property Details",
         "titleNumber": "Title Number",
-        "titleNumberHeader": "Title",
+        "titleNumberHeader": "Record",
         "testTitleNumber": "CA5006683",
         "landTitleDistrict": "Land Title District",
         "testLandTitleDistrict": "Burnby",
@@ -264,7 +302,7 @@
         "ownership": "Caller verification: Ownership details",
         "numberOfOwner": "Number of Owner(s): ", 
         "noSearchResultMsg": "No result available. Try a different address and search again.",
-        "noDataFoundMsg": "No data available for the selected property.",
+        "noDataFoundMsg": " No data available for the selected property. Refine the address and try again.",
         "searchResultMsg": "Select an address to view property details", 
         "owner": "Owner",
         "fullname": "Full Name", 
@@ -274,7 +312,7 @@
         "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
         "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
         "viewPINHistory": "View access code history",
-        "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
+        "multipleTitlesAlertText": "Multiple records exist for this address. You can use any record to verify the citizen. Scroll down to view all records.",
         "incorporationName": "Incorporation Name",
         "incorporationNumber": "Incorporation Number"
 
@@ -285,7 +323,7 @@
         "noAddressFound": "Addresses found: 0"
     },
     "pinHistoryModal": {
-        "title": "View Access Code History",
+        "title": "View access code history",
         "table": {
             "numberColumn": "#",
             "UpdatedByColumn": "Updated by",
@@ -316,32 +354,38 @@
     },
     "pinHistoryFailureModal": {
         "title": "Viewing access code history failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     }, 
     "viewPINModal": {
-        "title": "View Access Code", 
+        "title": "View access code", 
         "noLivePINMag": "There is no valid access code.",
         "close": "Close"
     }, 
     "regeneratePINModal": {
-        "title": "Regenerate Access Code",
+        "title": "Regenerate access code",
         "primaryButton": "Regenerate access code",
         "contentMsg": "A new access code will be generated and the previous access code will be void. At least one of the following two fields must be filled to proceed.",
         "phone": "SMS",
-        "phonePlaceHolder": "E.g. 604 332 8930",
+        "phonePlaceHolder": "E.g., 604 332 8930",
         "email": "Email",
-        "emailPlaceHolder": "E.g. jcambie@gov.bc.ca",
+        "emailPlaceHolder": "E.g., jcambie@gov.bc.ca",
         "cancelButton": "Cancel",
         "successModalTitle": "Access code has been regenerated",
         "successModalMsgPhoneAndEmail": "A new access code has been created and will be sent to the property owner via SMS and email soon.",
         "successModalMsgPhone": "A new access code has been created and will be sent to the property owner via SMS soon.",
         "successModalMsgEmail": "A new access code has been created and will be sent to the property owner via email soon.",
         "failureModalTitle": "Regenerating access code failed", 
-        "failureModalMag": "There was a problem. Try again later.",
-        "phoneFailureModalMessage": "This is not a valid phone number. Please try again.",
-        "emailFailureModalMessage": "This is not a valid email address. Please try again."
+        "failureModalMag": "There was a problem on our end. Please try again later.",
+        "phoneFailureModalMessage": " is not a valid phone number. Please try again.",
+        "emailFailureModalMessage": " is not a valid email address. Please try again.",
+        "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the property owner via email",
+        "newAccessCodeCreatedViaSMS": "A new access code has been created and will be sent to the property owner via SMS",
+        "soon": "soon",
+        "andEmail": "and email"
+
+        
     },
     "back": "Back",
     "portalUserRole" : {

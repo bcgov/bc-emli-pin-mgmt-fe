@@ -15,8 +15,8 @@
 }
 
 .toastMsgSuccess{
-  background: #008556;
-  color: #fff;
+  background: #008556 !important;
+  color: #fff !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -24,10 +24,32 @@
 }
 
 .toastMsgFailure{
-  background: #D8292F;
-  color: #fff;
+  background: #D8292F !important;
+  color: #fff !important;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 20px;
+}
+
+.confirmationModalMessage {
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.users {
+  font-size: 22px;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.users div:nth-child(2) {
+  margin-left: 70px;
+}
+
+.userList li {
+  list-style: disc !important;
+  margin-left: 40px;
+  font-size: 20px;
 }
