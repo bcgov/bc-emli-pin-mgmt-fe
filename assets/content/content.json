@@ -62,7 +62,7 @@
       "deactivateUser": "Deactivate user"
     },
     "usersSearchOptions": {
-      "role":"Role type",
+      "role":"Role",
       "userName": "Username",
       "identityType":"Login type",
       "givenName":"First name",
@@ -70,7 +70,7 @@
       "email":"Email",
       "organization":"Organization",
       "deactivationReason":"Reason for deactivation",
-      "updatedAt": "Deactivation date"
+      "updatedAt": "Deactivated at"
     },
     "userEditModal" : {
       "title":"Edit user information",
@@ -159,7 +159,7 @@
       "cancelButton": "Cancel",
       "selectErrorMessage": "Please select request(s) to grant",
       "successMessage": " request(s) submitted.",
-      "failureMessage": "Something went wrong. Try again.",
+      "failureMessage": "There was a problem on our end. Please try again later.",
       "requestFor": "'s request for",
       "users": "users",
       "supervisorAccess": "Supervisor access:",
@@ -202,7 +202,7 @@
     "accessRequestSearchOptions": {
       "userName": "Username",
       "identityType":"Login type",
-      "requestedRole":"Role type",
+      "requestedRole":"Role",
       "organization":"Organization",
       "email":"Email",
       "givenName":"First name",
@@ -221,7 +221,7 @@
     },
     "requestForm": {
       "alert": "Please only request access if you have been instructed to do so.",
-      "formHeaderTitle": "Request details form",
+      "formHeaderTitle": "Request access to BC Home Energy Planner Support System",
       "formRequiredText": "Indicates a required field",
       "formInputs": {
         "requesterName": "Your name",
@@ -230,7 +230,7 @@
         "emailAddress": "Email address",
         "organization": "Organization",
         "businessName": "Business Name",
-        "organizationPlaceholder": "Maximus Canada, Service BC, EMLI",
+        "organizationPlaceholder": "E.g., Maximus Canada, Service BC, EMLI",
         "permissionType": "Job role",
         "reason": "Reason for access request",
         "reasonPlaceHolder": "Why you need access, e.g., 'Do customer support' (Maximus Canada agents) or 'Manage access requests' (Maximus Canada supervisors, Service BC staff)",
@@ -239,12 +239,14 @@
     },
     "requestSubmitMessage": {
       "successHeader": "Request submitted",
-      "successMessage": "Your request for access to the BC Home Energy Planner Support System customer support tool has been submitted. You will receive an email notification once your request is processed. Please log out.",
+      "successMessage": "Your request for access to the BC Home Energy Planner Support System has been submitted. You will receive an email notification once your request is processed.",
       "failureHeader": "Request could not be submitted",
       "failureMessage": "The system has encountered an issue and your request could not be submitted. Please try again later or contact the system administrator below.",
-      "requestExist": "A request already exists. Please contact the system administrator below",
+      "requestExist": "A request already exists for this user. Please contact the system administrator below.",
       "systemAdministrator": "System Administrator",
-      "systemAdminEmail": "hers_admin@gov.bc.ca"
+      "systemAdminEmail": "homeenergyplanner@gov.bc.ca",
+      "logOut": "Please log out",
+      "accessTakeEffect": "so your access can take effect."
     },
     "managePINDropdown": {
         "label": "Manage access code",
@@ -280,7 +282,7 @@
     },
     "expirePINFailureModal": {
         "title": "Expiring access code failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     },
@@ -289,7 +291,7 @@
         "testAddress": "5021 Kingsway, Burnby, V4H 4A5",
         "propertyDetails": "Property Details",
         "titleNumber": "Title Number",
-        "titleNumberHeader": "Title",
+        "titleNumberHeader": "Record",
         "testTitleNumber": "CA5006683",
         "landTitleDistrict": "Land Title District",
         "testLandTitleDistrict": "Burnby",
@@ -310,7 +312,7 @@
         "testMailingAddress1": "5021 Kingsways, Burnby, BC V4H 4A5", 
         "testMailingAddress2": "1263 W Broadway, Vancouver, BC V6H 1G7", 
         "viewPINHistory": "View access code history",
-        "multipleTitlesAlertText": "Multiple title numbers are available for this address. Scroll down to view all title numbers.",
+        "multipleTitlesAlertText": "Multiple records exist for this address. You can use any record to verify the citizen. Scroll down to view all records.",
         "incorporationName": "Incorporation Name",
         "incorporationNumber": "Incorporation Number"
 
@@ -321,7 +323,7 @@
         "noAddressFound": "Addresses found: 0"
     },
     "pinHistoryModal": {
-        "title": "View Access Code History",
+        "title": "View access code history",
         "table": {
             "numberColumn": "#",
             "UpdatedByColumn": "Updated by",
@@ -352,12 +354,12 @@
     },
     "pinHistoryFailureModal": {
         "title": "Viewing access code history failed",
-        "body": "There was a problem. Try again later.",
+        "body": "There was a problem on our end. Please try again later.",
         "primaryButton": "Retry",
         "secondaryButton": "Cancel"
     }, 
     "viewPINModal": {
-        "title": "View Access Code", 
+        "title": "View access code", 
         "noLivePINMag": "There is no valid access code.",
         "close": "Close"
     }, 
@@ -375,7 +377,7 @@
         "successModalMsgPhone": "A new access code has been created and will be sent to the property owner via SMS soon.",
         "successModalMsgEmail": "A new access code has been created and will be sent to the property owner via email soon.",
         "failureModalTitle": "Regenerating access code failed", 
-        "failureModalMag": "There was a problem. Try again later.",
+        "failureModalMag": "There was a problem on our end. Please try again later.",
         "phoneFailureModalMessage": " is not a valid phone number. Please try again.",
         "emailFailureModalMessage": " is not a valid email address. Please try again.",
         "newAccessCodeCreatedViaEmail": "A new access code has been created and will be sent to the property owner via email",

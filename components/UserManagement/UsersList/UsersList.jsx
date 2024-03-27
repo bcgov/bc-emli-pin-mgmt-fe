@@ -34,6 +34,24 @@ export default function UsersList(role) {
       accessor: 'userName',
       width: 60,
     },
+    {
+      Header: 'Email',
+      accessor: 'email',
+      width: 90,
+    },
+    {
+      Header: 'Role',
+      accessor: 'role',
+      width: 10,
+      Cell: props => {
+        return <span>{getRoleLabel(props.value)}</span>
+      }
+    },
+    {
+      Header: 'Organization',
+      accessor: 'organization',
+      width: 90,
+    }
   ]
 
   if(tabSelected === 'deactivated' ) {
@@ -43,7 +61,7 @@ export default function UsersList(role) {
       width: 20,
     })
     columnsList.push ({
-      Header: 'Deactivation date',
+      Header: 'Deactivated at',
       accessor: 'updatedAt',
       width: 20,
       Cell: props => {
@@ -54,24 +72,6 @@ export default function UsersList(role) {
       Header: 'Deactivated by',
       accessor: 'updatedBy',
       width: 20,
-    })
-    columnsList.push ({
-      Header: 'Email',
-      accessor: 'email',
-      width: 90,
-    })
-    columnsList.push ({
-      Header: 'Role type',
-      accessor: 'role',
-      width: 10,
-      Cell: props => {
-        return <span>{getRoleLabel(props.value)}</span>
-      }
-    })
-    columnsList.push ({
-      Header: 'Organization',
-      accessor: 'organization',
-      width: 90,
     })
     columnsList.push ({
       Header: 'Login type',
@@ -93,24 +93,6 @@ export default function UsersList(role) {
       Header: 'Edited by',
       accessor: 'updatedBy',
       width: 20,
-    })
-    columnsList.push ({
-      Header: 'Email',
-      accessor: 'email',
-      width: 90,
-    })
-    columnsList.push ({
-      Header: 'Role type',
-      accessor: 'role',
-      width: 10,
-      Cell: props => {
-        return <span>{getRoleLabel(props.value)}</span>
-      }
-    })
-    columnsList.push ({
-      Header: 'Organization',
-      accessor: 'organization',
-      width: 90,
     })
     columnsList.push ({
       Header: 'Login type',

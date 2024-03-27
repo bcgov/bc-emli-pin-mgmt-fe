@@ -21,7 +21,8 @@ export default function RequestLayout(props) {
           <span  className={`${styles.headerText}  ${styles.headerTextSuccess}`}>{Content.requestSubmitMessage.successHeader}</span>
         </div>
         <div className={`${styles.messageSection}`}>
-          <span className={`${styles.message}`}>{message}</span>
+          <p className={`${styles.message}`}>{message}</p>
+          <p className={`${styles.message}`}><b>{Content.requestSubmitMessage.logOut}</b> {Content.requestSubmitMessage.accessTakeEffect}</p>
         </div>
       </div>
     )
