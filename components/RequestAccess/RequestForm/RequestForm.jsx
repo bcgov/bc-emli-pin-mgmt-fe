@@ -372,7 +372,10 @@ export default function RequestForm(props) {
 
   return (
     <div className={`${styles.container}`}>
-        {showForm ? formSection() : requestSubmissionMessage(requestSuccess) }
+        {isLoading ?
+          loadingSection() :
+          showForm ? formSection() : requestSubmissionMessage(requestSuccess)
+        }
     </div>
   )
 }
