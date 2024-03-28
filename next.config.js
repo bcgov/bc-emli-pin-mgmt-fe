@@ -26,7 +26,8 @@ const cspHeader = `
         'sha256-LgvlEOCCNq748yGO9rkqDBRtHYJsziPZMNPetkpBd5Y='
         'sha256-AqEOw23/sIN84+/nd7H9k80W1jwnL3Q5sOguG2++epk='
         'sha256-JdaUryEi33WzF0Lk5kNejO/4QeJz0oHj86OCzgFQI/M='
-        'sha256-R8vs52LaQQisYz9TZgVbHwe2/upOuL1dmCXceSCPa20=';
+        'sha256-R8vs52LaQQisYz9TZgVbHwe2/upOuL1dmCXceSCPa20='
+        'sha256-ZqhM5xQOj0Og/l+8qEbc5F5YYumTdWvc5mtn7dECFuE=';
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
