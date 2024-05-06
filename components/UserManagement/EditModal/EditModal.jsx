@@ -213,7 +213,7 @@ export default function EditModal(props) {
       if (Object.keys(updatedValues).length === 1) {
         for (const key in updatedValues) {
           key != 'undefined' ? message = `${message} ${key} from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"` 
-            : message = `${message} role from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"` 
+            : message = `${message} role from "${content.portalUserRole[updatedValues[key][0]]}" to "${content.portalUserRole[updatedValues[key][1]]}"`
 
         }
       }
@@ -226,10 +226,11 @@ export default function EditModal(props) {
             message = message + ' and '
           }
           key != 'undefined' ? message = `${message} "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
-            : message = `${message} role from "${updatedValues[key][0]}" to "${updatedValues[key][1]}"`
+            : message = `${message} role from "${content.portalUserRole[updatedValues[key][0]]}" to "${content.portalUserRole[updatedValues[key][1]]}"`
           ++count
         }
       }
+
       return message
     }
 
@@ -260,7 +261,7 @@ export default function EditModal(props) {
             selectedValue={formData.role}
             size='large'
           />
-          { role === "SuperAdmin" ? 
+          { role === "SuperAdmin" ?
             <RadioButton
               radioButtonId='permissionType3'
               radioButtonName='permissionType'
